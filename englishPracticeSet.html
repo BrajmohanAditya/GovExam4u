@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoveExam4u</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="englishPracticeSet.css">
+
+
+</head>
+<body onload="showPage(1)">
+
+<nav class="navbar">
+        <h1>D.P.P (English)</h1>
+</nav>
+
+<div class="container1">
+  <div class="content-container" id="contentContainer"></div>
+  <div class="buttons-container" id="buttonsContainer">
+    <button onclick="showPage(1)">1</button>
+    <button onclick="showPage(2)">2</button>
+    <button onclick="showPage(3)">3</button>
+    <button onclick="showPage(1)">1</button>
+    <button onclick="showPage(2)">2</button>
+    <button onclick="showPage(3)">3</button>
+    <button onclick="showPage(1)">1</button>
+    <button onclick="showPage(2)">2</button>
+    <button onclick="showPage(3)">3</button>
+    <button onclick="showPage(1)">1</button>
+    <button onclick="showPage(2)">2</button>
+    <button onclick="showPage(3)">3</button>
+    <button onclick="showPage(1)">1</button>
+    <button onclick="showPage(2)">2</button>
+    <button onclick="showPage(3)">3</button>
+    <button onclick="showPage(1)">1</button>
+    <button onclick="showPage(2)">2</button>
+    <button onclick="showPage(3)">3</button>
+    <button onclick="showPage(1)">1</button>
+    <button onclick="showPage(2)">2</button>
+    <button onclick="showPage(3)">3</button>
+    <!-- More buttons if needed -->
+  </div>
+</div>
+
+<script>
+ 
+
+  function showPage(pageNum) {
+    const contentContainer = document.getElementById('contentContainer');
+    if (pageNum === 1) {
+      contentContainer.innerHTML = '';
+    } else if (pageNum === 2) {
+      contentContainer.innerHTML = `
+      <div class="scrollbar">  
+        <h2>Identify the grammatically correct and error-free sentence(s):</h2>
+        <p>A. Often ancient writings can tell us about civilizations, but no one have been able to translate the Indus writings.</p>
+        <p>B. We cannot attend to every stimulus in the environment for the simple reason that our nervous system has limited resources.</p>
+        <p>C. Our survey is not scientific of course, but it does offer a glimpse into a system that remain rigid and dogmatic.</p>
+        <p>D. From 2011 until last year, Brazil's government has been trying to stimulate the economy by offering labour tax breaks, subsidizing petrol and lowering the price of electricity.</p>
+        <p>E. Nowadays companies seem to be promoting their brands as saleable items even more than the actual products.</p>
+
+        <div class="option" onclick="highlight(this, false)">A B only</div>
+        <div class="option" onclick="highlight(this, false)">B All except A and C</div>
+        <div class="option" onclick="highlight(this, false)">C All except D and E</div>
+        <div class="option" onclick="highlight(this, true)">D B and E</div> <!-- Correct answer -->
+        <div class="option" onclick="highlight(this, false)">E C and D</div>
+                <h2>Identify the grammatically correct and error-free sentence(s):</h2>
+        <p>A. Often ancient writings can tell us about civilizations, but no one have been able to translate the Indus writings.</p>
+        <p>B. We cannot attend to every stimulus in the environment for the simple reason that our nervous system has limited resources.</p>
+        <p>C. Our survey is not scientific of course, but it does offer a glimpse into a system that remain rigid and dogmatic.</p>
+        <p>D. From 2011 until last year, Brazil's government has been trying to stimulate the economy by offering labour tax breaks, subsidizing petrol and lowering the price of electricity.</p>
+        <p>E. Nowadays companies seem to be promoting their brands as saleable items even more than the actual products.</p>
+
+        <div class="option" onclick="highlight(this, false)">A B only</div>
+        <div class="option" onclick="highlight(this, false)">B All except A and C</div>
+        <div class="option" onclick="highlight(this, false)">C All except D and E</div>
+        <div class="option" onclick="highlight(this, true)">D B and E</div> <!-- Correct answer -->
+        <div class="option" onclick="highlight(this, false)">E C and D</div>
+          <br><br><br><br><br><br>
+
+      </div>
+      `;
+    } else {
+      contentContainer.textContent = `This is page ${pageNum}`;
+    }
+  }
+
+  function highlight(element, isCorrect) {
+    var options = document.getElementsByClassName('option');
+    for (var i = 0; i < options.length; i++) {
+      options[i].classList.remove('correct', 'incorrect');
+    }
+    if (isCorrect) {
+      element.classList.add('correct');
+    } else {
+      element.classList.add('incorrect');
+    }
+  }
+</script>
+
+</body>
+</html>
