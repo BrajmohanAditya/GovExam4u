@@ -1,0 +1,355 @@
+.hover{
+    border: .01px solid rgba(0, 0, 0, 0.676);
+    color: white;
+    border-radius: 5px;
+    padding: 4px;
+    font-weight: 800;
+}
+
+
+div{
+    font-size: 25px;
+    margin-left: 15px;
+    margin-right: 12px;
+    color: red;
+    height: 60px;    
+}
+span:hover{
+    color: #050101;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.scrollbar{
+  position: relative;
+  /* width: 5px; */
+  height:100vh;
+   /* left: 5px; */
+   overflow-y: auto; /* or scroll */
+   scrollbar-width: thin; /* or auto or none */
+   scrollbar-color: #888 #f1f1f1;
+   width: 900px;
+   height: 100vh;
+   overflow: auto;
+   border-radius: 2px;
+  
+}
+#absolute{
+    overflow: auto;
+    left: 300px;
+    position:absolute; 
+}
+
+h1{
+    color: black;
+    box-shadow: whitesmoke;
+    /* font-style: italic; */
+    display: inline-block;
+    background-color: aqua;
+    margin-left: -30px;
+    border-radius: 10px;
+    padding: 2px;
+    font-size: 40px;
+    margin-top: 30px;
+
+
+    font-family: "Jersey 10 Charted", sans-serif;
+  font-weight: 400px;
+  font-style: normal;
+    
+}
+
+
+
+.buttons-container {
+    width: 200px; /* Adjust as needed */
+    height: 300px;
+    background-color: #f1f1f1;
+    overflow-y: scroll;
+    border-right: 0 solid #ccc;
+    /* Updated CSS for aligning buttons to the right */
+    margin-left: auto; /* Pushes buttons to the right */
+}
+
+button {
+    /* display: inline-block; */
+    width: 30%;
+    padding: .5rem;
+    margin-bottom: 5px;  
+    cursor: pointer;
+    border-radius: 15px;
+    background-color:#6c757d;
+    font-size: 15px;
+    font-weight: 400;
+    color: white;  
+}
+.colorButton.clicked {
+  background-color: #1bb6a4e4;
+  border: #007bff;
+}
+
+
+.container1 {
+    display: flex;
+    height: 50px;
+    margin-top: 20px;
+    border: black;
+}
+
+
+
+details{
+    position: absolute;
+    left: 20px;
+    display: inline;
+    color: #6c757d;
+}
+
+
+
+/* Popup container */
+.popup {
+    position:absolute;
+    left: 210px;
+    display: inline-block;
+    cursor: pointer;
+    color: #555;
+  }
+  
+  /* The actual popup (appears on top) */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 400px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+  }
+  
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+
+  .scrollbar {
+    /* Set overflow to auto to enable scrollbar */
+    overflow-y: auto;
+    /* Define scrollbar width */
+    scrollbar-width:20px;
+    /* Define scrollbar color */
+    scrollbar-color: #888 ;
+    width: 56rem;
+    /* height: 200px; */
+    border:  solid white;
+    height:100vh;
+  }
+
+body {
+    overflow: hidden;   
+}
+
+
+/* Nav bar property  */
+
+
+
+.navbar {
+   
+  background-color: #050101;
+  border-bottom: 1px solid #e0e0e0;
+  padding:0;
+  
+  margin: -8px;
+   
+}
+
+.navbar-toggler {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-collapse {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+}
+
+.nav-item {
+  margin-left: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #343a40;
+  padding: 1rem;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.form-control {
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin-right: 10px;
+  width: 20rem;
+}
+
+.btn {
+  padding: 0.5rem;
+  background-color: #28a745;
+  border: 1px solid #28a745;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 7px;
+}
+
+.btn:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navbar-toggler {
+      display: block;
+  }
+
+  .navbar-collapse {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+  }
+
+  .navbar-collapse.active {
+      display: flex;
+  }
+
+  .navbar-nav {
+      flex-direction: column;
+      width: 100%;
+  }
+
+  .nav-item {
+      margin-left: 0;
+      margin-bottom: 0;
+  }
+
+  .search-form {
+      width: 100%;
+      justify-content: flex-end;
+  }
+
+  .form-control {
+      width: 70%;
+  }
+}
+
+
+::-webkit-scrollbar {
+  width:8px;  /* Adjust the width here */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;  /* Color of the scrollbar thumb */
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;  /* Color of the scrollbar thumb when hovered */
+}
+/* Spacing btween button and meaning */
+#hi{
+  margin-left:3rem;
+}
+
+/* Pronunceation  */
+
+.sita{
+  position: absolute;
+  bottom:4rem;
+  right: -10px;
+  
+ }
+ #pronounceBtn{
+  margin: 2px;
+  width: 4rem;
+  height: 2.5rem;
+  background-color: #0ad639;
+  appearance: none;
+  border: 1px solid #28a745;
+  cursor: pointer;
+  border-radius: 5px;
+ }
+ #pronounceBtn:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+ #word{
+  height: 2rem;
+  width: 13rem;
+  border-color: #050101;
+  border-radius: 6px;
+  
+ }
+ 
+  .fa-microphone{
+    font-size: 1.5rem;
+  }
+ 
+  #word::placeholder {
+    color: rgba(0, 0, 0, 0.848); /* Change placeholder text color */
+    font-size: large;
+}
+
+

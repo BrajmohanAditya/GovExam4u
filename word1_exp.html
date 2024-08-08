@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scrollable Buttons</title>
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+<link rel="stylesheet" href="wordmeaning copy.css">
+
+
+</head>
+<body onload="showPage(1)">
+
+    <nav class="navbar">
+        <div class="container">
+          
+          <button class="navbar-toggler" onclick="toggleNavbar()">☰</button>
+          <div class="navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <!-- <li class="nav-item"><a class="nav-link active" href="#">Home</a></li> -->
+              <!-- <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+              <li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a></li> -->
+
+              <h1>Word meaning</h1>
+
+            </ul>
+            <form class="search-form">
+              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      
+      <script>
+        function toggleNavbar() {
+          var navbar = document.getElementById('navbarNav');
+          navbar.classList.toggle('active');
+        }
+      </script>
+
+
+<div class="container1">
+    <div class="content-container" id="contentContainer">
+        
+    </div>
+    <div class="buttons-container" id="buttonsContainer">
+        <button class="colorButton" onclick="showPage(1)"> 1</button>
+        <button class="colorButton" onclick="showPage(2)"> 2</button>
+        <button class="colorButton" onclick="showPage(3)"> 3</button>
+        <button class="colorButton" onclick="showPage(4)"> 4</button>
+        <button class="colorButton" onclick="showPage(5)"> 5</button>
+        <button class="colorButton" onclick="showPage(6)"> 6</button>
+        <button class="colorButton" onclick="showPage(7)"> 7</button>
+        <button class="colorButton" onclick="showPage(8)"> 8</button>
+        <button class="colorButton" onclick="showPage(9)"> 9</button>
+        <button class="colorButton" onclick="showPage(10)"> 10</button>
+        <button class="colorButton" onclick="showPage(11)"> 11</button>
+        <button class="colorButton" onclick="showPage(12)"> 12</button>
+        <button class="colorButton" onclick="showPage(13)"> 13</button>
+        <button class="colorButton" onclick="showPage(14)"> 14</button>
+        <button class="colorButton" onclick="showPage(15)"> 15</button>
+        <button class="colorButton" onclick="showPage(16)"> 16</button>
+        <button class="colorButton" onclick="showPage(17)"> 17</button>
+        <button class="colorButton" onclick="showPage(18)"> 18</button>
+        <button class="colorButton" onclick="showPage(19)"> 19</button>
+        <button class="colorButton" onclick="showPage(20)"> 20</button>
+        <button class="colorButton" onclick="showPage(21)"> 21</button>
+        <button class="colorButton" onclick="showPage(22)"> 22</button>
+        <button class="colorButton" onclick="showPage(23)"> 23</button>
+    </div>
+</div>
+<Div class="sita">
+  
+  <input type="text" id="word" placeholder="Learn Pronunciation">
+  <!-- <button id="pronounceBtn">Pronounce</button> -->
+  <button id="pronounceBtn"><i class="fas fa-microphone"></i></button>
+  
+  
+  <script>
+      document.getElementById('pronounceBtn').addEventListener('click', function() {
+          // Get the word from the input field
+          let word = document.getElementById('word').value;
+
+          // Create a new instance of SpeechSynthesisUtterance
+          let utterance = new SpeechSynthesisUtterance(word);
+
+          // Set the language to English (optional)
+          utterance.lang = 'en-IN';
+
+          utterance.rate = 0.35;
+
+          // Use the speechSynthesis interface to speak the word
+          window.speechSynthesis.speak(utterance);
+      });
+  </script>
+</Div>
+
+
+
+
+<script>
+    function showPage(pageNum) {
+        const contentContainer = document.getElementById('contentContainer');
+        if (pageNum === 1) {
+            contentContainer.innerHTML = `
+            
+<div class="scrollbar">  
+
+<div>Fraught <span id="absolute" class="hover">full of</span></div>
+<div>Fugitive <span id="absolute" class="hover">भगोड़ा</span></div>
+<div>Sycophant <span id="absolute" class="hover">चापलूस</span></div>
+<div>Vase <span id="absolute" class="hover">फूलदान</span></div>
+
+<div>Optimize <span id="absolute" class="hover">improve</span></div>
+
+<div>Recollections <span id="absolute" class="hover">Memory</span>
+  <div class="popup" onclick="myFunction('p1_p1')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p1_p1">She had a clear recollection of her childhood holidays.</span>
+  </div>
+</div>
+
+<div> Pervasive <span id="absolute" class="hover">widespread</span>
+  <div class="popup" onclick="myFunction('p1_p3')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p1_p3">The pervasive influence of social media can be seen in every aspect of modern life</span>
+  </div>
+</div>
+
+
+<div>-ness 
+  <div class="popup" onclick="myFunction('p1_p4')"><i class="fa-solid fa-play"></i>
+            <span class="popuptext" id="p1_p4">
+              the "-ness" suffix transforms an adjective into a noun
+              </br>
+              ex- Happy - Happiness
+             </br>
+              Dark -- Darkness
+            </span>
+  </div>
+</div>
+
+<div>Arduous <span id="absolute" class="hover">hard</span>
+  <div class="popup" onclick="myFunction('p1_p5')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p1_p5">This journey is often arduous and fraught with challenges.</span>
+  </div>
+</div>
+
+<div> Wellspring <span id="absolute" class="hover">Source</span>
+  <div class="popup" onclick="myFunction('p1_p6')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p1_p6">Memories often serve as a wellspring of inspiration.</span>
+  </div>
+</div>
+
+<div>Obfuscate <span id="absolute" class="hover">obscure, unintelligible</span></div>
+
+<div> Convoluted <span id="absolute" class="hover">complicated</span></div>
+
+<div>Decent, Dissent
+  <div class="popup" onclick="myFunction('p1_p7')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p1_p7">सभ्य, असहमति</span>
+  </div>
+</div>
+
+<div>Descent <span id="absolute" class="hover">drop, going down, वंश.</span>
+  <div class="popup" onclick="myFunction('p1_p8')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p1_p8">The bungee jumpers decided to synchronize their descent</span>
+  </div>
+</div>
+
+<div>Rubble <span id="absolute" class="hover">मलवा, Debris</span></div>
+
+
+<div>Hitched <span id="absolute" class="hover">connected or linked</span>
+  <div class="popup" onclick="myFunction('p1_p10')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p1_p10">They were hitched by a shared passion for adventure</span>
+  </div>
+</div>
+
+<div>Susceptibilities <span id="absolute" class="hover">भावनाएँ, feeling</span> 
+  <div class="popup" onclick="myFunction('p1_p11')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p1_p11">Suicidal susceptibilities get hitched out of precarious conceptions</span>
+  </div>
+</div>
+
+
+<div>Synergy <span id="absolute" class="hover">तालमेल</span></div>
+<div>Medication<span id="absolute" class="hover">treatment</span></div>
+<div>Vindictive <span id="absolute" class="hover"> तामसिक</span></div>
+<div>Progenitor <span id="absolute" class="hover">forefather</span></div>
+<div>Delineate <span id="absolute" class="hover">describe</span></div>
+
+<div>Empiricists <span id="absolute" class="hover">अनुभववादी</span>
+  <div class="popup" onclick="myFunction('p1_p12')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p1_p12">a person who supports the theory that all knowledge is based on experience derived from the senses.</span>
+  </div>
+</div>
+
+<div>Inherently algorithmic 
+  <div id="hi" class="popup" onclick="myFunction('p1_p13')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p1_p13">Discovery process is inherently algorithmic, it means that it follows a specific set of steps</span>
+  </div>
+</div>
+<div>Demagogue <span id="absolute" class="hover">political agitator</span></div>
+<div>Intrusive <span id="absolute" class="hover">Invasive, unwelcome, unwanted</span>
+  <div class="popup" onclick="myFunction('p1_p2')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p1_p2">The journalist's questions were so intrusive that the celebrity ended the interview abruptly.</span>
+  </div>
+</div>
+<div>Precarious conceptions <span id="absolute" class="hover">unstable or risky thoughts or beliefs</span>
+  <div id="hi" class="popup" onclick="myFunction('p1_p9')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p1_p9">His precarious conceptions about success led him to take reckless risks without considering the potential consequences.</span>
+  </div>
+</div>
+
+<div></div>
+<div></div>
+</div>
+           
+             
+            `;
+        }else if(pageNum==2){
+                contentContainer.innerHTML= `
+
+          
+                
+            <div class="scrollbar">    
+               <div>Virtue  <span id="absolute" class="hover"> ख़ूबी, merit</span></div>
+                 
+               <div>Extols <span id="absolute" class="hover">praise</span>
+                  <div class="popup" onclick="myFunction('p2_pop1')"><i class="fa-solid fa-play"></i>
+                     <span class="popuptext" id="p2_pop1">he extolled the virtues of indian solder</span>
+                  </div>
+               </div>
+
+                
+               <div>Exhort <span id="absolute" class="hover">strongly encourage</span></div>
+               <div>Insipid<span id="absolute" class="hover">नीरस, inspid work</span></div>
+
+               <div>Protract <span id="absolute" class="hover">prolon, लम्बा करना</span>
+                <div class="popup" onclick="myFunction('p2_pop2')"><i class="fa-solid fa-play"></i>
+                     <span class="popuptext" id="p2_pop2">Let's not protract the debate any further.
+                      The war was protracted for four years.
+                      </span>
+                  </div>
+                </div>
+
+               <div>Lost out <span id="absolute" class="hover">to fail to win</span>.</div>
+              
+               <div>Teeming <span id="absolute" class="hover"> full of </span>
+                <div class="popup" onclick="myFunction('p2_pop3')"><i class="fa-solid fa-play"></i>
+                     <span class="popuptext" id="p2_pop3">city is teeming with tourists</span>
+                  </div>
+                </div>
+               
+               <div>Petition<span id="absolute" class="hover">request</span>
+
+                <div class="popup" onclick="myFunction('p2_pop4')"><i class="fa-solid fa-play"></i>
+                    <span class="popuptext" id="p2_pop4">
+                      Court dismissed his petition
+                      <br>
+                      They started a petition to raise awareness about the environmental issues
+                    </span>
+                  </div>
+                </div>
+
+               <div>Tariff<span id="absolute" class="hover"> tax</span></div>
+               
+              <div>Reel <span id="absolute" class="hover"> stagger </span>
+                <div class="popup" onclick="myFunction('p2_pop5')"><i class="fa-solid fa-play"></i>
+                     <span class="popuptext" id="p2_pop5">Reeling under the weight of mounting debts.</span>
+                  </div>
+                </div>
+
+               <div>Sales migration<span id="absolute"></span>
+                <div class="popup" onclick="myFunction('p2_pop6')"><i class="fa-solid fa-play"></i>
+                     <span class="popuptext" id="p2_pop6">shift of sales or consumers from one segment to another</span>
+                  </div>
+                </div>
+
+               <div>Laid out <span id="absolute" class="hover"> explained in detail</span>
+                <div class="popup" onclick="myFunction('p2_pop7')"><i class="fa-solid fa-play"></i>
+                     <span class="popuptext" id="p2_pop7">The architect laid out the blueprints for the new skyscraper</span>
+                  </div>
+                </div>
+               <div>Tomorrow</div>
+               <div>Wealthier</div>
+               <div>Triumph</div>
+
+            </div>
+        
+            `;
+          }else if(pageNum==3){
+                contentContainer.innerHTML= `
+
+<div class="scrollbar"> 
+<div>Booze <span id="absolute" class="hover">alcohol</span></div>
+<div>Comprehensive <span id="absolute" class="hover">extensive,detailed</span></div>
+
+<div>Inherently <span id="absolute" class="hover">स्वभावतः</span>  
+  <div class="popup" onclick="myFunction('p3_pop1')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p3_pop1"> work is inherently dangerous</span>
+  </div>
+</div>
+
+<div>Semblance <span id="absolute" class="hover">appearance</span>
+  <div class="popup" onclick="myFunction('p3_pop2')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p3_pop2">Despite the chaos around her, she maintained a semblance of calm</span>
+  </div>
+</div>
+
+<div>Milieu <span id="absolute" class="hover">environment</span>
+  <div class="popup" onclick="myFunction('p3_pop3')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p3_pop3"> Growing up in a creative milieu</span>
+  </div>
+</div>
+
+<div>Epic <span id="absolute" class="hover">महाकाव्य</span>
+  <div class="popup" onclick="myFunction('p3_pop4')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p3_pop4">mahabharata is an epic</span>
+  </div>
+</div>
+
+<div>Spinning out <span id="absolute" class="hover">a Situation or process getting out of control</span>
+  <div class="popup" onclick="myFunction('p3a_pop4a')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p3a_pop4a">he project started well but eventually began spinning out due to poor management and lack of resources.</span>
+  </div>
+</div>
+
+<div>Staple <span id="absolute" class="hover">important or main</span>
+  <div class="popup" onclick="myFunction('p3_pop5')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p3_pop5">Rice is a staple food in many Asian countries, forming the basis of most meals.</span>
+  </div>
+</div>
+
+<div>Perhaps <span id="absolute" class="hover">शायद, maybe</span></div>
+
+<div>Tactile <span id="absolute" class="hover">sense of touch</span>
+  <div class="popup" onclick="myFunction('p3aa_pop4aa')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p3aa_pop4aa">Children often learn best through tactile activities that allow them to touch and feel different materials.</span>
+  </div>
+</div>
+
+<div>Premise <span id="absolute" class="hover">belief</span>
+  <div class="popup" onclick="myFunction('p3_pop5')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p3_pop5">His argument rested on the faulty premise that everyone had equal access to education and resources.</span>
+  </div>
+</div>
+
+<div>Rest on/upon <span id="absolute" class="hover">to depend or rely on </span>
+  <div class="popup" onclick="myFunction('p3_pop6')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p3_pop6">promotion rested on her performance.</span>
+  </div>
+</div>
+
+<div>The very fabric <span id="absolute" class="hover">fundamental</span>
+  <div class="popup" onclick="myFunction('p3_pop7')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p3_pop7">Freedom of speech is enshrined in the very fabric of democratic societies.</span>
+  </div>
+</div>
+
+<div>Captivating <span id="absolute" class="hover">मनोरम, लुभावना, captivating morning</span></div>
+
+<div>Delve <span id="absolute" class="hover">गहरी खोज करना</span>
+  <div class="popup" onclick="myFunction('p3_pop8')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p3_pop8">She decided to delve into her family history, spending hours researching old documents and tracing her ancestry back several generations..</span>
+  </div>
+</div>
+
+<div>Posthumanism
+  <div class="popup" onclick="myFunction('p3_pop9')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p3_pop9">posthumanism in science fiction refers to stories that explore what might happen if humans change a lot in the future.</span>
+  </div>
+</div>
+
+
+
+<div>Engender <span id="absolute" class="hover">give rise</span>
+  <div class="popup" onclick="myFunction('p3_pop10')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p3_pop10">The new policy was designed to engender trust between the government and the public.</span>
+  </div>
+</div>
+
+
+<div>Rhythmic accompaniment <span id="absolute" class="hover">music playing, </span> <br>
+  <div class="popup" onclick="myFunction('p3_pop11')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p3_pop11">complex work engenders rhythmic accompaniment.</span>
+  </div>
+</div>
+
+<div>Stratification <span id="absolute" class="hover">division</span></div>
+
+<div>Compete <span id="absolute" class="hover">its a verb</span></div>
+<div>Competition <span id="absolute" class="hover">noun</span></div>
+
+<div>Conjecture <span id="absolute" class="hover">guess, speculation</span>
+  <div class="popup" onclick="myFunction('p3_pop12')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p3_pop12"> The scientist made a conjecture about the possible causes of the phenomenon</span>
+  </div>
+</div>
+
+<div>Short-Change <span id="absolute" class="hover">cheat by giving less</span>
+  <div class="popup" onclick="myFunction('p3_pop13')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p3_pop13"> The cashier accidentally short-changed me by five dollars.</span>
+  </div>
+</div>
+
+<div>Talk down <span id="absolute" class="hover">to calm someone or persuade</span></div>
+
+<div>Washed up <span id="absolute" class="hover">deposited by the tide on the shore</span>
+  <div class="popup" onclick="myFunction('p3_pop14')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p3_pop14"> The shipwrecked debris washed up on the shore after the storm.</span>
+  </div>
+</div>
+
+<div>Concern <span id="absolute" class="hover">worry</span></div>
+<div>Concerning <span id="absolute" class="hover">about, regarding. </span>
+  <div class="popup" onclick="myFunction('p3_pop15')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p3_pop15">There is some debate concerning climate .</span>
+  </div>
+</div>
+
+<div>f is non prime odd no <span id="absolute" class="hover">(f is odd but not prime)</span></div>
+<div>Predominantly <span id="absolute" class="hover">mainly or mostly</span></div>
+
+<div>Biotechnology
+  <div class="popup" onclick="myFunction('p3_pop16')"><i class="fa-solid fa-play"></i>
+    <span class="popuptext" id="p3_pop16">manipulation of microorganisms for the production of antibiotics, hormones, etc. .</span>
+  </div>
+</div>
+
+
+<div></div>
+<div></div>
+
+</div>
+
+                
+                `;}
+           
+                else if(pageNum==4){
+                contentContainer.innerHTML= `
+
+                <div class="scrollbar">
+
+<div>Rarefied <span id="absolute" class="hover">being less dense</span></div>
+<div>Odour</div>
+<div>Order</div>
+
+<div>Correspond <span id="absolute" class="hover">correlate with</span>
+    <div class="popup" onclick="myFunction('p4_pop1')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p4_pop1">The data collected from the experiment needs to correspond with the hypothesis in order to validate our findings</span>
+    </div>
+</div>
+
+<div>Sniffing 
+  <div class="popup" onclick="myFunction('p4_pop2')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p4_pop2">the action of drawing in air audibly through the nose </span>
+  </div>
+</div>
+
+<div>Conclude <span id="absolute" class="hover">निष्कर्ष निकालना</span></div>
+<div>Simulate <span id="absolute" class="hover">imitate</span></div>
+
+<div>Topple <span id="absolute" class="hover">overturn, overthrow</span>
+  <div class="popup" onclick="myFunction('p4_pop3')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p4_pop3">"The earthquake's tremors were strong enough to topple buildings and create widespread destruction </span>
+  </div>
+</div>
+
+<div>Avalanche <span id="absolute" class="hover">snow-slide</span></div>
+
+<div>Development <span id="absolute" class="hover">positive changes in quality</span></div>
+<div>Estrangement <span id="absolute" class="hover">मनमुटाव, ex parental estrangement</span></div>
+<div>Impudent <span id="absolute" class="hover">not showing due respect for another person, बेशर्म</span></div>
+
+<div>Pretense <span id="absolute" class="hover">दिखावा, ढोंग</span></div>
+<div>Rogue <span id="absolute" class="hover">दुष्ट, evil person</span></div>
+<div>Foster <span id="absolute" class="hover">encourage , प्रोत्साहन देना</span>
+  <div class="popup" onclick="myFunction('p4_pop4')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p4_pop4">the teacher's task is to foster learning</span>
+  </div>
+</div>
+
+<div>Copious <span id="absolute" class="hover">abundant,बहुत, पर्चुर</span>
+  <div class="popup" onclick="myFunction('p4_pop10')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p4_pop10">After the storm, there were copious amounts of water flooding the streets.</span>
+  </div>
+</div>
+
+<div>Intact <span id="absolute" class="hover">जऐसे को तैसा,</span>
+  <div class="popup" onclick="myFunction('p4_pop5')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p4_pop5"> his reputation remained intact</span>
+  </div>
+</div>
+
+<div>Gutted <span id="absolute" class="hover">extremely disappointed and unhappy</span></div>
+<div>Tepid <span id="absolute" class="hover">unenthusiastic, apathetic</span>
+  <div class="popup" onclick="myFunction('p4_pop6')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p4_pop6">  the applause was tepid</span>
+  </div>
+</div>
+
+<div>Formidable <span id="absolute" class="hover">powerful, intense, or capable, tough</span>
+  <div class="popup" onclick="myFunction('p4_pop7')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p4_pop7"> a formidable opponent, formidable task</span>
+  </div>
+</div>
+
+<div>Procession <span id="absolute" class="hover">जुलूस</span></div>
+<div>Cessation <span id="absolute" class="hover">ending, termination, समापन</span>
+  <div class="popup" onclick="myFunction('p4_pop8')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p4_pop8">The company announced the cessation of its operations in the European market due to declining sales.</span>
+  </div>
+</div>
+
+<div>Dominion <span id="absolute" class="hover">government</span></div>
+<div>Covenant <span id="absolute" class="hover">treaty, agreement</span></div>
+<div>Platitude <span id="absolute" class="hover">साधारण बात, घिसि पिटी बाते</span>
+  <div class="popup" onclick="myFunction('p4_pop9')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p4_pop9"> Instead of offering real solutions, he kept repeating the same old platitudes.</span>
+  </div>
+</div>
+
+<div>Inveterate <span id="absolute" class="hover">कट्टर, पक्का, inveterate reader</span></div>
+
+<div></div>
+</div>
+
+                
+                `;}      
+             
+                else if(pageNum==5){
+                contentContainer.innerHTML= `
+
+<div class="scrollbar">
+
+<div>engagements <span id="absolute" class="hover">a fight or battle between armed forces</span></div>
+<div>despair <span id="absolute" class="hover">निराशा</span></div>
+<div>aerial combat <span id="absolute" class="hover">हवाई युद्ध</span></div>
+<div>come to  <span id="absolute" class="hover">consciousness/political power etc</span>
+  <div class="popup" onclick="myFunction('p5_pop1')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p5_pop1">Example: After fainting, he slowly came to and realized he was in the hospital. <br> After years of struggle, the party finally came to power</span>
+  </div>
+</div>
+
+<div>Come on  <span id="absolute" class="hover">use for encouragement</span></div>
+<div>coming at  <span id="absolute" class="hover">approaching at a place</span></div>
+<div>The plural of "bias"  <span id="absolute" class="hover">biases</span></div>
+<div>facile <span id="absolute" class="hover">सुगम, easy a facile victory</span></div>
+<div>Drained out <span id="absolute" class="hover">feeling completely exhausted</span></div>
+
+<div>belie <span id="absolute" class="hover">contradict</span>
+  <div class="popup" onclick="myFunction('p5_pop2')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p5_pop2">His calm expression belied the anxiety swirling in his mind before the exam. </span>
+  </div>
+</div>
+
+<div>heartening <span id="absolute" class="hover">encouraging</span></div>
+<div>feeling blue <span id="absolute" class="hover">to be sad or depressed</span></div>
+<div>explain away <span id="absolute" class="hover">"बहाने बनाकर समझाना</span>
+  <div class="popup" onclick="myFunction('p5_pop3')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p5_pop3">She tried to explain away her absence from the meeting by claiming she had car trouble. </span>
+  </div>
+</div>
+
+<div>Trundling<span id="absolute" class="hover">moving slowly and heavily</span>
+  <div class="popup" onclick="myFunction('p5_pop4')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p5_pop4">old cart was trundling  around the market </span>
+  </div>
+</div>
+
+<div>potential <span id="absolute" class="hover">possible </span>
+  <div class="popup" onclick="myFunction('p5_pop5')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p5_pop5">we have been seeking potential biosignatures(life) </span>
+  </div>
+</div>
+
+<div>dispose with/of <span id="absolute" class="hover">get rid of, of is correct</span></div>
+<div>dispense with <span id="absolute" class="hover">get rid of</span></div>
+<div>wail <span id="absolute" class="hover">रोना धोना</span>
+  <div class="popup" onclick="myFunction('p5_pop6')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p5_pop6">The baby began to wail loudly, waking everyone in the house </span>
+  </div>
+</div>
+
+<div>uphold <span id="absolute" class="hover">to support a decision</span>
+  <div class="popup" onclick="myFunction('p5_pop7')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p5_pop7">The judge promised to uphold the law and ensure that justice was served in the courtroom.</span>
+  </div>
+</div>
+
+<div>malefic <span id="absolute" class="hover">हानिकर, adverse</span></div>
+<div>yawning <span id="absolute" class="hover">जँभाई</span></div>
+<div>cropped up <span id="absolute" class="hover">to appear</span></div>
+<div>tap into <span id="absolute" class="hover">utilize, or make use of something</span>
+  <div class="popup" onclick="myFunction('p5_pop8')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p5_pop8">She decided to tap into her savings to fund her new business venture.</span>
+  </div>
+</div>
+
+<div>hit the nail on the head <span id="absolute" class="hover">to do or say something that is exactly right</span> <br>
+  <div class="popup" onclick="myFunction('p5_pop9')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p5_pop9">When she suggested that the project's failure was due to poor communication, she really hit the nail on the head.</span>
+  </div>
+</div>
+
+<div>second wind <span id="absolute" class="hover">a return of strength or energy</span></div>
+<div>escarpment <span id="absolute" class="hover">ढलान, downhill</span></div>
+<div>scintillating <span id="absolute" class="hover">sparkling, brilliant scintillating light</span></div>
+<div>reflect on <span id="absolute" class="hover">to think deeply. </span>
+  <div class="popup" onclick="myFunction('p5_pop10')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p5_pop10">When you reflect on your life story </span>
+  </div>
+</div>
+
+
+<div> </div>
+ </div>              
+                `;}
+
+                else if(pageNum==6){
+                contentContainer.innerHTML= `
+                <div class="scrollbar">
+<div>ascribe <span id="absolute" class="hover">explain</span></div>
+<div>impart <span id="absolute" class="hover">transmit, convey</span></div>
+<div>pronounce <span id="absolute" class="hover">declare or announce</span>
+    <div class="popup" onclick="myFunction('p6_pop1')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p6_pop1"> judge pronounced the justice </span>
+    </div>
+</div>
+
+<div>pretext <span id="absolute" class="hover">बहाना, false excuse</span>
+    <div class="popup" onclick="myFunction('p6_pop2')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p6_pop2">He started a riot as pretext to capture a area </span>
+    </div>
+</div>
+
+<div>season <span id="absolute" class="hover"> to add flavor to food ,मौसम, weather</span>
+    <div class="popup" onclick="myFunction('p6_pop3')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p6_pop3">"She likes to season her salads with a mix of olive oil, lemon juice, and a pinch of sea salt. </span>
+    </div>
+</div>
+
+<div>abrogate <span id="absolute" class="hover">revoke,negate say no</span>
+    <div class="popup" onclick="myFunction('p6_pop4')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p6_pop4"> Which of the following abrogates the news of winning by TMC party? </span>
+    </div>
+</div>
+<div>incursion <span id="absolute" class="hover">invasion</span></div>
+<div>province <span id="absolute" class="hover">territory,प्रान्त </span></div>
+<div>provenance <span id="absolute" class="hover">origin, ex provenance of universe </span></div>
+<div>mercenaries 
+    <div class="popup" onclick="myFunction('p6_pop5')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p6_pop5">A professional soldier hired to serve in the foreign army </span>
+    </div>
+</div>
+<div>Business districts
+  <div class="popup" onclick="myFunction('p6_pop6')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p6_pop6">areas within a city where there is a large concentration of businesses </span>
+  </div>
+</div>
+
+<div>paradigm <span id="absolute" class="hover">Example, आदर्श</span>
+    <div class="popup" onclick="myFunction('p6_pop7')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p6_pop7">Her innovative approach to teaching represents a new paradigm in education."</span>
+    </div>
+</div>
+<div>shredded <span id="absolute" class="hover">टुकड़े टुकड़े, shredded ozone layer</span>
+  <div class="popup" onclick="myFunction('p6_pop8')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p6_pop8">The storm had shredded the sails, leaving the boat adrift</span>
+  </div>
+</div>
+
+<div>evoke <span id="absolute" class="hover">to bring or recall a feeling, memory</span>
+  <div class="popup" onclick="myFunction('p6_pop9')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p6_pop9">"Her speech was designed to evoke strong emotions from the audience."</span>
+  </div>
+</div>
+
+<div>twilight <span id="absolute" class="hover">dusk, सांझ</span></div>
+<div>ethereal <span id="absolute" class="hover">exquisite, elegant,</span>
+  <div class="popup" onclick="myFunction('p6_pop10')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p6_pop10"> Amidst the ethereal twilight</span>
+  </div>
+</div>
+
+<div>usher <span id="absolute" class="hover">help, </span>
+  <div class="popup" onclick="myFunction('p6_pop11')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p6_pop11"> industries ushered in an era of rapid urbanization</span>
+  </div>
+ </div>
+<div>mural <span id="absolute" class="hover">wall painting</span></div>
+<div>opioids <span id="absolute" class="hover">नशीले पदार्थों</span></div>
+<div>sterling <span id="absolute" class="hover">British money</span></div>
+<div>account <span id="absolute" class="hover">consider. </span>
+  <div class="popup" onclick="myFunction('p6_pop12')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p6_pop12">municipalities that attempt to create plans often failing to account properly for the needs of the majority</span>
+  </div>
+</div>
+<div>warped<span id="absolute" class="hover">distorted,विकृत</span>
+  <div class="popup" onclick="myFunction('p6_pop13')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p6_pop13"> weather is warped by the climate crisis</span>
+  </div>
+</div>
+
+<div>plankton 
+  <div class="popup" onclick="myFunction('p6_pop14')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p6_pop14">small and microscopic organisms drifting or floating in the deep sea </span>
+  </div>
+</div>
+
+<div>tracts <span id="absolute" class="hover">area, ex </span>
+  <div class="popup" onclick="myFunction('p6_pop15')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p6_pop15">plankton thousands of metres deep have intestinal tracts full of microplastics</span>
+  </div>
+</div>
+
+<div>Spatial acuity <span id="absolute" class="hover">smokers have bad Spatial acuity</span>
+    <div class="popup" onclick="myFunction('p6_pop16')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p6_pop16">This refers to how clearly you can see details and distinguish small objects from one another</span>
+    </div>
+</div>
+<div>cooped up <span id="absolute" class="hover">to keep (a person or animal) inside a something. </span>
+  <div class="popup" onclick="myFunction('p6_pop17')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p6_pop17">The children were tired of being cooped up in the car during the long road trip</span>
+  </div>
+</div>
+<div> </div> 
+<div> </div> 
+
+</div> 
+
+                
+                `;}
+          
+                else if(pageNum==7){
+                contentContainer.innerHTML= `
+<div class="scrollbar">
+
+<div>Assess <span id="absolute" class="hover">आंकना</span></div>
+<div>Access <span id="absolute" class="hover">पहुँच</span></div>
+<div>victim <span id="absolute" class="hover">पीिड़त, injured party</span></div>
+<div>Reminiscent <span id="absolute" class="hover">अतीत का स्मरण िदलानेवाला</span>
+  <div class="popup" onclick="myFunction('p7_pop1')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p7_pop1"> The scent of fresh pine was reminiscent of our childhood summers spent camping in the mountains.</span>
+  </div>
+</div>
+
+<div>inferences <span id="absolute" class="hover">अनुमान</span>
+  <div class="popup" onclick="myFunction('p7_pop2')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p7_pop2">From her silence, he made the inference that she was upset</span>
+  </div>
+</div>
+
+<div>profiteering <span id="absolute" class="hover">सट्टेबाज़ी</span>
+  <div class="popup" onclick="myFunction('p7_pop3')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p7_pop3">accused of profiteering</span>
+  </div>
+</div>
+
+<div>compliance <span id="absolute" class="hover">अनुपालन ,  following rules, standards</span></div>
+<div>comprehension <span id="absolute" class="hover">understanding</span>
+  <div class="popup" onclick="myFunction('p7_pop4')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p7_pop4">require mathematical comprehension.</span>
+  </div>
+</div>
+
+<div>masquerading <span id="absolute" class="hover">ढोंग करना, masquerading as doctor</span></div>
+<div>significance <span id="absolute" class="hover">importance</span></div>
+<div>patronage <span id="absolute" class="hover">संरक्षण</span></div>
+<div>Beacon <span id="absolute" class="hover">Source of inspiration</span></div>
+
+<div>Nudge <span id="absolute" class="hover">Gentle push or encouragement.</span>
+  <div class="popup" onclick="myFunction('p7_pop5')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p7_pop5">push is more forceful than nudge</span>
+  </div>
+</div>
+
+<div>fray <span id="absolute" class="hover">दंगा, riot</span></div>
+<div>abstention <span id="absolute" class="hover">refusal to vote</span></div>
+<div>Truce <span id="absolute" class="hover">युद्धविराम संधि, ceasefire</span></div>
+<div>inclusive polity(Gov)<span id="absolute" class="hover">सब का साथ सब का विकास</span></div>
+
+<div>impiety <span id="absolute" class="hover">नािस्तकता</span></div>
+<div>caveat <span id="absolute" class="hover">चेतावनी</span></div>
+<div>burgeon <span id="absolute" class="hover">grow rapidly.</span>
+  <div class="popup" onclick="myFunction('p7_pop6')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p7_pop6">Her interest in painting began to burgeon after she took a few art classes.</span>
+  </div>
+</div>
+
+<div>attribute <span id="absolute" class="hover">गुण property, आरोपित करना.</span>
+  <div class="popup" onclick="myFunction('p7_pop7')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p7_pop7">
+        One of the most admirable attributes of a good leader is empath <br>
+        She attributes her success to her unwavering dedication and hard work.
+      </span>
+  </div>
+</div>
+<div>stalking <span id="absolute" class="hover">पीछा करना, stalking someone on social media</span></div>
+
+<div>Congruous <span id="absolute" class="hover">appropriate</span>
+  <div class="popup" onclick="myFunction('p7_pop8')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p7_pop8">this explanation is congruous</span>
+  </div>
+</div>
+
+<div>Desist <span id="absolute" class="hover">stop</span></div>
+<div>regard <span id="absolute" class="hover">के संबंध में, talking regarding ram</span></div>
+<div>cognizance <span id="absolute" class="hover">knowledge, awareness </span>
+  <div class="popup" onclick="myFunction('p7_pop9')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p7_pop9">have greater cognizance of other people</span>
+  </div>
+</div>
+<div>empathize <span id="absolute" class="hover">sympathize</span></div>
+<div>invigorate <span id="absolute" class="hover">give strength or energy.</span>
+  <div class="popup" onclick="myFunction('p7_pop10')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p7_pop10">
+         if money is spent well, it can really invigorate happiness. <br>
+         A cup of strong coffee always invigorates him, helping him focus better on his work.
+      </span>
+  </div> 
+</div>
+<div></div>
+<div></div>
+
+</div>
+                
+                `;}
+                else if(pageNum==8){
+                contentContainer.innerHTML= `
+                <div class="scrollbar">
+
+<div>Parse <span id="absolute" class="hover">Analyze</span></div>
+<div>Discern <span id="absolute" class="hover">identify</span>
+  <div class="popup" onclick="myFunction('p8_pop1')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p8_pop1">To discern truth and lies</span>
+  </div>
+</div>
+
+<div>Cue <span id="absolute" class="hover">संकेत, signal, reminder</span></div>
+<div>Rig<span id="absolute" class="hover">Manipulate, tamper with</span>
+  <div class="popup" onclick="myFunction('p8_pop2')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p8_pop2">The election scandal revealed how some officials attempted to rig the vote.</span>
+  </div>
+</div>
+<div>Quip <span id="absolute" class="hover"> ताना, चुटकी lena.</span>
+  <div class="popup" onclick="myFunction('p8_pop3')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p8_pop3">Flattery will get you nowhere,” she quipped</span>
+  </div>
+</div>
+<div>Proponent <span id="absolute" class="hover">समर्थक, Supporter</span></div>
+<div>Outspoken rebel <span id="absolute" class="hover">मुखर, speak openly</span></div>
+<div>Vice <span id="absolute" class="hover">immoral or wicked behavior. </span>
+  <div class="popup" onclick="myFunction('p8_pop4')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p8_pop4">Cruelty is a vice</span>
+  </div>
+</div>
+<div>Retributive <span id="absolute" class="hover">दंड देनेवाला</span>
+  <div class="popup" onclick="myFunction('p8_pop5')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p8_pop5">Our retributive propensities and dispositions is a kind of cruelty</span>
+  </div>
+</div>
+<div>Propensity <span id="absolute" class="hover">tendency, inclination, झुकाव</span></div>
+<div>Dispositions<span id="absolute" class="hover">Temperament, Nature</span></div>
+<div>Humdrum <span id="absolute" class="hover">नीरस, monotonous</span>
+  <div class="popup" onclick="myFunction('p8_pop6')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p8_pop6">Something humdrum has been achieved</span>
+  </div>
+</div>
+<div>Stupendous <span id="absolute" class="hover">extremely impressive, amazing</span></div>
+<div>Compelling imperative <span id="absolute" class="hover">A strong and unavoidable necessity</span></div>
+<div>Clarion call <span id="absolute" class="hover">स्पष्ट आह्वान</span>
+  <div class="popup" onclick="myFunction('p8_pop7')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p8_pop7">The president's speech was a clarion call for unity and action against climate change.</span>
+  </div>
+</div>
+
+<div>Wade <span id="absolute" class="hover">आगे बढ़ना</span>
+  <div class="popup" onclick="myFunction('p8_pop8')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p8_pop8">India is wading into crisis</span>
+  </div>
+</div>
+
+<div>Retribution <span id="absolute" class="hover">बदला, Revenge</span>
+  <div class="popup" onclick="myFunction('p8_pop9')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p8_pop9"> Israel demand for retribution</span>
+  </div>
+</div>
+<div>Simulate <span id="absolute" class="hover">नक़ली,Counterfeit imitate</span></div>
+<div>Seemingly <span id="absolute" class="hover">प्रतीत होता है</span>
+  <div class="popup" onclick="myFunction('p8_pop11')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p8_pop11">She smiled seemingly at ease, though inside she felt quite nervous.</span>   
+  </div>
+</div>
+<div>Inexplicably <span id="absolute" class="hover">बेवजह</span>
+  <div class="popup" onclick="myFunction('p8_pop12')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p8_pop12"> He inexplicably left the party early without saying goodbye to anyone.</span>
+  </div>
+</div>
+<div>On the brink of <span id="absolute" class="hover">something about to happen</span></div>
+<div>Flagship initiative <span id="absolute" class="hover">high profile programme or project</span></div>
+<div>Concessions <span id="absolute" class="hover">compromise</span></div>
+<div>Quiet <span id="absolute" class="hover">silent</span></div>
+<div>Quite <span id="absolute" class="hover">Completely</span></div>
+<div>Tenacious <span id="absolute" class="hover">firm, दृढ़</span>
+  <div class="popup" onclick="myFunction('p8_pop13')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p8_pop13"> His tenacious grip on the rope saved him from falling off the cliff</span>
+  </div>
+</div>
+<div>Mellow <span id="absolute" class="hover">मधुर</span></div>
+<div>Scintillating <span id="absolute" class="hover">sparking or shining brightly</span>
+  <div class="popup" onclick="myFunction('p8_pop14')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p8_pop14">The scintillating sun</span>
+  </div>
+</div>
+<div></div>
+<div></div>
+</div>
+                
+                `;}
+                 
+                else if(pageNum==9){
+                contentContainer.innerHTML= `
+                <div class="scrollbar">
+<div>Unleash <span id="absolute" class="hover">begin</span></div>                  
+<div>Strife <span id="absolute" class="hover">conflict</span></div>                 
+<div>Reiterate <span id="absolute" class="hover">Say again</span></div>
+<div>Accuse <span id="absolute" class="hover">दोष लगाना</span></div>
+<div>Portray <span id="absolute" class="hover">Show , Present</span>
+  <div class="popup" onclick="myFunction('p9_pop5')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p9_pop5">Portraying India and Israel as shared victims of terrorism is dangerous. </span>
+  </div>
+</div>
+<div>Evidence <span id="absolute" class="hover">is uncountable</span></div>
+<div>Scuffle <span id="absolute" class="hover">Fight, हाथापाई</span></div>
+<div>Sore <span id="absolute" class="hover">Painful, in pain</span></div>
+<div>Attrition <span id="absolute" class="hover">Erosion , Abrasion</span>
+  <div class="popup" onclick="myFunction('p9_pop2')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p9_pop2">Attrition in the workforce has led to a significant decrease in productivity.</span>
+  </div>
+</div>
+<div>Consistent <span id="absolute" class="hover">तकयुक्तर्, Relevant</span></div>
+<div>Substantive<span id="absolute" class="hover">Basic, Substantive need</span></div>
+
+<div>Impart <span id="absolute" class="hover">Spread, Impart knowledge</span></div>
+<div>Digital forensics
+  <div class="popup" onclick="myFunction('p9_pop1')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p9_pop1">Investigating and analyzing digital devices and data to gather evidence</span>
+  </div>
+</div>
+
+
+<div>Accretion <span id="absolute" class="hover">Accumulation, Collection.</span></div>
+<div>Subversion <span id="absolute" class="hover"> Destruction, Annihilation</span>
+  <div class="popup" onclick="myFunction('p9_pop3')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p9_pop3">The ruthless subversion of democracy</span>
+  </div>
+</div>
+<div>Composite no 
+  <div class="popup" onclick="myFunction('p9_pop4')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p9_pop4">No having more than two factors(1, itself,and one more)</span>
+  </div>
+</div>
+
+<div>Co-prime no 
+  <div class="popup" onclick="myFunction('p9_pop7')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p9_pop7">Ex- (3, 5) Not have any common factor other than 1 </span>
+  </div>
+</div>
+
+
+<div>landslide <span id="absolute" class="hover">Overwhelming majority</span>
+  <div class="popup" onclick="myFunction('p9_pop6')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p9_pop6">Rule passed with landslide </span>
+  </div>
+</div>
+<div>Sue <span id="absolute" class="hover">Take legal action against.</span></div>
+<div>lackadaisical <span id="absolute" class="hover">uninterested , indifferent</span></div>
+<div>Consortium <span id="absolute" class="hover">A group of individuals, organizations</span></div>
+
+<div>Conclusive <span id="absolute" class="hover">irrefutable , certain</span>
+  <div class="popup" onclick="myFunction('p9_pop8')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p9_pop8">Found no conclusive evidence </span>
+  </div>
+</div>
+
+<div>Foment <span id="absolute" class="hover">भड़काना, Instigate</span></div>
+<div>Tumult <span id="absolute" class="hover">a loud confused noise, कोलाहल</span></div>
+<div>Repose <span id="absolute" class="hover">A state of rest, Sleep</span></div>
+<div>Radical Islamic outfit <span id="absolute" class="hover">कट्टरपंथी इस्लामी संगठन</span></div>
+
+<div></div>
+<div></div>
+</div>
+                
+                `;}
+                else if(pageNum==10){
+                contentContainer.innerHTML= `
+
+                <div class="scrollbar">
+<div>Apprehension  <span id="absolute" class="hover">fear</span></div>  
+<div>Infested<span id="absolute" class="hover">पीड़ित</span></div>               
+<div>Ebb and Flow  <span id="absolute" class="hover">उतार-चढ़ाव</span></div>
+<div>Foster  <span id="absolute" class="hover">encourage</span></div>
+<div>Come what may <span id="absolute" class="hover">चाहे कुछ भी हो</span></div>
+<div>Confluence <span id="absolute" class="hover">संगम, Convergence </span></div>
+<div>Fade away  <span id="absolute" class="hover">मिट जाना, Disappear</span></div>
+<div>Stray  <span id="absolute" class="hover">wander off</span></div>
+<div>Absentmindedly <span id="absolute" class="hover">बिना सोचे-समझे</span></div>
+<div>Extended <span id="absolute" class="hover">used to show length of time</span>
+  <div class="popup" onclick="myFunction('p10_pop1')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p10_pop1">After an extended/enlarged period of inactivity, Vesuvius erupted with devastating force </span>
+  </div>
+</div>
+
+<div>Groundbreaking <span id="absolute" class="hover">innovative</span>
+  <div class="popup" onclick="myFunction('p10_pop2')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p10_pop2">The scientist's groundbreaking research opened new possibilities in cancer treatment. </span>
+  </div>
+</div>
+<div>Rally <span id="absolute" class="hover">Bounce back, improve</span>
+  <div class="popup" onclick="myFunction('p10_pop3')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p10_pop3">The stock market rallied after the announcement of the new economic policy </span>
+  </div>
+</div>
+
+
+
+
+<div>Paradigm shift <span id="absolute" class="hover">fundamental change</span>
+  <div class="popup" onclick="myFunction('p10_pop4')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p10_pop4">The invention of the internet marked a paradigm shift in how we communicate and access information. </span>
+  </div>
+</div>
+
+<div>Call off<span id="absolute" class="hover">postpone</span>
+  <div class="popup" onclick="myFunction('p10_pop5')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p10_pop5">The coach decided to call off the game due to heavy rain. </span>
+  </div>
+</div>
+
+<div>Put off  <span id="absolute" class="hover">postpone , discouraged</span></div>
+<div>put out  <span id="absolute" class="hover">Extinguish especially fire</span></div>
+<div>Dwindle  <span id="absolute" class="hover">क्षीण होना, Diminish.</span>
+  <div class="popup" onclick="myFunction('p10_pop6')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p10_pop6">As the night went on, the crowd at the concert began to dwindle. </span>
+  </div>
+</div>
+
+<div>Doodle <span id="absolute" class="hover">बिना किसी उद्देश्य के घसीटना (लिखना)</span>
+  <div class="popup" onclick="myFunction('p10_pop7')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p10_pop7">She absentmindedly began to doodle on the corner of her notebook. </span>
+  </div>
+</div>
+<div> Desperation  <span id="absolute" class="hover">Hopelessness,Despair, निराशा</span></div>
+<div>Clung - <span id="absolute" class="hover">चिपटना, Cling clung clung</span></div>
+
+<div>Painstaking  <span id="absolute" class="hover">Assiduous, Careful</span>
+  <div class="popup" onclick="myFunction('p10_pop8')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p10_pop8">Despite Modestini's painstaking efforts, the painting still appears rather odd. </span>
+  </div>
+</div>
+
+
+<div>Viability <span id="absolute" class="hover">ability to work successfully</span>
+  <div class="popup" onclick="myFunction('p10_pop9')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p10_pop9"> To check the viability of currency in digital form </span>
+  </div>
+</div>
+<div>Upended <span id="absolute" class="hover">Ended,Suspended </span>
+  <div class="popup" onclick="myFunction('p10_pop9')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p10_pop9">Teachers' lives have also been upended by the pandemic </span>
+  </div>
+</div>
+<div>Precedents, President (imp Spelling)</div>
+<div>Entrepreneur, Experience, success  (imp spelling)</div>
+<div>Excess / Assess/ Access (imp Spelling)</div>
+
+
+  <div> </div>
+  <div> </div>
+
+     </div>
+                
+                `;}
+
+                else if(pageNum==11){
+                contentContainer.innerHTML= `
+<div class="scrollbar">
+  
+<div>Weird <span id="absolute" class="hover">अजीब</span></div>
+<div>Rug <span id="absolute" class="hover">कम्बल</span></div>
+<div>Conviction <span id="absolute" class="hover">Belief</span></div>
+<div>Gullible <span id="absolute" class="hover">सीधा-सादा</span></div>
+<div>Critique <span id="absolute" class="hover">A detailed analysis and assessment</span>
+  <div class="popup" onclick="myFunction('p11_pop1')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p11_pop1">A detailed analysis and assessment One of the major critiques of the examination</span>
+  </div>
+</div>
+<div>Appealing <span id="absolute" class="hover">Attractive. appealing place.</span></div>
+<div>Swagger <span id="absolute" class="hover">parade, अकड़</span>
+  <div class="popup" onclick="myFunction('p11_pop2')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p11_pop2">They strolled around the camp with an exaggerated swagger</span>
+  </div>  
+</div>
+
+<div>Practicing due diligence <span id="absolute" class="hover"> being cautious.</span> 
+  <div id="hi" class="popup" onclick="myFunction('p11_pop3')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p11_pop3"> We should practicing due diligence while taking decision</span>
+  </div> 
+</div>
+<div>Weak, Week <span id="absolute" class="hover"> कमजोर , सप्ताह</span></div>
+
+<div>Make do 
+  <div id="hi" class="popup" onclick="myFunction('p11_pop4')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p11_pop4">Manage with the limited or inadequate means available</span>
+  </div> 
+</div>
+<div>Upbeat <span id="absolute" class="hover">Cheerful, optimistic. He was upbeat.</span></div>
+<div>Accomplished <span id="absolute" class="hover">highly skilled</span>
+  <div id="hi" class="popup" onclick="myFunction('p11_pop5')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p11_pop5"> An accomplished cricketer.</span>
+  </div>
+</div>
+<div>Portrait <span id="absolute" class="hover">painting, picture.</span></div>
+<div>Accommodate  <span id="absolute" class="hover">ठहराना, जगह देना</span></div>
+<div>Scenes  <span id="absolute" class="hover">दृश्य</span></div>
+<div>Gloss and Glamour  <span id="absolute" class="hover">चमक-दमक</span></div>
+<div>Beat yourself up  <span id="absolute" class="hover">To blame yourself unnecessarily.</span></div>
+<div>Escalation <span id="absolute" class="hover">rapid increase.</span>
+  <div id="hi" class="popup" onclick="myFunction('p11_pop6')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p11_pop6"> Escalation of the U.S. and China trade war</span>
+  </div>
+</div>
+<div>weigh on  <span id="absolute" class="hover">to put pressure on someone or something.</span></div>
+<div>Cut corners <span id="absolute" class="hover">to do something quickly or cheaply.</span>
+  <div id="hi" class="popup" onclick="myFunction('p11_pop6')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p11_pop6">I don’t like to cut corners when I have company for dinner. </span>
+  </div> 
+</div>
+<div>Take off <span id="absolute" class="hover">to leave. </span>
+  <div id="hi" class="popup" onclick="myFunction('p11_pop6')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p11_pop6">In the morning, we had to take off from our hotel at 9am.</span>
+  </div>
+</div>
+<div>pasture land  <span id="absolute" class="hover">land for grazing.</span></div>
+<div>Bustling city  <span id="absolute" class="hover">lively, vibrant, crowded city</span></div>
+<div>Ransom <span id="absolute" class="hover">फिरौती, धन देकर छुड़ाना</span>
+  <div id="hi" class="popup" onclick="myFunction('p11_pop7')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p11_pop7">The kidnappers demanded a hefty ransom for the safe return of the hostages.</span>
+  </div> 
+</div>
+<div>Meadow <span id="absolute" class="hover">घास का मैदान</span></div>
+<div>Bend Bent Bent</div>
+<div></div> 
+<div></div>
+</div>
+
+                
+                `;}
+                else if(pageNum==12){
+                contentContainer.innerHTML= `
+<div class="scrollbar">
+
+<div>Odour  <span id="absolute" class="hover">unpleasant smell</span></div>
+<div>Plague  <span id="absolute" class="hover">महामारी, Epidemic</span></div>
+<div>Immigration  <span id="absolute" class="hover">Go outside country to live</span>
+  <div id="hi" class="popup" onclick="myFunction('p12_pop1')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p12_pop1">The economic downturn led to a significant increase in emigration from the country.</span>
+  </div>
+</div>
+
+<div>Errant  <span id="absolute" class="hover">culpable, Delinquent, aberrant. भटकनेवाला</span></div>
+
+<div>Unmistakable  <span id="absolute" class="hover">easy to recognize. Thiols are unmistakable.</span></div>
+<div>Relinquish  <span id="absolute" class="hover">त्याग देना</span></div>
+<div>Mask  <span id="absolute" class="hover">to hide feeling, smell, fact, etc</span></div>
+<div>Impair  <span id="absolute" class="hover">weaken or damage. </span>
+  <div id="hi" class="popup" onclick="myFunction('p12_pop2')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p12_pop2">Their speech is often impaired.</span>
+  </div>
+</div>
+<div>Maternal aunt  <span id="absolute" class="hover">माँ की बहन</span></div>
+<div>Overtake  <span id="absolute" class="hover">cross, aage nikalna</span></div>
+<div>Intimate  <span id="absolute" class="hover">inform, close friend</span>
+  <div id="hi" class="popup" onclick="myFunction('p12_pop3')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p12_pop3">
+         "She intimated that she might leave the company."</br>
+          "He shared his secrets with his intimates."
+      </span>
+  </div>
+</div>
+<div>Patience  <span id="absolute" class="hover">धैर्य</span></div>
+<div>Patient  <span id="absolute" class="hover">मरीज़</span></div>
+<div>Impatience  <span id="absolute" class="hover">अधीरता, Restlessness</span></div>
+<div>Inventory  <span id="absolute" class="hover">catalog, वस्तुसूची</span></div>
+<div>lesion  <span id="absolute" class="hover">wound, injury.</span></div>
+<div>Memory  <span id="absolute" class="hover">याददाश्त</span></div>
+<div>Memories  <span id="absolute" class="hover">यादे</span></div>
+<div>Run down  <span id="absolute" class="hover">criticize</span></div>
+<div>Run out  <span id="absolute" class="hover">come to an end.</span>
+  <div id="hi" class="popup" onclick="myFunction('p12_pop4')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p12_pop4"> Our food is about to run out.</span>
+  </div>
+</div>
+<div>Citadel  <span id="absolute" class="hover">fortress</span></div>
+<div>Ramshackle  <span id="absolute" class="hover">टूटा-फूटा, a ramshackle cottage</span></div>
+<div>Siege  <span id="absolute" class="hover">Military operation</span></div>
+<div>Adhere  <span id="absolute" class="hover">stick fast to (a surface or substance)</span>
+  <div id="hi" class="popup" onclick="myFunction('p12_pop5')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p12_pop5">Adhere to the safety guidelines, </br>The glue was strong enough to make the paper adhere to the cardboard </span>
+  </div>
+</div>
+<div>Dart <span id="absolute" class="hover">move or run somewhere quickly</span>
+  <div id="hi" class="popup" onclick="myFunction('p12_pop6')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p12_pop6">The cat made a dart for the door</span>
+  </div>
+</div>
+<div>Stampede  <span id="absolute" class="hover">भगदड़</span></div>
+<div>Canonical  <span id="absolute" class="hover">accurate</span></div>
+
+<div>Great  <span id="absolute" class="hover">महान (spelling)</span></div>
+<div>Bygone  <span id="absolute" class="hover">belonging to an earlier time. </span>
+  <div id="hi" class="popup" onclick="myFunction('p12_pop7')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p12_pop7">Tales of a bygone era.</span>
+  </div> 
+</div>
+
+<div></div> 
+<div></div>
+</div>
+                
+                `;}
+                else if(pageNum==13){
+                contentContainer.innerHTML= `
+<div class="scrollbar">
+<div>Spied  <span id="absolute" class="hover">मसालेदार</span></div>
+<div>Braise  <span id="absolute" class="hover">fry lightly</span></div>
+<div>Tender  <span id="absolute" class="hover">soft, Tender Memory</span>
+  <div id="hi" class="popup" onclick="myFunction('p13_pop1')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p13_pop1">The meat is spiced and delicately braised in stock until tender</span>
+  </div>
+</div>
+<div>Alpine  <span id="absolute" class="hover">ऊंचे पहाड़</span></div>
+<div>Atypical  <span id="absolute" class="hover">unusual. </span>
+  <div id="hi" class="popup" onclick="myFunction('p13_pop2')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p13_pop2">One can grow rock gardens in atypical growing conditions.</span>
+  </div>
+</div>
+<div>Cranny  <span id="absolute" class="hover">a small, narrow space</span></div>
+<div>On the run  <span id="absolute" class="hover">hiding or trying to escape.</span>
+  <div id="hi" class="popup" onclick="myFunction('p13_pop3')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p13_pop3">After the bank robbery, the criminals were on the run from the police.</span>
+  </div>
+</div>
+<div>Diverse  <span id="absolute" class="hover">Great deal of variety(Adj)</span>
+  <div id="hi" class="popup" onclick="myFunction('p13_pop4')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p13_pop4">The city is known for its diverse population, with residents from all over the world..</span>
+  </div>  
+</div>
+<div>Diversity  <span id="absolute" class="hover">the state of being diverse. (NOUN)</span></div>
+<div>Squander <span id="absolute" class="hover">waste. Don't squander your time.</span></div>
+<div>Rescind  <span id="absolute" class="hover">revoke. Rescind a law.</span></div>
+<div>Come a long way  <span id="absolute" class="hover">Make significant progress.</span>
+  <div id="hi" class="popup" onclick="myFunction('p13_pop5')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p13_pop5">Technology has come a long way in the past decade, making our lives more convenient and connected.</span>
+  </div>
+</div>
+<div>Stirring  <span id="absolute" class="hover">Aggravating, क्रोध दिखलानेवाला. </span>
+  <div id="hi" class="popup" onclick="myFunction('p13_pop6')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p13_pop6">Stirring conversation.</span>
+  </div>
+</div>
+<div>Sewer  <span id="absolute" class="hover">नाली</span></div>
+<div>Canadian  <span id="absolute" class="hover">(singular)</span></div>
+<div>Indian  <span id="absolute" class="hover">(singular)</span></div>
+<div>Sums  <span id="absolute" class="hover">calculations and predictions. </span>
+  <div id="hi" class="popup" onclick="myFunction('p13_pop7')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p13_pop7">The next step, of course, is to try it for real, but Dr Bermel is pretty confident that his sums are correct.</span>
+  </div> 
+</div>
+<div>Discourse  <span id="absolute" class="hover">discussion.</span></div>
+<div>Intricate  <span id="absolute" class="hover">complex.</span></div>
+<div>Scribes   <span id="absolute" class="hover">clerk</span>
+  <div id="hi" class="popup" onclick="myFunction('p13_pop8')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p13_pop8">In ancient times, scribes were responsible for recording important events and keeping historical records</span>
+  </div>
+</div>
+<div>Address  <span id="absolute" class="hover">पता, संबोधित करना</span></div>
+<div>Facade  <span id="absolute" class="hover">मुखौटा</span></div>
+
+<div>Egalitarian  <span id="absolute" class="hover">all people are equal</span></div>
+<div>Befuddled  <span id="absolute" class="hover">confused</span></div>
+<div>Allusion  <span id="absolute" class="hover">signal, getting allusion</span></div>
+<div>Illusion  <span id="absolute" class="hover">माया</span></div>
+<div>Staggering  <span id="absolute" class="hover">Deeply shocking.</span>
+  <div id="hi" class="popup" onclick="myFunction('p13_pop9')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p13_pop9">The cost of the project was staggering.</span>
+  </div>
+</div>
+<div>Confluence  <span id="absolute" class="hover">convergence</span>
+  <div id="hi" class="popup" onclick="myFunction('p13_pop10')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p13_pop10">The confluence of the two rivers created a powerful and wide waterway..</span>
+  </div>
+</div>
+<div>Moniker  <span id="absolute" class="hover">उपनाम, Nickname</span>
+<div></div> 
+<div></div>
+
+</div>
+                
+                `;}
+                else if(pageNum==14){
+                contentContainer.innerHTML= `
+                <div class="scrollbar">
+<div>stereotyped  <span id="absolute" class="hover">conventional. रूढ़बद्ध</span></div>
+<div>evince <span id="absolute" class="hover">show. No private player came forward to evince interest.</span></div>
+<div>cropper - <span id="absolute" class="hover">असफलता. Attempt to privatize the Indian rail came a cropper last summer.</span></div>
+<div>lonesome - <span id="absolute" class="hover">एकाकी. </span></div>
+<div>Dusk - <span id="absolute" class="hover">evening.</span></div>
+<div>Dawn - <span id="absolute" class="hover">morning.</span></div>
+<div>Bag - <span id="absolute" class="hover">secure.</span></div>
+<div>A man/woman of action - <span id="absolute" class="hover">someone who prefers to do things rather than think.</span></div>
+<div>good enough - <span id="absolute" class="hover">(not specified in your message)</span></div>
+<div>enough good is wrong.</div>
+<div>Tantamount - <span id="absolute" class="hover">Equivalent to.</span></div>
+<div>abuzz - <span id="absolute" class="hover">भनभनाहट के शब्द से पूरा. The air was abuzz with military helicopters.</span></div>
+<div>Stationary - <span id="absolute" class="hover">not moving.</span></div>
+<div>Stationery - <span id="absolute" class="hover">writing materials.</span></div>
+<div>steer - <span id="absolute" class="hover">रास्ते पर लाना, steer Sri Lanka out of present impasses.</span></div>
+<div>ceramics - <span id="absolute" class="hover">इंमटी के बरतन</span></div>
+<div>chip away - <span id="absolute" class="hover">to remove. Microfinance chips away poverty.</span></div>
+<div>piqued - <span id="absolute" class="hover">पैदा करना, arouse. The success of Mibanco has piqued the interest of banks.</span></div>
+<div>shunned - <span id="absolute" class="hover">दूर करना, shunned the country's poor.</span></div>
+<div>Defendant - <span id="absolute" class="hover">accused</span></div>
+<div>Sentence - <span id="absolute" class="hover">सजा, judge passing sentence.</span></div>
+<div>set aside - <span id="absolute" class="hover">to ignore.</span></div>
+<div>All set - <span id="absolute" class="hover">completely ready. The bill is all set.</span></div>
+<div>stalemate - <span id="absolute" class="hover">deadlock.</span></div>
+<div>spill - <span id="absolute" class="hover">फैल जाना. Light spilled across the church as a door leading to the chambers in the rear opened.</span></div>
+<div>Intently - <span id="absolute" class="hover">एकाग्रिता से, The Shepherd listened intently trying to follow the strange English words.</span></div>
+<div>take down - <span id="absolute" class="hover">dismantle and remove a structure. Villain was trying to take down the central city.</span></div>
+<div>Thought vs though - spelling.</div>
+
+</div>
+                
+                `;}
+                else if(pageNum==15){
+                contentContainer.innerHTML= `
+                <div class="scrollbar">
+
+<div>Impasse - <span id="absolute" class="hover">deadlock, िगतरोध</span></div>
+<div>Veneration - <span id="absolute" class="hover">उपासना</span></div>
+<div>Reverence - <span id="absolute" class="hover">श्रद्धा</span></div>
+<div>Breakthrough - <span id="absolute" class="hover">an important discovery or development. A major breakthrough in DNA research.</span></div>
+<div>Takeout food - <span id="absolute" class="hover">order food from a restaurant but eat it at home, like pizza.</span></div>
+<div>Blow up - <span id="absolute" class="hover">to explode</span></div>
+<div>Blow out - <span id="absolute" class="hover">be extinguished by an air current.</span></div>
+<div>Blow off - <span id="absolute" class="hover">to decide not to do something you are expected to do.</span></div>
+<div>Pass up - <span id="absolute" class="hover">fail to take. He passed up the opportunity to go to university.</span></div>
+<div>Pass on - <span id="absolute" class="hover">देना, like we pass on football in football match.</span></div>
+<div>Pass over - <span id="absolute" class="hover">to ignore or to not give attention to someone.</span></div>
+<div>Pass through - <span id="absolute" class="hover">पारित होना, pass through</span></div>
+<div>Pudding - <span id="absolute" class="hover">Halva. The pudding is a gesture of appreciation for all those who work to bring out the Budget.</span></div>
+<div>Gesture - <span id="absolute" class="hover">signal</span></div>
+<div>Bring out - <span id="absolute" class="hover">परिक्षित करना</span></div>
+<div>enterprise - <span id="absolute" class="hover">business, fraught political enterprise.</span></div>
+<div>contingent feature - <span id="absolute" class="hover">आकस्मिक, accidental, incidental feature</span></div>
+<div>presumptuous - <span id="absolute" class="hover">overconfident</span></div>
+<div>--Ous turn noun into adjective. Emerging infectious disease has.</div>
+<div>solemn - <span id="absolute" class="hover">serious. solemn expression.</span></div>
+<div>incendiaries - <span id="absolute" class="hover">भड़काने वाले.</span></div>
+<div>deliberated - <span id="absolute" class="hover">विचार-विमर्श किया गया.</span></div>
+<div>totalitarian - <span id="absolute" class="hover">It is used for a country having only one political party.</span></div>
+<div>Edge - <span id="absolute" class="hover">side, rectangle has 4 edge</span></div>
+<div>Adjective suffix - <span id="absolute" class="hover">-AL, -FUL, -OUS, -ABLE, -IBLE</span></div>
+<div>Personal, Beautiful, Dangerous</div>
+<div>Noun suffix - (not specified in your message)</div>
+<div>Deed - <span id="absolute" class="hover">legal document.</span></div>
+<div>Perish - <span id="absolute" class="hover">नष्ट हो जाना, City perished in attack.</span></div>
+<div>Recreation - <span id="absolute" class="hover">मनोरंजन. What you do for recreation</span></div>
+
+</div>                
+                `;}
+                else if(pageNum==16){
+                contentContainer.innerHTML= `
+                <div class="scrollbar">
+<div>Terse - <span id="absolute" class="hover">संक्षिप्त, brief.</span></div>
+<div>Vivid - <span id="absolute" class="hover">Crystal clear.</span></div>
+<div>wane - <span id="absolute" class="hover">पतन.</span></div>
+<div>perverted - <span id="absolute" class="hover">distorted.</span></div>
+<div>Ambivalent - <span id="absolute" class="hover">uncertain. Zack felt ambivalent about his future.</span></div>
+<div>Rustic - <span id="absolute" class="hover">देहाती, ग्रामीण.</span></div>
+<div>obdurate - <span id="absolute" class="hover">obstinate.</span></div>
+<div>milieu - <span id="absolute" class="hover">Environment.</span></div>
+<div>rage - <span id="absolute" class="hover">violence uncontrolled anger.</span></div>
+<div>Nosedive - <span id="absolute" class="hover">plummet, drop down at high speed.</span></div>
+<div>resuscitate - <span id="absolute" class="hover">पुनर्जीवित करना.</span></div>
+<div>levitate - <span id="absolute" class="hover">fly away, उड़ जाना. The woman levitated above the stage.</span></div>
+<div>Scramble - <span id="absolute" class="hover">struggle.</span></div>
+<div>Recuperate - <span id="absolute" class="hover">recover from illness.</span></div>
+<div>Convalesce - <span id="absolute" class="hover">recover from illness.</span></div>
+<div>coup - <span id="absolute" class="hover">तख्ता पलट.</span></div>
+<div>Cop - <span id="absolute" class="hover">police.</span></div>
+<div>poignant - <span id="absolute" class="hover">painful, tearful. Poignant missives collection of Mandela.</span></div>
+<div>To cut some slack - <span id="absolute" class="hover">to not judge someone quickly.</span></div>
+<div>fool's paradise - <span id="absolute" class="hover">झूठी खुशी, A state of being ignorant of the problems.</span></div>
+<div>Lead - <span id="absolute" class="hover">guide.</span></div>
+<div>flawed - <span id="absolute" class="hover">incorrect. It is flawed economically.</span></div>
+<div>fortune - <span id="absolute" class="hover">Luck.</span></div>
+<div>fortune - <span id="absolute" class="hover">wealth, riches.</span></div>
+<div>fraught - <span id="absolute" class="hover">anxious.</span></div>
+<div>Counts - <span id="absolute" class="hover">matters. You disagree on both counts.</span></div>
+<div>lie - <span id="absolute" class="hover">झूठ बोलना, लेटना. Herein lies the technological problem.</span></div>
+<div>sedentary worker - <span id="absolute" class="hover">inactive worker, desk worker.</span></div>
+<div>Diffident - <span id="absolute" class="hover">shy.</span></div>
+<div>exhilarate - <span id="absolute" class="hover">make someone very happy.</span></div>
+<div>patients - <span id="absolute" class="hover">मरीजों (spelling)</span></div>
+</div>
+
+                
+                `;}
+                else if(pageNum==17){     
+                contentContainer.innerHTML= `
+                <div class="scrollbar">
+<div>Concomitant - <span id="absolute" class="hover">सहगामी, she loved travel, with all its concomitant worries.</span></div>
+<div>Ad hoc - <span id="absolute" class="hover">special, विशेष, Jnk got ad hoc state status.</span></div>
+<div>(Unrecognized characters in your message)</div>
+<div>Neighbor - <span id="absolute" class="hover">पड़ोसी</span></div>
+<div>outcome - <span id="absolute" class="hover">Result, परिणाम.</span></div>
+<div>come to pass - <span id="absolute" class="hover">happen or occur. We do not think of the outcome which generally comes to pass.</span></div>
+<div>mendacious - <span id="absolute" class="hover">dishonest, झूठ बोलने.</span></div>
+<div>tale - <span id="absolute" class="hover">short story.</span></div>
+<div>woe - <span id="absolute" class="hover">sorrow, pain.</span></div>
+<div>The mendacious beggar told a different tale of woe in every house.</div>
+<div>missive - <span id="absolute" class="hover">message.</span></div>
+<div>Bloat - <span id="absolute" class="hover">to remove liquid from a surface. She blotted a tear with her fingertip.</span></div>
+<div>Tear up - <span id="absolute" class="hover">रोजगार के अधिकार छीनना</span></div>
+<div>stand up - <span id="absolute" class="hover">सामना करना</span></div>
+<div>Loom - <span id="absolute" class="hover">emerge, appear. The issue of pay will loom large at the meeting.</span></div>
+<div>Loom - <span id="absolute" class="hover">कपड़ा बुनने का machine.</span></div>
+<div>Mull - <span id="absolute" class="hover">ponder, think over.</span></div>
+<div>Hover - <span id="absolute" class="hover">मंडराना.</span></div>
+<div>Spruce up - <span id="absolute" class="hover">To make (someone or something) look cleaner, neater, more attractive.</span></div>
+<div>Dapper - <span id="absolute" class="hover">neat and tidy, well dressed.</span></div>
+<div>prim - <span id="absolute" class="hover">Neat and clean.</span></div>
+<div>Embargo - <span id="absolute" class="hover">prohibition or ban.</span></div>
+<div>interdiction - <span id="absolute" class="hover">पाबंदी.</span></div>
+<div>Paltry - <span id="absolute" class="hover">meager, अल्प.</span></div>
+<div>Paltry - <span id="absolute" class="hover">insignificant, तुच्छ.</span></div>
+
+</div>
+                
+                `;}
+                else if(pageNum==18){
+                contentContainer.innerHTML= `
+                <div class="scrollbar">
+<div>Turn over a new leaf - <span id="absolute" class="hover">improve/ reform.</span></div>
+<div>Customize - <span id="absolute" class="hover">modify to make suitable.</span></div>
+<div>Earnest - <span id="absolute" class="hover">serious. Earnest student.</span></div>
+<div>Tepid interest - <span id="absolute" class="hover">less interest.</span></div>
+<div>Doldrums - <span id="absolute" class="hover">a state of stagnation or depression. Economy is in doldrums.</span></div>
+<div>Lukewarm response - <span id="absolute" class="hover">effortless response.</span></div>
+<div>Plumb - <span id="absolute" class="hover">Measure the depth of a body of water.</span></div>
+<div>Affront - <span id="absolute" class="hover">insult. It is an affront to democracy.</span></div>
+<div>in effect - <span id="absolute" class="hover">वास्तव में.</span></div>
+<div>Fall - <span id="absolute" class="hover">शरद ऋतु.</span></div>
+<div>suite - <span id="absolute" class="hover">a set of rooms designated for a particular purpose.</span></div>
+<div>rode - <span id="absolute" class="hover">Ride. rode ridden.</span></div>
+<div>road - <span id="absolute" class="hover">Road accident.</span></div>
+<div>loot - <span id="absolute" class="hover">stolen money or valuables.</span></div>
+<div>put off - <span id="absolute" class="hover">स्थिगत करना, avert, postpone.</span></div>
+<div>Torrent - <span id="absolute" class="hover">a strong and fast-moving stream.</span></div>
+<div>Ledger - <span id="absolute" class="hover">Account book.</span></div>
+<div>effluent - <span id="absolute" class="hover">Liquid waste.</span></div>
+<div>Affluent - <span id="absolute" class="hover">wealthy.</span></div>
+<div>Stout - <span id="absolute" class="hover">हट्टा-कट्टा.</span></div>
+<div>Scrambling and pushing - <span id="absolute" class="hover">धक्का-मुक्की कर रही थी.</span></div>
+<div>Enamored - <span id="absolute" class="hover">मोहित.</span></div>
+<div>insatiable - <span id="absolute" class="hover">अतृप्य. The hunger for power is insatiable.</span></div>
+<div>stimulation - <span id="absolute" class="hover">उत्तेजना.</span></div>
+<div>stimulant - <span id="absolute" class="hover">उत्तेजक पदार्थ.</span></div>
+<div>rendezvous - <span id="absolute" class="hover">meeting. He gave me details of a midnight rendezvous.</span></div>
+<div>Access - <span id="absolute" class="hover">पहुँच.</span></div>
+<div>excess - <span id="absolute" class="hover">अतिरिक्त.</span></div>
+<div>Ramp up - <span id="absolute" class="hover">increase. How do you ramp up your self-motivation?</span></div>
+<div>Whip up - <span id="absolute" class="hover">excite or provoke. Motivational speakers whip up your emotions.</span></div>
+
+</div>
+                
+                `;}
+                else if(pageNum==19){
+                contentContainer.innerHTML= `
+
+
+                
+                `;}
+                else if(pageNum==20){
+                contentContainer.innerHTML= `
+
+
+                
+                `;}
+                else if(pageNum==21){
+                contentContainer.innerHTML= `
+
+
+                
+                `;}
+                else if(pageNum==22){
+                contentContainer.innerHTML= `
+
+
+                
+                `;}
+                else if(pageNum==23){
+                contentContainer.innerHTML= `
+
+
+                
+                `;}
+                else if(pageNum==24){
+                contentContainer.innerHTML= `
+
+
+                
+                `;}
+                else if(pageNum==25){
+                contentContainer.innerHTML= `
+
+
+                
+                `;}
+
+
+          else {
+            contentContainer.textContent = `This is page ${pageNum}`;
+         }
+    }
+
+    const buttonsContainer = document.getElementById('buttonsContainer');
+    buttonsContainer.addEventListener('wheel', (event) => {
+        event.preventDefault();
+        buttonsContainer.scrollBy(0, event.deltaY);
+    });
+</script>
+
+
+  <script>
+    function myFunction(popupId) {
+        var popup = document.getElementById(popupId);
+        var isVisible = popup.classList.contains("show");
+
+        // Close any open popups
+        var popups = document.getElementsByClassName("popuptext");
+        for (var i = 0; i < popups.length; i++) {
+            popups[i].classList.remove("show");
+        }
+
+        // Toggle the clicked popup based on its previous state
+        if (!isVisible) {
+            popup.classList.add("show");
+        }
+    }
+
+  //  Button ka color change hoga on click    
+  
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const buttons = document.querySelectorAll('.colorButton');
+    let currentlyClickedButton = null;
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Reset the color of the previously clicked button
+            if (currentlyClickedButton && currentlyClickedButton !== button) {
+                currentlyClickedButton.classList.remove('clicked');
+            }
+
+            // Toggle the clicked class on the current button
+            button.classList.toggle('clicked');
+
+            // Update the currently clicked button
+            currentlyClickedButton = button.classList.contains('clicked') ? button : null;
+        });
+    });
+});
+
+
+
+</script>
+
+  
+</body>
+</html>
+
+
