@@ -7,8 +7,10 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="englishPracticeSet.css">
-
-
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
 </head>
 <body onload="showPage(1)">
 
@@ -50,6 +52,7 @@
     const contentContainer = document.getElementById('contentContainer');
     if (pageNum === 1) {
       contentContainer.innerHTML = `
+      
       <div class="scrollbar">
         <h2>Read the following passage carefully and answer the questions given below</h2>
         <h4>Banking on Obfuscation: A Critique of Financial Jargon </h4>
@@ -71,7 +74,7 @@
 
     <h3>What is the primary criticism of the banking industry's use of language in the passage?</h3>
     <p class="option" onclick="highlight(this, false)">A) It is too simple and lacks detail.</p>
-    <p class="option" onclick="highlight(this, false)">B) It is excessively technical and complex.</p>
+    <p class="option" onclick="highlight(this, true)">B) It is excessively technical and complex.</p>
     <p class="option" onclick="highlight(this, false)">C) It is outdated and not relevant to modern finance.</p>
     <p class="option" onclick="highlight(this, false)">D) It is inconsistent across different financial products.</p>
 
@@ -80,13 +83,33 @@
     <p class="option" onclick="highlight(this, false)">A) Increased customer satisfaction and trust.</p>
     <p class="option" onclick="highlight(this, false)">B) Enhanced financial literacy among consumers.</p>
     <p class="option" onclick="highlight(this, false)">C) Reduced susceptibility to predatory lending practices.</p>
-    <p class="option" onclick="highlight(this, false)">D) Difficulty in informed decision-making for consumers.</p>
+    <p class="option" onclick="highlight(this, true)">D) Difficulty in informed decision-making for consumers.</p>
 
     <h3>What role do financial regulators play in addressing the issue of complex financial jargon, according to the passage?</h3>
     <p class="option" onclick="highlight(this, false)">A) They should promote the use of more complex terms.</p>
     <p class="option" onclick="highlight(this, false)">B) They should ensure that financial products are marketed only to experts.</p>
-    <p class="option" onclick="highlight(this, false)">C) They should implement plain language guidelines to make financial terms more accessible.</p>
+    <p class="option" onclick="highlight(this, true)">C) They should implement plain language guidelines to make financial terms more accessible.</p>
     <p class="option" onclick="highlight(this, false)">D) They should discourage transparency to protect confidential information.</p>
+<div class="popup" onclick="myFunction('p11_pop1')"><h3>Click Here</h3> &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-play"></i>
+<span class="popuptext" id="p11_pop1">
+<p>Obfuscation - anxiety</p>
+<p>Critique - analysis</p>
+<p>Financial Jargon - financial complex term</p>
+<p>Lexicon - vocabulary</p>
+<p>Labyrinthine tapestry - complex and detail</p>
+<p>Arcane terms - difficult term</p>
+<p>Linguistic citadel - hard language</p>
+<p>Impregnable - impenetrable</p>
+<p>Obfuscatory - opaque</p>
+<p>Detriment - damage, loss</p>
+<p>Subprime - risky loan</p>
+<p>Mortgage - िगरवी</p>
+<p>Credit default swap - it acts like insurance against default on a debt.</p>
+<p>Discourse - discussion</p>
+<p>Chimera - dream</p>
+<p>Populace susceptible to - people prone to</p>
+</span>
+</div>
     <br><br><br><br><br><br>
       </div>`;
 
@@ -114,6 +137,10 @@
         <p class="option" onclick="highlight(this, true)">D. From 2011 until last year, Brazil's government has been trying to stimulate the economy by offering labour tax breaks, subsidizing petrol and lowering the price of electricity.</p>
         <p class="option" onclick="highlight(this, false)">E. Nowadays companies seem to be promoting their brands as saleable items even more than the actual products.</p>
 
+
+
+
+
           <br><br><br><br><br><br>
 
       </div>
@@ -140,6 +167,8 @@
 </script>
 
 <script>
+
+// Change Button color
   document.addEventListener('DOMContentLoaded', (event) => {
     const buttons = document.querySelectorAll('.colorButton');
     let currentlyClickedButton = null;
@@ -159,6 +188,24 @@
         });
     });
 });
+</script>
+
+<script>
+  function myFunction(popupId) {
+      var popup = document.getElementById(popupId);
+      var isVisible = popup.classList.contains("show");
+
+      // Close any open popups
+      var popups = document.getElementsByClassName("popuptext");
+      for (var i = 0; i < popups.length; i++) {
+          popups[i].classList.remove("show");
+      }
+
+      // Toggle the clicked popup based on its previous state
+      if (!isVisible) {
+          popup.classList.add("show");
+      }
+  }
 </script>
 
 </body>
