@@ -85,6 +85,7 @@ button {
     font-weight: 400;
     color: white;  
 }
+/* Button color change */
 .colorButton.clicked {
   background-color: #1bb6a4e4;
   border: #007bff;

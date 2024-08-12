@@ -19,20 +19,19 @@
 <div class="container1">
   <div class="content-container" id="contentContainer"></div>
   <div class="buttons-container" id="buttonsContainer">
-    <button onclick="showPage(1)">1</button>
-    <button onclick="showPage(2)">2</button>
-    <button onclick="showPage(3)">3</button>
-    <button onclick="showPage(1)">1</button>
-    <button onclick="showPage(2)">2</button>
-    <button onclick="showPage(3)">3</button>
-    <button onclick="showPage(1)">1</button>
-    <button onclick="showPage(2)">2</button>
-    <button onclick="showPage(3)">3</button>
-    <button onclick="showPage(1)">1</button>
-    <button onclick="showPage(2)">2</button>
-    <button onclick="showPage(3)">3</button>
-    <button onclick="showPage(1)">1</button>
-    <button onclick="showPage(2)">2</button>
+    <button class="colorButton" onclick="showPage(1)">1</button>
+    <button class="colorButton" onclick="showPage(2)">2</button>
+    <button class="colorButton" onclick="showPage(3)">3</button>
+    <button class="colorButton" onclick="showPage(1)">4</button>
+    <button class="colorButton" onclick="showPage(2)">5</button>
+    <button class="colorButton" onclick="showPage(3)">6</button>
+    <button class="colorButton" onclick="showPage(2)">7</button>
+    <button class="colorButton" onclick="showPage(3)">8</button>
+    <button class="colorButton" onclick="showPage(1)">9</button>
+    <button class="colorButton" onclick="showPage(2)">10</button>
+    <button class="colorButton" onclick="showPage(3)">11</button>
+    <button class="colorButton" onclick="showPage(1)">12</button>
+    <button class="colorButton" onclick="showPage(2)">13</button>
     <button onclick="showPage(3)">3</button>
     <button onclick="showPage(1)">1</button>
     <button onclick="showPage(2)">2</button>
@@ -50,7 +49,48 @@
   function showPage(pageNum) {
     const contentContainer = document.getElementById('contentContainer');
     if (pageNum === 1) {
-      contentContainer.innerHTML = '';
+      contentContainer.innerHTML = `
+      <div class="scrollbar">
+        <h2>Read the following passage carefully and answer the questions given below</h2>
+        <h4>Banking on Obfuscation: A Critique of Financial Jargon </h4>
+
+<p>The lexicon of the banking industry is a labyrinthine tapestry, woven with arcane terms and convoluted phrases. It is a linguistic citadel, impregnable to the uninitiated, where transparency is sacrificed at the altar of opacity. This obfuscatory proclivity serves not only to bewilder the average depositor but also to mask the intricacies of financial transactions, often to the detriment of the consumer.</p>
+
+<p>While precision in language is undoubtedly essential in any specialized field, the banking sector seems to have taken this principle to an extreme. Terms such as 'subprime mortgage', 'collateralized debt obligation', and 'credit default swap' have become commonplace in financial discourse. Yet, their meaning remains elusive to most, serving as a smokescreen for complex and often risky financial instruments.</p>
+
+<p>This linguistic labyrinth is not merely an academic concern. It has far-reaching implications for financial literacy and consumer protection. When customers are unable to comprehend the terms and conditions of their financial products, informed decision-making becomes a chimera. The result is a populace susceptible to predatory lending practices and other forms of financial exploitation.</p>
+
+<p>It is imperative that the banking industry recognizes its responsibility to communicate clearly and concisely. While it may be tempting to shroud financial products in an aura of complexity, such a strategy is ultimately counterproductive. By adopting a more transparent approach, banks can foster trust and build stronger relationships with their customers.</p>
+
+<p>Moreover, financial regulators must play a crucial role in ensuring that the language used by the banking industry is accessible to the public. Mandatory plain language guidelines can help to demystify the world of finance and empower consumers.</p>
+
+<p>In conclusion, the banking industry's penchant for obfuscation is a disservice to its customers. It is time to dismantle the linguistic barriers that have been erected between banks and the public. By promoting financial literacy and adopting plain language principles, we can create a more equitable and transparent financial system.</p>
+
+
+ <h2>Financial Jargon Quiz</h2>
+
+    <h3>What is the primary criticism of the banking industry's use of language in the passage?</h3>
+    <p class="option" onclick="highlight(this, false)">A) It is too simple and lacks detail.</p>
+    <p class="option" onclick="highlight(this, false)">B) It is excessively technical and complex.</p>
+    <p class="option" onclick="highlight(this, false)">C) It is outdated and not relevant to modern finance.</p>
+    <p class="option" onclick="highlight(this, false)">D) It is inconsistent across different financial products.</p>
+
+
+    <h3>According to the passage, what is a potential consequence of the banking industry's use of complex jargon?</h3>
+    <p class="option" onclick="highlight(this, false)">A) Increased customer satisfaction and trust.</p>
+    <p class="option" onclick="highlight(this, false)">B) Enhanced financial literacy among consumers.</p>
+    <p class="option" onclick="highlight(this, false)">C) Reduced susceptibility to predatory lending practices.</p>
+    <p class="option" onclick="highlight(this, false)">D) Difficulty in informed decision-making for consumers.</p>
+
+    <h3>What role do financial regulators play in addressing the issue of complex financial jargon, according to the passage?</h3>
+    <p class="option" onclick="highlight(this, false)">A) They should promote the use of more complex terms.</p>
+    <p class="option" onclick="highlight(this, false)">B) They should ensure that financial products are marketed only to experts.</p>
+    <p class="option" onclick="highlight(this, false)">C) They should implement plain language guidelines to make financial terms more accessible.</p>
+    <p class="option" onclick="highlight(this, false)">D) They should discourage transparency to protect confidential information.</p>
+    <br><br><br><br><br><br>
+      </div>`;
+
+
     } else if (pageNum === 2) {
       contentContainer.innerHTML = `
       <div class="scrollbar">  
@@ -61,28 +101,27 @@
         <p>D. From 2011 until last year, Brazil's government has been trying to stimulate the economy by offering labour tax breaks, subsidizing petrol and lowering the price of electricity.</p>
         <p>E. Nowadays companies seem to be promoting their brands as saleable items even more than the actual products.</p>
 
-        <div class="option" onclick="highlight(this, false)">A B only</div>
-        <div class="option" onclick="highlight(this, false)">B All except A and C</div>
-        <div class="option" onclick="highlight(this, false)">C All except D and E</div>
-        <div class="option" onclick="highlight(this, true)">D B and E</div> <!-- Correct answer -->
-        <div class="option" onclick="highlight(this, false)">E C and D</div>
-                <h2>Identify the grammatically correct and error-free sentence(s):</h2>
-        <p>A. Often ancient writings can tell us about civilizations, but no one have been able to translate the Indus writings.</p>
-        <p>B. We cannot attend to every stimulus in the environment for the simple reason that our nervous system has limited resources.</p>
-        <p>C. Our survey is not scientific of course, but it does offer a glimpse into a system that remain rigid and dogmatic.</p>
-        <p>D. From 2011 until last year, Brazil's government has been trying to stimulate the economy by offering labour tax breaks, subsidizing petrol and lowering the price of electricity.</p>
-        <p>E. Nowadays companies seem to be promoting their brands as saleable items even more than the actual products.</p>
+        <div class="option" onclick="highlight(this, false)">A </div>
+        <div class="option" onclick="highlight(this, false)">B </div>
+        <div class="option" onclick="highlight(this, false)">C </div>
+        <div class="option" onclick="highlight(this, true)">D </div>
+        <div class="option" onclick="highlight(this, false)">E </div>
 
-        <div class="option" onclick="highlight(this, false)">A B only</div>
-        <div class="option" onclick="highlight(this, false)">B All except A and C</div>
-        <div class="option" onclick="highlight(this, false)">C All except D and E</div>
-        <div class="option" onclick="highlight(this, true)">D B and E</div> <!-- Correct answer -->
-        <div class="option" onclick="highlight(this, false)">E C and D</div>
+        <h2>Identify the grammatically correct and error-free sentence(s):</h2>
+        <p class="option" onclick="highlight(this, false)">A. Often ancient writings can tell us about civilizations, but no one have been able to translate the Indus writings.</p>
+        <p class="option" onclick="highlight(this, false)">B. We cannot attend to every stimulus in the environment for the simple reason that our nervous system has limited resources.</p>
+        <p class="option" onclick="highlight(this, false)">C. Our survey is not scientific of course, but it does offer a glimpse into a system that remain rigid and dogmatic.</p>
+        <p class="option" onclick="highlight(this, true)">D. From 2011 until last year, Brazil's government has been trying to stimulate the economy by offering labour tax breaks, subsidizing petrol and lowering the price of electricity.</p>
+        <p class="option" onclick="highlight(this, false)">E. Nowadays companies seem to be promoting their brands as saleable items even more than the actual products.</p>
+
           <br><br><br><br><br><br>
 
       </div>
       `;
-    } else {
+    }else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+     else {
       contentContainer.textContent = `This is page ${pageNum}`;
     }
   }
@@ -98,6 +137,28 @@
       element.classList.add('incorrect');
     }
   }
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const buttons = document.querySelectorAll('.colorButton');
+    let currentlyClickedButton = null;
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Reset the color of the previously clicked button
+            if (currentlyClickedButton && currentlyClickedButton !== button) {
+                currentlyClickedButton.classList.remove('clicked');
+            }
+
+            // Toggle the clicked class on the current button
+            button.classList.toggle('clicked');
+
+            // Update the currently clicked button
+            currentlyClickedButton = button.classList.contains('clicked') ? button : null;
+        });
+    });
+});
 </script>
 
 </body>

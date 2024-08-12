@@ -228,3 +228,18 @@ h1{
 body{
     overflow: hidden;
 }
+
+.blink {
+    animation: blink-animation 1s steps(5, start) infinite;
+    font-weight: 800;
+    color: red;
+    font-family: sans-serif;
+    box-shadow: 0  0 4px black;
+    background-color: #218838;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
