@@ -111,18 +111,18 @@ body {
   border: #007bff;
 }
 
+/* POPUP TEXT  */
 
-/* Popup container - can be positioned as needed */
 .popup {
-  position: relative;
+  position:relative;   /* imp if you make position absolute apeka Poup nahi dikhaga   */
+  left: 210px;
   display: inline-block;
   cursor: pointer;
-  left: 210px;
-  width: 500px;
+  color: #555;
 }
 
-/* The actual popup */
-.popuptext {
+/* The actual popup (appears on top) */
+.popup .popuptext {
   visibility: hidden;
   width: 400px;
   background-color: #555;
@@ -132,22 +132,14 @@ body {
   padding: 8px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%; /* Position the popup above the button */
+  bottom: 125%;
   left: 50%;
-  margin-left: -100px; /* Use margin to center the popup */
-  opacity: 0;
-  transition: opacity 0.3s;
+  margin-left: -80px;
 }
 
-/* Show the popup when triggered */
-.popuptext.show {
-  visibility: visible;
-  opacity: 1;
-}
-
-/* Tooltip arrow */
-.popuptext::after {
-  content: '';
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
   position: absolute;
   top: 100%;
   left: 50%;
@@ -157,24 +149,20 @@ body {
   border-color: #555 transparent transparent transparent;
 }
 
-/* Popup close button */
-.popuptext .close-btn {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
 }
 
-/* Animation for popup appearance */
-.popuptext.show {
-  animation: fadeIn 0.3s ease-in-out;
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {opacity: 0;}
+  to {opacity:1 ;}
 }

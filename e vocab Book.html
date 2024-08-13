@@ -969,7 +969,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 </div>
 
 <div>Co-prime no 
-  <div class="popup" onclick="myFunction('p9_pop7')"><i class="fa-solid fa-play"></i>
+  <div class="popup" onclick="myFunction('p9_pop7')"> 
+      <i class="fa-solid fa-play"></i>
       <span class="popuptext" id="p9_pop7">Ex- (3, 5) Not have any common factor other than 1 </span>
   </div>
 </div>
@@ -1572,51 +1573,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     });
 </script>
 
-
-  <script>
-    function myFunction(popupId) {
-        var popup = document.getElementById(popupId);
-        var isVisible = popup.classList.contains("show");
-
-        // Close any open popups
-        var popups = document.getElementsByClassName("popuptext");
-        for (var i = 0; i < popups.length; i++) {
-            popups[i].classList.remove("show");
-        }
-
-        // Toggle the clicked popup based on its previous state
-        if (!isVisible) {
-            popup.classList.add("show");
-        }
-    }
-
-  //  Button ka color change hoga on click    
-  
-  document.addEventListener('DOMContentLoaded', (event) => {
-    const buttons = document.querySelectorAll('.colorButton');
-    let currentlyClickedButton = null;
-
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Reset the color of the previously clicked button
-            if (currentlyClickedButton && currentlyClickedButton !== button) {
-                currentlyClickedButton.classList.remove('clicked');
-            }
-
-            // Toggle the clicked class on the current button
-            button.classList.toggle('clicked');
-
-            // Update the currently clicked button
-            currentlyClickedButton = button.classList.contains('clicked') ? button : null;
-        });
-    });
-});
-
-
-
-</script>
-
-  
+<script src="commonProperty.js"></script>  
 </body>
 </html>
 

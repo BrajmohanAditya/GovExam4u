@@ -7,10 +7,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="englishPracticeSet.css">
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
+
 </head>
 <body onload="showPage(1)">
 
@@ -90,7 +87,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     <p class="option" onclick="highlight(this, false)">B) They should ensure that financial products are marketed only to experts.</p>
     <p class="option" onclick="highlight(this, true)">C) They should implement plain language guidelines to make financial terms more accessible.</p>
     <p class="option" onclick="highlight(this, false)">D) They should discourage transparency to protect confidential information.</p>
-<div class="popup" onclick="myFunction('p11_pop1')"><h3>Click Here</h3> &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-play"></i>
+    
+<div class="popup" onclick="myFunction('p11_pop1')"><h3 style="color: red;">Difficult words click here</h3>
 <span class="popuptext" id="p11_pop1">
 <p>Obfuscation - anxiety</p>
 <p>Critique - analysis</p>
@@ -137,10 +135,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         <p class="option" onclick="highlight(this, true)">D. From 2011 until last year, Brazil's government has been trying to stimulate the economy by offering labour tax breaks, subsidizing petrol and lowering the price of electricity.</p>
         <p class="option" onclick="highlight(this, false)">E. Nowadays companies seem to be promoting their brands as saleable items even more than the actual products.</p>
 
-
-
-
-
+     
+          
           <br><br><br><br><br><br>
 
       </div>
@@ -166,47 +162,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
   }
 </script>
 
-<script>
 
-// Change Button color
-  document.addEventListener('DOMContentLoaded', (event) => {
-    const buttons = document.querySelectorAll('.colorButton');
-    let currentlyClickedButton = null;
-
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Reset the color of the previously clicked button
-            if (currentlyClickedButton && currentlyClickedButton !== button) {
-                currentlyClickedButton.classList.remove('clicked');
-            }
-
-            // Toggle the clicked class on the current button
-            button.classList.toggle('clicked');
-
-            // Update the currently clicked button
-            currentlyClickedButton = button.classList.contains('clicked') ? button : null;
-        });
-    });
-});
-</script>
-
-<script>
-  function myFunction(popupId) {
-      var popup = document.getElementById(popupId);
-      var isVisible = popup.classList.contains("show");
-
-      // Close any open popups
-      var popups = document.getElementsByClassName("popuptext");
-      for (var i = 0; i < popups.length; i++) {
-          popups[i].classList.remove("show");
-      }
-
-      // Toggle the clicked popup based on its previous state
-      if (!isVisible) {
-          popup.classList.add("show");
-      }
-  }
-</script>
+<!-- script tag for poupText -->
+<script src="commonProperty.js"></script>
 
 </body>
 </html>
