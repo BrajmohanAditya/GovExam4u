@@ -21,23 +21,23 @@
     <button class="colorButton" onclick="showPage(1)">1</button>
     <button class="colorButton" onclick="showPage(2)">2</button>
     <button class="colorButton" onclick="showPage(3)">3</button>
-    <button class="colorButton" onclick="showPage(1)">4</button>
-    <button class="colorButton" onclick="showPage(2)">5</button>
-    <button class="colorButton" onclick="showPage(3)">6</button>
-    <button class="colorButton" onclick="showPage(2)">7</button>
-    <button class="colorButton" onclick="showPage(3)">8</button>
-    <button class="colorButton" onclick="showPage(1)">9</button>
-    <button class="colorButton" onclick="showPage(2)">10</button>
-    <button class="colorButton" onclick="showPage(3)">11</button>
-    <button class="colorButton" onclick="showPage(1)">12</button>
-    <button class="colorButton" onclick="showPage(2)">13</button>
-    <button onclick="showPage(3)">3</button>
-    <button onclick="showPage(1)">1</button>
-    <button onclick="showPage(2)">2</button>
-    <button onclick="showPage(3)">3</button>
-    <button onclick="showPage(1)">1</button>
-    <button onclick="showPage(2)">2</button>
-    <button onclick="showPage(3)">3</button>
+    <button class="colorButton" onclick="showPage(4)">4</button>
+    <button class="colorButton" onclick="showPage(5)">5</button>
+    <button class="colorButton" onclick="showPage(6)">6</button>
+    <button class="colorButton" onclick="showPage(7)">7</button>
+    <button class="colorButton" onclick="showPage(8)">8</button>
+    <button class="colorButton" onclick="showPage(9)">9</button>
+    <button class="colorButton" onclick="showPage(10)">10</button>
+    <button class="colorButton" onclick="showPage(11)">11</button>
+    <button class="colorButton" onclick="showPage(12)">12</button>
+    <button class="colorButton" onclick="showPage(13)">13</button>
+    <button class="colorButton" onclick="showPage(14)">14</button>
+    <button class="colorButton" onclick="showPage(15)">15</button>
+    <button class="colorButton" onclick="showPage(16)">16</button>
+    <button class="colorButton" onclick="showPage(17)">17</button>
+    <button class="colorButton" onclick="showPage(18)">18</button>
+    <button class="colorButton" onclick="showPage(19)">19</button>
+    <button class="colorButton" onclick="showPage(20)">20</button>
     <!-- More buttons if needed -->
   </div>
 </div>
@@ -88,8 +88,8 @@
     <p class="option" onclick="highlight(this, true)">C) They should implement plain language guidelines to make financial terms more accessible.</p>
     <p class="option" onclick="highlight(this, false)">D) They should discourage transparency to protect confidential information.</p>
     
-<div class="popup" onclick="myFunction('p11_pop1')"><h3 style="color: red;">Difficult words click here</h3>
-<span class="popuptext" id="p11_pop1">
+<div class="popup" onclick="myFunction('p1_pop1')"><h3 class="Hard_words">👉 Difficult words</h3>
+<span class="popuptext" id="p1_pop1">
 <p>Obfuscation - anxiety</p>
 <p>Critique - analysis</p>
 <p>Financial Jargon - financial complex term</p>
@@ -101,7 +101,7 @@
 <p>Obfuscatory - opaque</p>
 <p>Detriment - damage, loss</p>
 <p>Subprime - risky loan</p>
-<p>Mortgage - िगरवी</p>
+<p>Mortgage - गिरवी</p>
 <p>Credit default swap - it acts like insurance against default on a debt.</p>
 <p>Discourse - discussion</p>
 <p>Chimera - dream</p>
@@ -115,35 +115,119 @@
     } else if (pageNum === 2) {
       contentContainer.innerHTML = `
       <div class="scrollbar">  
-        <h2>Identify the grammatically correct and error-free sentence(s):</h2>
-        <p>A. Often ancient writings can tell us about civilizations, but no one have been able to translate the Indus writings.</p>
-        <p>B. We cannot attend to every stimulus in the environment for the simple reason that our nervous system has limited resources.</p>
-        <p>C. Our survey is not scientific of course, but it does offer a glimpse into a system that remain rigid and dogmatic.</p>
-        <p>D. From 2011 until last year, Brazil's government has been trying to stimulate the economy by offering labour tax breaks, subsidizing petrol and lowering the price of electricity.</p>
-        <p>E. Nowadays companies seem to be promoting their brands as saleable items even more than the actual products.</p>
+<h2>Directions: Read the following passage carefully and answer the questions that follow.</h2>
 
-        <div class="option" onclick="highlight(this, false)">A </div>
-        <div class="option" onclick="highlight(this, false)">B </div>
-        <div class="option" onclick="highlight(this, false)">C </div>
-        <div class="option" onclick="highlight(this, true)">D </div>
-        <div class="option" onclick="highlight(this, false)">E </div>
+<p>
+With the arrival of February, the weather in the city changes, the nippy cold slowly disappears, making way for warmer summer days. Along with the warmth, dust and highly suspended particles in the air make the residents fall sick, usually chalked to 'weather change'. The reasons, however, are hidden in the remarkable transformation that the cityscape undergoes. Characterised by the vibrant blossoming of flowering trees such as the Tabebuia, Jacaranda, and Gulmohar, amidst this visual spectacle lies a pressing concern that demands attention - the environmental and health impacts of managing the resulting litter from deciduous trees. Deciduous trees like Tabebuia shed their leaves and flowers in abundance as part of their natural nutrient cycling processes.
+</p>
 
-        <h2>Identify the grammatically correct and error-free sentence(s):</h2>
-        <p class="option" onclick="highlight(this, false)">A. Often ancient writings can tell us about civilizations, but no one have been able to translate the Indus writings.</p>
-        <p class="option" onclick="highlight(this, false)">B. We cannot attend to every stimulus in the environment for the simple reason that our nervous system has limited resources.</p>
-        <p class="option" onclick="highlight(this, false)">C. Our survey is not scientific of course, but it does offer a glimpse into a system that remain rigid and dogmatic.</p>
-        <p class="option" onclick="highlight(this, true)">D. From 2011 until last year, Brazil's government has been trying to stimulate the economy by offering labour tax breaks, subsidizing petrol and lowering the price of electricity.</p>
-        <p class="option" onclick="highlight(this, false)">E. Nowadays companies seem to be promoting their brands as saleable items even more than the actual products.</p>
+<p>
+The transition from verdant lanes to litter-strewn streets poses a significant and laborious challenge for residents and municipal authorities alike. The carpets of fallen leaves and flowers not only mar the aesthetic appeal of the city but also necessitate labour-intensive efforts to clear them away. Unfortunately, the prevailing practice of burning this organic debris not only exacerbates air pollution but also harms the very trees that contribute to the city's greenery. The municipal authorities have regulations that discourage litter burning, despite which, the easy management of leaf litter through burning persists. The leftover leaf litter clogs stormwater drains following the summer rains, exacerbating flooding issues. Moreover, in addition to leaves, residents must contend with the chore of sweeping up fallen flowers and seeds from trees such as Tabebuia, Pongamia, Mayflower, and Copper pod.
+</p>
 
-     
-          
+<p>
+Traditionally, our ancestors understood the importance of aligning household activities and cultural celebrations with the phases of trees. Festivals such as Makar Sankranti, Pongal, and Bihu were observed in harmony with nature's cycles, emphasising the interdependence between humans and the environment, along with inculcating sustainable management efforts into cultural practices. Given these challenges, it is crucial to ______ our approach to urban forestry and tree management. One potential solution lies in the promotion of evergreen tree species as part of avenue tree plantations. Unlike their deciduous counterparts, evergreens offer the dual benefits of year-round greenery and minimal litter production. By prioritising the planting of such species, the city can strive towards becoming a truly "garden and evergreen city," minimising the need for extensive litter management efforts and mitigating the associated environmental impacts.
+</p>
+
+<h3>The author mentions which of the following as the main challenge(s) associated with Deciduous trees in the city?</h3>
+<p class="option" onclick="highlight(this, false)">A) They are susceptible to diseases prevalent in the city.</p>
+<p class="option" onclick="highlight(this, false)">B) Their vibrant flowers attract beautiful kites and bees.</p>
+<p class="option" onclick="highlight(this, true)">C) They shed large amounts of leaves and flowers seasonally.</p>
+
+
+<h3>What is the primary concern associated with the visual spectacle of blossoming trees in the city?</h3>
+<p class="option" onclick="highlight(this, false)">A) The rapid disappearance of greenery due to urbanization</p>
+<p class="option" onclick="highlight(this, false)">B) The impact on tourism during the summer months</p>
+<p class="option" onclick="highlight(this, true)">C) The environmental and health impacts of managing the resulting litter from deciduous trees</p>
+<p class="option" onclick="highlight(this, false)">D) The reduced number of flowering species in the city</p>
+
+<h3>Which of the following is NOT mentioned as a negative consequence of the prevailing practice of burning leaf litter?</h3>
+<p class="option" onclick="highlight(this, false)">A) Harm to the very trees contributing to the city's greenery</p>
+<p class="option" onclick="highlight(this, false)">B) Increased air pollution</p>
+<p class="option" onclick="highlight(this, false)">C) Contribution to the clogging of stormwater drains</p>
+<p class="option" onclick="highlight(this, false)">D) Disruption of the natural nutrient cycling process of evergreen trees</p>
+<p class="option" onclick="highlight(this, true)">E) C and D</p>
+
+<h3>How does the passage suggest traditional festivals like Makar Sankranti and Pongal contributed to sustainable management?</h3>
+<p class="option" onclick="highlight(this, false)">A) By encouraging mass tree planting during the festivals</p>
+<p class="option" onclick="highlight(this, false)">B) By incorporating the collection and burning of leaf litter as part of the celebrations</p>
+<p class="option" onclick="highlight(this, true)">C) By aligning household activities and cultural celebrations with the phases of trees, thereby promoting harmony with nature</p>
+<p class="option" onclick="highlight(this, false)">D) By creating awareness about the dangers of air pollution through cultural rituals</p>
+
+<h3>Which of the following words can fill the blank that is given in the passage?</h3>
+<p class="option" onclick="highlight(this, false)">A) Transform</p>
+<p class="option" onclick="highlight(this, false)">B) Alter</p>
+<p class="option" onclick="highlight(this, true)">C) Rethink</p>
+<p class="option" onclick="highlight(this, false)">D) Maintain</p>
+
+
+<div class="popup" onclick="myFunction('p1_pop1')"><h3 class="Hard_words">👉 Difficult words</h3>
+<span class="popuptext" id="p1_pop1">
+<p><strong>nippy cold</strong>: sharp cold</p>
+<p><strong>warmth</strong>: heat</p>
+<p><strong>chalked to</strong>: blame on</p>
+<p><strong>amidst</strong>: in the middle of</p>
+<p><strong>visual spectacle</strong>: eye-catching scene</p>
+<p><strong>verdant lanes</strong>: the green and leafy streets</p>
+<p><strong>litter-strewn streets</strong>: streets that are covered with fallen leaves, flowers</p>
+<p><strong>mar</strong>: spoil</p>
+<p><strong>leaf litter</strong>: fallen leaves</p>
+<p><strong>clogs</strong>: block</p>
+<p><strong>contend</strong>: cope with, deal with</p>
+
+</span>
+</div>
           <br><br><br><br><br><br>
 
       </div>
       `;
-    }else if(pageNum == 3){
+    }
+    else if(pageNum == 3){
       contentContainer.innerHTML = `Hai mohan`;
     }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+    
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
      else {
       contentContainer.textContent = `This is page ${pageNum}`;
     }
