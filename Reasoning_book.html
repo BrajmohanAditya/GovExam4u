@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoveExam4u</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="englishPracticeSet.css">
+
+</head>
+<body onload="showPage(1)">
+
+<nav class="navbar">
+        <h1>Quant</h1>
+</nav>
+
+<div class="container1">
+  <div class="content-container" id="contentContainer"></div>
+  <div class="buttons-container" id="buttonsContainer">
+    <button class="colorButton" onclick="showPage(1)">1</button>
+    <button class="colorButton" onclick="showPage(2)">2</button>
+    <button class="colorButton" onclick="showPage(3)">3</button>
+    <button class="colorButton" onclick="showPage(4)">4</button>
+    <button class="colorButton" onclick="showPage(5)">5</button>
+    <button class="colorButton" onclick="showPage(6)">6</button>
+    <button class="colorButton" onclick="showPage(7)">7</button>
+    <button class="colorButton" onclick="showPage(8)">8</button>
+    <button class="colorButton" onclick="showPage(9)">9</button>
+    <button class="colorButton" onclick="showPage(10)">10</button>
+    <button class="colorButton" onclick="showPage(11)">11</button>
+    <button class="colorButton" onclick="showPage(12)">12</button>
+    <button class="colorButton" onclick="showPage(13)">13</button>
+    <button class="colorButton" onclick="showPage(14)">14</button>
+    <button class="colorButton" onclick="showPage(15)">15</button>
+    <button class="colorButton" onclick="showPage(16)">16</button>
+    <button class="colorButton" onclick="showPage(17)">17</button>
+    <button class="colorButton" onclick="showPage(18)">18</button>
+    <button class="colorButton" onclick="showPage(19)">19</button>
+    <button class="colorButton" onclick="showPage(20)">20</button>
+    <!-- More buttons if needed -->
+  </div>
+</div>
+
+<script>
+ 
+
+  function showPage(pageNum) {
+    const contentContainer = document.getElementById('contentContainer');
+    if (pageNum === 1) {
+      contentContainer.innerHTML = `
+      
+      <div class="scrollbar">
+       
+    <br><br><br><br><br><br>
+      </div>`;
+
+
+    } else if (pageNum === 2) {
+      contentContainer.innerHTML = `
+      <div class="scrollbar">  
+
+          <br><br><br><br><br><br><br><br><br><br>
+
+      </div>
+      `;
+    }
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+    
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+     else {
+      contentContainer.textContent = `This is page ${pageNum}`;
+    }
+  }
+
+  function highlight(element, isCorrect) {
+    var options = document.getElementsByClassName('option');
+    for (var i = 0; i < options.length; i++) {
+      options[i].classList.remove('correct', 'incorrect');
+    }
+    if (isCorrect) {
+      element.classList.add('correct');
+    } else {
+      element.classList.add('incorrect');
+    }
+  }
+</script>
+
+
+<!-- script tag for poupText -->
+<script src="commonProperty.js"></script>
+
+</body>
+</html>
