@@ -24,20 +24,7 @@ span:hover{
     font-weight: 500;
 }
 
-.scrollbar{
-  position: relative;
-  /* width: 5px; */
-  height:100vh;
-   /* left: 5px; */
-   overflow-y: auto; /* or scroll */
-   scrollbar-width: thin; /* or auto or none */
-   scrollbar-color: #888 #f1f1f1;
-   width: 900px;
-   height: 100vh;
-   overflow: auto;
-   border-radius: 2px;
-  
-}
+
 #absolute{
     overflow: auto;
     left: 300px;
@@ -175,7 +162,8 @@ details{
     width: 56rem;
     /* height: 200px; */
     border:  solid white;
-    height:100vh;
+    height:85vh;
+    position: relative;
   }
 
 body {
