@@ -22,22 +22,38 @@ h1{
     height: 3.5rem;
     background-color: black;
 }
-
+/* CSS for option */
   .option {
-    display: block;
-    margin: 10px 0;
+    margin: 10px ;
     padding: 10px;
-    border: 1px solid #ccc;
     cursor: pointer;
+    display: inline;
+    border: 1px solid black;
+    border-radius: 8px;
+    font-weight: 700;
   }
   .correct {
-    background-color: green;
+    background-color:green;
     color: white;
+    border-radius: 8px;
   }
   .incorrect {
     background-color: red;
     color: white;
+    border-radius: 8px;
   }
+  #ReasonButton{
+    background-color: green;
+    height: 2.5rem;  
+    width: 4.5rem;
+    border:2px solid black;
+    border-radius: 0.5rem;
+  }
+  #ReasonButton:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+  }
+
   .container1 {
     margin-top: 1rem;
     display: flex;
@@ -115,7 +131,7 @@ body {
 
 .popup {
   position:relative;   /* imp if you make position absolute apeka Poup nahi dikhaga   */
-  left: 210px;
+  left: 3rem;
   display: inline-block;
   cursor: pointer;
   color: #555;

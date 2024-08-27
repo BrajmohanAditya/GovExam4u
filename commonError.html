@@ -6,10 +6,10 @@
 <title>GoveExam4u</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="englishPracticeSet.css">
+<link rel="stylesheet" href="commonError.css">
 
 </head>
-<body onload="showPage(1)">
+<body onload="showPage('Rule')">
 
 <nav class="navbar">
         <h1>Common Error</h1>
@@ -18,6 +18,7 @@
 <div class="container1">
   <div class="content-container" id="contentContainer"></div>
   <div class="buttons-container" id="buttonsContainer">
+    <button class="colorButton" onclick="showPage('Rule')">Rule</button>
     <button class="colorButton" onclick="showPage(1)">1</button>
     <button class="colorButton" onclick="showPage(2)">2</button>
     <button class="colorButton" onclick="showPage(3)">3</button>
@@ -47,20 +48,36 @@
 
   function showPage(pageNum) {
     const contentContainer = document.getElementById('contentContainer');
-    if (pageNum === 1) {
+  if(pageNum == 'Rule'){
+    contentContainer.innerHTML = `
+      <div class="scrollbar">  
+
+     This is ram 
+      </div>
+      `;
+  }
+
+  else if (pageNum === 1) {
       contentContainer.innerHTML = `
-      
-      <div class="scrollbar">
-       
-    <br><br><br><br><br><br>
-      </div>`;
+    
+    <div class="scrollbar">
 
+       <h3>The secure and well-being of women (A) are of utmost importance, (B)and we must take every necessary step to ensure (C) they feel safe and protected in all aspects of life(D).</h3>
+       <p class="option" onclick="highlight(this, false)">A</p>
+       <p class="option" onclick="highlight(this, false)">B</p>
+       <p class="option" onclick="highlight(this, true)">C</p>
+       <p class="option" onclick="highlight(this, false)">D</p>
+       <div id="hi" class="popup" onclick="myFunction('p1_pop1')"><button id="ReasonButton">Reason</button>
+         <span class="popuptext" id="p1_pop1"></span>
+       </div>
+    
+    </div>`;
 
-    } else if (pageNum === 2) {
+    } 
+    else if (pageNum === 2) {
       contentContainer.innerHTML = `
       <div class="scrollbar">  
 
-          <br><br><br><br><br><br><br><br><br><br>
 
       </div>
       `;
