@@ -50,10 +50,10 @@
     const contentContainer = document.getElementById('contentContainer');
   if(pageNum == 'Rule'){
     contentContainer.innerHTML = `
-      <div class="scrollbar">  
+    <div class="scrollbar">  
 
      This is ram 
-      </div>
+    </div>
       `;
   }
 
@@ -61,14 +61,17 @@
       contentContainer.innerHTML = `
     
     <div class="scrollbar">
-
+      <h2>Quize: 1<h2>
        <h3>The secure and well-being of women (A) are of utmost importance, (B)and we must take every necessary step to ensure (C) they feel safe and protected in all aspects of life(D).</h3>
-       <p class="option" onclick="highlight(this, false)">A</p>
+       <p class="option" onclick="highlight(this, true)">A</p>
        <p class="option" onclick="highlight(this, false)">B</p>
-       <p class="option" onclick="highlight(this, true)">C</p>
+       <p class="option" onclick="highlight(this, false)">C</p>
        <p class="option" onclick="highlight(this, false)">D</p>
        <div id="hi" class="popup" onclick="myFunction('p1_pop1')"><button id="ReasonButton">Reason</button>
-         <span class="popuptext" id="p1_pop1"></span>
+         <span class="popuptext" id="p1_pop1">
+          * secure नही security <br>
+           The Noun of, we need Noun not adjective 
+         </span>
        </div>
     
     </div>`;

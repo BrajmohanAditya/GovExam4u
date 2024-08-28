@@ -14,6 +14,9 @@ h1{
     font-weight: 400px;
     font-style: normal;   
 }
+h2{
+  color: red;
+}
 
 .navbar{
     padding: 0;
