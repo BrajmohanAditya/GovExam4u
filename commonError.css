@@ -27,36 +27,38 @@ h2{
 }
 /* CSS for option */
   .option {
-    margin: 10px ;
+    margin: 10px;
     padding: 10px;
     cursor: pointer;
     display: inline;
-    border: 1px solid black;
-    border-radius: 8px;
-    font-weight: 700;
+    border: 1px solid #888;
+    border-radius: 0.5rem;
+    font-weight: 500;
   }
   .correct {
     background-color:green;
     color: white;
-    border-radius: 8px;
+    border-radius: 0.5rem;
   }
   .incorrect {
     background-color: red;
     color: white;
-    border-radius: 8px;
+    border-radius: 0.5rem;
   }
   #ReasonButton{
     background-color: green;
     height: 2.5rem;  
     width: 4.5rem;
-    border:2px solid black;
-    border-radius: 0.5rem;
+    border:1px solid #888;
+    border-radius: 0.5rem; 
+
   }
+
   #ReasonButton:hover {
     background-color: #218838;
     border-color: #1e7e34;
   }
-
+/* End */
   .container1 {
     margin-top: 1rem;
     display: flex;
@@ -135,17 +137,17 @@ body {
 /* POPUP TEXT  */
 
 .popup {
-  position:relative;   /* imp if you make position absolute apeka Poup nahi dikhaga   */
-  left: 3rem;
-  display: inline-block;
-  cursor: pointer;
+  position:relative;   /*imp if you make position absolute apeka Poup nahi dikhaga   */
+  cursor: pointer;     /*Absolute meh refrence point bilkul last point of screen    Relative meh scroll ko refrence leh raha hai */
   color: #555;
+  margin-left: 20rem;
 }
+
 
 /* The actual popup (appears on top) */
 .popup .popuptext {
   visibility: hidden;
-  width: 400px;
+  width: 25rem;
   background-color: #555;
   color: #fff;
   border-radius: 6px;
@@ -153,9 +155,10 @@ body {
   position: absolute;
   z-index: 1;
   bottom: 125%;
-  left: 50%;
-  margin-left: -80px;
+  left: 2%;
+  margin-left: -80px;  /*poup box kaha show hoga ya uska location btayaga */
 }
+
 
 /* Popup arrow */
 .popup .popuptext::after {
@@ -186,3 +189,4 @@ body {
   from {opacity: 0;}
   to {opacity:1 ;}
 }
+

@@ -12,7 +12,7 @@
 <body onload="showPage('Rule')">
 
 <nav class="navbar">
-        <h1>Common Error</h1>
+        <h1>Detect Error</h1>
 </nav>
 
 <div class="container1">
@@ -20,6 +20,7 @@
   <div class="buttons-container" id="buttonsContainer">
     <button class="colorButton" onclick="showPage('Rule')">Rule</button>
     <button class="colorButton" onclick="showPage('Rule.')">Rule.</button>
+    <button class="colorButton" onclick="showPage('Word')">Word</button>
     <button class="colorButton" onclick="showPage(1)">1</button>
     <button class="colorButton" onclick="showPage(2)">2</button>
     <button class="colorButton" onclick="showPage(3)">3</button>
@@ -117,12 +118,20 @@
     </div>
       `;
   }
+  else if(pageNum == 'Word'){
+    contentContainer.innerHTML = `
+    <div class="scrollbar">  
+
+     Comming soon please visit next page!!
+    </div>
+      `;
+  }
   else if (pageNum === 1) {
       contentContainer.innerHTML = `
     
     <div class="scrollbar">
-      <h2>Quize: 1<h2>
-       <h3>The secure and well-being of women (A) are of utmost importance, (B)and we must take every necessary step to ensure (C) they feel safe and protected in all aspects of life(D).</h3>
+      <h2>Quize: 1</h2>
+      <h3>Q1<br><br>The secure and well-being of women (A) are of utmost importance, (B)and we must take every necessary step to ensure (C) they feel safe and protected in all aspects of life(D).</h3>
        <p class="option" onclick="highlight(this, true)">A</p>
        <p class="option" onclick="highlight(this, false)">B</p>
        <p class="option" onclick="highlight(this, false)">C</p>
@@ -133,6 +142,66 @@
            The Noun of, we need Noun not adjective and secure is adj.
          </span>
        </div>
+
+      <h3>Q2<br><br> Because she had been warned (A) multiple time, she knew (B) the consequences of her actions(D).</h3>
+       <p class="option" onclick="highlight(this, false)">A</p>
+       <p class="option" onclick="highlight(this, true)">B</p>
+       <p class="option" onclick="highlight(this, false)">C</p>
+       <div  class="popup" onclick="myFunction('p1_pop2')"><button id="ReasonButton">Reason</button>
+         <span class="popuptext" id="p1_pop2">
+          * Time नही Times <br>
+         </span>
+       </div>
+
+       <h3>Q3<br><br>The backyard was a peaceful oasis,(A) with a lush lawn of tall wave (B) grass and a hammock strung between two trees.(C).</h3>
+       <p class="option" onclick="highlight(this, false)">A</p>
+       <p class="option" onclick="highlight(this, true)">B</p>
+       <p class="option" onclick="highlight(this, false)">C</p>
+       <div id="hi" class="popup" onclick="myFunction('p1_pop3')"><button id="ReasonButton">Reason</button>
+         <span class="popuptext" id="p1_pop3">
+          * wave नही waving <br>
+         </span>
+       </div>
+
+       <h3>Q4<br><br>The wealthier a nation gets,(A) more it stands to lose in war.(B)</h3>
+       <p class="option" onclick="highlight(this, flase)">A</p>
+       <p class="option" onclick="highlight(this, true)">C</p>
+       <div id="hi" class="popup" onclick="myFunction('p1_pop4')"><button id="ReasonButton">Reason</button>
+         <span class="popuptext" id="p1_pop4">
+          * secure नही security <br>
+           The Noun of, we need Noun not adjective and secure is adj.
+         </span>
+       </div>
+      
+       <h3>Q5<br><br>"The research team found that a lots of(A) the data collected during the(B) preliminary study were inconclusive(C).</h3>
+       <p class="option" onclick="highlight(this, true)">A</p>
+       <p class="option" onclick="highlight(this, false)">B</p>
+       <p class="option" onclick="highlight(this, false)">C</p>
+       <div id="hi" class="popup" onclick="myFunction('p1_pop5')"><button id="ReasonButton">Reason</button>
+         <span class="popuptext" id="p1_pop5">
+          * a lots of नही a lot of <br>
+          a + Singular, lots is plural
+         </span>
+       </div>
+      
+       <h3>Q6<br><br>Didn't you receive some (A) proper training in management(B).</h3>
+       <p class="option" onclick="highlight(this, true)">A</p>
+       <p class="option" onclick="highlight(this, false)">A</p>
+       <div id="hi" class="popup" onclick="myFunction('p1_pop6')"><button id="ReasonButton">Reason</button>
+         <span class="popuptext" id="p1_pop6">
+          * secure नही security <br>
+           The Noun of, we need Noun not adjective and secure is adj.
+         </span>
+       </div>
+
+
+
+
+
+
+
+
+
     
     </div>`;
 
