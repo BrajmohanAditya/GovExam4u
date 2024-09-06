@@ -308,7 +308,7 @@ body {
   
  }
  #pronounceBtn{
-  margin: 2px;
+  margin:2px;
   width: 4rem;
   height: 2.5rem;
   background-color: #0ad639;
@@ -323,7 +323,7 @@ body {
 }
 
  #word{
-  height: 2rem;
+  height: 2.3rem;
   width: 13rem;
   border-color: #050101;
   border-radius: 6px;
@@ -331,7 +331,7 @@ body {
  }
  
   .fa-microphone{
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
  
   #word::placeholder {
@@ -340,7 +340,7 @@ body {
 }
 
 
-
+/* Button dikhaga ab mobile meh e vocab ka  */
 @media (max-width:768px) {
   html{
     font-size: 12px;

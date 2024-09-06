@@ -40,39 +40,42 @@ h1{
   }
   .container1 {
     margin-top: 1rem;
+    padding: 3px;
     display: flex;
     justify-content: space-between; /* Distribute space between items */
   }
   .content-container {
     flex: 1; /* Take up remaining space */
-    padding: 20px;
+    padding: 40px;
   }
 
   .buttons-container {
-    width: 200px; /* Adjust as needed */
+    width: 18rem; /* Adjust as needed */
     height: 200px;
     background-color: #f1f1f1;
     border-right: 0 solid #ccc;
+    margin: 5px;
     margin-left: auto;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #888 #f1f1f1;
     border: solid white;
+    overflow-x: hidden;
 }
 
 button {
+    text-align: left;
     display: inline-block;
-    width: 30%;
-    padding: 8px;
-    margin-bottom: 5px;  
+    width: 90%;
+    padding: 10px;
+    margin: 5px;  
     cursor: pointer;
-    border-radius: 15px;
+    border-radius: .5rem;
     background-color:#6c757d;
-    font-size: 15px;
+    font-size: 16px;
     cursor: pointer;
-    font-weight: 400;
+    font-weight: 600;
     color: white;  
-    margin-left: 2px;
 }
 .scrollbar {
     overflow-y: auto;
