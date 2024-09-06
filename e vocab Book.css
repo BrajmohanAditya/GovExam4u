@@ -246,6 +246,7 @@ body {
 
 /* Responsive styles */
 @media (max-width: 768px) {
+  
   .navbar-toggler {
       display: block;
   }
@@ -339,3 +340,24 @@ body {
 }
 
 
+
+@media (max-width:400px) {
+  html{
+    font-size: 12px;
+  }
+  .scrollbar{
+    width: 50%;
+    font-size: 0.8em;
+  }
+  .scrollbar div{
+    font-size: 0.8em;
+    margin: 2px;
+  }
+  #contentContainer{
+    margin-left: 2px;
+  }
+  .buttons-container {
+    margin:0;
+  }
+  
+}
