@@ -341,23 +341,25 @@ body {
 
 
 /* Button dikhaga ab mobile meh e vocab ka  */
-@media (max-width:768px) {
-  html{
+
+
+@media (max-width: 400px) {
+  html {
     font-size: 12px;
   }
-  .scrollbar{
-    width: 50%;
+
+  .scrollbar {
+    width: 100%;
     font-size: 0.8em;
   }
-  .scrollbar div{
-    font-size: 0.8em;
-    margin: 2px;
-  }
-  #contentContainer{
-    margin-left: 2px;
-  }
+
   .buttons-container {
-    margin:0;
+    width: 100%;
+    padding: 2px;
   }
-  
+
+  button {
+    padding: 0.3rem;
+    font-size: 12px;
+  }
 }
