@@ -341,7 +341,7 @@ body {
 
 
 
-@media (max-width:400px) {
+@media (max-width:768px) {
   html{
     font-size: 12px;
   }
