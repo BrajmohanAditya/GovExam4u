@@ -28,8 +28,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 
             </ul>
             <form class="search-form">
-              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn" type="submit">Search</button>
+              <input class="form-control" type="text" id="word"  type="search" placeholder="Search & Learn Spelling" aria-label="Search">
+              <button class="btn"  type="submit">Search</button>
+              <button class="btn" id="pronounceBtn" ><i class="fas fa-microphone"></i></button>
             </form>
           </div>
         </div>
@@ -74,11 +75,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     </div>
 </div>
 <Div class="sita">
-  
-  <input type="text" id="word" placeholder="Learn Pronunciation">
-  <!-- <button id="pronounceBtn">Pronounce</button> -->
-  <button id="pronounceBtn"><i class="fas fa-microphone"></i></button>
-  
   
   <script>
       document.getElementById('pronounceBtn').addEventListener('click', function() {
