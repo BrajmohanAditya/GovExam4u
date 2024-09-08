@@ -12,7 +12,7 @@
 <body onload="showPage('Rule')">
 
 <nav class="navbar">
-        <h1>Detect Error</h1>
+        <h1>DETECT Error</h1>
 </nav>
 
 <div class="container1">
@@ -53,59 +53,29 @@
   if(pageNum == 'Rule'){
     contentContainer.innerHTML = `
     <div class="scrollbar">  
-      <h2>Present Tense</h2>
-
-<h3>Simple Present</h3>
-<p>Structure: Subject + base form of verb (V1) + (s/es with he/she/it)</p>
-<p>Example: She writes.</p>
-
-<h3>Present Continuous</h3>
-<p>Structure: Subject + am/is/are + present participle (V1+ing)</p>
-<p>Example: She is writing.</p>
-
-<h3>Present Perfect</h3>
-<p>Structure: Subject + has/have + past participle (V3)</p>
-<p>Example: She has written.</p>
-
-<h3>Present Perfect Continuous</h3>
-<p>Structure: Subject + has/have + been + present participle (V1+ing)</p>
-<p>Example: She has been writing.</p>
-
-<h2>Past Tense</h2>
-
-<h3>Simple Past</h3>
-<p>Structure: Subject + past form of verb (V2)</p>
-<p>Example: She wrote.</p>
-
-<h3>Past Continuous</h3>
-<p>Structure: Subject + was/were + present participle (V1+ing)</p>
-<p>Example: She was writing.</p>
-
-<h3>Past Perfect</h3>
-<p>Structure: Subject + had + past participle (V3)</p>
-<p>Example: She had written.</p>
-
-<h3>Past Perfect Continuous</h3>
-<p>Structure: Subject + had + been + present participle (V1+ing)</p>
-<p>Example: She had been writing.</p>
-
-<h2>Future Tense</h2>
-
-<h3>Simple Future</h3>
-<p>Structure: Subject + will/shall + base form of verb (V1)</p>
-<p>Example: She will write.</p>
-
-<h3>Future Continuous</h3>
-<p>Structure: Subject + will/shall + be + present participle (V1+ing)</p>
-<p>Example: She will be writing.</p>
-
-<h3>Future Perfect</h3>
-<p>Structure: Subject + will/shall + have + past participle (V3)</p>
-<p>Example: She will have written.</p>
-
-<h3>Future Perfect Continuous</h3>
-<p>Structure: Subject + will/shall + have + been + present participle (V1+ing)</p>
-<p>Example: She will have been writing.</p>
+      
+    <div class="grid-container">
+        <div style="color:red" class="grid-item"></div>
+        <div style="color:red" class="grid-item">Simple</div>
+        <div style="color:red" class="grid-item">Continuous</div>
+        <div style="color:red" class="grid-item">Perfect</div>
+        <div style="color:red" class="grid-item"> Perfect Continuous</div>
+        <div style="color:red" class="grid-item">Present</div>
+        <div class="grid-item">Sub + V1</div>
+        <div class="grid-item">Sub + is/are/am + Ving</div>
+        <div class="grid-item">Sub + has/have + V3</div>
+        <div class="grid-item">Sub + has/have + been + Ving</div>
+        <div style="color:red" class="grid-item">Past</div>
+        <div class="grid-item">Sub + V2</div>
+        <div class="grid-item">Sub + was/were + Ving</div>
+        <div class="grid-item">Sub + had + V3</div>
+        <div class="grid-item">Sub + had + been + Ving</div>
+        <div style="color:red" class="grid-item">Future</div>
+        <div class="grid-item">Sub + shall/will + V1</div>
+        <div class="grid-item">Sub + shall/will + be + ving</div>
+        <div class="grid-item">Sub + shall/will + have + V3</div>
+        <div class="grid-item">Sub + has/have + been + Ving</div>
+    </div>
 
     </div>
       `;
