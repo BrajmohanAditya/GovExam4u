@@ -2,7 +2,6 @@
 h1{
     color: white;
     box-shadow: whitesmoke;
-    /* font-style: italic; */
     display: inline-block;
     margin-left: 30px;
     border-radius: 10px;
@@ -207,4 +206,28 @@ body {
   justify-content: center;
   font-family: sans-serif;
   font-size: large;
+}
+.heading{
+  color:blue; 
+  font-size:large;
+  font-weight: 700;
+  font-family: sans-serif;
+  /* box-shadow: #ccc; */
+  background-color:#ccc;
+}
+.grid-container_2nd {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 100px);
+  gap: 10px;
+  padding: 5px;
+  width: 20rem;
+}
+.grid-container_3rd{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 100px);
+  gap: 10px;
+  padding: 5px;
+  width: 40rem;
 }
