@@ -19,10 +19,12 @@
   <div class="content-container" id="contentContainer"></div>
   <div class="buttons-container" id="buttonsContainer">
     <div style="font-weight: 800; font-family: Arial, Helvetica, sans-serif;color: red;">INDEX</div>
-    <button class="colorButton" onclick="showPage(1)">Inequality</button>
-    <button class="colorButton" onclick="showPage(2)">Puzzle</button>
+    <button class="colorButton" onclick="showPage(1)">Puzzle - 1</button>
+    <button class="colorButton" onclick="showPage(1.1)">Puzzle - 2 </button>
+
+    <button class="colorButton" onclick="showPage(2)">Inequality Puzzle </button>
     <button class="colorButton" onclick="showPage(3)">Blood Relation</button>
-    <button class="colorButton" onclick="showPage(4)">4</button>
+    <button class="colorButton" onclick="showPage(4)">Critical Reasoning</button>
     <button class="colorButton" onclick="showPage(5)">5</button>
     <button class="colorButton" onclick="showPage(6)">6</button>
     <button class="colorButton" onclick="showPage(7)">7</button>
@@ -57,21 +59,53 @@
       </div>`;
 
 
-    } else if (pageNum === 2) {
+    }else if (pageNum === 1.1) {
       contentContainer.innerHTML = `
       <div class="scrollbar">  
+        please go to next page
+      </div>
+      `;
+    }
+     else if (pageNum === 2) {
+      contentContainer.innerHTML = `
+      <div class="scrollbar">  
+<p class="question">
+  Q1<br>Six persons are of different ages. F is elder than A but younger than D. E is the third youngest person in the group. B is elder than E, who is elder than A. The number of persons younger than F is the same as the number of persons elder than E. A is younger than C. The age of D is double the age of B
+</p>
 
-          <br><br><br><br><br><br><br><br><br><br>
-
+<p class="question">
+Q2<br>Six goats give different quantities of milk. S gives more milk than U but not as much as V. Only two goats give less milk than X. W gives more milk than U and T but not as much as V. As many goats give more milk than W as less than U. The goat which gives the maximum quantity of milk gives 37 liters whereas the goat which gives the second lowest quantity of milk gives 28 liters
+</p>
+<p class="question">
+Q3<br>Seven people, E, F, G, H, I, J, and K, are buying different quantities of pens. G buys more pens than K. F buys fewer pens than both E and I. J buys more pens than H. I buys more pens than K. G buys fewer pens than F. K buys fewer pens than J, who buys 27 pens. E buys more pens than H, who buys more pens than F. I doesn't buy the fewest pens or the most pens.
+</p>
+<p class="question">
+Q4<br>Seven persons—L, M, N, O, P, Q, and R—are solving different numbers of questions. M solves more questions than Q, but neither of them solves the second highest number of questions. Two persons solve more questions than N but fewer questions than R. P solves more questions than O but fewer questions than Q. L, who solves more questions than O, solves fewer questions than at least three persons. N solves fewer questions than P but not fewer than L. The one who solves the least number of questions solves 64.
+</p>
+<p class="question">
+Q5<br>Seven girls A, B, C, D, E, F, and G have different numbers of coins. D has more coins than G, but not as many as A. F has more coins than C. B has more coins than E and A. F has more coins than D, but not as many as A and E. The one who has the second lowest number of coins has 15 coins, but neither G nor D have the second lowest number of coins.
+</p>
       </div>
       `;
     }
     else if(pageNum == 3){
-      contentContainer.innerHTML = `Hai mohan`;
+      contentContainer.innerHTML = `
+      <div class="scrollbar">  
+
+
+      </div>
+      `;
     }
 
-    else if(pageNum == 3){
-      contentContainer.innerHTML = `Hai mohan`;
+    else if(pageNum == 4){
+      contentContainer.innerHTML = `
+      <div class="scrollbar">  
+      <div class="heading">Some important terms</div>
+      <p class="impterm"><strong class="subHeading">Substantiate</strong> means to provide evidence or proof to support a claim, idea, or argument.</p>
+      <p class="impterm">Ex: If a student says, "I am good at studying," 
+         they would need to <strong>substantiate</strong> that claim by providing proof, such as showing high marks on their exams or SBI-Po crack kr के दिखाओ 😜😜.</p>
+      </div>
+      `;
     }
 
     else if(pageNum == 3){
