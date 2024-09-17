@@ -51,12 +51,13 @@ h1{
 
 .buttons-container {
     width: 200px; /* Adjust as needed */
-    height: 300px;
+    height: 18rem;
     background-color: #f1f1f1;
     overflow-y: scroll;
     border-right: 0 solid #ccc;
     /* Updated CSS for aligning buttons to the right */
     margin-left: auto; /* Pushes buttons to the right */
+    margin-right: auto;
 }
 
 button {
@@ -334,3 +335,4 @@ body {
     font-size: 12px;
   }
 }
+
