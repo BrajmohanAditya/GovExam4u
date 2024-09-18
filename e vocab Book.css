@@ -1,3 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensure padding and border do not affect width/height */
+}
+
+
 .hover{
     border: .01px solid rgba(0, 0, 0, 0.676);
     color: white;
@@ -34,13 +41,10 @@ span:hover{
 h1{
     color: white;
     box-shadow: whitesmoke;
-    /* font-style: italic; */
-    display: inline-block;
-    margin-left: -10rem;
+    margin-left: 1rem;
     border-radius: 10px;
     padding: 2px;
     font-size: 40px;
-    margin-top: 30px;
     font-family:   sans-serif; 
     font-weight: 400px;
     font-style: normal;   
@@ -163,9 +167,7 @@ details{
     position: relative;
   }
 
-body {
-    overflow: hidden;   
-}
+
 
 
 /* Nav bar property  */
@@ -175,24 +177,13 @@ body {
 .navbar {
   background-color: #000000d4;;
   border-bottom: 1px solid #e0e0e0;
-  padding:0;
-  margin: -8px; 
-}
-
-.navbar-toggler {
-  display: none;
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.navbar-collapse {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
 }
+
+
 
 .navbar-nav {
   display: flex;
@@ -225,7 +216,7 @@ body {
   margin-right: 10px;
   margin-bottom: 1.3px;
   width: 25rem;
-  height: 1.5rem;
+  height: 2.5rem;
 }
 
 .btn {
@@ -332,7 +323,6 @@ body {
 
   button {
     padding: 0.3rem;
-    font-size: 12px;
+    font-size: 12p;
   }
 }
-

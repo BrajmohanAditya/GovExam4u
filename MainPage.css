@@ -1,45 +1,52 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+/* Ensure body does not overflow */
+body {
+    overflow: hidden;
     font-family: "Roboto", sans-serif;
     font-weight: 200;
     font-style: normal;
     line-height: 35px;
-    
-    
+    height: 100vh; /* Ensure body takes full viewport height */
+    display: flex;
+    flex-direction: column;
 }
 
-.main{
+.main {
     display: flex;
-    height: 100vh;
-  }
+    /* flex-direction: column; */
+    height: 100%;
+}
 
-
-
-
-.sidebar_menu{
-    height: 92vh;
-    width: 15rem;
+.sidebar_menu {
+    margin-top: 2rem;
+    height: 95vh;
+    width: 18%;
     background-color: #000;
-    /* padding: 10px; */
     color: #c3d0d7;
-    /* position: absolute; */  
     overflow-y: auto;
     overflow-x: hidden;
+    /*position:  means it stays in the same place even when the page is scrolled. ya shifting ka problem solve kiya otherwise page he uper shift ho raha taha*/
+    position: fixed;    
+    top: 0; /* Align to top of viewport */
+    left: 0;
 }
+
 a {
     text-decoration: none;
     color: #c3d0d7;
 }
 
-
-.menu{
+.menu {
     top: 3rem;
     position: relative;
     left: 9px;  
 }
 
-.sidebar_menu .menu li:hover{
+.sidebar_menu .menu li:hover {
     box-shadow: 0 0 4px white;
     border-radius: 4px;
     width: 183px;
@@ -49,49 +56,50 @@ a {
     transition: 0.5s;
 }
 
-.home{
+.home {
     font-size: 20px;
     left: 8px;
     position: relative;
     top: 2rem;
     background-color: #363940;
-    width:183px;
+    width: 183px;
     padding: 2px;
     border-radius: 5px;
 }
-h1{
+
+h1 {
     position: relative;
     font-weight: 800;
-    left:.8rem;
+    left: 0.8rem;
     color: hsl(0, 100%, 50%);  
     font-family: serif;
     font-size: 2.5rem;
 }
-.social_media i{
+
+.social_media i {
     padding: 7px;
 }
 
- .social_media i:hover{
+.social_media i:hover {
     color: white;
     scale: 1.5;
 }
 
 ::-webkit-scrollbar {
-    width:8px;  /* Adjust the width here */
+    width: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888;  /* Color of the scrollbar thumb */
+    background: #888;
     border-radius: 6px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;  /* Color of the scrollbar thumb when hovered */
+    background: #555;
 }
 
-
-/* Nav bar css . */
-
-.main_content{
+/* Nav bar */
+.main_content {
     width: 100%;
     height: 100%;
 }
@@ -99,37 +107,32 @@ h1{
 .navbar {
     width: 100%;
     background-color: darkgray;
-    position: sticky; 
+    position: sticky;
     height: 3rem;
-    top: 0; 
+    top: 0;
     display: flex;
     align-items: center;
     z-index: 1000;
 }
 
-
-
 .navbar-collapse {
     display: flex;
-     align-items: center; 
-     justify-content: space-between;
-    width: 100%; 
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .search-form {
     margin-left: 4rem;
-    
 }
 
 .form-control {
-    
     border: 1px solid #ced4da;
     border-radius: 4px;
     width: 35rem;
 }
 
 .btn {
-    
     background-color: #28a745;
     border: 1px solid #28a745;
     color: white;
@@ -143,20 +146,14 @@ h1{
     border-color: #1e7e34;
 }
 
+/*  */
 
-.navbar-toggler {
-    display: none;
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-#image{
+#image {
     height: 3rem;
+    margin-left: 10rem;
 }
 
-/* Making website responsive */
+/* Responsive Design */
 @media (max-width: 768px) {
     .navbar-toggler {
         display: block;
@@ -190,51 +187,91 @@ h1{
     .form-control {
         width: 70%;
     }
-    #sidebar_menu{
+
+    .sidebar_menu {
         display: none;
     }
-}
-/* Card design */
 
-.card-container{
+    .main {
+        display: block;
+    }
+
+    .card-container {
+        height: auto;
+        padding: 0;
+    }
+
+    .card {
+        width: 100%;
+        height: auto;
+        margin: 1rem 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-control {
+        width: 60%;
+    }
+
+    .btn {
+        width: 4rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .home {
+        font-size: 16px;
+        width: 100%;
+    }
+}
+
+/* Card design */
+.card-container {
     display: flex;
     flex-wrap: wrap;
     padding: 1rem;
     overflow-y: auto;
-    overflow-x: hidden;
     justify-content: space-between;
     height: 86vh;
+
 }
-  
-.card{
-    width:13rem;
+.main_content {
+    position: relative; /* or absolute, depending on your layout */
+    width: 83.2%; /* Set width to 90% */
+    height: calc(100vh - 3rem); /* Adjust height for navbar */
+    left: 0; /* Align to left side */
+    margin-left: 13rem; /* Adjust margin if necessary to avoid overlap with sidebar */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+.card {
+    width: 13rem;
     height: 13rem;
     cursor: pointer;
     margin: 1.2rem;
 }
-  
-  
+
 .card-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 0.5rem;
 }
-.card-title{
+
+.card-title {
     font-weight: 600;
     color: #000;
 }
 
-body{
-    overflow: hidden;
-}
+
 
 .blink {
     animation: blink-animation 1s steps(5, start) infinite;
     font-weight: 800;
     color: red;
     font-family: sans-serif;
-    box-shadow: 0  0 4px black;
+    box-shadow: 0 0 4px black;
     background-color: #218838;
 }
 

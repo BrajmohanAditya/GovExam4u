@@ -7,8 +7,7 @@
 
 <link
 rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
 <link rel="stylesheet" href="e vocab Book.css">
 
@@ -16,32 +15,19 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 </head>
 <body onload="showPage(1)">
 
-    <nav class="navbar">
-        <div class="container">
+  <nav class="navbar">
           
-          <!-- <button class="navbar-toggler" onclick="toggleNavbar()">☰</button> -->
-          <div class="navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a></li> 
+    <h1>VOCABULARY</h1>
 
-              <h1>VOCABULARY</h1>
+    <form class="search-form">
+        <input class="form-control" type="text" id="word"  type="search" placeholder="Search & Learn Spelling" aria-label="Search">
+        <button class="btn"  type="submit">Search</button>
+        <button class="btn" id="pronounceBtn" ><i class="fas fa-microphone"></i></button>
+    </form>
 
-            </ul>
-            <form class="search-form">
-              <input class="form-control" type="text" id="word"  type="search" placeholder="Search & Learn Spelling" aria-label="Search">
-              <button class="btn"  type="submit">Search</button>
-              <button class="btn" id="pronounceBtn" ><i class="fas fa-microphone"></i></button>
-            </form>
-          </div>
-        </div>
-      </nav>
+  </nav>
       
-      <script>
-        function toggleNavbar() {
-          var navbar = document.getElementById('navbarNav');
-          navbar.classList.toggle('active');
-        }
-      </script>
+
 
 
 <div class="container1">
@@ -225,55 +211,52 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         }else if(pageNum==2){
                 contentContainer.innerHTML= `
 
-          
-                
-            <div class="scrollbar">    
+<div class="scrollbar">    
               
-              <div>Virtue  <span id="absolute" class="hover"> ख़ूबी, merit</span></div>
-               <div>Extols <span id="absolute" class="hover">praise</span>
-                  <div class="popup" onclick="myFunction('p2_pop1')"><i class="fa-solid fa-play"></i>
-                     <span class="popuptext" id="p2_pop1">he extolled the virtues of indian solder</span>
-                  </div>
-               </div>
+    <div>Extols <span id="absolute" class="hover">praise</span> </div>
+    <div>Virtue  <span id="absolute" class="hover"> ख़ूबी, merit</span></div>
+    <div>Virtue  <span id="absolute" class="hover"> ख़ूबी, merit</span></div>
+    <div>Extols <span id="absolute" class="hover">praise</span>
+      <div class="popup" onclick="myFunction('p2_pop1')"><i class="fa-solid fa-play"></i>
+         <span class="popuptext" id="p2_pop1">he extolled the virtues of indian solder</span>
+      </div>
+    </div>
+    <div>Exhort <span id="absolute" class="hover">strongly encourage</span></div>
 
-                
-               <div>Exhort <span id="absolute" class="hover">strongly encourage</span></div>
-               <div>Insipid<span id="absolute" class="hover">नीरस, inspid work</span></div>
+    <div>Insipid<span id="absolute" class="hover">नीरस, inspid work</span></div>
 
-               <div>Protract <span id="absolute" class="hover">prolon, लम्बा करना</span>
-                <div class="popup" onclick="myFunction('p2_pop2')"><i class="fa-solid fa-play"></i>
-                     <span class="popuptext" id="p2_pop2">Let's not protract the debate any further.
-                      The war was protracted for four years.
-                      </span>
-                  </div>
-                </div>
 
-               <div>Lost out <span id="absolute" class="hover">to fail to win</span>.</div>
+    <div>Protract <span id="absolute" class="hover">prolon, लम्बा करना</span>
+      <div class="popup" onclick="myFunction('p2_pop2')"><i class="fa-solid fa-play"></i>
+        <span class="popuptext" id="p2_pop2">Let's not protract the debate any furthe
+             The war was protracted for four years.
+        </span>
+      </div>
+    </div>
+
+    <div>Lost out <span id="absolute" class="hover">to fail to win</span>.</div>
               
-               <div>Teeming <span id="absolute" class="hover"> full of </span>
-                <div class="popup" onclick="myFunction('p2_pop3')"><i class="fa-solid fa-play"></i>
-                     <span class="popuptext" id="p2_pop3">city is teeming with tourists</span>
-                  </div>
-                </div>
+   <div>Teeming <span id="absolute" class="hover"> full of </span>
+      <div class="popup" onclick="myFunction('p2_pop3')"><i class="fa-solid fa-play"></i>
+         <span class="popuptext" id="p2_pop3">city is teeming with tourists</span>
+      </div>
+    </div>
                
-               <div>Petition<span id="absolute" class="hover">request</span>
+  <div>Petition<span id="absolute" class="hover">request</span>
+      <div class="popup" onclick="myFunction('p2_pop4')"><i class="fa-solid fa-play"></i>
+          <span class="popuptext" id="p2_pop4">Court dismissed his petition<br>
+            They started a petition to raise awareness about the environmental issues
+          </span>
+      </div>
+  </div>
 
-                <div class="popup" onclick="myFunction('p2_pop4')"><i class="fa-solid fa-play"></i>
-                    <span class="popuptext" id="p2_pop4">
-                      Court dismissed his petition
-                      <br>
-                      They started a petition to raise awareness about the environmental issues
-                    </span>
-                  </div>
-                </div>
-
-               <div>Tariff<span id="absolute" class="hover"> tax</span></div>
+  <div>Tariff<span id="absolute" class="hover"> tax</span></div>
                
-              <div>Reel <span id="absolute" class="hover"> stagger </span>
-                <div class="popup" onclick="myFunction('p2_pop5')"><i class="fa-solid fa-play"></i>
-                     <span class="popuptext" id="p2_pop5">Reeling under the weight of mounting debts.</span>
-                  </div>
-                </div>
+  <div>Reel <span id="absolute" class="hover"> stagger </span>
+    <div class="popup" onclick="myFunction('p2_pop5')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p2_pop5">Reeling under the weight of mounting debts.</span>
+    </div>
+  </div>
 
                <div>Sales migration<span id="absolute"></span>
                 <div class="popup" onclick="myFunction('p2_pop6')"><i class="fa-solid fa-play"></i>
@@ -286,14 +269,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
                      <span class="popuptext" id="p2_pop7">The architect laid out the blueprints for the new skyscraper</span>
                   </div>
                 </div>
-
+<div>Triumph <span id="absolute" class="hover">victory</span></div>
 <div>Practice &nbsp;(Noun)</div>
 <div>Practise &nbsp;(Verb)</div>
 <div>Tomorrow</div>
 <div>Wealthier</div>
-<div>Triumph</div>
 
-            </div>
+
+</div>
         
             `;
           }else if(pageNum==3){
