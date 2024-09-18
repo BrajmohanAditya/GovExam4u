@@ -99,10 +99,7 @@ h1 {
 }
 
 /* Nav bar */
-.main_content {
-    width: 100%;
-    height: 100%;
-}
+
 
 .navbar {
     width: 100%;
@@ -115,12 +112,7 @@ h1 {
     z-index: 1000;
 }
 
-.navbar-collapse {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
+
 
 .search-form {
     margin-left: 4rem;
@@ -129,7 +121,8 @@ h1 {
 .form-control {
     border: 1px solid #ced4da;
     border-radius: 4px;
-    width: 35rem;
+    width: 36rem;
+    height: 2.5rem;
 }
 
 .btn {
@@ -138,7 +131,8 @@ h1 {
     color: white;
     border-radius: 4px;
     cursor: pointer;
-    width: 5rem;
+    width: 6rem;
+    height: 83%;
 }
 
 .btn:hover {
@@ -149,8 +143,9 @@ h1 {
 /*  */
 
 #image {
-    height: 3rem;
-    margin-left: 10rem;
+    height: 100%;
+    margin-left: 21%;
+    /* value percentage meh likhna seh web page responsive bnta hai */
 }
 
 /* Responsive Design */
@@ -238,6 +233,8 @@ h1 {
 
 }
 .main_content {
+    width: 100%;
+    height: 100%;
     position: relative; /* or absolute, depending on your layout */
     width: 83.2%; /* Set width to 90% */
     height: calc(100vh - 3rem); /* Adjust height for navbar */
