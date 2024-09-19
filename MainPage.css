@@ -154,14 +154,11 @@ h1 {
 @media (max-width: 768px) {
 
     /* Hide search form, buttons, and user image on smaller screens */
-    .search-form, .btn, #user_image {
+    .search-form, .btn, #user_image, .sidebar_menu {
         display: none;
     }
 
-    /* Hide the sidebar on smaller screens */
-    .sidebar_menu {
-        display: none;
-    }
+
 
     /* Adjust the main content width and layout for smaller screens */
     .main_content {
