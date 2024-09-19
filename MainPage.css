@@ -151,7 +151,7 @@ h1 {
 
 /* Responsive Design for screen widths of 768px or less */
 /* Responsive Design for screen widths of 768px or less */
-@media (max-width: 768px) {
+@media (max-width: 550px) {
 
     /* Hide search form, buttons, and user image on smaller screens */
     .search-form, .btn, #user_image, .sidebar_menu {
@@ -162,6 +162,7 @@ h1 {
 
     /* Adjust the main content width and layout for smaller screens */
     .main_content {
+        margin-left: 0rem;
         width: 100%; /* Full width of the screen */
         margin-left: 0; /* No margin for smaller screens */
         height: auto; /* Auto height to fit content */
@@ -258,4 +259,9 @@ h1 {
         visibility: hidden;
     }
 }
-
+/* isko last meh likhna seh mera problem solve ho gaya but why i dont khow  */
+@media (max-width:550px) {
+    .main_content{
+        margin-left: 0rem;
+    }
+}
