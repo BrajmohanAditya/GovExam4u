@@ -17,7 +17,6 @@ body {
 
 .main {
     display: flex;
-    /* flex-direction: column; */
     height: 100%;
 }
 
@@ -142,85 +141,71 @@ h1 {
 
 /*  */
 
-#image {
+#user_image {
     height: 100%;
     margin-left: 21%;
     /* value percentage meh likhna seh web page responsive bnta hai */
 }
 
 /* Responsive Design */
+
+/* Responsive Design for screen widths of 768px or less */
+/* Responsive Design for screen widths of 768px or less */
 @media (max-width: 768px) {
-    .navbar-toggler {
-        display: block;
-    }
 
-    .navbar-collapse {
+    /* Hide search form, buttons, and user image on smaller screens */
+    .search-form, .btn, #user_image {
         display: none;
-        flex-direction: column;
-        width: 100%;
     }
 
-    .navbar-collapse.active {
-        display: flex;
-    }
-
-    .navbar-nav {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .nav-item {
-        margin-left: 0;
-        margin-bottom: 0;
-    }
-
-    .search-form {
-        width: 100%;
-        justify-content: flex-end;
-    }
-
-    .form-control {
-        width: 70%;
-    }
-
+    /* Hide the sidebar on smaller screens */
     .sidebar_menu {
         display: none;
     }
 
-    .main {
-        display: block;
+    /* Adjust the main content width and layout for smaller screens */
+    .main_content {
+        width: 100%; /* Full width of the screen */
+        margin-left: 0; /* No margin for smaller screens */
+        height: auto; /* Auto height to fit content */
+        padding: 1rem; /* Add some padding for better readability */
     }
 
-    .card-container {
-        height: auto;
-        padding: 0;
-    }
-
-    .card {
-        width: 100%;
-        height: auto;
-        margin: 1rem 0;
-    }
-}
-
-@media (max-width: 576px) {
-    .form-control {
-        width: 60%;
-    }
-
-    .btn {
-        width: 4rem;
-    }
-
+    /* Adjust the navbar's heading (GovExam4u) for smaller screens */
     h1 {
-        font-size: 1.5rem;
+        font-size: 2rem; /* Reduce the font size for better fit */
+        text-align: center; /* Center align the heading */
+        left: 0; /* Remove the left positioning */
     }
 
-    .home {
-        font-size: 16px;
-        width: 100%;
+    /* Adjust card container layout for smaller screens */
+    .card-container {
+        display: flex;
+        flex-wrap: wrap; /* Wrap to the next line if necessary */
+        justify-content: space-between; /* Evenly space the cards */
+        width: 100%; /* Take full screen width */
+        padding: 0.5rem; /* Reduce padding for better use of space */
+        margin-left: 0; /* Remove margin on the left side */
+        overflow-x: hidden;
+    }
+
+    /* Adjust card dimensions for smaller screens */
+    .card {
+        width: 48%; /* Make the card take almost half the screen width */
+        height: auto; /* Adjust height according to content */
+        margin: 0.5rem 0; /* Reduce margin to avoid excessive gaps */
+    }
+
+    /* Ensure images in cards are responsive */
+    .card-image {
+        width: 100%; /* Full width */
+        height: auto; /* Auto height to maintain aspect ratio */
     }
 }
+
+
+  
+
 
 /* Card design */
 .card-container {
@@ -233,10 +218,9 @@ h1 {
 
 }
 .main_content {
-    width: 100%;
     height: 100%;
     position: relative; /* or absolute, depending on your layout */
-    width: 83.2%; /* Set width to 90% */
+    width: 83.6%; /* Set width to 90% */
     height: calc(100vh - 3rem); /* Adjust height for navbar */
     left: 0; /* Align to left side */
     margin-left: 13rem; /* Adjust margin if necessary to avoid overlap with sidebar */
