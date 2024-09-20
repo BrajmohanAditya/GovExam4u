@@ -36,6 +36,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         <button class="colorButton" onclick="showPage(1)"> 1</button>
         <button class="colorButton" onclick="showPage(2)"> 2</button>
         <button class="colorButton" onclick="showPage(3)"> 3</button>
+        <button class="colorButton" onclick="showPage(3.1)"> Ph.V</button>
+
         <button class="colorButton" onclick="showPage(4)"> 4</button>
         <button class="colorButton" onclick="showPage(5)"> 5</button>
         <button class="colorButton" onclick="showPage(6)"> 6</button>
@@ -420,9 +422,30 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 
 
 </div>
-
                 
                 `;}
+                else if(pageNum==3.1){
+                contentContainer.innerHTML= `
+<div class="scrollbar">
+<div>Blow up - <span id="absolute" class="hover">to explode</span></div>
+<div>Blow out - <span id="absolute" class="hover">be extinguished by an air current.</span></div>
+<div>Blow off - <span id="absolute" class="hover">to decide not to do something you are expected to do.</span></div>
+<div>Pass up - <span id="absolute" class="hover">fail to take. He passed up the opportunity to go to university.</span></div>
+<div>Pass on - <span id="absolute" class="hover">देना, like we pass on football in football match.</span></div>
+<div>Pass over - <span id="absolute" class="hover">to ignore or to not give attention to someone.</span></div>
+<div>Pass through - <span id="absolute" class="hover">पारित होना, pass through</span></div>
+<div>Bring up: - <span id="absolute" class="hover">To mention a topic for discussion; to raise a child</span></div>
+<div>Bring out - <span id="absolute" class="hover">To make something appear or become known.</span></div>
+<div>Bring off - <span id="absolute" class="hover">To succeed in doing something difficult.</span></div>
+<div>Bring about - <span id="absolute" class="hover">To cause something to happen.</span></div>
+
+
+
+
+</div>
+
+                
+                `;}                
            
                 else if(pageNum==4){
                 contentContainer.innerHTML= `
@@ -1387,29 +1410,34 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
                 else if(pageNum==15){
                 contentContainer.innerHTML= `
                 <div class="scrollbar">
+<div>Veneration  <span id="absolute" class="hover">उपासना, worship</span></div>
+<div>Reverence  <span id="absolute" class="hover">श्रद्धा</span></div>
 <div>Budge <span id="absolute" class="hover">move or shift</span></div>
 <div>Impasse <span id="absolute" class="hover">Deadlock, Stalemate</span>
   <div id="hi" class="popup" onclick="myFunction('p15_pop1')"><i class="fa-solid fa-play"></i>
       <span class="popuptext" id="p15_pop1">The labor dispute between the company and the union has hit an impasse, with both sides refusing to budge on their demands.</span>
   </div>
 </div>
-<div>Veneration - <span id="absolute" class="hover">उपासना</span></div>
-<div>Reverence - <span id="absolute" class="hover">श्रद्धा</span></div>
-<div>Breakthrough - <span id="absolute" class="hover">an important discovery or development. A major breakthrough in DNA research.</span></div>
-<div>Takeout food - <span id="absolute" class="hover">order food from a restaurant but eat it at home, like pizza.</span></div>
-<div>Blow up - <span id="absolute" class="hover">to explode</span></div>
-<div>Blow out - <span id="absolute" class="hover">be extinguished by an air current.</span></div>
-<div>Blow off - <span id="absolute" class="hover">to decide not to do something you are expected to do.</span></div>
-<div>Pass up - <span id="absolute" class="hover">fail to take. He passed up the opportunity to go to university.</span></div>
-<div>Pass on - <span id="absolute" class="hover">देना, like we pass on football in football match.</span></div>
-<div>Pass over - <span id="absolute" class="hover">to ignore or to not give attention to someone.</span></div>
-<div>Pass through - <span id="absolute" class="hover">पारित होना, pass through</span></div>
-<div>Pudding - <span id="absolute" class="hover">Halva. The pudding is a gesture of appreciation for all those who work to bring out the Budget.</span></div>
-<div>Gesture - <span id="absolute" class="hover">signal</span></div>
-<div>Bring out - <span id="absolute" class="hover">परिक्षित करना</span></div>
-<div>enterprise - <span id="absolute" class="hover">business, fraught political enterprise.</span></div>
-<div>contingent feature - <span id="absolute" class="hover">आकस्मिक, accidental, incidental feature</span></div>
-<div>presumptuous - <span id="absolute" class="hover">overconfident</span></div>
+
+<div>Breakthrough  <span id="absolute" class="hover">An important discovery or development.</span>
+  <div id="hi" class="popup" onclick="myFunction('p15_pop2')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p15_pop2">The labor dispute between the company and the union has hit an impasse, with both sides refusing to budge on their demands.</span>
+  </div>
+</div>
+
+<div>Pudding <span id="absolute" class="hover">Halva. </span>
+  <div id="hi" class="popup" onclick="myFunction('p15_pop3')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p15_pop3">The pudding is a gesture of appreciation for all those who work to bring out the Budget.</span>
+  </div>
+</div>
+<div>Gesture <span id="absolute" class="hover">signal</span></div>
+<div>Enterprise  <span id="absolute" class="hover">Business.</span>
+  <div id="hi" class="popup" onclick="myFunction('p15_pop4')"><i class="fa-solid fa-play"></i>
+      <span class="popuptext" id="p15_pop4">"The government's attempt to overhaul the healthcare system has turned into a fraught political enterprise, with mounting opposition from both sides of the aisle."</span>
+  </div>
+</div>
+<div>Contingent feature <span id="absolute" class="hover">आकस्मिक, accidental, incidental feature</span></div>
+<div>Presumptuous  <span id="absolute" class="hover">overconfident</span></div>
 <div>--Ous turn noun into adjective. Emerging infectious disease has.</div>
 <div>solemn - <span id="absolute" class="hover">serious. solemn expression.</span></div>
 <div>incendiaries - <span id="absolute" class="hover">भड़काने वाले.</span></div>
@@ -1422,6 +1450,20 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 <div>Deed - <span id="absolute" class="hover">legal document.</span></div>
 <div>Perish - <span id="absolute" class="hover">नष्ट हो जाना, City perished in attack.</span></div>
 <div>Recreation - <span id="absolute" class="hover">मनोरंजन. What you do for recreation</span></div>
+<div>Quandary - <span id="absolute" class="hover">Dilemma, Mobile addiction is a real quandary.</span></div>
+<div>Longing - <span id="absolute" class="hover">Desperate</span></div>
+<div>Revive - <span id="absolute" class="hover">पुनर्जीवित करना, Government revive interest in its land pooling policy.</span></div>
+<div>Skyrocketing - <span id="absolute" class="hover">The price of something increases rapidly.</span></div>
+<div>Rise rose risen - <span id="absolute" class="hover">Used for increasing actions.</span></div>
+<div>Crude - <span id="absolute" class="hover">कच्चा, Crude shelter, Crude oil</span></div>
+<div>Plaudits - <span id="absolute" class="hover">Praise, शाबाशी, He will win plaudits if he clears this exam.</span></div>
+<div>Plausible - <span id="absolute" class="hover">Probable, "Plausible fiscal risk (financial problems)"</span></div>
+<div>Replicate - <span id="absolute" class="hover">Repeat, make an exact copy of.</span></div>
+<div>While - <span id="absolute" class="hover">Used to show contrast.</span></div>
+<div>Crucible - <span id="absolute" class="hover">A place or situation in which people are tested.</span></div>
+<div>An Array of Emotions - <span id="absolute" class="hover">A book that embodies all the human emotions.</span></div>
+<div>Insistently - <span id="absolute" class="hover">Strongly, forcefully.</span></div>
+<div>Muddle - <span id="absolute" class="hover">Clutter, disorder.</span></div>
 
 </div>                
                 `;}
