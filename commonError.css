@@ -204,18 +204,7 @@ body {
   font-family: sans-serif;
   font-size: large;
 }
-/* Conclusion ka css */
-.conclusion {
-  background-color: #a3f1f1;
-  border: 1px solid #ddd;
-  display: flex;
-  flex-direction: column;
-  font-weight: 700;
-  font-family: sans-serif;
-  font-size: large;
-  margin-left: .4rem;
-  line-height: 2rem;
-}
+
 .heading{
   color:blue; 
   font-size:large;
@@ -266,7 +255,7 @@ body {
   
 }
 
-p{
+ ul{
   font-size: larger; /* Specify a unit for font-size */
   line-height: 1.6rem;
   font-weight: 600; /* This is correct */

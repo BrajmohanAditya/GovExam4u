@@ -22,7 +22,7 @@ body {
 
 .sidebar_menu {
     margin-top: 2rem;
-    height: 95vh;
+    height: 92vh;
     width: 18%;
     background-color: #000;
     color: #c3d0d7;
@@ -212,7 +212,7 @@ h1 {
     padding: 1rem;
     overflow-y: auto;
     justify-content: space-between;
-    height: 86vh;
+    height: 90vh;
 
 }
 .main_content {
