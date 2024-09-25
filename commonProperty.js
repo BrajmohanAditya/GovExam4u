@@ -36,3 +36,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
 });
+
+// revision Mode on of
+
+document.getElementById('changeStyleBtn').addEventListener('click', function() {
+    const hoverElements = document.querySelectorAll('.hover');
+    const isOn = this.innerText.includes("On");
+
+    // Toggle the changed class on each hover element
+    hoverElements.forEach(function(hoverElement) {
+        hoverElement.classList.toggle('changed');
+    });
+
+    // Update the button text inside the click handler
+    this.innerText = isOn ? "Revision Mode: Off" : "Revision Mode: On";
+});
