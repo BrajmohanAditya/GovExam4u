@@ -103,7 +103,7 @@ details{
 /* Popup container */
 .popup {
     position:absolute;
-    left: 210px;
+    left: 22%;
     display: inline-block;
     cursor: pointer;
     color: #555;
@@ -121,8 +121,8 @@ details{
     position: absolute;
     z-index: 1;
     bottom: 125%;
-    left: 50%;
-    margin-left: -80px;
+    /* left: 50%; */
+    margin-left: -5rem;
   }
   
   /* Popup arrow */
@@ -162,7 +162,7 @@ details{
     scrollbar-color: #888 ;
     width: 60rem;
     border:  solid white;
-    height:85vh;
+    height:82vh;
     position: relative;
   }
 
