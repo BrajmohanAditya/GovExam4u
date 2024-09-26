@@ -9,6 +9,11 @@ function myFunction(popupId) {
         popups[i].classList.remove("show");
     }
 
+    var popups = document.getElementsByClassName("popupdown");
+    for (var i = 0; i < popups.length; i++) {
+        popups[i].classList.remove("show");
+    }
+
     // Toggle the clicked popup based on its previous state
     if (!isVisible) {
         popup.classList.add("show");
@@ -51,3 +56,13 @@ document.getElementById('changeStyleBtn').addEventListener('click', function() {
     // Update the button text inside the click handler
     this.innerText = isOn ? "Revision Mode: Off" : "Revision Mode: On";
 });
+
+
+
+
+
+ 
+
+
+
+
