@@ -6,11 +6,11 @@
 
 
 .hover{
-    border: .01px solid rgba(0, 0, 0, 0.42);
+    border-bottom: 2px dashed rgba(0, 0, 0, 0.42); /* Create the dashed bottom border */
     color:white;
-    border-radius: 5px;
     padding: 4px;
     font-weight: 500;
+    font-family: sans-serif;
 }
 /* Revision mode ka property hai */
 .changed {  
@@ -24,15 +24,15 @@ div{
     margin-right: 12px;
     color: #003366;
     font-weight: 500;
-    font-family: 'Times New Roman', Times, serif;
-    height: 60px;    
+    height: 60px; 
+    font-family: sans-serif;   
 }
 span:hover{
     color: #050101;
-    border-radius: 5px;
     transition: 0.5s;
     cursor: pointer;
     font-weight: 500;
+    font-family: sans-serif;
 }
 
 
@@ -129,7 +129,7 @@ details{
   /* The actual popup (appears on top) */
   .popup .popuptext {
     visibility: hidden;
-    width: 400px;
+    width: 40rem;
     background-color: #555;
     color: #fff;
     text-align: left;
@@ -138,11 +138,12 @@ details{
     position: absolute;
     z-index: 1;
     bottom: 125%;
-    /* left: 50%; */
+    /* top: 100%; */
     margin-left: -5rem;
   }
+
   
-  /* Popup arrow */
+  /* Popup arrow (pop button)*/
   .popup .popuptext::after {
     content: "";
     position: absolute;
