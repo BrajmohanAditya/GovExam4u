@@ -287,9 +287,6 @@ details{
   background: #555;  /* Color of the scrollbar thumb when hovered */
 }
 /* Spacing btween button and meaning */
-#hi{
-  margin-left:3rem;
-}
 
 /* Pronunceation  */
  
@@ -306,7 +303,7 @@ details{
 /* Button dikhaga ab mobile meh e vocab ka  */
 
 
-@media (max-width: 400px) {
+@media (max-width: 1024px) {
   html {
     font-size: 12px;
   }
@@ -314,6 +311,7 @@ details{
   .scrollbar {
     width: 100%;
     font-size: 0.8em;
+    overflow-x: hidden;
   }
 
   .buttons-container {
@@ -324,6 +322,9 @@ details{
   button {
     padding: 0.3rem;
     font-size: 12p;
+  }
+  .search-form{
+    display: none;
   }
 }
 
