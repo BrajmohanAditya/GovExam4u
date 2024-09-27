@@ -303,7 +303,7 @@ details{
 /* Button dikhaga ab mobile meh e vocab ka  */
 
 
-@media (max-width: 1024px) {
+@media (max-width: 400px) {
   html {
     font-size: 12px;
   }
