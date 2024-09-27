@@ -19,7 +19,7 @@
 }
 
 div{
-    font-size: 25px;
+    font-size: 1.3rem;
     margin-left: 15px;
     margin-right: 12px;
     color: #003366;
@@ -108,12 +108,7 @@ button {
 }
 
 
-details{
-    position: absolute;
-    left: 20px;
-    display: inline;
-    color: #6c757d;
-}
+/*  */
 
 
 
