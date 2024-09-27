@@ -14,7 +14,7 @@
 }
 /* Revision mode ka property hai */
 .changed {  
-  color: red;
+  color: black;
   border: none;
 }
 
@@ -23,7 +23,7 @@ div{
     margin-left: 15px;
     margin-right: 12px;
     color: #003366;
-    font-weight: 500;
+    font-weight: 400;
     height: 60px; 
     font-family: sans-serif;   
 }
@@ -117,7 +117,7 @@ details{
 
 
 
-/* Popup container */
+/* Popup Button ka css */
 .popup {
     position:absolute;
     left: 22%;
@@ -157,13 +157,13 @@ details{
   }
 
   
-  /* Popup arrow (pop button)*/
+  /* Popup box kaha appear hoga uska css hai*/
   .popup .popuptext::after {
     content: "";
     position: absolute;
     top: 100%;
     left: 50%;
-    margin-left: -5px;
+    /* margin-left: -5px; */
     border-width: 5px;
     border-style: solid;
     border-color: #555 transparent transparent transparent;

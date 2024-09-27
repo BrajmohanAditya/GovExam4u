@@ -244,7 +244,7 @@ h1 {
     }
 }
 /* isko last meh likhna seh mera problem solve ho gaya but why i dont khow why */
-@media (max-width:550px) {
+@media (max-width:1024px) {
     .main_content{
         margin-left: 0rem;
     }
