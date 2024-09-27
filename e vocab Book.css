@@ -310,12 +310,12 @@ details{
 
   .scrollbar {
     width: 100%;
-    font-size: 0.8em;
+    font-size: 0.8rem;
     overflow-x: hidden;
   }
 
   .buttons-container {
-    width: 100%;
+    width: 20%;
     padding: 2px;
   }
 
@@ -325,6 +325,13 @@ details{
   }
   .search-form{
     display: none;
+  }
+  .popup {
+    position:absolute;
+    left: 75%;
+    display: inline-block;
+    cursor: pointer;
+    color: #555;
   }
 }
 
