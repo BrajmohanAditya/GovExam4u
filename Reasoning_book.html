@@ -54,8 +54,6 @@
       contentContainer.innerHTML = `
       
       <div class="scrollbar">
-       Reasoning hai na gee
-    <br><br><br><br><br><br>
       </div>`;
 
 
@@ -72,23 +70,53 @@
 <p class="question">
   Q1<br>Six persons are of different ages. F is elder than A but younger than D. E is the third youngest person in the group. B is elder than E, who is elder than A. The number of persons younger than F is the same as the number of persons elder than E. A is younger than C. The age of D is double the age of B
 </p>
+<button class="ansButton" onclick="toggleAnswer('ans1')">Answer</button>
+<div id="ans1" class="answer">
+  D > B > F > E > C > A
+</div>
 
 <p class="question">
 Q2<br>Six goats give different quantities of milk. S gives more milk than U but not as much as V. Only two goats give less milk than X. W gives more milk than U and T but not as much as V. As many goats give more milk than W as less than U. The goat which gives the maximum quantity of milk gives 37 liters whereas the goat which gives the second lowest quantity of milk gives 28 liters
 </p>
+<button class="ansButton" onclick="toggleAnswer('ans2')">Answer</button>
+<div id="ans2" class="answer">
+  V > W > S > X > U > T
+</div>
+
 <p class="question">
-Q3<br>Eight trees - A, B, C, D, E, F, G and H have different numbers of fruits. Not more than two trees have less number of fruits than G, which has 78 fruits. Tree D has more number of fruits than B but less number of fruits than tree H. A has less number of fruits than tree C but not less number of fruits than H. Tree E, which does not have the third highest number of fruits but has 15 fruits less than that of G, has more number of fruits than F but less number of fruits than B.
+Q3<br>Eight trees - A, B, C, D, E, F, G and H have different numbers of fruits. Not more than two trees have less number of fruits than G, which has 78 fruits. Tree D has more number of fruits than B but less number of fruits than tree H. A has less number of fruits than tree C but not less number of fruits than H. Tree E, which does not have the third highest number of fruits but has 15 fruits less than that of G, E has more number of fruits than F but less number of fruits than B.
 </p>
+<button class="ansButton" onclick="toggleAnswer('ans3')">Answer</button>
+<div id="ans3" class="answer">
+  C > A > H > D > B > G > E > F
+</div>
+
 <p class="question">
-Q4<br>Seven persons—L, M, N, O, P, Q, and R—are solving different numbers of questions. M solves more questions than Q, but neither of them solves the second highest number of questions. Two persons solve more questions than N but fewer questions than R. P solves more questions than O but fewer questions than Q. L, who solves more questions than O, solves fewer questions than at least three persons. N solves fewer questions than P but not fewer than L. The one who solves the least number of questions solves 64.
+Q4<br>Seven books - P, Q, R, S, T, U and V have different number of pages.T has more pages than U and R but less pages than V. R doesn't have the fourth highest number of pages. R has less pages than Q but more pages than P and S, which does not have the least number of pages. The number of books having more pages than T is one more than the number of books having less pages than P. The book which has the second highest number of pages has 1300 pages and R has 450 pages.
 </p>
+<button class="ansButton" onclick="toggleAnswer('ans4')">Answer</button>
+<div id="ans4" class="answer">
+  V > T > Q/U > Q/U > R > S > P 
+</div>
+
 <p class="question">
 Q5<br>Seven girls A, B, C, D, E, F, and G have different numbers of coins. D has more coins than G, but not as many as A. F has more coins than C. B has more coins than E and A. F has more coins than D, but not as many as A and E. The one who has the second lowest number of coins has 15 coins, but neither G nor D have the second lowest number of coins.
 </p>
+<button class="ansButton" onclick="toggleAnswer('ans5')">Answer</button>
+<div id="ans5" class="answer">
+  B > E > A > F > D > C > G 
+</div>
+
 <p class="question">
 Q6<br>
 Six notes - E, I, O, N, P, and T - have different numbers of pages: N has more pages than I, only one note is between I and E, P has more pages than T, T has fewer pages than I, E has fewer pages than T, N does not have the most pages, E has more pages than the note with 50 pages, and T has twice the pages of O.
 </p>
+<button class="ansButton" onclick="toggleAnswer('ans6')">Answer</button>
+<div id="ans6" class="answer">
+  P > N > I > T > E > O  
+</div>
+
+
       </div>
       `;
     }
@@ -155,17 +183,7 @@ Six notes - E, I, O, N, P, and T - have different numbers of pages: N has more p
     }
   }
 
-  function highlight(element, isCorrect) {
-    var options = document.getElementsByClassName('option');
-    for (var i = 0; i < options.length; i++) {
-      options[i].classList.remove('correct', 'incorrect');
-    }
-    if (isCorrect) {
-      element.classList.add('correct');
-    } else {
-      element.classList.add('incorrect');
-    }
-  }
+
 </script>
 
 

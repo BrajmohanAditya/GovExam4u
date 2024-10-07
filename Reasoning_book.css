@@ -186,3 +186,21 @@ body {
   line-height: 1.6rem;
   font-weight: 600; /* This is correct */
 }
+
+.answer {
+  display: none;
+  color: green;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: x-large;
+}
+.ansButton{
+  width: 5rem;
+  margin-left: 20%;
+  background: purple;
+  border-color:purple;
+}
+.ansButton:hover{
+  background-color: #28a745;
+}
+

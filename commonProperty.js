@@ -57,8 +57,15 @@ document.getElementById('changeStyleBtn').addEventListener('click', function() {
     this.innerText = isOn ? "Revision Mode: Off" : "Revision Mode: On";
 });
 
-
-
+// answer show karaga 
+function toggleAnswer(answerId) {
+    const answerDiv = document.getElementById(answerId);
+    if (answerDiv.style.display === "none" || answerDiv.style.display === "") {
+        answerDiv.style.display = "block"; // Show the answer
+    } else {
+        answerDiv.style.display = "none"; // Hide the answer
+    }
+}
 
 
  
