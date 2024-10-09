@@ -206,6 +206,6 @@ body {
 
 @media (max-width:1024px) {
 .scrollbar{
-  height: 75vh;
+  height: 70vh;
 }
 }
