@@ -19,7 +19,7 @@
   <div class="content-container" id="contentContainer"></div>
   <div class="buttons-container" id="buttonsContainer">
     <button class="colorButton" onclick="showPage('Rule')">Rule</button>
-    <button class="colorButton" onclick="showPage('Rule.')">Rule.</button>
+    <button class="colorButton" onclick="showPage('Rule_1st')">Rule</button>
     <button class="colorButton" onclick="showPage('Word')">Word</button>
     <button class="colorButton" onclick="showPage(1)">1</button>
     <button class="colorButton" onclick="showPage(2)">2</button>
@@ -203,9 +203,23 @@
   </div>
       `;
   }
-   else if(pageNum == 'Rule.'){
+   else if(pageNum == 'Rule_1st'){
     contentContainer.innerHTML = `
     <div class="scrollbar">  
+            <div class="heading">Conditional  Sentence</div>
+    <div class="grid-container_4th">
+        <div style="color:red" class="grid-item_1st">If  Clause</div>
+        <div style="color:red" class="grid-item_1st">Main  Clause</div>
+        <div class="grid-item_1st">V1</div>
+        <div class="grid-item_1st">May, Can, Will, Shall</div>
+        <div class="grid-item_1st">V2</div>
+        <div class="grid-item_1st">Might, Could, Would</div>
+        <div class="grid-item_1st">Had + V3</div>
+        <div class="grid-item_1st">Would/Could + Have + V3</div>
+        <div class="grid-item_1st">Were/V2</div>
+        <div class="grid-item_1st">Would + V1</div>
+
+    </div>
 
     </div>
       `;
