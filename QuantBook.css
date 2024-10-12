@@ -4,7 +4,7 @@ h1{
     box-shadow: whitesmoke;
     /* font-style: italic; */
     display: inline-block;
-    background-color: aqua;
+    background-color: blue;
     margin-left: 30px;
     border-radius: 10px;
     padding: 2px;
@@ -168,4 +168,28 @@ body {
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity:1 ;}
+}
+
+.question {
+  font-size: 1.1rem; /* Specify a unit for font-size */
+  line-height: 1.6rem;
+  font-weight: 600; /* This is correct */
+}
+
+.answer {
+  display: none;
+  color: green;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: x-large;
+}
+
+.ansButton{
+  width: 5rem;
+  margin-left: 20%;
+  background: purple;
+  border-color:purple;
+}
+.ansButton:hover{
+  background-color: #28a745;
 }
