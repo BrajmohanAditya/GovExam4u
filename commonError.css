@@ -205,6 +205,20 @@ body {
   font-size: large;
 }
 
+.grid-item_1st{
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+  text-align: center;
+  font-weight: 700;
+  justify-content: center;
+  font-family: sans-serif;
+  font-size: large;
+
+}
+
 .heading{
   display: flex;
   align-items: center;
@@ -246,19 +260,7 @@ body {
   row-gap: 15px;
 }
 
-.grid-item_1st{
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    display: flex;
-    height: 3rem;
-    align-items: center;
-    text-align: center;
-    font-weight: 700;
-    justify-content: center;
-    font-family: sans-serif;
-    font-size: large;
-  
-}
+
 
  ul{
   font-size: larger; /* Specify a unit for font-size */
