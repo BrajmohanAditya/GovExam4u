@@ -168,9 +168,11 @@ body {
   to {opacity:1 ;}
 }
 .heading{
+  text-align: center;
+  border-radius: 5rem;
   color:red; 
   font-size:xx-large;
-  font-weight: 700;
+  font-weight: 600;
   font-family: sans-serif;
   /* box-shadow: #ccc; */
   background-color:#ccc;
