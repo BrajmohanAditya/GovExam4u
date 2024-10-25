@@ -19,8 +19,8 @@
   <div class="content-container" id="contentContainer"></div>
   <div class="buttons-container" id="buttonsContainer">
     <div style="font-weight: 800; font-family: Arial, Helvetica, sans-serif;color: red;">INDEX</div>
-    <button class="colorButton" onclick="showPage(1)">Puzzle - 1</button>
-    <button class="colorButton" onclick="showPage(1.1)">Puzzle - 2 </button>
+    <button class="colorButton" onclick="showPage(1)">Concept</button>
+    <button class="colorButton" onclick="showPage(1.1)">Puzzle - 1</button>
 
     <button class="colorButton" onclick="showPage(2)">Ranking problem </button>
     <button class="colorButton" onclick="showPage(3)">Blood Relation</button>
@@ -54,10 +54,17 @@
       contentContainer.innerHTML = `
       <div class="scrollbar">
 <div class="heading">Flat and Floor</div>
-<div style="display: flex; justify-content: center;">
-    <img src="Reasoning/Floor_flat.jpg" style="width: 25rem;">
+<div style="display: flex; gap: 10px;">
+  <img src="Reasoning/image_1.jpg">
 </div>
 
+<p class="question">
+ * X is just below flat of L &nbsp or &nbsp "X is just below L's flat." (Fixed Case) </br> </br>
+ * A is immediately above L &nbsp or &nbsp   A just above Floor of L. (Not Fixed)  </br> </br>
+ * P lives in the Flat immediately above Q. (Fixed)  </br> </br>
+ * P lives in the flat two floors below the flat in which D lives. (Fixed) </br> </br>
+ * W lives two floors below C.   (Not Fixed)
+</p>
 
       </div>`;
 
@@ -213,6 +220,7 @@ Q12<br>Seven girls - A, B, C, D, E, F, and G received different numbers of choco
 
     else if(pageNum == 3){
       contentContainer.innerHTML = `Hai mohan`;
+      
     }
     else if(pageNum == 3){
       contentContainer.innerHTML = `Hai mohan`;
