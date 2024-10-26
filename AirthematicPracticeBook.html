@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoveExam4u</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="QuantBook.css">
+
+</head>
+<body onload="showPage(1)">
+
+<nav class="navbar">
+        <h1>Quant</h1>
+</nav>
+
+<div class="container1">
+  <div class="content-container" id="contentContainer"></div>
+  <div class="buttons-container" id="buttonsContainer">
+  <div style="font-weight: 800; font-family: Arial, Helvetica, sans-serif;color: red;">INDEX</div>
+    <button class="colorButton" onclick="showPage(1)">Dishonest Shopkeeper</button>
+    <button class="colorButton" onclick="showPage(2)">Mixture Alligation</button>
+    <button class="colorButton" onclick="showPage(3)">Mixture Replacement</button>
+    <button class="colorButton" onclick="showPage(4)">Consumption Expenditure </button>
+    <button class="colorButton" onclick="showPage(5)">Number Series</button>
+    <button class="colorButton" onclick="showPage(6)">S.I and C.I</button>
+    <button class="colorButton" onclick="showPage(7)">Partnership</button>
+    <button class="colorButton" onclick="showPage(8)">Profit and Loss</button>
+    <button class="colorButton" onclick="showPage(9)">Speed Distance Time </button>
+    <button class="colorButton" onclick="showPage(10)">Time and Work</button>
+    <button class="colorButton" onclick="showPage(11)">Quadratic Equation</button>
+    <button class="colorButton" onclick="showPage(12)">Simplification</button>
+    <button class="colorButton" onclick="showPage(13)">Ratio and Proportion</button>
+    <button class="colorButton" onclick="showPage(14)">Percentage</button>
+    <button class="colorButton" onclick="showPage(15)">Boat and Strem</button>
+    <button class="colorButton" onclick="showPage(16)">Mensuration</button>
+    <button class="colorButton" onclick="showPage(17)">Probeblity</button>
+    <button class="colorButton" onclick="showPage(18)">Permutation and Combination</button>
+    <button class="colorButton" onclick="showPage(19)">Venn Digram</button>
+    <button class="colorButton" onclick="showPage(20)">Caselet DI</button>
+    <!-- More buttons if needed -->
+  </div>
+</div>
+
+<script>
+ 
+
+  function showPage(pageNum) {
+    const contentContainer = document.getElementById('contentContainer');
+    if (pageNum === 1) {
+      contentContainer.innerHTML = `
+      
+      <div class="scrollbar">
+<p class="question">
+  Q1) A shopkeeper marked an item at 50% above its cost price and also 30% discount is given on its marked price. If he used a false weight of 600 grams instead of 1000 grams, then find the total profit percent.
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans1')">Answer</button>
+<div id="ans1" class="answer">
+  <p>ans - 75%</p>
+  <img src="./airthemetic/Dishonesty/Q1.jpg" class="image">
+</div>
+
+<p class="question">
+  Q2) A dishonest seller bought 12 kg items and sold them at cost of 15 kg items. He earned extra profit by using a false weight of 'w' grams instead of 1 kg. If net profit earned by him was 100%, then calculate the value of 'w'.
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans2')">Answer</button>
+<div id="ans2" class="answer">
+  625gm
+</div>
+
+      </div>`;
+
+
+    } else if (pageNum === 2) {
+      contentContainer.innerHTML = `
+      <div class="scrollbar">  
+
+
+      </div>
+      `;
+    }
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `
+      <div class="scrollbar">  
+<p class="question">
+Q 1) A juice contains the mixture of water and sugar in the ratio of 5:3. How much fraction of mixture must be drawn off and substituted by sugar so that the final ratio of water and sugar will result in 1:1? 
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans2')">Answer</button>
+<div id="ans2" class="answer">
+  ans : 1/5
+</div>
+
+      </div>
+      `;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+    
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 3){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+     else {
+      contentContainer.textContent = `This is page ${pageNum}`;
+    }
+  }
+
+  function highlight(element, isCorrect) {
+    var options = document.getElementsByClassName('option');
+    for (var i = 0; i < options.length; i++) {
+      options[i].classList.remove('correct', 'incorrect');
+    }
+    if (isCorrect) {
+      element.classList.add('correct');
+    } else {
+      element.classList.add('incorrect');
+    }
+  }
+</script>
+
+
+<!-- script tag for poupText -->
+<script src="commonProperty.js"></script>
+
+</body>
+</html>

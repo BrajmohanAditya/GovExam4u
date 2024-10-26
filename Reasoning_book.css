@@ -206,8 +206,14 @@ body {
   background-color: #28a745;
 }
 
-@media (max-width:1024px) {
-.scrollbar{
-  height: 70vh;
-}
-}
+  @media (max-width: 1024px) {
+    .scrollbar {
+      height: 70vh;
+      overflow-y: auto; /* Vertical overflow handled */
+      overflow-x: hidden; /* Horizontal overflow disabled */
+    }
+    .heading{
+      display: none;
+    }
+  }
+
