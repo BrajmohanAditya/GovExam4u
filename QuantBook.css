@@ -173,7 +173,7 @@ body {
 .question {
   font-size: 1.1rem; /* Specify a unit for font-size */
   line-height: 1.6rem;
-  font-weight: 600; /* This is correct */
+  font-weight: 400; /* This is correct */
 }
 
 .answer {
