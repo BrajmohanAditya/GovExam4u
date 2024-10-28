@@ -28,10 +28,11 @@ h2{
     margin: 10px;
     padding: 10px;
     cursor: pointer;
-    display: inline;
     border: 1px solid #888;
     border-radius: 0.5rem;
-    font-weight: 500;
+    font-weight: 600;
+    height: 2.5rem;  width: 4rem;
+    background-color: #f0f0f0; color: black;
   }
   .correct {
     background-color:green;
@@ -44,9 +45,10 @@ h2{
     border-radius: 0.5rem;
   }
   #ReasonButton{
+    margin-left: -10rem;
     background-color: green;
     height: 2.5rem;  
-    width: 4.5rem;
+    width: 6rem;
     border:1px solid #888;
     border-radius: 0.5rem; 
 
@@ -56,6 +58,12 @@ h2{
     background-color: #218838;
     border-color: #1e7e34;
   }
+
+.option_container{
+
+  display: flex; 
+  align-items: center;
+}
 /* End */
   .container1 {
     margin-top: 1rem;
@@ -94,6 +102,7 @@ button {
     margin-left: 2px;
 }
 .scrollbar {
+  overflow-x: hidden;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #888 #f1f1f1;
@@ -271,3 +280,11 @@ body {
   
 }
 
+h3{
+  font-weight: 400;
+}
+.question {
+  font-size: 1.1rem; /* Specify a unit for font-size */
+  line-height: 1.6rem;
+  font-weight: 400; /* This is correct */
+}

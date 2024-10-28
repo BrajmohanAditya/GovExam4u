@@ -235,150 +235,806 @@
   }
   else if (pageNum === 1) {
       contentContainer.innerHTML = `
-    
-    <div class="scrollbar">
-      <h2>Quiz: 1</h2>
-      <h3>Q1<br><br>The secure and well-being of women (A) are of utmost importance, (B)and we must take every necessary step to ensure (C) they feel safe and protected in all aspects of life(D).</h3>
-       <p class="option" onclick="highlight(this, true)">A</p>
-       <p class="option" onclick="highlight(this, false)">B</p>
-       <p class="option" onclick="highlight(this, false)">C</p>
-       <p class="option" onclick="highlight(this, false)">D</p>
-       <div id="hi" class="popup" onclick="myFunction('p1_pop1')"><button id="ReasonButton">Reason</button>
-         <span class="popuptext" id="p1_pop1">
-          * secure नही security <br>
-           The Noun of, we need Noun not adjective and secure is adj.
-         </span>
-       </div>
+      <div class="scrollbar">  
+<p class="question">
+  Q1) The sceneries, (A)/ as well as (B)/ the people of Meghalaya, (C)/ is very pleasing (D).
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, true)">A</button> 
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop1')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop1">
+      sceneries is uncountable. iska plural nahi hota.
+    </span>
+  </div>
+</div>
 
-      <h3>Q2<br><br> Because she had been warned (A) multiple time, she knew (B) the consequences of her actions(D).</h3>
-       <p class="option" onclick="highlight(this, false)">A</p>
-       <p class="option" onclick="highlight(this, true)">B</p>
-       <p class="option" onclick="highlight(this, false)">C</p>
-       <div  class="popup" onclick="myFunction('p1_pop2')"><button id="ReasonButton">Reason</button>
-         <span class="popuptext" id="p1_pop2">
-          * Time नही Times <br>
-          multipe + Plural noun
-         </span>
-       </div>
+<p class="question">
+  Q2) The US has banned the sale (A)/ and import of new communications (B)/ equipments from five Chinese companies, (C)/ including Huawei and ZTE, (D)/ amid concerns over national security (E).
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, true)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop2')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop2">
+      * equipments नहीं equipment <br>
+      * क्योंकि equipment uncountable noun है, or U.N का plural नहीं होता
+    </span>
+  </div>
+</div>
 
-       <h3>Q3<br><br>The backyard was a peaceful oasis,(A) with a lush lawn of tall wave (B) grass and a hammock strung between two trees.(C).</h3>
-       <p class="option" onclick="highlight(this, false)">A</p>
-       <p class="option" onclick="highlight(this, true)">B</p>
-       <p class="option" onclick="highlight(this, false)">C</p>
-       <div id="hi" class="popup" onclick="myFunction('p1_pop3')"><button id="ReasonButton">Reason</button>
-         <span class="popuptext" id="p1_pop3">
-          * wave नही waving <br>
-          of + Ving
-         </span>
-       </div>
+<p class="question">
+  Q3) The secure and well-being of women (A) are of utmost importance, (B) and we must take every necessary step to ensure (C) they feel safe and protected in all aspects of life (D).
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, true)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop3')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop3">
+      * secure नहीं security <br>
+      The Noun of, we need Noun not adjective and secure is adj.
+    </span>
+  </div>
+</div>
 
-       <h3>Q4<br><br>The wealthier a nation gets,(A) more it stands to lose in war.(B)</h3>
-       <p class="option" onclick="highlight(this, flase)">A</p>
-       <p class="option" onclick="highlight(this, true)">C</p>
-       <div id="hi" class="popup" onclick="myFunction('p1_pop4')"><button id="ReasonButton">Reason</button>
-         <span class="popuptext" id="p1_pop4">
-          * The more
-          maintain parallel structure
-         </span>
-       </div>
-      
-       <h3>Q5<br><br>"The research team found that a lots of(A) the data collected during the(B) preliminary study were inconclusive(C).</h3>
-       <p class="option" onclick="highlight(this, true)">A</p>
-       <p class="option" onclick="highlight(this, false)">B</p>
-       <p class="option" onclick="highlight(this, false)">C</p>
-       <div id="hi" class="popup" onclick="myFunction('p1_pop5')"><button id="ReasonButton">Reason</button>
-         <span class="popuptext" id="p1_pop5">
-          * a lots of नही a lot of <br>
-          a + Singular, lots is plural
-         </span>
-       </div>
-      
-       <h3>Q6<br><br>Didn't you receive some (A) proper training in management(B).</h3>
-       <p class="option" onclick="highlight(this, true)">A</p>
-       <p class="option" onclick="highlight(this, false)">B</p>
-       <div id="hi" class="popup" onclick="myFunction('p1_pop6')"><button id="ReasonButton">Reason</button>
-         <span class="popuptext" id="p1_pop6">
-          * some नही any <br>
-           some का use +ve sentence , any + -ve sentence
-         </span>
-       </div>
+<p class="question">
+  Q4) With the recent changes in policy, (A) the employees are looking forward to see (B) the positive impact on their work environment and overall job satisfaction (C).
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, true)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop4')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop4">
+      * see नहीं seeing <br>
+      Looking forward to + ving
+    </span>
+  </div>
+</div>
 
-       <h3>Q7<br><br>With the recent changes in policy,(A) the employees are looking forward to see (B) the positive impact on their work environment and overall job satisfaction(C).</h3>
-       <p class="option" onclick="highlight(this, false)">A</p>
-       <p class="option" onclick="highlight(this, true)">B</p>
-       <p class="option" onclick="highlight(this, false)">C</p>
-       <div id="hi" class="popup" onclick="myFunction('p1_pop7')"><button id="ReasonButton">Reason</button>
-         <span class="popuptext" id="p1_pop7">
-          * see नही seeing <br>
-          Looking forward + ving
-         </span>
-       </div>
+<p class="question">
+  Q5) Because she had been warned (A) multiple time, she knew (B) the consequences of her actions (D).
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, true)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop5')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop5">
+      * Time नहीं Times <br>
+      multiple + Plural noun
+    </span>
+  </div>
+</div>
 
-       <h3>Q8<br><br>Controversial measures which would (A)/ have forced big technology platforms (B)/ to
-          remove legal but (C)/ harmful material has been axed from the Online Safety Bill (D).</h3>
-       <p class="option" onclick="highlight(this, false)">A</p>
-       <p class="option" onclick="highlight(this, false)">B</p>
-       <p class="option" onclick="highlight(this, false)">C</p>
-       <p class="option" onclick="highlight(this, true)">D</p>
-       <div id="hi" class="popup" onclick="myFunction('p1_pop8')"><button id="ReasonButton">Reason</button>
-         <span class="popuptext" id="p1_pop8">
-          * has नही have <br>
-          * have been axed, क्योंकि  Controversial measures is plural subject 
-         </span>
-       </div>       
+<p class="question">
+  Q6) The backyard was a peaceful oasis, (A) with a lush lawn of tall wave (B) grass and a hammock strung between two trees. (C).
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, true)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop6')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop6">
+      * wave नहीं waving <br>
+      of + Ving
+    </span>
+  </div>
+</div>
 
-       <h3>Q9<br><br>One of Twitter's most important (A)/ charity partners say it is (B)/ considering ending its
-        relationship (C)/ with the platform because  of recent policy changes (D).</h3>
-       <p class="option" onclick="highlight(this, false)">A</p>
-       <p class="option" onclick="highlight(this, true)">B</p>
-       <p class="option" onclick="highlight(this, false)">C</p>
-       <p class="option" onclick="highlight(this, false)">D</p>
-       <div id="hi" class="popup" onclick="myFunction('p1_pop9')"><button id="ReasonButton">Reason</button>
-         <span class="popuptext" id="p1_pop9">
-          * say नही says <br>
-          * one of + PN + S.V
-         </span>
-       </div>
+<p class="question">
+  Q7) Didn't you receive some (A) proper training in management (B).
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop7')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop7">
+      * some नहीं any <br>
+      some का use +ve sentence, any + -ve sentence
+    </span>
+  </div>
+</div>
 
-       <h3>Q10<br><br>The US has banned the sale (A)/ and import of new communications (B)/ equipments from
-        five Chinese companies, (C)/ including Huawei and ZTE, (D)/ amid concerns over national security (E).</h3>
-       <p class="option" onclick="highlight(this, false)">A</p>
-       <p class="option" onclick="highlight(this, false)">B</p>
-       <p class="option" onclick="highlight(this, true)">C</p>
-       <p class="option" onclick="highlight(this, false)">D</p>
-       <div id="hi" class="popup" onclick="myFunction('p1_pop10')"><button id="ReasonButton">Reason</button>
-         <span class="popuptext" id="p1_pop10">
-          * equipments नही equipment <br>
-          * क्योंकि  equipment uncountable noun hai, or U.N का plural नहीं होता
-         </span>
-       </div>
-    
+<p class="question">
+  Q8) Controversial measures which would (A)/ have forced big technology platforms (B)/ to remove legal but (C)/ harmful material has been axed from the Online Safety Bill (D).
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop8')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop8">
+      * has नहीं have <br>
+      * have been axed, क्योंकि Controversial measures is plural subject
+    </span>
+  </div>
+</div>
+
+<p class="question">
+  Q9) "The research team found that a lots of (A) the data collected during the (B) preliminary study were inconclusive (C).
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop9')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop9">
+      * a lots of नहीं a lot of <br>
+    </span>
+  </div>
+</div>
+
+<p class="question">
+  Q10
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop10')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop10"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q11
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop11')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop11"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q12
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop12')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop12"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q13
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop13')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop13"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q14
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop14')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop14"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q15
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop15')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop15"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q16
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop16')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop16"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q17
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop17')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop17"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q18
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop18')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop18"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q19
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop19')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop19"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q20
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop20')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop20"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q21
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop21')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop21"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q22
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop22')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop22"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q23
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop23')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop23"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q24
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop24')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop24"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q25
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop25')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop25"></span>
+  </div>
+</div>
 
 
     </div>`;
 
     } 
-    else if (pageNum === 2) {
+    else if (pageNum == 2) {
       contentContainer.innerHTML = `
       <div class="scrollbar">  
+<p class="question">
+  Q1
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop1')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop1">hi</span>
+  </div>
+</div>
 
-     Hai sita 
+<p class="question">
+  Q2
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop2')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop2"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q3
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop3')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop3"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q4
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop4')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop4"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q5
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop5')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop5"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q6
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop6')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop6"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q7
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop7')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop7"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q8
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop8')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop8"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q9
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop9')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop9"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q10
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop10')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop10"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q11
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop11')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop11"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q12
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop12')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop12"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q13
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop13')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop13"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q14
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop14')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop14"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q15
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop15')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop15"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q16
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop16')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop16"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q17
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop17')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop17"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q18
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop18')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop18"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q19
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop19')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop19"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q20
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop20')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop20"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q21
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop21')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop21"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q22
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop22')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop22"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q23
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop23')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop23"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q24
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop24')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop24"></span>
+  </div>
+</div>
+
+<p class="question">
+  Q25
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button>
+  <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button>
+  <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">E</button>
+  <div class="popup" onclick="myFunction('pop25')">
+    <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop25"></span>
+  </div>
+</div>
+
+
       </div>
       `;
     }
-    else if(pageNum == 3){
+    else if(pageNum == 4){
       contentContainer.innerHTML = `Hai mohan`;
     }
 
-    else if(pageNum == 3){
+    else if(pageNum == 5){
       contentContainer.innerHTML = `Hai mohan`;
     }
 
-    else if(pageNum == 3){
+    else if(pageNum == 6){
       contentContainer.innerHTML = `Hai mohan`;
     }
 
-    else if(pageNum == 3){
+    else if(pageNum == 7){
       contentContainer.innerHTML = `Hai mohan`;
     }
 
