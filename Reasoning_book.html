@@ -22,23 +22,23 @@
     <button class="colorButton" onclick="showPage(1)">Concept</button>
     <button class="colorButton" onclick="showPage(2)">Ranking problem </button>
     <button class="colorButton" onclick="showPage(3)">Puzzle</button>
-    <button class="colorButton" onclick="showPage(4)">Critical Reasoning</button>
-    <button class="colorButton" onclick="showPage(5)">5</button>
-    <button class="colorButton" onclick="showPage(6)">6</button>
-    <button class="colorButton" onclick="showPage(7)">7</button>
-    <button class="colorButton" onclick="showPage(8)">8</button>
-    <button class="colorButton" onclick="showPage(9)">9</button>
-    <button class="colorButton" onclick="showPage(10)">10</button>
-    <button class="colorButton" onclick="showPage(11)">11</button>
-    <button class="colorButton" onclick="showPage(12)">12</button>
-    <button class="colorButton" onclick="showPage(13)">13</button>
-    <button class="colorButton" onclick="showPage(14)">14</button>
-    <button class="colorButton" onclick="showPage(15)">15</button>
-    <button class="colorButton" onclick="showPage(16)">16</button>
-    <button class="colorButton" onclick="showPage(17)">17</button>
-    <button class="colorButton" onclick="showPage(18)">18</button>
-    <button class="colorButton" onclick="showPage(19)">19</button>
-    <button class="colorButton" onclick="showPage(20)">20</button>
+    <button class="colorButton" onclick="showPage(4)">Puzzle</button>
+    <button class="colorButton" onclick="showPage(5)">Puzzle</button>
+    <button class="colorButton" onclick="showPage(6)">Puzzle</button>
+    <button class="colorButton" onclick="showPage(7)">Puzzle</button>
+    <button class="colorButton" onclick="showPage(8)">Puzzle</button>
+    <button class="colorButton" onclick="showPage(9)">Puzzle</button>
+    <button class="colorButton" onclick="showPage(10)">Puzzle</button>
+    <button class="colorButton" onclick="showPage(11)">Puzzle</button>
+    <button class="colorButton" onclick="showPage(12)">Puzzle</button>
+    <button class="colorButton" onclick="showPage(13)">Puzzle</button>
+    <button class="colorButton" onclick="showPage(14)">Puzzle</button>
+    <button class="colorButton" onclick="showPage(15)">Puzzle</button>
+    <button class="colorButton" onclick="showPage(16)">Puzzle</button>
+    <button class="colorButton" onclick="showPage(17)">Puzzle</button>
+    <button class="colorButton" onclick="showPage(18)">Puzzle</button>
+    <button class="colorButton" onclick="showPage(19)">Puzzle</button>
+    <button class="colorButton" onclick="showPage(20)">Puzzle</button>
     <!-- More buttons if needed -->
   </div>
 </div>
@@ -335,42 +335,148 @@ Only one athlete won more medals than U. W won more medals than X but less than 
       `;
     }
 
-    else if(pageNum == 3){
+    else if(pageNum == 5){
+      contentContainer.innerHTML = `
+      <div class="scrollbar">  
+<p class="question">Q1)</p>
+<button class="ansButton" onclick="toggleAnswer('ans1')">Answer</button>
+<div id="ans1" class="answer">ans:</div>
+
+<p class="question">Q2)</p>
+<button class="ansButton" onclick="toggleAnswer('ans2')">Answer</button>
+<div id="ans2" class="answer">ans:</div>
+
+<p class="question">Q3)</p>
+<button class="ansButton" onclick="toggleAnswer('ans3')">Answer</button>
+<div id="ans3" class="answer">ans:</div>
+
+<p class="question">Q4)</p>
+<button class="ansButton" onclick="toggleAnswer('ans4')">Answer</button>
+<div id="ans4" class="answer">ans:</div>
+
+<p class="question">Q5)</p>
+<button class="ansButton" onclick="toggleAnswer('ans5')">Answer</button>
+<div id="ans5" class="answer">ans:</div>
+
+<p class="question">Q6)</p>
+<button class="ansButton" onclick="toggleAnswer('ans6')">Answer</button>
+<div id="ans6" class="answer">ans:</div>
+
+<p class="question">Q7)</p>
+<button class="ansButton" onclick="toggleAnswer('ans7')">Answer</button>
+<div id="ans7" class="answer">ans:</div>
+
+<p class="question">Q8)</p>
+<button class="ansButton" onclick="toggleAnswer('ans8')">Answer</button>
+<div id="ans8" class="answer">ans:</div>
+
+<p class="question">Q9)</p>
+<button class="ansButton" onclick="toggleAnswer('ans9')">Answer</button>
+<div id="ans9" class="answer">ans:</div>
+
+<p class="question">Q10)</p>
+<button class="ansButton" onclick="toggleAnswer('ans10')">Answer</button>
+<div id="ans10" class="answer">ans:</div>
+
+<p class="question">Q11)</p>
+<button class="ansButton" onclick="toggleAnswer('ans11')">Answer</button>
+<div id="ans11" class="answer">ans:</div>
+
+<p class="question">Q12)</p>
+<button class="ansButton" onclick="toggleAnswer('ans12')">Answer</button>
+<div id="ans12" class="answer">ans:</div>
+
+<p class="question">Q13)</p>
+<button class="ansButton" onclick="toggleAnswer('ans13')">Answer</button>
+<div id="ans13" class="answer">ans:</div>
+
+<p class="question">Q14)</p>
+<button class="ansButton" onclick="toggleAnswer('ans14')">Answer</button>
+<div id="ans14" class="answer">ans:</div>
+
+<p class="question">Q15)</p>
+<button class="ansButton" onclick="toggleAnswer('ans15')">Answer</button>
+<div id="ans15" class="answer">ans:</div>
+
+<p class="question">Q16)</p>
+<button class="ansButton" onclick="toggleAnswer('ans16')">Answer</button>
+<div id="ans16" class="answer">ans:</div>
+
+<p class="question">Q17)</p>
+<button class="ansButton" onclick="toggleAnswer('ans17')">Answer</button>
+<div id="ans17" class="answer">ans:</div>
+
+<p class="question">Q18)</p>
+<button class="ansButton" onclick="toggleAnswer('ans18')">Answer</button>
+<div id="ans18" class="answer">ans:</div>
+
+<p class="question">Q19)</p>
+<button class="ansButton" onclick="toggleAnswer('ans19')">Answer</button>
+<div id="ans19" class="answer">ans:</div>
+
+<p class="question">Q20)</p>
+<button class="ansButton" onclick="toggleAnswer('ans20')">Answer</button>
+<div id="ans20" class="answer">ans:</div>
+
+<p class="question">Q21)</p>
+<button class="ansButton" onclick="toggleAnswer('ans21')">Answer</button>
+<div id="ans21" class="answer">ans:</div>
+
+<p class="question">Q22)</p>
+<button class="ansButton" onclick="toggleAnswer('ans22')">Answer</button>
+<div id="ans22" class="answer">ans:</div>
+
+<p class="question">Q23)</p>
+<button class="ansButton" onclick="toggleAnswer('ans23')">Answer</button>
+<div id="ans23" class="answer">ans:</div>
+
+<p class="question">Q24)</p>
+<button class="ansButton" onclick="toggleAnswer('ans24')">Answer</button>
+<div id="ans24" class="answer">ans:</div>
+
+<p class="question">Q25)</p>
+<button class="ansButton" onclick="toggleAnswer('ans25')">Answer</button>
+<div id="ans25" class="answer">ans:</div>
+
+
+
+      </div>
+
+      `;
+    }
+
+    else if(pageNum == 6){
       contentContainer.innerHTML = `Hai mohan`;
     }
 
-    else if(pageNum == 3){
-      contentContainer.innerHTML = `Hai mohan`;
-    }
-
-    else if(pageNum == 3){
+    else if(pageNum == 7){
       contentContainer.innerHTML = `Hai mohan`;
     }
     
-    else if(pageNum == 3){
+    else if(pageNum == 8){
       contentContainer.innerHTML = `Hai mohan`;
     }
 
-    else if(pageNum == 3){
+    else if(pageNum == 9){
       contentContainer.innerHTML = `Hai mohan`;
       
     }
-    else if(pageNum == 3){
+    else if(pageNum == 10){
       contentContainer.innerHTML = `Hai mohan`;
     }
 
-    else if(pageNum == 3){
+    else if(pageNum == 11){
       contentContainer.innerHTML = `Hai mohan`;
     }
 
-    else if(pageNum == 3){
+    else if(pageNum == 12){
       contentContainer.innerHTML = `Hai mohan`;
     }
-    else if(pageNum == 3){
+    else if(pageNum == 13){
       contentContainer.innerHTML = `Hai mohan`;
     }
 
-    else if(pageNum == 3){
+    else if(pageNum == 14){
       contentContainer.innerHTML = `Hai mohan`;
     }
 
