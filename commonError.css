@@ -158,9 +158,8 @@ body {
   padding: 0.5rem;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 2%;
-  margin-left: -80px;  /*poup box kaha show hoga ya uska location btayaga */
+  top: 125%;
+  margin-left: -10rem;  /*poup box kaha show hoga ya uska location btayaga */
 }
 
 
