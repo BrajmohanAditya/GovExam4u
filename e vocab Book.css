@@ -145,8 +145,7 @@ button {
     background-color: #555;
     color: #fff;
     text-align: left;
-    border-radius: 6px;
-    padding: 1rem ;
+    border-radius: 6px; padding: 1rem ;
     position: absolute;
     z-index: 1;
     /* bottom: 125%; */
@@ -196,7 +195,8 @@ button {
     position: relative;
   }
 
-
+/*imp -  scroll div ka position relative or popup ka absolute ka karan sara ak line meh hai. 
+ */
 
 
 /* Nav bar property  */

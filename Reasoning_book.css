@@ -112,66 +112,11 @@ body {
   border: #007bff;
 }
 
-/* POPUP TEXT  */
 
-.popup {
-  position:relative;   /* imp if you make position absolute apeka Poup nahi dikhaga   */
-  left: 210px;
-  display: inline-block;
-  cursor: pointer;
-  color: #555;
-}
-
-/* The actual popup (appears on top) */
-.popup .popuptext {
-  visibility: hidden;
-  width: 400px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -80px;
-}
-
-/* Popup arrow */
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-/* Toggle this class when clicking on the popup container (hide and show the popup) */
-.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
-}
 .heading{
   text-align: center;
   border-radius: 5rem;
-  color:red; 
-  font-size:xx-large;
+  color:red;  font-size:xx-large;
   font-weight: 600;
   font-family: sans-serif;
   /* box-shadow: #ccc; */
@@ -184,15 +129,11 @@ body {
   color: blue;
 }
 .question {
-  font-size: 1.1rem; /* Specify a unit for font-size */
-  line-height: 1.6rem;
-  font-weight: 400; /* This is correct */
+  font-size: 1.1rem; line-height: 1.6rem; font-weight: 400; 
 }
 
 .answer {
-  display: none;
-  color: green;
-  font-weight: bold;
+  display: none; color: green; font-weight: bold;
   margin-top: 10px;
   font-size: x-large;
 }
