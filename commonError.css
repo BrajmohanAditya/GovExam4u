@@ -45,13 +45,12 @@ h2{
     border-radius: 0.5rem;
   }
   #ReasonButton{
-    margin-left: -10rem;
+    /* margin-left: -10rem; */
     background-color: green;
     height: 2.5rem;  
     width: 6rem;
     border:1px solid #888;
     border-radius: 0.5rem; 
-
   }
 
   #ReasonButton:hover {
@@ -60,11 +59,20 @@ h2{
   }
 
 .option_container{
-
+  position: relative;
   display: flex; 
   align-items: center;
 }
-/* End */
+.popup {
+  position:absolute;   
+  cursor: pointer;     
+  color: #555;
+  margin-left: 40rem;
+}
+/* Ak important bate ager mai chahta hu ki popup container apna left margin option container seh leh toh
+ya must hai ki option_container ko relative set karo, or popup ko absolute yahi concept use kr ka hum na 
+word meaning ko banaya hai isi liya wo ak line meh ata hai . 
+*/
   .container1 {
     margin-top: 1rem;
     display: flex;
@@ -138,14 +146,6 @@ body {
   border: #007bff;
 }
 
-/* POPUP TEXT  */
-
-.popup {
-  position:relative;   /*imp if you make position absolute apeka Poup nahi dikhaga   */
-  cursor: pointer;     /*Absolute meh refrence point bilkul last point of screen    Relative meh scroll ko refrence leh raha hai */
-  color: #555;
-  margin-left: 20rem;
-}
 
 
 /* The actual popup (appears on top) */
