@@ -131,13 +131,10 @@ button {
     background-color: #555;
     color: #fff;
     text-align: left;
-    border-radius: 6px;
-    padding: 1rem ;
+    border-radius: 6px; padding: 1rem ;
     position: absolute;
     z-index: 1;
-    bottom: 125%;
-    /* top: 100%; */
-    margin-left: -5rem;
+    bottom: 125%; margin-left: -5rem;
   }
   .popup .popupdown {
     visibility: hidden;
@@ -149,8 +146,7 @@ button {
     position: absolute;
     z-index: 1;
     /* bottom: 125%; */
-    top: 100%;
-    margin-left: -5rem;
+    top: 100%; margin-left: -5rem;
   }
 
   
