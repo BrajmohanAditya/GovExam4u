@@ -19,8 +19,9 @@
   
 }
 #changeStyleBtn{
-  font-weight: bolder; width:fit-content;   border-color: green; background-color: green;
-
+  font-weight: bolder; width:fit-content;   
+  border-color: green; background-color: green;
+  margin: 1px;
 }
 
 div{
@@ -99,8 +100,8 @@ button {
 }
 
 .navbar_bottom {
-  height: 6%;
-  background-color: whitesmoke;
+  background-color: #6c757d;
+  /* background-color: whitesmoke; */
   border-bottom: 1px solid #e0e0e0;
   width: 100%;
   display: flex;
