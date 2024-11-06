@@ -16,6 +16,11 @@
 .changed {  
   color: black;
   border: none;
+  
+}
+#changeStyleBtn{
+  font-weight: bolder; width:fit-content;   border-color: green; background-color: green;
+
 }
 
 div{
@@ -47,12 +52,13 @@ h1{
     box-shadow: whitesmoke;
     margin-left: 1rem;
     border-radius: 10px;
-    padding: 2px;
-    font-size: 40px;
+    padding: 4px;
+    font-size: 30px;
     font-family:   sans-serif; 
     font-weight: 400px;
     font-style: normal;   
     background-color: #007bff;
+    height: 2.5rem;
 }
 
 
@@ -70,14 +76,12 @@ h1{
 
 button {
     /* display: inline-block; */
-    width: 30%;
-    padding: .5rem;
+    width: 30%; padding: .5rem;
     margin-bottom: 5px;  
     cursor: pointer;
     border-radius: 15px;
     background-color:#6c757d;
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 15px; font-weight: 400;
     color: white;  
 }
 /* Button color change */
