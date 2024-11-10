@@ -225,15 +225,12 @@
   <li>Yet  </li>
   <li>while  </li>
   <li>However  </li>
-
-
-
 </ul>                   
 
     </div>
       `;
   }
-  else if (pageNum === 1) {
+  else if (pageNum == 1) {
       contentContainer.innerHTML = `
       <div class="scrollbar">  
 <p class="question">
@@ -248,6 +245,17 @@
     </span>
   </div>
 </div>
+<p class="question">
+Q1) Collaboration, problem-solving, critical thinking, (A)/ and creativity are nurtured as students (B)/ navigate challenges within the game, (C)/ equipping
+them with skills applicable to real-world scenario. (D)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, true)">D</button>
+  <div class="popup" onclick="myFunction('pop1.1')"> <button id="ReasonButton">Reason</button>
+    <span class="popuptext" id="pop1.1">The word scenario is incorrect, it should be plural scenarios(situations)</span>
+  </div>
+</div>
 
 <p class="question">
   Q2) The US has banned the sale (A)/ and import of new communications (B)/ equipments from five Chinese companies, (C)/ including Huawei and ZTE, (D)/ amid concerns over national security (E).
@@ -255,7 +263,6 @@
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, true)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <button class="option" onclick="highlight(this, false)">E</button>
   <div class="popup" onclick="myFunction('pop2')"> <button id="ReasonButton">Reason</button>
     <span class="popuptext" id="pop2">
       * equipments नहीं equipment <br> * क्योंकि equipment uncountable noun है, or U.N का plural नहीं होता
@@ -295,16 +302,13 @@
   Q5) Because she had been warned (A) multiple time, she knew (B) the consequences of her actions (D).
 </p>
 <div class="option_container">
-  <button class="option" onclick="highlight(this, false)">A</button>
-  <button class="option" onclick="highlight(this, true)">B</button>
-  <button class="option" onclick="highlight(this, false)">C</button>
-  <button class="option" onclick="highlight(this, false)">D</button>
-  <button class="option" onclick="highlight(this, false)">E</button>
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, true)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
   <div class="popup" onclick="myFunction('pop5')">
     <button id="ReasonButton">Reason</button>
     <span class="popuptext" id="pop5">
       * Time नहीं Times <br>
-      multiple + Plural noun
+       multiple + Plural noun
     </span>
   </div>
 </div>
@@ -313,11 +317,8 @@
   Q6) The backyard was a peaceful oasis, (A) with a lush lawn of tall wave (B) grass and a hammock strung between two trees. (C).
 </p>
 <div class="option_container">
-  <button class="option" onclick="highlight(this, false)">A</button>
-  <button class="option" onclick="highlight(this, true)">B</button>
-  <button class="option" onclick="highlight(this, false)">C</button>
-  <button class="option" onclick="highlight(this, false)">D</button>
-  <button class="option" onclick="highlight(this, false)">E</button>
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, true)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
   <div class="popup" onclick="myFunction('pop6')">
     <button id="ReasonButton">Reason</button>
     <span class="popuptext" id="pop6">
@@ -331,11 +332,8 @@
   Q7) Didn't you receive some (A) proper training in management (B).
 </p>
 <div class="option_container">
-  <button class="option" onclick="highlight(this, false)">A</button>
-  <button class="option" onclick="highlight(this, false)">B</button>
-  <button class="option" onclick="highlight(this, false)">C</button>
-  <button class="option" onclick="highlight(this, false)">D</button>
-  <button class="option" onclick="highlight(this, false)">E</button>
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
   <div class="popup" onclick="myFunction('pop7')">
     <button id="ReasonButton">Reason</button>
     <span class="popuptext" id="pop7">
@@ -349,11 +347,8 @@
   Q8) Controversial measures which would (A)/ have forced big technology platforms (B)/ to remove legal but (C)/ harmful material has been axed from the Online Safety Bill (D).
 </p>
 <div class="option_container">
-  <button class="option" onclick="highlight(this, false)">A</button>
-  <button class="option" onclick="highlight(this, false)">B</button>
-  <button class="option" onclick="highlight(this, false)">C</button>
-  <button class="option" onclick="highlight(this, false)">D</button>
-  <button class="option" onclick="highlight(this, false)">E</button>
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
   <div class="popup" onclick="myFunction('pop8')">
     <button id="ReasonButton">Reason</button>
     <span class="popuptext" id="pop8">
@@ -367,11 +362,8 @@
   Q9) "The research team found that a lots of (A) the data collected during the (B) preliminary study were inconclusive (C).
 </p>
 <div class="option_container">
-  <button class="option" onclick="highlight(this, false)">A</button>
-  <button class="option" onclick="highlight(this, false)">B</button>
-  <button class="option" onclick="highlight(this, false)">C</button>
-  <button class="option" onclick="highlight(this, false)">D</button>
-  <button class="option" onclick="highlight(this, false)">E</button>
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
   <div class="popup" onclick="myFunction('pop9')">
     <button id="ReasonButton">Reason</button>
     <span class="popuptext" id="pop9">

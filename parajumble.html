@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoveExam4u</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="QuantBook.css">
+
+</head>
+<body onload="showPage(1)">
+
+<nav class="navbar">
+        <h1>Parajumble</h1>
+</nav>
+
+<div class="container1">
+    <div class="content-container" id="contentContainer"></div>
+    <div class="buttons-container" id="buttonsContainer">
+    <div style="font-weight: 800; font-family: Arial, Helvetica, sans-serif;color: red;">INDEX</div>
+      <button class="colorButton" onclick="showPage(1)">Set - 1</button>
+      <button class="colorButton" onclick="showPage(2)">Set - 2</button>
+      <button class="colorButton" onclick="showPage(3)">Set - 3</button>
+      <button class="colorButton" onclick="showPage(4)">Set - 4</button>
+      <button class="colorButton" onclick="showPage(5)">Set - 5</button>
+      <button class="colorButton" onclick="showPage(6)">Set - 6</button>
+      <button class="colorButton" onclick="showPage(7)">Set - 7</button>
+      <button class="colorButton" onclick="showPage(8)">Set - 8</button>
+      <button class="colorButton" onclick="showPage(9)">Set - 9</button>
+      <button class="colorButton" onclick="showPage(10)">Set - 10</button>
+      <button class="colorButton" onclick="showPage(11)">Set - 11</button>
+      <button class="colorButton" onclick="showPage(12)">Set - 12</button>
+      <button class="colorButton" onclick="showPage(13)">Set - 13</button>
+      <button class="colorButton" onclick="showPage(14)">Set - 14</button>
+      <button class="colorButton" onclick="showPage(15)">Set - 15</button>
+      <button class="colorButton" onclick="showPage(16)">Set - 16</button>
+      <button class="colorButton" onclick="showPage(17)">Set - 17</button>
+      <button class="colorButton" onclick="showPage(18)">Set - 18</button>
+      <button class="colorButton" onclick="showPage(19)">Set - 19</button>
+      <button class="colorButton" onclick="showPage(20)">Set - 20</button>
+      <!-- More buttons if needed -->
+    </div>
+  </div>
+
+<script>
+ 
+
+  function showPage(pageNum) {
+    const contentContainer = document.getElementById('contentContainer');
+    if (pageNum == 1){
+      contentContainer.innerHTML = `
+      
+      <div class="scrollbar">
+
+<p class="question">
+Q1)<br>
+(A) As a result, car manufacturers invest heavily in color research, ensuring that their palettes appeal to consumer preferences and trends.<br>
+(B) Interestingly, the choice of car color often reflects the driver's personality traits, with vibrant colors indicating extroversion and darker shades suggesting a more reserved nature.<br>
+(C) The psychology behind car color choices is a fascinating blend of personal expression and societal trends, influencing purchasing decisions significantly.<br>
+(D) Moreover, certain colors have been found to retain their value better over time, making them a smarter financial choice for the cost-conscious buyer.<br>
+(E) This has led to the emergence of color forecasting in the automotive industry, a practice where experts predict color trends and consumer preferences.<br>
+(F) Beyond personal preferences, safety studies have shown that some colors are more visible on the road, potentially reducing the risk of accidents.<br>
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans2')">Answer</button>
+<div id="ans1" class="answer">ans: CBFDAE</div>
+
+<p class="question">
+Q2)<br>
+
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans2')">Answer</button>
+<div id="ans2" class="answer">ans:</div>
+
+
+<p class="question">
+  Q3)<br>
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans3')">Answer</button>
+<div id="ans3" class="answer">ans:</div>
+
+<p class="question">
+  Q4)<br>
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans4')">Answer</button>
+<div id="ans4" class="answer">ans:</div>
+
+<p class="question">
+  Q5)<br>
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans5')">Answer</button>
+<div id="ans5" class="answer">ans:</div>
+
+<p class="question">
+  Q6)<br>
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans6')">Answer</button>
+<div id="ans6" class="answer">ans:</div>
+
+<p class="question">
+  Q7)<br>
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans7')">Answer</button>
+<div id="ans7" class="answer">ans:</div>
+
+<p class="question">
+  Q8)<br>
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans8')">Answer</button>
+<div id="ans8" class="answer">ans:</div>
+
+<p class="question">
+  Q9)<br>
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans9')">Answer</button>
+<div id="ans9" class="answer">ans:</div>
+
+<p class="question">
+  Q10)<br>
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans10')">Answer</button>
+<div id="ans10" class="answer">ans:</div>
+
+
+      </div>
+      `;
+    }
+    
+    else if(pageNum == 2){  // percentage
+      contentContainer.innerHTML = `
+      <div class="scrollbar">  
+<p class="question">
+  Q1)<br>
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans1')">Answer</button>
+<div id="ans1" class="answer">ans:</div>
+
+<p class="question">
+  Q2)<br>
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans2')">Answer</button>
+<div id="ans2" class="answer">ans:</div>
+
+<p class="question">
+  Q3)<br>
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans3')">Answer</button>
+<div id="ans3" class="answer">ans:</div>
+
+<p class="question">
+  Q4)<br>
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans4')">Answer</button>
+<div id="ans4" class="answer">ans:</div>
+
+<p class="question">
+  Q5)<br>
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans5')">Answer</button>
+<div id="ans5" class="answer">ans:</div>
+
+<p class="question">
+  Q6)<br>
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans6')">Answer</button>
+<div id="ans6" class="answer">ans:</div>
+
+<p class="question">
+  Q7)<br>
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans7')">Answer</button>
+<div id="ans7" class="answer">ans:</div>
+
+<p class="question">
+  Q8)<br>
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans8')">Answer</button>
+<div id="ans8" class="answer">ans:</div>
+
+<p class="question">
+  Q9)<br>
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans9')">Answer</button>
+<div id="ans9" class="answer">ans:</div>
+
+<p class="question">
+  Q10)<br>
+</p>
+<button class="ansButton" onclick="toggleAnswer('ans10')">Answer</button>
+<div id="ans10" class="answer">ans:</div>
+
+      </div>
+      `;
+    }
+
+    else if(pageNum == 3){    // Mixture replacement
+      contentContainer.innerHTML = `
+      <div class="scrollbar">  
+
+      </div>
+      `;
+    }
+
+    else if(pageNum == 4){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 5){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 6){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 7){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+    
+    else if(pageNum == 8){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 9){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+    else if(pageNum == 10){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 11){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 12){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+    else if(pageNum == 13){
+      contentContainer.innerHTML = `Hai mohan`;
+
+
+    } else if (pageNum === 2) {
+      contentContainer.innerHTML = `
+      <div class="scrollbar">  
+
+      </div>
+      `;
+    }
+
+    else if(pageNum == 15){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+    else if(pageNum == 16){  //  Mensuration
+      contentContainer.innerHTML = `
+            <div class="scrollbar">  
+
+
+
+             </div>
+      `;
+    }
+
+
+    else if(pageNum == 17){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+    else if(pageNum == 18){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+    else if(pageNum == 19){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+    else if(pageNum == 20){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+    else if(pageNum == 14){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+
+
+    else if(pageNum == 14){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+    else if(pageNum == 14){
+      contentContainer.innerHTML = `Hai mohan`;
+    }
+     else {
+      contentContainer.textContent = `This is page ${pageNum}`;
+    }
+  }
+
+  function highlight(element, isCorrect) {
+    var options = document.getElementsByClassName('option');
+    for (var i = 0; i < options.length; i++) {
+      options[i].classList.remove('correct', 'incorrect');
+    }
+    if (isCorrect) {
+      element.classList.add('correct');
+    } else {
+      element.classList.add('incorrect');
+    }
+  }
+</script>
+
+
+<!-- script tag for poupText -->
+<script src="commonProperty.js"></script>
+
+</body>
+</html>

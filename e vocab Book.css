@@ -125,12 +125,12 @@ button {
     display: inline-block;
     cursor: pointer;
     color: #555;
-  }
-  .popup :hover{
+}
+.popup :hover{
     color: purple;
-  }
+}
   /* The actual popup (appears on top) */
-  .popup .popuptext {
+.popup .popuptext {
     visibility: hidden;
     width: 40rem;
     background-color: #555;
@@ -140,8 +140,8 @@ button {
     position: absolute;
     z-index: 1;
     bottom: 125%; margin-left: -5rem;
-  }
-  .popup .popupdown {
+}
+.popup .popupdown {
     visibility: hidden;
     width: 40rem;
     background-color: #555;
@@ -152,20 +152,17 @@ button {
     z-index: 1;
     /* bottom: 125%; */
     top: 100%; margin-left: -5rem;
-  }
+}
 
   
   /* Popup box kaha appear hoga uska css hai*/
-  .popup .popuptext::after {
+.popup .popuptext::after {
     content: "";
     position: absolute;
-    top: 100%;
-    left: 50%;
-    /* margin-left: -5px; */
-    border-width: 5px;
+    top: 100%; left: 50%; border-width: 5px;
     border-style: solid;
     border-color: #555 transparent transparent transparent;
-  }
+}
   
   /* Toggle this class when clicking on the popup container (hide and show the popup) */
   .popup .show {
@@ -196,25 +193,18 @@ button {
     position: relative;
   }
 
-/*imp -  scroll div ka position relative or popup ka absolute ka karan sara ak line meh hai. 
- */
+/*imp message -  scroll div ka position relative or popup ka absolute ka karan sara ak line meh hai. */
 
 
 /* Nav bar property  */
-
-
 
 .navbar {
   background-color: #000000d4;;
   border-bottom: 1px solid #e0e0e0;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex; align-items: center; justify-content: space-between;
   position: fixed; 
-  left: 0;   
-  z-index: 1; 
-  top: 0;
+  left: 0; z-index: 1; top: 0;
 }
 
 
