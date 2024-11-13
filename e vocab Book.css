@@ -65,7 +65,7 @@ h1{
 
 
 .buttons-container {
-   scroll-behavior: smooth;
+   scroll-behavior:smooth;
     width: 200px; /* Adjust as needed */
     height: 18rem;
     background-color: #f1f1f1;
