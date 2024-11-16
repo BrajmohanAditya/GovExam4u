@@ -11,33 +11,18 @@
 <body onload="showPage(1)">
 
 <nav class="navbar">
-        <h1>Static Banking</h1>
+        <h1>Real time Interview Questions</h1>
 </nav>
 
 <div class="container1">
   <div class="content-container" id="contentContainer"></div>
   <div class="buttons-container" id="buttonsContainer">
     <div style="font-weight: 800; font-family: Arial, Helvetica, sans-serif;color: red;">INDEX</div>
-    <button class="colorButton" onclick="showPage(1)">1</button>
-    <button class="colorButton" onclick="showPage(2)">2</button>
+    <button class="colorButton" onclick="showPage(1)">Banking Awerness</button>
+    <button class="colorButton" onclick="showPage(2)">General Question</button>
     <button class="colorButton" onclick="showPage(3)">3</button>
     <button class="colorButton" onclick="showPage(4)">4</button>
     <button class="colorButton" onclick="showPage(5)">5</button>
-    <button class="colorButton" onclick="showPage(6)">6</button>
-    <button class="colorButton" onclick="showPage(7)">7</button>
-    <button class="colorButton" onclick="showPage(8)">8</button>
-    <button class="colorButton" onclick="showPage(9)">9</button>
-    <button class="colorButton" onclick="showPage(10)">10</button>
-    <button class="colorButton" onclick="showPage(11)">11</button>
-    <button class="colorButton" onclick="showPage(12)">12</button>
-    <button class="colorButton" onclick="showPage(13)">13</button>
-    <button class="colorButton" onclick="showPage(14)">14</button>
-    <button class="colorButton" onclick="showPage(15)">15</button>
-    <button class="colorButton" onclick="showPage(16)">16</button>
-    <button class="colorButton" onclick="showPage(17)">17</button>
-    <button class="colorButton" onclick="showPage(18)">18</button>
-    <button class="colorButton" onclick="showPage(19)">19</button>
-    <button class="colorButton" onclick="showPage(20)">20</button>
     <!-- More buttons if needed -->
   </div>
 </div>
@@ -50,21 +35,70 @@
     if (pageNum === 1) {
       contentContainer.innerHTML = `
       
-      <div class="scrollbar">
+<div class="scrollbar">
+  <div class="qa-container">
 
-      </div>`;
+  <div class="question">What do you know about RRBs?</div>
+  <div class="answer"></div>
 
+  <div class="question">What is KYC, and why is it important?</div>
+  <div class="answer"></div>
 
-    } else if (pageNum === 2) {
+  <div class="question">What documents are required for account opening?</div>
+  <div class="answer"></div>
+
+  <div class="question">Why is a Fixed Deposit called a Term Deposit? What is its maturity period?</div>
+  <div class="answer"></div>
+
+  <div class="question">What are the functions of the RBI?</div>
+  <div class="answer"></div>
+
+  </div>
+</div>`;
+
+}else if (pageNum === 2) {
       contentContainer.innerHTML = `
-      <div class="scrollbar">  
-      </div>
+<div class="scrollbar"> 
+  <div class="qa-container">
+  <div class="question">Introduction of your family?</div>
+  <div class="answer"></div>
+    
+  <div class="question">What are you doing these days?</div>
+  <div class="answer"></div>
+
+  <div class="question">Since you're pursuing an MSc in Physics, why did you choose the banking sector?</div>
+  <div class="answer"></div>
+
+  <div class="question">How do you manage your preparation along with your academic studies?</div>
+  <div class="answer"></div>
+
+  <div class="question">Have you read something?</div>
+  <div class="answer"></div>
+
+  <div class="question"></div>
+  <div class="answer"></div>
+
+  </div>
+</div>
       `;
-    }
-    else if(pageNum == 3){
+}else if(pageNum == 3){
       contentContainer.innerHTML = `
-      <div class="scrollbar">  
-      </div>
+<div class="scrollbar"> 
+  <div class="qa-container">
+ 
+    <div class="question"></div>
+    <div class="answer"></div>
+
+    <div class="question"></div>
+    <div class="answer"></div>
+
+    <div class="question"></div>
+    <div class="answer"></div>
+    
+    <div class="question"></div>
+    <div class="answer"></div>
+ </div>
+</div>
       `;
     }
 

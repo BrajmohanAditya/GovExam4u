@@ -4,10 +4,8 @@ h1{
     box-shadow: whitesmoke;
     /* font-style: italic; */
     display: inline-block;
-    margin-left: 30px;
-    border-radius: 10px;
-    padding: 2px;
-    font-size: 40px;
+    margin-left: 30px; border-radius: 10px;
+    padding: 2px; font-size: 40px;
     margin-top: 3px;
     font-family: "Jersey 10 Charted", sans-serif;
     font-weight: 400px;
@@ -22,25 +20,11 @@ h1{
     background-color: #000000d4;
 }
 
-  .option {
-    display: block;
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-  }
-  .correct {
-    background-color: green;
-    color: white;
-  }
-  .incorrect {
-    background-color: red;
-    color: white;
-  }
+ 
   .container1 {
     margin-top: 1rem;
     display: flex;
-    justify-content: space-between; /* Distribute space between items */
+    justify-content: space-between; 
   }
   .content-container {
     flex: 1; /* Take up remaining space */
@@ -62,15 +46,13 @@ h1{
 button {
     text-align: left;
     display: inline-block;
-    width: 90%;
-    padding: 8px;
-    margin-bottom: 5px;  
+    width: 90%; padding: 8px; margin-bottom: 5px;  
     cursor: pointer;
     border-radius: .5rem;
     background-color:#6c757d;
-    font-size: 15px;
+    font-size: 1rem;
     cursor: pointer;
-    font-weight: 400;
+    font-weight: 600;
     color: white;  
     margin-left: 2px;
 }
@@ -111,58 +93,47 @@ body {
   border: #007bff;
 }
 
-/* POPUP TEXT  */
+/* General Container */
+.qa-container {
+  width: 90%;
+  margin-left: 20px ;
+  font-family: Arial, sans-serif;
+  font-size: larger;
 
-.popup {
-  position:relative;   /* imp if you make position absolute apeka Poup nahi dikhaga   */
-  left: 210px;
-  display: inline-block;
+}
+
+/* Styling for Questions */
+.question {
+  background-color: #f8f9fa;
+  border-left: 4px solid #007bff;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bolder;
+  color: #343a40;
+  border-radius: 4px;
+}
+
+/* Styling for Answers */
+.answer {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #495057;
+  border-radius: 4px;
+}
+
+/* Hover Effect for Questions */
+.question:hover {
+  background-color: #e9ecef;
+  border-color: #0056b3;
   cursor: pointer;
-  color: #555;
 }
 
-/* The actual popup (appears on top) */
-.popup .popuptext {
-  visibility: hidden;
-  width: 400px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -80px;
-}
-
-/* Popup arrow */
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-/* Toggle this class when clicking on the popup container (hide and show the popup) */
-.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
+/* Optional: Add spacing between items */
+.qa-container > .question + .answer {
+  margin-top: -10px; /* Adjust spacing if needed */
 }
