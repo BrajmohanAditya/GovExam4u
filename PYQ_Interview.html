@@ -32,7 +32,7 @@
 
   function showPage(pageNum) {
     const contentContainer = document.getElementById('contentContainer');
-    if (pageNum === 1) {
+    if (pageNum == 1) {
       contentContainer.innerHTML = `
       
 <div class="scrollbar">
@@ -53,26 +53,104 @@
   <div class="question">What are the functions of the RBI?</div>
   <div class="answer"></div>
 
+  <div class="question"> Why do you want to join RRB?</div>
+  <div class="answer"></div>
+
+  <div class="question">What do you mean by CRR? Is it different from SLR?</div>
+  <div class="answer"></div>
+
+  <div class="question"> What is financial inclusion? </div>
+  <div class="answer"></div>
+
+  <div class="question">What happens when the value of the rupee decreases? </div>
+  <div class="answer"></div>
+
+  <div class="question"> Who prints notes? </div>
+  <div class="answer"></div>
+
+  <div class="question">Functions of bank </div>
+  <div class="answer"></div>
+
+  <div class="question">When was RRB established and who were the PM of that time? Why was RRB established first and then the Act passed?</div>
+  <div class="answer"></div>
+
+  <div class="question">Name of First RRB and it's sponsor Bank</div>
+  <div class="answer"></div>
+
+  <div class="question">Bank rate kya hota ?</div>
+  <div class="answer"></div>
+
+  <div class="question">What is RTGS? </div>
+  <div class="answer"></div>
+
+  <div class="question">What is the full form of DICGC? What is its deposit insurance limit, and why is it referred to as "Credit Guarantee"?</div>
+  <div class="answer"></div>
+
+  <div class="question">What are Scheduled Commercial Banks? What is their initial capital requirement?</div>
+  <div class="answer"></div>
+
+  <div class="question"> </div>
+  <div class="answer"></div>
+
+  <div class="question"> </div>
+  <div class="answer"></div>
   </div>
 </div>`;
 
-}else if (pageNum === 2) {
+}else if (pageNum == 2) { // General Question
       contentContainer.innerHTML = `
 <div class="scrollbar"> 
   <div class="qa-container">
+  <div class="question">Tell us about yourself.</div>
+  <div class="answer"></div>
+
+  <div class="question"> What is the meaning of your name?</div>
+  <div class="answer"></div>
+
   <div class="question">Introduction of your family?</div>
   <div class="answer"></div>
     
   <div class="question">What are you doing these days?</div>
   <div class="answer"></div>
 
-  <div class="question">Since you're pursuing an MSc in Physics, why did you choose the banking sector?</div>
+  <div class="question">How can your qualification help in banking?</div>
   <div class="answer"></div>
 
   <div class="question">How do you manage your preparation along with your academic studies?</div>
   <div class="answer"></div>
 
   <div class="question">Have you read something?</div>
+  <div class="answer"></div>
+
+
+  <div class="question">Famous person from your district. </div>
+  <div class="answer"></div>
+
+  <div class="question">When do you pursue your hobby? Have you taken any training? </div>
+  <div class="answer"></div>
+
+  <div class="question">Have you appeared for other bank exams? If you get selected in both, which one would you like to join?  </div>
+  <div class="answer"></div>
+
+  <div class="question"> What do you see in villages?</div>
+  <div class="answer"></div>
+
+  <div class="question">Machinery used in agriculture?</div>
+  <div class="answer"></div>
+
+  <div class="question">Why do you want to become a banker?</div>
+  <div class="answer"></div>
+
+  <div class="question">Deputy CM of your state ?</div>
+  <div class="answer"></div>
+
+  <div class="question">Who was the first female President and Prime minister of India?</div>
+  <div class="answer">Pratibha Patil <br> Indira Gandhi</div>
+
+  <div class="question">Who was the first female Chief Minister and Governor of India? </div>
+  <div class="answer">Sucheta Kripalani(CM) <br> Sarojini Naidu</div>
+
+  <div class="question"></div>
   <div class="answer"></div>
 
   <div class="question"></div>
@@ -86,33 +164,91 @@
 <div class="scrollbar"> 
   <div class="qa-container">
  
-    <div class="question"></div>
+    <div class="question"> Difference between 2g 3g 4g 5g</div>
     <div class="answer"></div>
 
-    <div class="question"></div>
+    <div class="question">What is MUDRA Scheme?</div>
     <div class="answer"></div>
 
-    <div class="question"></div>
+    <div class="question"> What is GM crops? Is it beneficial ?</div>
     <div class="answer"></div>
     
+    <div class="question">Name some central govt schemes related to agriculture. </div>
+    <div class="answer"></div>
+
+    <div class="question">What is Fasal Bima Yojana?</div>
+    <div class="answer"></div>
+
+    <div class="question">Why are farmers important for our country?</div>
+    <div class="answer"></div>
+
+    <div class="question">How do farmers grow crops?</div>
+    <div class="answer"></div>
+
+    <div class="question">MSP of Wheat?</div>
+    <div class="answer"></div>
+
+    <div class="question"> </div>
+    <div class="answer"></div>
+
     <div class="question"></div>
     <div class="answer"></div>
- </div>
+
+    <div class="question"></div>
+    <div class="answer"></div>
+
+    <div class="question"></div>
+    <div class="answer"></div>
+  </div>
 </div>
       `;
     }
 
     else if(pageNum == 3){
       contentContainer.innerHTML = `      
-      <div class="scrollbar">  
-      </div>
+<div class="scrollbar">
+  <div class="qa-container">
+ 
+    <div class="question"></div>
+    <div class="answer"></div>
+
+    <div class="question"></div>
+    <div class="answer"></div>
+
+    <div class="question"> </div>
+    <div class="answer"></div>
+    
+    <div class="question"></div>
+    <div class="answer"></div>
+
+    <div class="question"></div>
+    <div class="answer"></div>
+  </div>  
+</div>
       `;
     }
 
     else if(pageNum == 4){
-      contentContainer.innerHTML = `Hai mohan
-      <div class="scrollbar">  
-      </div>
+      contentContainer.innerHTML = `
+<div class="scrollbar">  
+    <div class="qa-container">
+ 
+    <div class="question"></div>
+    <div class="answer"></div>
+
+    <div class="question"></div>
+    <div class="answer"></div>
+
+    <div class="question"> </div>
+    <div class="answer"></div>
+    
+    <div class="question"></div>
+    <div class="answer"></div>
+
+    <div class="question"></div>
+    <div class="answer"></div>
+  </div>  
+</div>
       `;
     }
 
@@ -124,11 +260,11 @@
       contentContainer.innerHTML = `Hai mohan`;
     }
     
-    else if(pageNum == 3){
+    else if(pageNum == 7){
       contentContainer.innerHTML = `Hai mohan`;
     }
 
-    else if(pageNum == 3){
+    else if(pageNum == 8){
       contentContainer.innerHTML = `Hai mohan`;
     }
     else if(pageNum == 3){
