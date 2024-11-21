@@ -12,15 +12,7 @@ function toggleAudio(audioFile, button) {
       button.classList.remove("playing");
       currentAudio = null;
     } else {
-      audioPlayer.pause();
-      audioPlayer.currentTime = 0;
-      const allButtons = document.querySelectorAll("button");
-      allButtons.forEach(btn => {
-        if (btn !== button) {
-          btn.textContent = "Play";
-          btn.classList.remove("playing");
-        }
-      });
+      // Change only the audio source and play new audio
       audioSource.src = audioFile;
       audioPlayer.load();
       audioPlayer.play();
