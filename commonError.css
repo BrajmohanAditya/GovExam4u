@@ -3,11 +3,8 @@ h1{
     color: white;
     box-shadow: whitesmoke;
     display: inline-block;
-    margin-left: 30px;
-    border-radius: 10px;
-    padding: 2px;
-    font-size: 40px;
-    margin-top: 3px;
+    margin-left: 30px; border-radius: 10px; padding: 2px;
+    font-size: 40px; margin-top: 3px;
     font-family: sans-serif;
     font-weight: 400px;
     font-style: normal;   
@@ -69,7 +66,7 @@ h2{
   color: #555;
   margin-left: 40rem;
 }
-/* Ak important bate ager mai chahta hu ki popup container apna left margin option container seh leh toh
+/* Ak important bate ager mai chahta hu ki popup  apna left margin option container seh leh toh
 ya must hai ki option_container ko relative set karo, or popup ko absolute yahi concept use kr ka hum na 
 word meaning ko banaya hai isi liya wo ak line meh ata hai . 
 */
@@ -110,7 +107,7 @@ button {
     margin-left: 2px;
 }
 .scrollbar {
-  overflow-x: hidden;
+   overflow-x: hidden;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #888 #f1f1f1;
@@ -286,4 +283,34 @@ h3{
   font-size: 1.1rem; /* Specify a unit for font-size */
   line-height: 1.6rem;
   font-weight: 400; /* This is correct */
+}
+
+
+/* mp3 answer button */
+
+#voiceNotes {
+  position: absolute;
+  width: 5rem;
+  text-align: center;
+  margin-left: 25rem;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#voiceNotes:hover {
+  background-color: #0056b3;
+  /* transform: scale(1.05); */
+}
+
+#VoiceNotes.playing {
+  background-color: #28a745;
+}
+
+#voiceNotes.playing:hover {
+  background-color: #1e7e34;
 }

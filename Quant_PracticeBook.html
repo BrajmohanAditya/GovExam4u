@@ -7,7 +7,6 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="QuantBook.css">
-
 </head>
 <body onload="showPage(1)">
 
@@ -42,6 +41,10 @@
     <!-- More buttons if needed -->
   </div>
 </div>
+
+<audio id="audioPlayer" style="display: none;">
+  <source id="audioSource" src="" type="audio/mpeg">
+</audio>
 
 <script>
  
@@ -192,6 +195,7 @@ a) Find the difference between X and Y.  <br> <br>
 b) If series III follows the pattern of series I and series IV follow the pattern of series II. If first term of series III and series IV is X & Y respectively, then find the difference between fourth term of series III and series IV. <br> <br>
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans21')">Answer</button>
+<button id="voiceNotes" onclick="toggleAudio('ddd.mp3', this)">Play</button>
 <div id="ans21" class="answer">a) 95.5, b) 248.5</div>
 
 <p class="question">
@@ -199,6 +203,7 @@ Q22) A man sold two different articles A and B at 25% profit and 40% profit resp
 less than B, then find the cost price of article B
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans22')">Answer</button>
+<button id="voiceNotes" onclick="toggleAudio('ddd.mp3', this)">Play</button>
 <div id="ans22" class="answer">ans: 320</div>
 
 <p class="question">
@@ -605,16 +610,42 @@ in the fourth time?
 <div id="ans23" class="answer">ans:32 ml <br> <img src="Quant_PracticeBook/p3_Q23.png"></div>
 
 <p class="question">
-Q24)
+Q24) The data given below gives the information about the marks of three
+students in the SBI PO exam. All marks scales to 60 and the score in
+Prelims is the simple average of all sectional scores, this statement is
+also true for Interview. <br>
+1. Overall score in SBI PO consist of score in Written exam and interview <br>
+2. Score in Written Exam consist of score in Prelims and score in mains <br>
+3. Score in prelims have two sub sections i.e. QA and LRDI <br>
+4. Score in interview has three sub sections i.e. Score in <br>
+Communications, Score in Banking awareness and Score in Academics. <br>
+
+Aman: Score in QA is 40, which is 2.5 times as that in Mains. While
+score in the written test is twice as that of mains. Overall score in SBI
+PO is 30 and score in interview is 5 less than that in Written test. <br>
+
+Mamta: Score in LRDI is 48, and respective ratio of score in QA and
+LRDI is 13:12. Score in mains is 35 which is 2 less than her score in the interview. <br>
+
+Honey: Score in prelims and mains is 48 and 38 respectively, while
+score in written test is 46. Overall score in SBI PO 41.5. <br>
+
+a) Another person Kabir score in QA and LRDI is 50 and 40 respectively and his score in the written test is 42, find his score in mains exam?<br>
+b) Find the score of Aman in LRDI. <br>
+c) Find the overall score of Mamta in SBI PO. <br>
+d) Score of Chhavi in the interview is 60% more than that of Honey, then find the minimum possible score of Chhavi in Banking awareness.<br>
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans24')">Answer</button>
-<div id="ans24" class="answer">ans:</div>
+<div id="ans24" class="answer">ans:<br>a) 30 <br>b) 32 <br>c) 43 <br>d) 46.8</div>
 
 <p class="question">
-Q25)
+Q25) if 13M + 6N = 315, find all possible value of M and N , where M and N are positive integers, M>5.
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans25')">Answer</button>
-<div id="ans25" class="answer">ans:</div>
+<div id="ans25" class="answer">
+  ans: M = 9, N = 33<br> M = 15, N = 20;<br> M = 21, N = 7 <br>Hint - N = (315 – 13M)/6
+  M must be an odd number, because every multiple of 6 is an even number
+</div>
 
       </div>
       `;
@@ -1009,6 +1040,7 @@ Q25)
 
 <!-- script tag for poupText -->
 <script src="commonProperty.js"></script>
+<script src="voiceAnswer.js"></script>
 
 </body>
 </html>

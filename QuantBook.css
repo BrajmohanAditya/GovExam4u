@@ -39,7 +39,7 @@ h1{
     color: white;
   }
   .container1 {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     padding: 3px;
     display: flex;
     justify-content: space-between; /* Distribute space between items */
@@ -78,13 +78,14 @@ button {
     color: white;  
 }
 .scrollbar {
+   position: relative;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #888 #f1f1f1;
     width: 100%;
     height: 85vh;
     border: solid white;
-    margin-top: -2rem;
+    margin-top: -2.5rem;
     font-family: Arial, Helvetica, sans-serif;
   }
   .scrollbar::-webkit-scrollbar {
@@ -114,61 +115,8 @@ body {
   border: #007bff;
 }
 
-/* POPUP TEXT  */
 
-.popup {
-  position:relative;   /* imp if you make position absolute apeka Poup nahi dikhaga   */
-  left: 210px;
-  display: inline-block;
-  cursor: pointer;
-  color: #555;
-}
 
-/* The actual popup (appears on top) */
-.popup .popuptext {
-  visibility: hidden;
-  width: 400px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -80px;
-}
-
-/* Popup arrow */
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-/* Toggle this class when clicking on the popup container (hide and show the popup) */
-.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
-}
 
 .question {
   font-size: 1.1rem; /* Specify a unit for font-size */
@@ -179,7 +127,7 @@ body {
 .answer {
   display: none;
   color: black;
-  font-weight: bold;
+  font-weight: 500;
   margin-top: 10px;
   font-size: x-large;
 }
@@ -188,12 +136,44 @@ body {
 }
 
 .ansButton{
+  border: none;
   border-color: none;
   color: black;
   width: 5rem;
-  margin-left: 20%;
-  background: rgb(247, 82, 230);
+  margin-left:20%;
+  transition: background-color 0.3s, transform 0.2s;
+  background: rgb(240, 100, 220);
 }
 .ansButton:hover{
   background-color: #28a745;
+}
+
+
+/* mp3 Voice Notes Button */
+
+
+#voiceNotes {
+  text-align: center;
+  width: 5rem;
+  margin-left: 10rem;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#voiceNotes:hover {
+  background-color: #0056b3;
+  /* transform: scale(1.05); */
+}
+
+#VoiceNotes.playing {
+  background-color: #28a745;
+}
+
+#voiceNotes.playing:hover {
+  background-color: #1e7e34;
 }

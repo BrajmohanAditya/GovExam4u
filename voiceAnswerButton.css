@@ -1,0 +1,27 @@
+
+  #voiceNotes {
+    margin-left: 0;
+    width: 5rem;
+    margin-left: 3rem;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  #voiceNotes:hover {
+    background-color: #0056b3;
+    /* transform: scale(1.05); */
+  }
+
+  #VoiceNotes.playing {
+    background-color: #28a745;
+  }
+
+  #voiceNotes.playing:hover {
+    background-color: #1e7e34;
+  }

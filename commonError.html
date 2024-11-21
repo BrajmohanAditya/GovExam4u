@@ -44,10 +44,12 @@
     <!-- More buttons if needed -->
   </div>
 </div>
-
+<!-- voice notes ka code hai -->
+<audio id="audioPlayer" style="display: none;">
+  <source id="audioSource" src="" type="audio/mpeg">
+</audio>
 <script>
  
-
   function showPage(pageNum) {
     const contentContainer = document.getElementById('contentContainer');
   if(pageNum == 'Rule'){
@@ -78,7 +80,7 @@
     </div>
         <div>
             <audio id="audioPlayer" controls>
-              <source src="common_error_Audio_file/Tense_part_1st.ogg">
+              <source src="errorAudioAns/Tense_part_1st.ogg">
             </audio>
         </div>
 
@@ -283,6 +285,7 @@ them with skills applicable to real-world scenario. (D)
       The Noun of, we need Noun not adjective and secure is adj.
     </span>
   </div>
+  <button id="voiceNotes" onclick="toggleAudio('errorAudioAns/Tense_part_1st.ogg', this)">Play</button>
 </div>
 
 <p class="question">
@@ -297,6 +300,7 @@ them with skills applicable to real-world scenario. (D)
       Looking forward to + ving
     </span>
   </div>
+  <button id="voiceNotes" onclick="toggleAudio('ddd.mp3', this)">Play</button>
 </div>
 
 <p class="question">
@@ -924,6 +928,7 @@ D) The talented artist won multiples prizes at the exhibition, including awards 
 
 <!-- script tag for poupText -->
 <script src="commonProperty.js"></script>
+<script src="voiceAnswer.js"></script>
 
 </body>
 </html>

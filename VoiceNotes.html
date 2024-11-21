@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Recorder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            width: 6rem;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #record-stop {
+            background-color: #f44336; /* Red for recording */
+            color: white;
+        }
+
+        #record-stop.recording {
+            background-color: #4caf50; /* Green when recording is active */
+        }
+
+        #play {
+            background-color: #008cba; /* Blue for play */
+            color: white;
+        }
+
+        #play.playing {
+            background-color: #ffa500; /* Orange when playing */
+        }
+
+        #save, #change-folder {
+            background-color: #555;
+            color: white;
+        }
+        #change-folder{
+            width: auto;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            width: calc(30%);
+        }
+
+        #status {
+            margin-top: 10px;
+            font-size: 14px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Audio Recorder</h1>
+    <button id="record-stop">Record</button>
+    <button id="play" disabled>Play</button>
+    <button id="save" disabled>Save </button>
+    <button id="change-folder">Choose File</button>
+    <input type="text" id="file-name" placeholder="Enter file name" value="P_Q.mp3">
+    <p id="folder-info">No folder selected.</p>
+    <p id="status"></p>
+
+    <script>
+        let mediaRecorder;
+        let audioChunks = [];
+        let audioBlob;
+        let audioUrl;
+        let audio;
+        let isRecording = false;
+        let selectedFolderHandle;
+        let microphoneStream;
+
+        const recordStopButton = document.getElementById("record-stop");
+        const playButton = document.getElementById("play");
+        const saveButton = document.getElementById("save");
+        const changeFolderButton = document.getElementById("change-folder");
+        const fileNameInput = document.getElementById("file-name");
+        const folderInfo = document.getElementById("folder-info");
+        const status = document.getElementById("status");
+
+        function setStatus(message, color = 'green') {
+            status.textContent = message;
+            status.style.color = color;
+        }
+
+        async function initializeMicrophone() {
+            try {
+                microphoneStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                setStatus("Microphone permission granted.");
+            } catch (error) {
+                setStatus("Microphone permission denied. Please allow access.", 'red');
+                console.error("Error accessing microphone:", error);
+            }
+        }
+
+        recordStopButton.addEventListener("click", async () => {
+            if (!microphoneStream) {
+                setStatus("Microphone is not accessible. Please reload the page and allow microphone access.", 'red');
+                return;
+            }
+
+            if (!isRecording) {
+                mediaRecorder = new MediaRecorder(microphoneStream);
+
+                mediaRecorder.ondataavailable = (event) => {
+                    audioChunks.push(event.data);
+                };
+
+                mediaRecorder.onstop = () => {
+                    audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
+                    audioChunks = [];
+                    audioUrl = URL.createObjectURL(audioBlob);
+                    audio = new Audio(audioUrl);
+
+                    playButton.disabled = false;
+                    saveButton.disabled = false;
+
+                    setStatus("Recording stopped. Ready to save or play.");
+                };
+
+                mediaRecorder.start();
+                isRecording = true;
+                recordStopButton.textContent = "Stop";
+                recordStopButton.classList.add("recording"); // Change button style
+                setStatus("Recording in progress...");
+            } else {
+                mediaRecorder.stop();
+                isRecording = false;
+                recordStopButton.textContent = "Record";
+                recordStopButton.classList.remove("recording"); // Revert button style
+                setStatus("Recording stopped. You can now play or save.");
+            }
+        });
+
+        playButton.addEventListener("click", () => {
+            if (audio) {
+                audio.play();
+                playButton.classList.add("playing"); // Change button style
+                setStatus("Playing audio...");
+
+                audio.onended = () => {
+                    playButton.classList.remove("playing"); // Revert button style
+                    setStatus("Playback finished.");
+                };
+            } else {
+                setStatus("No recording to play.", 'red');
+            }
+        });
+
+        saveButton.addEventListener("click", async () => {
+            if (!selectedFolderHandle) {
+                setStatus("Please select a folder first.", 'red');
+                return;
+            }
+
+            const fileName = fileNameInput.value.trim();
+            if (!fileName) {
+                setStatus("Please enter a valid file name.", 'red');
+                return;
+            }
+
+            try {
+                const fileHandle = await selectedFolderHandle.getFileHandle(fileName, { create: true });
+                const writableStream = await fileHandle.createWritable();
+                await writableStream.write(audioBlob);
+                await writableStream.close();
+
+                setStatus("Recording saved successfully!");
+            } catch (error) {
+                console.error("Error saving file:", error);
+                setStatus("Failed to save the file.", 'red');
+            }
+        });
+
+        changeFolderButton.addEventListener("click", async () => {
+            try {
+                selectedFolderHandle = await window.showDirectoryPicker();
+                folderInfo.textContent = `Folder selected: ${selectedFolderHandle.name}`;
+                setStatus("Folder changed successfully.");
+            } catch (error) {
+                console.error("Folder selection canceled:", error);
+                setStatus("Folder selection canceled.", 'red');
+            }
+        });
+
+        async function initializeApp() {
+            await initializeMicrophone();
+        }
+
+        initializeApp();
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
