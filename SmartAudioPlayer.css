@@ -1,0 +1,38 @@
+/* Basic styling for the audio player */
+#smartAudioPlayer {
+  width: 9rem;
+  height: 2.5rem;
+}
+#smartAudioPlayer::-webkit-media-controls-panel {
+  background-color: #ADD8E6; /* Light blue background for controls */
+  /* border-radius: 10px;  */
+}
+
+/* Hide the drag (seek) bar */
+/* #smartAudioPlayer::-webkit-media-controls-timeline {
+  display: none; 
+} */
+
+/* Hide specific controls (like volume or speaker buttons) */
+#smartAudioPlayer::-webkit-media-controls-volume-slider {
+  display: none; 
+}
+#smartAudioPlayer::-webkit-media-controls-mute-button {
+  display: none; 
+}
+
+#smartAudioPlayer::-webkit-media-controls-mute-button {
+  background-color: #f44336; /* Red color for mute button */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  transition: background-color 0.3s;
+}
+#smartAudioPlayer::-webkit-media-controls-play-button {
+  background-color: #4CAF50; /* Green color for play button */
+  border-radius: 50%; 
+  width: 40px; /* Control size */
+  height: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: background-color 0.3s; /* Smooth hover effect */
+}

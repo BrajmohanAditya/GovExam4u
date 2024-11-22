@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="QuantBook.css">
+<link rel="stylesheet" href="SmartAudioPlayer.css">
 </head>
 <body onload="showPage(1)">
 
@@ -42,9 +43,9 @@
   </div>
 </div>
 
-<audio id="audioPlayer" style="display: none;">
+<!-- <audio id="audioPlayer" style="display: none;">
   <source id="audioSource" src="" type="audio/mpeg">
-</audio>
+</audio> -->
 
 <script>
  
@@ -194,17 +195,21 @@ Q21) Series I: 17, 26.5, 45.5, 74, 112, X, &nbsp;&nbsp; Series II: 45, 70, 132, 
 a) Find the difference between X and Y.  <br> <br>
 b) If series III follows the pattern of series I and series IV follow the pattern of series II. If first term of series III and series IV is X & Y respectively, then find the difference between fourth term of series III and series IV. <br> <br>
 </p>
+<div class="audioAnsButton">
 <button class="ansButton" onclick="toggleAnswer('ans21')">Answer</button>
-<button id="voiceNotes" onclick="toggleAudio('ddd.mp3', this)">Play</button>
+<audio id="smartAudioPlayer" controls> <source src="Quant_PracticeBook/AudioAnswer/P_Q.ogg" type="audio/ogg"></audio>
 <div id="ans21" class="answer">a) 95.5, b) 248.5</div>
+</div>
 
 <p class="question">
 Q22) A man sold two different articles A and B at 25% profit and 40% profit respectively. If total profit received is Rs. 178 and the cost price of A is Rs 120
 less than B, then find the cost price of article B
 </p>
+<div class="audioAnsButton">
 <button class="ansButton" onclick="toggleAnswer('ans22')">Answer</button>
-<button id="voiceNotes" onclick="toggleAudio('ddd.mp3', this)">Play</button>
+<audio id="smartAudioPlayer" controls> <source src="Quant_PracticeBook/AudioAnswer/P_Q.ogg" type="audio/ogg"></audio>
 <div id="ans22" class="answer">ans: 320</div>
+</div>
 
 <p class="question">
 Q23) B’s age is 10 years older than A. If the ratio of B’s age 11 years hence and C’s present age is 3:2. At present C’s age is thrice A’s age. What will be the
@@ -656,10 +661,12 @@ Q25) if 13M + 6N = 315, find all possible value of M and N , where M and N are p
             <div class="scrollbar">  
 
 <p class="question">
-Q1) 
+Q1) I. 28, 42, 75, 135, (A), (B), 442, 630 <br>  II. (C), (D), 132, 140, 152, 168, 188, 212 <br>
+a) (X + 2) is the first term of sequence follows the same pattern as that of series I where X = unit
+digit of (B + C)<sup>D</sup>  , find the 5<sup>th</sup> element of the sequence? 
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans1')">Answer</button>
-<div id="ans1" class="answer">ans: </div>
+<div id="ans1" class="answer">ans: 186 is ths 5<sup>th</sup> term <br> hint -  A = 211, B = 305,  C = 128 , D = 128 </div>
 
 <p class="question">
 Q2)

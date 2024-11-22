@@ -1,3 +1,5 @@
+//jo only button seh audio play hota hai uska js code hai
+
 let currentAudio = null;
 
 function toggleAudio(audioFile, button) {
@@ -12,7 +14,6 @@ function toggleAudio(audioFile, button) {
       button.classList.remove("playing");
       currentAudio = null;
     } else {
-      // Change only the audio source and play new audio
       audioSource.src = audioFile;
       audioPlayer.load();
       audioPlayer.play();
@@ -29,3 +30,4 @@ function toggleAudio(audioFile, button) {
     currentAudio = audioFile;
   }
 }
+
