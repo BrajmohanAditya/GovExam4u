@@ -20,21 +20,21 @@
         }
 
         #record-stop {
-            background-color: #f44336; /* Red for recording */
+            background-color: #f44336;
             color: white;
         }
 
         #record-stop.recording {
-            background-color: #4caf50; /* Green when recording is active */
+            background-color: #4caf50; 
         }
 
         #play-stop {
-            background-color: #008cba; /* Blue for play */
+            background-color: #008cba; 
             color: white;
         }
 
         #play-stop.playing {
-            background-color: #ffa500; /* Orange when playing */
+            background-color: #ffa500; 
         }
 
         #save, #change-folder {
@@ -130,13 +130,13 @@
                 mediaRecorder.start();
                 isRecording = true;
                 recordStopButton.textContent = "Stop";
-                recordStopButton.classList.add("recording"); // Change button style
+                recordStopButton.classList.add("recording");
                 setStatus("Recording in progress...");
             } else {
                 mediaRecorder.stop();
                 isRecording = false;
                 recordStopButton.textContent = "Record";
-                recordStopButton.classList.remove("recording"); // Revert button style
+                recordStopButton.classList.remove("recording"); 
                 setStatus("Recording stopped. You can now play or save.");
             }
         });
@@ -144,22 +144,22 @@
         playStopButton.addEventListener("click", () => {
             if (isPlaying) {
                 audio.pause();
-                audio.currentTime = 0; // Reset playback to the beginning
+                audio.currentTime = 0;
                 playStopButton.textContent = "Play";
-                playStopButton.classList.remove("playing"); // Revert button style
+                playStopButton.classList.remove("playing"); 
                 setStatus("Playback stopped.");
                 isPlaying = false;
             } else {
                 if (audio) {
                     audio.play();
                     playStopButton.textContent = "Stop";
-                    playStopButton.classList.add("playing"); // Change button style
+                    playStopButton.classList.add("playing"); 
                     setStatus("Playing audio...");
                     isPlaying = true;
 
                     audio.onended = () => {
                         playStopButton.textContent = "Play";
-                        playStopButton.classList.remove("playing"); // Revert button style
+                        playStopButton.classList.remove("playing"); 
                         setStatus("Playback finished.");
                         isPlaying = false;
                     };
@@ -213,12 +213,6 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
 
 
 
