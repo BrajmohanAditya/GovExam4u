@@ -67,8 +67,47 @@ function toggleAnswer(answerId) {
     }
 }
 
+// search bar ko active krna ka java script 
 
- 
+document.querySelector(".search-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Get the search input value
+    const searchInput = document.querySelector(".form-control").value.trim().toLowerCase();
+
+    const totalPages = 70; // Total pages to search
+    let found = false;
+
+    // Search across all pages
+    for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+        showPage(pageNum); // Load the page content
+
+        const contentContainer = document.getElementById("contentContainer");
+        
+        if (contentContainer.textContent.toLowerCase().includes(searchInput)) {
+            highlightWord(searchInput); // Highlight the word
+            found = true;
+            break; // Stop after finding the word
+        }
+    }
+
+    // If the word is not found
+    if (!found) {
+        const contentContainer = document.getElementById("contentContainer");
+        contentContainer.innerHTML = `<div>Sorry, "<strong>${searchInput}</strong>" not found on any page.</div>`;
+    }
+});
+
+// Function to highlight the searched word
+function highlightWord(word) {
+    const contentContainer = document.getElementById("contentContainer");
+    const regex = new RegExp(`\\b(${word})\\b`, "gi");
+
+    contentContainer.innerHTML = contentContainer.innerHTML.replace(regex, `<span style="background-color: yellow;">$1</span>`);
+}
+
+
+// * end 
 
 
 
