@@ -155,7 +155,7 @@ body {
   padding: 0.5rem;
   position: absolute;
   z-index: 1;
-  top: 125%;
+  bottom: 125%;
   margin-left: -10rem;  /*poup box kaha show hoga ya uska location btayaga */
 }
 
@@ -310,4 +310,17 @@ h3{
 
 #voiceNotes.playing:hover {
   background-color: #1e7e34;
+}
+
+.popup .popupdown {
+  visibility: hidden;
+  width: 40rem;
+  background-color: #555;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px; padding: 1rem ;
+  position: absolute;
+  z-index: 1;
+  /* bottom: 125%; */
+  top: 100%; margin-left: -5rem;
 }

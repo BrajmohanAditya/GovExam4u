@@ -50,7 +50,7 @@ h1{
   }
 
   .buttons-container {
-    width: 18rem; /* Adjust as needed */
+    width: 15rem; /* Adjust as needed */
     height: 200px;
     background-color: #f1f1f1;
     border-right: 0 solid #ccc;
@@ -149,13 +149,7 @@ body {
 }
 
 
-/* mp3 Voice Notes Button */
-#smartAudioPlayer{
-margin-left: 10rem;
-}
-.audioAnsButton{
-display: flex;
-}
+
 
 
 /* customized mp3 button by mohan */
@@ -183,4 +177,15 @@ display: flex;
 
 #voiceNotes.playing:hover {
   background-color: #1e7e34;
+}
+
+#fastForward {
+  margin-left: 32%;
+  cursor: pointer;
+  font-size: 20px;
+  color: #007BFF;
+}
+
+#fastForward:hover {
+  color: #0056b3;
 }

@@ -147,44 +147,6 @@ h1 {
     /* value percentage meh likhna seh web page responsive bnta hai */
 }
 
-/* Responsive Design */
-
-/* Responsive Design for screen widths of 768px or less */
-/* Responsive Design for screen widths of 768px or less */
-/* @media (max-width: 550px) {
-
-
-
-
-
-    .main_content {
-        margin-left: 0rem;
-        margin-left: 0; 
-        height: auto; 
-        padding: 1rem; 
-        width: 100%;
-    }
-
-    h1 {
-        font-size: 2rem; 
-        text-align: center; 
-        left: 0; 
-    }
-
-
-
-    .card {
-        width: 48%; 
-        height: auto;
-        margin: 0.5rem 0; 
-    }
-
-    .card-image {
-        width: 100%; 
-        height: auto; 
-    }
-} */
-
 
   
 

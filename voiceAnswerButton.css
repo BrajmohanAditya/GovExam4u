@@ -25,3 +25,14 @@
   #voiceNotes.playing:hover {
     background-color: #1e7e34;
   }
+
+  #fastForward {
+    margin-left: -1px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #007BFF;
+  }
+
+  #fastForward:hover {
+    color: #0056b3;
+  }

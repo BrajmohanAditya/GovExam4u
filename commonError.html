@@ -12,7 +12,7 @@
 <body onload="showPage('Rule')">
 
 <nav class="navbar">
-        <h1>DETECT Error</h1>
+        <h1>Error Detection</h1>
 </nav>
 
 <div class="container1">
@@ -79,11 +79,6 @@
         <div class="grid-item">Sub + shall/will + have + V3</div>
         <div class="grid-item">Sub + has/have + been + Ving</div>
     </div>
-        <div>
-            <audio id="audioPlayer" controls>
-              <source src="errorAudioAns/Tense_part_1st.ogg">
-            </audio>
-        </div>
 
                <div class="heading">Subject verb agreement</div>
 
@@ -569,7 +564,7 @@ D) The talented artist won multiples prizes at the exhibition, including awards 
 </p>
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
-  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, true)">D</button>
   <div class="popup" onclick="myFunction('pop25')"> <button id="ReasonButton">Answer</button>
     <span class="popuptext" id="pop25">promote nahi promotes</span>
   </div>
@@ -583,36 +578,36 @@ D) The talented artist won multiples prizes at the exhibition, including awards 
       contentContainer.innerHTML = `
       <div class="scrollbar">  
 <p class="question">
-  Q1)
+  Q1) It’s crucial to approach health (A)/ advice critically, relying on (B)/ evidence-based information rather (C)/ than to popular beliefs. (D)
 </p>
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
-  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, true)">D</button>
   <div class="popup" onclick="myFunction('pop1')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop1">hi</span>
-  </div>   <button id="voiceNotes" onclick="toggleAudio('errorAudioAns/P_Q.ogg', this)"><i class="fas fa-play"></i></button>
+    <span class="popuptext" id="pop1">remove "to"</span>
+  </div>   <button id="voiceNotes" onclick="toggleAudio('errorAudioAns/P2_Q1.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
-  Q2)
+  Q2) Without the structure framework (A)/ of office hours, remote workers (B)/ may struggle with time management, leading to (C)/ irregular sleep patterns and increased stress. (D)
 </p>
 <div class="option_container">
-  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, true)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
   <div class="popup" onclick="myFunction('pop2')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop2"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('errorAudioAns/P_Q.ogg', this)"><i class="fas fa-play"></i></button>
+    <span class="popuptext" id="pop2">structure nahi structured</span>
+  </div>  <button id="voiceNotes" onclick="toggleAudio('errorAudioAns/P2_Q2.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
-  Q3)
+  Q3) Weight gain results from an (A)/ imbalance among calories consumed (B)/ and expended throughout the day, (C)/ rather than the timing of meals. (D)
 </p>
 <div class="option_container">
-  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, true)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
   <div class="popup" onclick="myFunction('pop3')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop3"></span>
-  </div>   <button id="voiceNotes" onclick="toggleAudio('errorAudioAns/P_Q.ogg', this)"><i class="fas fa-play"></i></button>
+    <span class="popuptext" id="pop3">among nahi between hoga</span>
+  </div> <button id="voiceNotes" onclick="toggleAudio('errorAudioAns/P2_Q3.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
