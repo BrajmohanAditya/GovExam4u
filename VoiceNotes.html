@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,34 +110,37 @@
             }
 
             if (!isRecording) {
-                mediaRecorder = new MediaRecorder(microphoneStream);
+                setStatus("Preparing to record...");
+                setTimeout(() => {
+                    mediaRecorder = new MediaRecorder(microphoneStream);
 
-                mediaRecorder.ondataavailable = (event) => {
-                    audioChunks.push(event.data);
-                };
+                    mediaRecorder.ondataavailable = (event) => {
+                        audioChunks.push(event.data);
+                    };
 
-                mediaRecorder.onstop = () => {
-                    audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
-                    audioChunks = [];
-                    audioUrl = URL.createObjectURL(audioBlob);
-                    audio = new Audio(audioUrl);
+                    mediaRecorder.onstop = () => {
+                        audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
+                        audioChunks = [];
+                        audioUrl = URL.createObjectURL(audioBlob);
+                        audio = new Audio(audioUrl);
 
-                    playStopButton.disabled = false;
-                    saveButton.disabled = false;
+                        playStopButton.disabled = false;
+                        saveButton.disabled = false;
 
-                    setStatus("Recording stopped. Ready to save or play.");
-                };
+                        setStatus("Recording stopped. Ready to save or play.");
+                    };
 
-                mediaRecorder.start();
-                isRecording = true;
-                recordStopButton.textContent = "Stop";
-                recordStopButton.classList.add("recording");
-                setStatus("Recording in progress...");
+                    mediaRecorder.start();
+                    isRecording = true;
+                    recordStopButton.textContent = "Stop";
+                    recordStopButton.classList.add("recording");
+                    setStatus("Recording in progress...");
+                }, 1000); // 2-second delay
             } else {
                 mediaRecorder.stop();
                 isRecording = false;
                 recordStopButton.textContent = "Record";
-                recordStopButton.classList.remove("recording"); 
+                recordStopButton.classList.remove("recording");
                 setStatus("Recording stopped. You can now play or save.");
             }
         });
@@ -213,7 +217,3 @@
     </script>
 </body>
 </html>
-
-
-
-

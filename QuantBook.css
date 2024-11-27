@@ -178,9 +178,9 @@ body {
 #voiceNotes.playing:hover {
   background-color: #1e7e34;
 }
-
+/* Fast forward */
 #fastForward {
-  margin-left: 32%;
+  margin-left: 18.5rem;
   cursor: pointer;
   font-size: 20px;
   color: #007BFF;
