@@ -1,29 +1,50 @@
-let targetPage = ""; // To store the target page temporarily
+let targetPage = ""; // To store the target page URL
+let targetPassword = ""; // To store the page's password
 
-function openModal(page) {
-    targetPage = page; // Store the URL of the page to redirect to
-    console.log("Target Page:", targetPage); // Debugging: Ensure targetPage is correct
+function openModal(anchor) {
+    targetPage = anchor.href; // Store the URL
+    targetPassword = anchor.getAttribute("data-password"); // Get the password from data attribute
+
+    const savedData = JSON.parse(localStorage.getItem(targetPage)); // Get stored data
+    if (savedData && savedData.unlocked && savedData.password === targetPassword) {
+        // If password matches, unlock directly
+        window.location.href = targetPage;
+        return false;
+    }
+
+    // Show modal for password input
     document.getElementById("passwordModal").style.display = "block";
+    return false; // Prevent default behavior
 }
 
 function closeModal() {
-    document.getElementById("passwordModal").style.display = "none";
-    document.getElementById("modalPassword").value = ""; // Clear the password field
+    document.getElementById("passwordModal").style.display = "none"; // Hide modal
+    document.getElementById("modalPassword").value = ""; // Clear password input
 }
 
 function validatePassword() {
-    const correctPassword = "govexam"; // Replace with your desired password
     const userPassword = document.getElementById("modalPassword").value;
-    if (userPassword === correctPassword) {
-        console.log("Redirecting to:", targetPage); // Debugging: Check targetPage before redirection
-        window.location.href = targetPage; // Redirect to the stored page
+
+    if (userPassword === targetPassword) {
+        // Save access with the correct password
+        localStorage.setItem(
+            targetPage,
+            JSON.stringify({ password: targetPassword, unlocked: true })
+        );
+        window.location.href = targetPage; // Redirect
     } else {
         alert("Incorrect password! Access denied.");
     }
 }
 
-// Close modal when clicking outside of it
-window.onclick = function(event) {
+// Clear all saved access
+function clearAccess() {
+    localStorage.clear();
+    alert("All saved access has been cleared.");
+}
+
+// Close modal when clicking outside
+window.onclick = function (event) {
     const modal = document.getElementById("passwordModal");
     if (event.target === modal) {
         closeModal();

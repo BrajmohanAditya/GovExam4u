@@ -8,7 +8,7 @@
     <link rel="icon"  href="Image/G.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
+    <link rel="stylesheet" href="password.css">
 
    
 
@@ -134,7 +134,8 @@
         <div class="card-container"> 
                     <!-- VOCABLURY BOOK -->
             <div class="card">
-                <a href="e vocab Book.html">
+                <a href="e vocab Book.html" data-password="12" onclick="return openModal(this)">
+                <!-- <a href="e vocab Book.html"> -->
                  <img src="Image/Bookcover.jpg" class="card-image">
                  <p class="card-title">Open in Laptop/Desktop</p>
                 </a>
@@ -148,7 +149,8 @@
             </div> 
                        <!--Book of Common Error  -->
             <div class="card">
-                <a href="commonError.html">
+                <a href="commonError.html" data-password="12" onclick="return openModal(this)">
+                <!-- <a href="commonError.html"> -->
                  <img src="Image/errorBook.jpg" class="card-image">
                  <p class="card-title"></p>
                 </a>
@@ -225,11 +227,22 @@
             navbar.classList.toggle('active');
           }
         </script>
-        
+        <!-- Password Html -->
+        <div id="passwordModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p>Enter your password:</p>
+                <input type="password" id="modalPassword" placeholder="Enter Password">
+                <button onclick="validatePassword()">Submit</button>
+            </div>
+        </div>
+        <!-- <button onclick="clearAccess()" style="margin: 20px;">Clear Saved Access</button> -->
 
     </div>
     
       
 </div>
+      <script src="password.js"></script>
+
 </body>
 </html>
