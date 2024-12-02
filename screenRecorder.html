@@ -1,0 +1,164 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Quality Screen Recorder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        button, input {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #record-stop {
+            background-color: #f44336;
+            color: white;
+        }
+
+        #record-stop.recording {
+            background-color: #4caf50;
+        }
+
+        #save {
+            background-color: #555;
+            color: white;
+        }
+
+        #status {
+            margin-top: 10px;
+            font-size: 14px;
+            color: green;
+        }
+
+        #file-name {
+            font-size: 16px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>High-Quality Screen Recorder</h1>
+    <button id="record-stop">Start Recording</button>
+    <br>
+    <input type="text" id="file-name" placeholder="Enter file name (e.g., MyVideo)" />
+    <button id="save" disabled>Save Recording</button>
+    <p id="status"></p>
+
+    <script>
+        let screenRecorder;
+        let screenChunks = [];
+        let screenBlob;
+        let screenStream;
+        let isRecording = false;
+
+        const recordStopButton = document.getElementById("record-stop");
+        const saveButton = document.getElementById("save");
+        const status = document.getElementById("status");
+        const fileNameInput = document.getElementById("file-name");
+
+        function setStatus(message, color = 'green') {
+            status.textContent = message;
+            status.style.color = color;
+        }
+
+        async function getMediaStreams() {
+            try {
+                const screenCaptureStream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+                const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+                const combinedStream = new MediaStream([
+                    ...screenCaptureStream.getTracks(),
+                    ...audioStream.getTracks(),
+                ]);
+
+                return combinedStream;
+            } catch (error) {
+                console.error("Error accessing media devices:", error);
+                setStatus("Error accessing media devices. Ensure permissions are granted.", "red");
+                return null;
+            }
+        }
+
+        recordStopButton.addEventListener("click", async () => {
+            if (!isRecording) {
+                screenStream = await getMediaStreams();
+                if (!screenStream) {
+                    return;
+                }
+
+                screenRecorder = new MediaRecorder(screenStream, {
+                    mimeType: "video/webm; codecs=vp9",
+                    audioBitsPerSecond: 96000, // Reduce audio bitrate
+                    videoBitsPerSecond: 2000000, // Reduce video bitrate
+                });
+
+                screenRecorder.ondataavailable = (event) => {
+                    if (event.data.size > 0) {
+                        screenChunks.push(event.data);
+                    }
+                };
+
+                screenRecorder.onstop = () => {
+                    screenBlob = new Blob(screenChunks, { type: "video/webm" });
+                    screenChunks = [];
+                    saveButton.disabled = false;
+                    setStatus("Recording stopped. You can save the file.");
+                };
+
+                screenRecorder.start(1000);
+                isRecording = true;
+                recordStopButton.textContent = "Stop Recording";
+                recordStopButton.classList.add("recording");
+                setStatus("Recording in progress...");
+            } else {
+                screenRecorder.stop();
+                screenStream.getTracks().forEach((track) => track.stop());
+                isRecording = false;
+                recordStopButton.textContent = "Start Recording";
+                recordStopButton.classList.remove("recording");
+            }
+        });
+
+        saveButton.addEventListener("click", async () => {
+            if (!screenBlob) {
+                setStatus("No recording available to save.", "red");
+                return;
+            }
+
+            const fileName = fileNameInput.value.trim() || "ScreenRecording";
+            try {
+                const fileHandle = await window.showSaveFilePicker({
+                    suggestedName: `${fileName}.webm`,
+                    types: [{
+                        description: 'WebM Video',
+                        accept: { 'video/webm': ['.webm'] }
+                    }]
+                });
+
+                const writableStream = await fileHandle.createWritable();
+                await writableStream.write(screenBlob);
+                await writableStream.close();
+
+                setStatus(`Recording saved successfully as "${fileName}.webm"!`);
+            } catch (error) {
+                console.error("Error saving file:", error);
+                setStatus("Error saving the recording.", "red");
+            }
+        });
+    </script>
+</body>
+</html>

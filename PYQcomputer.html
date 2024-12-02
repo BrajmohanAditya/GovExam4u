@@ -45,10 +45,11 @@
     contentContainer.innerHTML = `
   <div class="scrollbar"> 
 <p class="question">
-  Q1)
+  Q1) Which of the following memory speed is fast? <br>
+a) RAM  b) ROM  c) HDD  d) SDD
 </p>
 <div class="option_container">
-  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, true)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
   <div class="popup" onclick="myFunction('pop1')"> <button id="ReasonButton">Answer</button>
     <span class="popuptext" id="pop1">hi</span>
