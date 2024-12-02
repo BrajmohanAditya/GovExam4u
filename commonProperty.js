@@ -103,7 +103,7 @@ function highlightWord(word) {
     const contentContainer = document.getElementById("contentContainer");
     const regex = new RegExp(`\\b(${word})\\b`, "gi");
 
-    contentContainer.innerHTML = contentContainer.innerHTML.replace(regex, `<span style="background-color: yellow;">$1</span>`);
+    contentContainer.innerHTML = contentContainer.innerHTML.replace(regex, `<span style="background-color: #ADD8E6; border-radius: 3px;">$1</span>`);
 }
 
 
