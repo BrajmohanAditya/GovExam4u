@@ -109,6 +109,32 @@ function highlightWord(word) {
 
 // * end 
 
+// pronunciation ka js code 
 
+document.getElementById('pronounceBtn').addEventListener('click', function() {
+    // Get the word from the input field
+    let word = document.getElementById('word').value;
+
+    // Create a new instance of SpeechSynthesisUtterance
+    let utterance = new SpeechSynthesisUtterance(word);
+
+    // Set the language to English (Indian)
+    utterance.lang = 'en-IN';
+
+    // Set the voice (look for Indian voices available in the browser)
+    let voices = window.speechSynthesis.getVoices();
+    for (let i = 0; i < voices.length; i++) {
+        if (voices[i].lang === 'en-IN') {
+            utterance.voice = voices[i];
+            break;
+        }
+    }
+
+    // Set speech rate (optional)
+    utterance.rate = 1;
+
+    // Use the speechSynthesis interface to speak the word
+    window.speechSynthesis.speak(utterance);
+});
 
 
