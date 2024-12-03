@@ -74,7 +74,12 @@ document.querySelector(".search-form").addEventListener("submit", function (e) {
 
     // Get the search input value
     const searchInput = document.querySelector(".form-control").value.trim().toLowerCase();
-
+    document.querySelector(".form-control").value = "";
+    if (!searchInput) {
+        const contentContainer = document.getElementById("contentContainer");
+        contentContainer.innerHTML = `<div>Please enter a word to search.</div>`;
+        return; // Stop execution if input is empty
+    }
     const totalPages = 70; // Total pages to search
     let found = false;
 
