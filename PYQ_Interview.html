@@ -4,11 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GoveExam4u</title>
+<link rel="stylesheet" href="passOnPage.css">
 <link rel="stylesheet" href="staticBanking.css">
-
+<script src="passOnPage.js" defer></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body onload="showPage('ibps po')">
+<!-- <body onload="showPage('ibps po')"> -->
+
+<body onload="initializePage()"></body>
 
 <nav class="navbar">
         <h1>Real time Interview Questions</h1>
@@ -18,25 +21,37 @@
   <div class="content-container" id="contentContainer"></div>
   <div class="buttons-container" id="buttonsContainer">
     <div style="font-weight: 800; font-family: Arial, Helvetica, sans-serif;color: red;">INDEX</div>
-    <button class="colorButton" onclick="showPage('ibps po')">Banking [IBPS Po 2023]</button>
-    <button class="colorButton" onclick="showPage('rrb po')">Banking [RRB Po 2024]</button>
-    <button class="colorButton" onclick="showPage(2)">Questions [IBPS, RRB, SBI]</button>
-    <button class="colorButton" onclick="showPage(3)"> Questions  [IBPS, RRB, SBI]</button>
-    <button class="colorButton" onclick="showPage(4)">Questions  [IBPS, RRB, SBI]</button>
+    <button class="colorButton" onclick="checkPassword('ibps po')">Banking [IBPS Po 2023]</button>
+    <button class="colorButton" onclick="checkPassword('rrb po')">Banking [RRB Po 2024]</button>
+    <button class="colorButton" onclick="checkPassword(2)">Questions [IBPS, RRB, SBI]</button>
+    <button class="colorButton" onclick="checkPassword(3)">Questions [IBPS, RRB, SBI]</button>
+    <button class="colorButton" onclick="checkPassword(4)">Questions [IBPS, RRB, SBI]</button>
     <!-- More buttons if needed -->
   </div>
 </div>
 <!-- Password html -->
 
+<div id="passwordModal" class="modal">
+  <div class="modal-content">
+    <h2>Enter Password</h2>
+    <input type="password" id="passwordInput" placeholder="Enter your password">
+    <button onclick="validatePassword()">Submit</button>
+  </div>
+</div>
 
 
 <script>
  
+const correctPassword = "11"; 
+const storageKey = "isPasswordVerified"; 
+const passwordKey = "currentPassword"; 
+
+
 
   function showPage(pageNum) {
     const contentContainer = document.getElementById('contentContainer');
 
-     if(pageNum == "ibps po"){
+     if(pageNum === "ibps po"){
       contentContainer.innerHTML = `
 <div class="scrollbar">
   <div class="qa-container">
@@ -154,7 +169,7 @@
       `;
     }
 
-    else if (pageNum == "rrb po") {    // Banking awerness
+    else if (pageNum === "rrb po") {    // Banking awerness
       contentContainer.innerHTML = `
       
 <div class="scrollbar">
@@ -286,7 +301,7 @@
   </div>
 </div>`;
 
-}else if (pageNum == 2) { // General Question
+}else if (pageNum === 2) { // General Question
       contentContainer.innerHTML = `
 <div class="scrollbar"> 
   <div class="qa-container">
@@ -375,7 +390,7 @@
   </div>
 </div>
       `;
-}else if(pageNum == 3){
+}else if(pageNum === 3){
       contentContainer.innerHTML = `
 <div class="scrollbar"> 
   <div class="qa-container">
@@ -435,7 +450,7 @@
       `;
     }
 
-    else if(pageNum == 4){
+    else if(pageNum === 4){
       contentContainer.innerHTML = `      
 <div class="scrollbar">
   <div class="qa-container">
@@ -477,7 +492,7 @@
       `;
     }
 
-    else if(pageNum == 4){
+    else if(pageNum === 4){
       contentContainer.innerHTML = `
 <div class="scrollbar">  
     <div class="qa-container">
@@ -532,7 +547,7 @@
       `;
     }
 
-    else if(pageNum == 5){
+    else if(pageNum === 5){
       contentContainer.innerHTML = `
 <div class="scrollbar">  
   <div class="qa-container">
@@ -565,24 +580,6 @@
     else if(pageNum == 8){
       contentContainer.innerHTML = `Hai mohan`;
     }
-    else if(pageNum == 3){
-      contentContainer.innerHTML = `Hai mohan`;
-    }
-
-    else if(pageNum == 3){
-      contentContainer.innerHTML = `Hai mohan`;
-    }
-
-    else if(pageNum == 3){
-      contentContainer.innerHTML = `Hai mohan`;
-    }
-    else if(pageNum == 3){
-      contentContainer.innerHTML = `Hai mohan`;
-    }
-
-    else if(pageNum == 3){
-      contentContainer.innerHTML = `Hai mohan`;
-    }
 
      else {
       contentContainer.textContent = `This is page ${pageNum}`;
@@ -604,7 +601,10 @@
 
 
 <!-- script tag for poupText -->
-<script src="commonProperty.js"></script>
+<!-- <script src="commonProperty.js"></script> -->
+<script>
+
+</script>
 
 </body>
 </html>
