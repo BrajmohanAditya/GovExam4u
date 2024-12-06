@@ -4,12 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GoveExam4u</title>
+<script src="passOnPage.js" defer></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="commonError.css">
 
 </head>
-<body onload="showPage('Rule')">
+<body onload="initializePage()"></body>
 
 <nav class="navbar">
         <h1>Error Detection</h1>
@@ -24,23 +25,23 @@
     <button class="colorButton" onclick="showPage(1)">1</button>
     <button class="colorButton" onclick="showPage(2)">2</button>
     <button class="colorButton" onclick="showPage(3)">3</button>
-    <button class="colorButton" onclick="showPage(4)">4</button>
-    <button class="colorButton" onclick="showPage(5)">5</button>
-    <button class="colorButton" onclick="showPage(6)">6</button>
-    <button class="colorButton" onclick="showPage(7)">7</button>
-    <button class="colorButton" onclick="showPage(8)">8</button>
-    <button class="colorButton" onclick="showPage(9)">9</button>
-    <button class="colorButton" onclick="showPage(10)">10</button>
-    <button class="colorButton" onclick="showPage(11)">11</button>
-    <button class="colorButton" onclick="showPage(12)">12</button>
-    <button class="colorButton" onclick="showPage(13)">13</button>
-    <button class="colorButton" onclick="showPage(14)">14</button>
-    <button class="colorButton" onclick="showPage(15)">15</button>
-    <button class="colorButton" onclick="showPage(16)">16</button>
-    <button class="colorButton" onclick="showPage(17)">17</button>
-    <button class="colorButton" onclick="showPage(18)">18</button>
-    <button class="colorButton" onclick="showPage(19)">19</button>
-    <button class="colorButton" onclick="showPage(20)">20</button>
+    <button class="colorButton" onclick="checkPassword(4)"> 4</button>
+    <button class="colorButton" onclick="checkPassword(5)"> 5</button>
+    <button class="colorButton" onclick="checkPassword(6)"> 6</button>
+    <button class="colorButton" onclick="checkPassword(7)"> 7</button>
+    <button class="colorButton" onclick="checkPassword(8)"> 8</button>
+    <button class="colorButton" onclick="checkPassword(9)"> 9</button>
+    <button class="colorButton" onclick="checkPassword(10)"> 10</button>
+    <button class="colorButton" onclick="checkPassword(11)"> 11</button>
+    <button class="colorButton" onclick="checkPassword(12)"> 12</button>
+    <button class="colorButton" onclick="checkPassword(13)"> 13</button>
+    <button class="colorButton" onclick="checkPassword(14)"> 14</button>
+    <button class="colorButton" onclick="checkPassword(15)"> 15</button>
+    <button class="colorButton" onclick="checkPassword(16)"> 16</button>
+    <button class="colorButton" onclick="checkPassword(17)"> 17</button>
+    <button class="colorButton" onclick="checkPassword(18)"> 18</button>
+    <button class="colorButton" onclick="checkPassword(19)"> 19</button>
+    <button class="colorButton" onclick="checkPassword(20)"> 20</button>
     <!-- More buttons if needed -->
   </div>
 </div>
@@ -49,8 +50,24 @@
   <source id="audioSource" src="" type="audio/mpeg">
 </audio>
 
+<!-- Password on every page html code  -->
+<div id="passwordModal" class="modal">
+  <div class="modal-content">
+    <h2>Enter Password</h2>
+    <p>password : govexam4u.com</p>
+    <input type="password" id="passwordInput" placeholder="Enter your password">
+    <button onclick="validatePassword()">Submit</button>
+  </div>
+</div>
+
+
+
 <script>
- 
+
+const correctPassword = "govexam4u.com"; 
+const storageKey = "isPasswordVerified"; 
+const passwordKey = "currentPassword"; 
+
   function showPage(pageNum) {
     const contentContainer = document.getElementById('contentContainer');
   if(pageNum == 'Rule'){

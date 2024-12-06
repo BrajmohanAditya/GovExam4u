@@ -4,15 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>e vocab Book</title>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-
 <link rel="stylesheet" href="e vocab Book.css">
-<link rel="stylesheet" href="passOnPage.css">
+<script src="passOnPage.js" defer></script>
 <link href="https://fonts.googleapis.com/css2?family=Icin&display=swap" rel="stylesheet">
-
 </head>
-<body onload="showPage(1)">
+
+<body onload="initializePage()"></body>
 
   <nav class="navbar">
           
@@ -32,89 +30,102 @@
 
 
 
-<div class="container1">
+ <div class="container1">
     <div class="content-container" id="contentContainer"></div>
     <div class="buttons-container" id="buttonsContainer">
-        <button class="colorButton" onclick="showPage(1)"> 1</button>
+        <button class="colorButton" onclick="checkPassword(1)"> 1</button>
         <button class="colorButton" onclick="showPage(2)"> 2</button>
         <button class="colorButton" onclick="showPage(3)"> 3</button>
         <button class="colorButton" onclick="showPage(3.1)"> Ph.V</button>
 
-        <button class="colorButton" onclick="showPage(4)"> 4</button>
-        <button class="colorButton" onclick="showPage(5)"> 5</button>
-        <button class="colorButton" onclick="showPage(6)"> 6</button>
-        <button class="colorButton" onclick="showPage(7)"> 7</button>
-        <button class="colorButton" onclick="showPage(8)"> 8</button>
-        <button class="colorButton" onclick="showPage(9)"> 9</button>
-        <button class="colorButton" onclick="showPage(10)"> 10</button>
-        <button class="colorButton" onclick="showPage(11)"> 11</button>
-        <button class="colorButton" onclick="showPage(12)"> 12</button>
-        <button class="colorButton" onclick="showPage(13)"> 13</button>
-        <button class="colorButton" onclick="showPage(14)"> 14</button>
-        <button class="colorButton" onclick="showPage(15)"> 15</button>
-        <button class="colorButton" onclick="showPage(16)"> 16</button>
-        <button class="colorButton" onclick="showPage(17)"> 17</button>
-        <button class="colorButton" onclick="showPage(18)"> 18</button>
-        <button class="colorButton" onclick="showPage(19)"> 19</button>
-        <button class="colorButton" onclick="showPage(20)"> 20</button>
-        <button class="colorButton" onclick="showPage(21)"> 21</button>
-        <button class="colorButton" onclick="showPage(22)"> 22</button>
-        <button class="colorButton" onclick="showPage(23)"> 23</button>
-        <button class="colorButton" onclick="showPage(24)"> 24</button>
-        <button class="colorButton" onclick="showPage(25)"> 25</button>
-        <button class="colorButton" onclick="showPage(26)"> 26</button>
-        <button class="colorButton" onclick="showPage(27)"> 27</button>
-        <button class="colorButton" onclick="showPage(28)"> 28</button>
-        <button class="colorButton" onclick="showPage(29)"> 29</button>
-        <button class="colorButton" onclick="showPage(30)"> 30</button>
-        <button class="colorButton" onclick="showPage(31)"> 31</button>
-        <button class="colorButton" onclick="showPage(32)"> 32</button>
-        <button class="colorButton" onclick="showPage(33)"> 33</button>
-        <button class="colorButton" onclick="showPage(34)"> 34</button>
-        <button class="colorButton" onclick="showPage(35)"> 35</button>
-        <button class="colorButton" onclick="showPage(36)"> 36</button>
-        <button class="colorButton" onclick="showPage(37)"> 37</button>
-        <button class="colorButton" onclick="showPage(38)"> 38</button>
-        <button class="colorButton" onclick="showPage(39)"> 39</button>
-        <button class="colorButton" onclick="showPage(40)"> 40</button>
-        <button class="colorButton" onclick="showPage(41)"> 41</button>
-        <button class="colorButton" onclick="showPage(42)"> 42</button>
-        <button class="colorButton" onclick="showPage(43)"> 43</button>
-        <button class="colorButton" onclick="showPage(44)"> 44</button>
-        <button class="colorButton" onclick="showPage(45)"> 45</button>
-        <button class="colorButton" onclick="showPage(46)"> 46</button>
-        <button class="colorButton" onclick="showPage(47)"> 47</button>
-        <button class="colorButton" onclick="showPage(48)"> 48</button>
-        <button class="colorButton" onclick="showPage(49)"> 49</button>
-        <button class="colorButton" onclick="showPage(50)"> 50</button>
-        <button class="colorButton" onclick="showPage(51)"> 51</button>
-        <button class="colorButton" onclick="showPage(52)"> 52</button>
-        <button class="colorButton" onclick="showPage(53)"> 53</button>
-        <button class="colorButton" onclick="showPage(54)"> 54</button>
-        <button class="colorButton" onclick="showPage(55)"> 55</button>
-        <button class="colorButton" onclick="showPage(56)"> 56</button>
-        <button class="colorButton" onclick="showPage(57)"> 57</button>
-        <button class="colorButton" onclick="showPage(58)"> 58</button>
-        <button class="colorButton" onclick="showPage(59)"> 59</button>
-        <button class="colorButton" onclick="showPage(60)"> 60</button>
-        <button class="colorButton" onclick="showPage(61)"> 61</button>
-        <button class="colorButton" onclick="showPage(62)"> 62</button>
-        <button class="colorButton" onclick="showPage(63)"> 63</button>
-        <button class="colorButton" onclick="showPage(64)"> 64</button>
-        <button class="colorButton" onclick="showPage(65)"> 65</button>
-        <button class="colorButton" onclick="showPage(66)"> 66</button>
-        <button class="colorButton" onclick="showPage(67)"> 67</button>
-        <button class="colorButton" onclick="showPage(68)"> 68</button>
-        <button class="colorButton" onclick="showPage(69)"> 69</button>
-        <button class="colorButton" onclick="showPage(70)"> 70</button>
-
-
+        <button class="colorButton" onclick="checkPassword(4)"> 4</button>
+        <button class="colorButton" onclick="checkPassword(5)"> 5</button>
+        <button class="colorButton" onclick="checkPassword(6)"> 6</button>
+        <button class="colorButton" onclick="checkPassword(7)"> 7</button>
+        <button class="colorButton" onclick="checkPassword(8)"> 8</button>
+        <button class="colorButton" onclick="checkPassword(9)"> 9</button>
+        <button class="colorButton" onclick="checkPassword(10)"> 10</button>
+        <button class="colorButton" onclick="checkPassword(11)"> 11</button>
+        <button class="colorButton" onclick="checkPassword(12)"> 12</button>
+        <button class="colorButton" onclick="checkPassword(13)"> 13</button>
+        <button class="colorButton" onclick="checkPassword(14)"> 14</button>
+        <button class="colorButton" onclick="checkPassword(15)"> 15</button>
+        <button class="colorButton" onclick="checkPassword(16)"> 16</button>
+        <button class="colorButton" onclick="checkPassword(17)"> 17</button>
+        <button class="colorButton" onclick="checkPassword(18)"> 18</button>
+        <button class="colorButton" onclick="checkPassword(19)"> 19</button>
+        <button class="colorButton" onclick="checkPassword(20)"> 20</button>
+        <button class="colorButton" onclick="checkPassword(21)"> 21</button>
+        <button class="colorButton" onclick="checkPassword(22)"> 22</button>
+        <button class="colorButton" onclick="checkPassword(23)"> 23</button>
+        <button class="colorButton" onclick="checkPassword(24)"> 24</button>
+        <button class="colorButton" onclick="checkPassword(25)"> 25</button>
+        <button class="colorButton" onclick="checkPassword(26)"> 26</button>
+        <button class="colorButton" onclick="checkPassword(27)"> 27</button>
+        <button class="colorButton" onclick="checkPassword(28)"> 28</button>
+        <button class="colorButton" onclick="checkPassword(29)"> 29</button>
+        <button class="colorButton" onclick="checkPassword(30)"> 30</button>
+        <button class="colorButton" onclick="checkPassword(31)"> 31</button>
+        <button class="colorButton" onclick="checkPassword(32)"> 32</button>
+        <button class="colorButton" onclick="checkPassword(33)"> 33</button>
+        <button class="colorButton" onclick="checkPassword(34)"> 34</button>
+        <button class="colorButton" onclick="checkPassword(35)"> 35</button>
+        <button class="colorButton" onclick="checkPassword(36)"> 36</button>
+        <button class="colorButton" onclick="checkPassword(37)"> 37</button>
+        <button class="colorButton" onclick="checkPassword(38)"> 38</button>
+        <button class="colorButton" onclick="checkPassword(39)"> 39</button>
+        <button class="colorButton" onclick="checkPassword(40)"> 40</button>
+        <button class="colorButton" onclick="checkPassword(41)"> 41</button>
+        <button class="colorButton" onclick="checkPassword(42)"> 42</button>
+        <button class="colorButton" onclick="checkPassword(43)"> 43</button>
+        <button class="colorButton" onclick="checkPassword(44)"> 44</button>
+        <button class="colorButton" onclick="checkPassword(45)"> 45</button>
+        <button class="colorButton" onclick="checkPassword(46)"> 46</button>
+        <button class="colorButton" onclick="checkPassword(47)"> 47</button>
+        <button class="colorButton" onclick="checkPassword(48)"> 48</button>
+        <button class="colorButton" onclick="checkPassword(49)"> 49</button>
+        <button class="colorButton" onclick="checkPassword(50)"> 50</button>
+        <button class="colorButton" onclick="checkPassword(51)"> 51</button>
+        <button class="colorButton" onclick="checkPassword(52)"> 52</button>
+        <button class="colorButton" onclick="checkPassword(53)"> 53</button>
+        <button class="colorButton" onclick="checkPassword(54)"> 54</button>
+        <button class="colorButton" onclick="checkPassword(55)"> 55</button>
+        <button class="colorButton" onclick="checkPassword(56)"> 56</button>
+        <button class="colorButton" onclick="checkPassword(57)"> 57</button>
+        <button class="colorButton" onclick="checkPassword(58)"> 58</button>
+        <button class="colorButton" onclick="checkPassword(59)"> 59</button>
+        <button class="colorButton" onclick="checkPassword(60)"> 60</button>
+        <button class="colorButton" onclick="checkPassword(61)"> 61</button>
+        <button class="colorButton" onclick="checkPassword(62)"> 62</button>
+        <button class="colorButton" onclick="checkPassword(63)"> 63</button>
+        <button class="colorButton" onclick="checkPassword(64)"> 64</button>
+        <button class="colorButton" onclick="checkPassword(65)"> 65</button>
+        <button class="colorButton" onclick="checkPassword(66)"> 66</button>
+        <button class="colorButton" onclick="checkPassword(67)"> 67</button>
+        <button class="colorButton" onclick="checkPassword(68)"> 68</button>
+        <button class="colorButton" onclick="checkPassword(69)"> 69</button>
+        <button class="colorButton" onclick="checkPassword(70)"> 70</button>
+        
     </div>
 
   </div>
 </div>
-  
+<!-- Password on every page html code  -->
+<div id="passwordModal" class="modal">
+  <div class="modal-content">
+    <h4>Enter Password</h4>
+    <p>password : govexam4u.com</p>
+    <input type="password" id="passwordInput" placeholder="Enter your password">
+    <button onclick="validatePassword()">Submit</button>
+  </div>
+</div>
+
 <script>
+
+const correctPassword = "govexam4u.com"; 
+const storageKey = "isPasswordVerified"; 
+const passwordKey = "currentPassword"; 
+
 
     function showPage(pageNum) {
         const contentContainer = document.getElementById('contentContainer');
