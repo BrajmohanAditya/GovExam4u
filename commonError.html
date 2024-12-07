@@ -55,7 +55,8 @@
   <div class="modal-content">
     <h2>Enter Password</h2>
     <p>password : govexam4u.com</p>
-    <input type="password" id="passwordInput" placeholder="Enter your password">
+    <input type="password" id="passwordInput" placeholder="Enter your password" autocomplete="off">
+
     <button onclick="validatePassword()">Submit</button>
   </div>
 </div>
@@ -64,7 +65,7 @@
 
 <script>
 
-const correctPassword = "govexam4u.com"; 
+const correctPassword = "govexam4u"; 
 const storageKey = "isPasswordVerified"; 
 const passwordKey = "currentPassword"; 
 
