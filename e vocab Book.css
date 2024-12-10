@@ -293,28 +293,18 @@ button {
 /* Button dikhaga ab mobile meh e vocab ka  */
 
 
-@media (max-width: 750px) {    /* 750 ko decrease krna seh ve button container disappear ho jayaga*/
+@media (max-width: 750px) and (orientation: landscape) {    /* 750 ko decrease krna seh ve button container disappear ho jayaga*/
   html {
     font-size: 12px;   /* isko remove krna seh button container disappear ho jayaga*/
   }
 
   #absolute{
     overflow: auto;
-    left: 15rem;
+    left: 10rem;
     position:absolute; 
 }
-  .scrollbar {
-    width: 43rem;
-    font-size: 0.8rem;
-    /* overflow-x: hidden; */
-  }
 
-  .buttons-container {
-    padding: 0%;
-    width: 5rem;
-    font-size:auto;
-    overflow-x: hidden;
-  } 
+
   .buttons-container button {
     font-size: x-small;
     padding: 0cap;
@@ -324,16 +314,13 @@ button {
   }
   
   .popup {
-    /* position:relative; */
-    /* left: 75%; */
-    /* display: inline-block;
-    cursor: pointer;
-    color: #555; */
+
     display: none;
   }
 
   .search-form {
     width: 60%; 
+    margin-right: -12px;
   }
   
 
@@ -351,8 +338,103 @@ button {
     background-color: #007bff;
     height: 2.6rem;
   }
+  .buttons-container {
+    scroll-behavior:smooth;
+    height: 18rem;
+    background-color: #f1f1f1;
+    border-right: 0 solid #ccc;
+    margin-left:1px; 
+    width: fit-content;
+    overflow-x: auto;
+    width: 5rem;
+  
+  }
+  .scrollbar {
+    margin-left: -1rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin; 
+    scrollbar-color: #888 #ddd;
+    width: 45rem;
+    border: solid white;
+    height: 82vh;
+    position: relative;
+  }
 
 } 
+
+@media (max-width: 600px) and (orientation: portrait) {
+  html {
+    font-size: 12px;   /* isko remove krna seh button container disappear ho jayaga*/
+  }
+
+  #absolute{
+    overflow: auto;
+    left: 8rem;
+    position:absolute; 
+}
+
+
+  .buttons-container button {
+    font-size: x-small;
+    padding: 0cap;
+    margin-left: 5px;
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .popup {
+
+    display: none;
+  }
+
+  .search-form {
+    width: 30%; 
+    margin-right: -12px;
+  }
+  
+
+  .btn {
+    width: auto; /* Buttons remain compact */
+  }
+  h1{
+    color: white;
+    margin-left: 1rem;
+    border-radius: 10px;
+    font-size: x-large;
+    font-family:   sans-serif; 
+    font-weight: auto;
+    font-style: normal;   
+    background-color: #007bff;
+    height: 2.6rem;
+  }
+  .buttons-container {
+    scroll-behavior:smooth;
+    height: 18rem;
+    background-color: #f1f1f1;
+    border-right: 0 solid #ccc;
+    margin-left:40%; 
+    width: fit-content;
+    overflow-x: auto;
+    width: 5rem;
+  
+  }
+  .scrollbar {
+    margin-left: -2rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin; 
+    scrollbar-color: #888 #ddd;
+    width:225%;
+    border: solid white;
+    height: 82vh;
+    position: relative;
+  }
+}
+
+
+
+
 
  /* password on every page csss */
 
