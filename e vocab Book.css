@@ -293,7 +293,7 @@ button {
 /* Button dikhaga ab mobile meh e vocab ka  */
 
 
-@media (max-width: 750px) and (orientation: landscape) {    /* 750 ko decrease krna seh ve button container disappear ho jayaga*/
+@media (max-width: 1000px) and (orientation: landscape) {    /* 750 ko decrease krna seh ve button container disappear ho jayaga*/
   html {
     font-size: 12px;   /* isko remove krna seh button container disappear ho jayaga*/
   }
@@ -320,7 +320,7 @@ button {
 
   .search-form {
     width: 60%; 
-    margin-right: -12px;
+    margin-right: -15%;
   }
   
 
@@ -343,7 +343,7 @@ button {
     height: 18rem;
     background-color: #f1f1f1;
     border-right: 0 solid #ccc;
-    margin-left:1px; 
+    margin-left:60%; 
     width: fit-content;
     overflow-x: auto;
     width: 5rem;
@@ -355,7 +355,7 @@ button {
     overflow-y: auto;
     scrollbar-width: thin; 
     scrollbar-color: #888 #ddd;
-    width: 45rem;
+    width: 340%;
     border: solid white;
     height: 82vh;
     position: relative;
