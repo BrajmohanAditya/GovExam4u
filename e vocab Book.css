@@ -306,7 +306,7 @@ button {
   .scrollbar {
     width: 43rem;
     font-size: 0.8rem;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
   }
 
   .buttons-container {
@@ -323,8 +323,6 @@ button {
     height: 3rem;
   }
   
-
-
   .popup {
     /* position:relative; */
     /* left: 75%; */
@@ -332,6 +330,26 @@ button {
     cursor: pointer;
     color: #555; */
     display: none;
+  }
+
+  .search-form {
+    width: 60%; 
+  }
+  
+
+  .btn {
+    width: auto; /* Buttons remain compact */
+  }
+  h1{
+    color: white;
+    margin-left: 1rem;
+    border-radius: 10px;
+    font-size: x-large;
+    font-family:   sans-serif; 
+    font-weight: auto;
+    font-style: normal;   
+    background-color: #007bff;
+    height: 2.6rem;
   }
 
 } 
