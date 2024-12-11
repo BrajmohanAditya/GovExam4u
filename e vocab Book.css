@@ -452,6 +452,7 @@ button {
   align-items: center;
 }
 .modal-content {
+  margin-top: 5%;
   height: fit-content;
   background-color: #fff;
   padding: 20px;
