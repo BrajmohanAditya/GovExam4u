@@ -320,7 +320,7 @@ button {
 
   .search-form {
     width: 60%; 
-    margin-right: -15%;
+    
   }
   
 
@@ -458,7 +458,7 @@ button {
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 300px;
+  width: 40%;
 }
 .modal-content h4 {
  text-align: center;
@@ -490,3 +490,17 @@ padding: 2px;
 color: red;
 }
 /* end of page wise password */
+
+
+/*Css for price*/
+.upi-details {
+  color: #ff5722;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.offer-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}

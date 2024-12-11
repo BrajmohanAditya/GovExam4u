@@ -187,19 +187,21 @@ h1 {
 }
 
 .card-title {
+    margin-top: -8%;
     font-weight: 600;
-    color: #000;
+    font-size: 1.2rem;
+    /* color: red;  */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
 
 .blink {
-    animation: blink-animation 1s steps(5, start) infinite;
-    font-weight: 800;
-    color: red;
+    animation: blink-animation 3s steps(5, start) infinite;
     font-family: sans-serif;
-    box-shadow: 0 0 4px black;
-    background-color: #218838;
+    border-radius: 0.2rem;
+    background: linear-gradient(45deg, #8e44ad, #3498db);
+    color: #FFFFFF; /* White text */
 }
 
 @keyframes blink-animation {
