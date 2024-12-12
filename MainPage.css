@@ -171,8 +171,8 @@ h1 {
     overflow-y: auto; /* Allow scrolling if content overflows */
 }
 .card {
-    /* width: 130%;
-    height: 130%; */
+    width: 13rem;
+    height: 13rem;
     cursor: pointer;
     margin: 1.2rem;
 }
