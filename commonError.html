@@ -65,9 +65,14 @@
 
 <script>
 
-const correctPassword = "govexam4u"; 
-const storageKey = "isPasswordVerified"; 
-const passwordKey = "currentPassword"; 
+// const correctPassword = "govexam4u"; 
+// const storageKey = "isPasswordVerified"; 
+// const passwordKey = "currentPassword"; 
+// multiple password facility
+const correctPasswords = ["govexam4u.com", "11", "789"]; // Multiple passwords
+const storageKey = "isPasswordVerified";
+const passwordKey = "currentPasswords";
+
 
   function showPage(pageNum) {
     const contentContainer = document.getElementById('contentContainer');

@@ -1,42 +1,87 @@
+// const correctPassword = "123";  
+// const storageKey = "isPasswordVerified"; 
+// const passwordKey = "currentPassword"; 
+// function initializePage() {
+//   const savedPassword = localStorage.getItem(passwordKey);
+//   if (savedPassword !== correctPassword)  {
+//     localStorage.removeItem(storageKey);
+//     localStorage.setItem(passwordKey, correctPassword); 
+//   }
+
+//   const isPasswordVerified = localStorage.getItem(storageKey) === "true";
+//   if (isPasswordVerified) {
+//     showPage(3); 
+//   }
+// }
+
+// function checkPassword(pageNum) {
+//   const isPasswordVerified = localStorage.getItem(storageKey) === "true";
+//   if (!isPasswordVerified) { 
+//     document.getElementById("passwordModal").style.display = "flex";
+//     document.getElementById("passwordModal").setAttribute("data-page", pageNum);
+//   } else {
+//     showPage(pageNum); 
+//   }
+// }
 
 
-// Function to initialize the page
+// function validatePassword() {
+//   const enteredPassword = document.getElementById("passwordInput").value;
+//   const modal = document.getElementById("passwordModal");
+//   const pageNum = modal.getAttribute("data-page");
+
+//   if (enteredPassword === correctPassword) {
+//     localStorage.setItem(storageKey, "true"); 
+//     modal.style.display = "none"; 
+//     showPage(pageNum);
+//   } else {
+//     alert("Incorrect password. Please try again.");
+//   }
+// } 
+
+// Multiple password facility 
+
+
 function initializePage() {
-  const savedPassword = localStorage.getItem(passwordKey);
-  if (savedPassword !== correctPassword) {
-    // Clear verification if the password has changed
+  const savedPasswords = JSON.parse(localStorage.getItem(passwordKey));
+  if (!savedPasswords || !arraysEqual(savedPasswords, correctPasswords)) {
     localStorage.removeItem(storageKey);
-    localStorage.setItem(passwordKey, correctPassword); // Update stored password
+    localStorage.setItem(passwordKey, JSON.stringify(correctPasswords));
   }
 
   const isPasswordVerified = localStorage.getItem(storageKey) === "true";
   if (isPasswordVerified) {
-    showPage(3); // Automatically load the first page
+    showPage(3);
   }
 }
 
-// Function to check the password
 function checkPassword(pageNum) {
   const isPasswordVerified = localStorage.getItem(storageKey) === "true";
-  if (!isPasswordVerified) { // Only show modal if not already verified
+  if (!isPasswordVerified) {
     document.getElementById("passwordModal").style.display = "flex";
     document.getElementById("passwordModal").setAttribute("data-page", pageNum);
   } else {
-    showPage(pageNum); // Load page without asking for the password
+    showPage(pageNum);
   }
 }
 
-// Function to validate the password
 function validatePassword() {
   const enteredPassword = document.getElementById("passwordInput").value;
   const modal = document.getElementById("passwordModal");
   const pageNum = modal.getAttribute("data-page");
 
-  if (enteredPassword === correctPassword) {
-    localStorage.setItem(storageKey, "true"); // Save verification in localStorage
-    modal.style.display = "none"; // Hide the modal
+  if (correctPasswords.includes(enteredPassword)) {
+    localStorage.setItem(storageKey, "true");
+    modal.style.display = "none";
     showPage(pageNum);
   } else {
     alert("Incorrect password. Please try again.");
   }
 }
+
+// Utility function to compare two arrays
+function arraysEqual(a, b) {
+  if (a.length !== b.length) return false;
+  return a.every((value, index) => value === b[index]);
+}
+
