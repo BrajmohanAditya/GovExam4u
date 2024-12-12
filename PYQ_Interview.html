@@ -32,9 +32,10 @@
 
 <div id="passwordModal" class="modal">
   <div class="modal-content">
-    <h2>Enter Password</h2>
-    <p>password : govexam4u.com</p>
-
+    <div class="offer-title">1 Year Subscription Offer!</div>
+    <div class="offer-text">Pay <strong>Rs. 50</strong> and WhatsApp the screenshot to get a 1-year subscription.</div>
+    <div class="upi-details">UPI: 8521859948 <br>  WhatsApp: 8521859948</div>
+    <h4>Enter Password</h4>
     <input type="password" id="passwordInput" placeholder="Enter your password">
     <button onclick="validatePassword()">Submit</button>
   </div>
@@ -43,11 +44,9 @@
 
 <script>
  
-const correctPassword = "govexam4u.com"; 
-const storageKey = "isPasswordVerified"; 
-const passwordKey = "currentPassword"; 
-
-
+const correctPasswords = ["govexam4u.com", "111", "789"]; // Multiple passwords
+const storageKey = "isPasswordVerified";
+const passwordKey = "currentPasswords"; 
 
   function showPage(pageNum) {
     const contentContainer = document.getElementById('contentContainer');
@@ -81,13 +80,44 @@ const passwordKey = "currentPassword";
     </div>
 
     <div class="question">You have a savings bank account? In which bank? What all documents are required to open a savings account? </div>
-    <div class="answer"></div>
+    <div class="answer">
+      <ul>
+        <li>Proof of Identity and address(Aadhaar Card, PAN Card, Voter ID,Passport, Driving License)</li>
+        <li>Form 60, if you dont have pan card</li>
+        <li> Passport-Sized Photographs</li>
+        <li>Proof of Age (Birth certificate, 10th marksheet )</li>
+      </ul>
+    </div>
 
     <div class="question">What is net interest margin ?</div>
-    <div class="answer"></div>
+    <div class="answer">The difference between the interest the bank earns from loans and the interest it pays to depositors or on borrowings</div>
 
     <div class="question">How many Credit rating agencies are there in India ?Name them. <br> Name any two credit rating agencies of foreign ?</div>
-    <div class="answer"></div>
+    <div class="answer">
+    <b>A Credit Rating Agency (CRA)</b> is a financial institution that evaluates the creditworthiness of individuals, companies, 
+    governments, or financial instruments (such as bonds). The agency provides a credit rating, which is a score or grade that 
+    reflects the entity's ability to repay its debt or fulfill financial obligations
+    <ul>
+    There are 7 credit rating agencies registered with SEBI (Securities and Exchange Board of India). 
+  <li><b>Credit Rating Agencies in India:</b>
+    <ul>
+      <li>CRISIL (Credit Rating Information Services of India Limited)</li>
+      <li>ICRA (Investment Information and Credit Rating Agency)</li>
+      <li>CARE (Credit Analysis and Research Limited)</li>
+      <li>India Ratings and Research</li>
+      <li>Brickwork Ratings (BWR)</li>
+      <li>Acuité Ratings and Research Limited</li>
+      <li>Infomerics Valuation and Rating</li>
+    </ul>
+  </li>
+  <li><b>Foreign Credit Rating Agencies:</b>
+    <ul>
+      <li>Moody’s Investors Service</li>
+      <li>Standard & Poor’s (S&P)</li>
+    </ul>
+  </li>
+</ul>
+    </div>
 
     <div class="question"> Name one reform of Banking sector and Explain.</div>
     <div class="answer"></div>
