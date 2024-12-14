@@ -74,6 +74,7 @@ function validatePassword() {
     localStorage.setItem(storageKey, "true");
     modal.style.display = "none";
     showPage(pageNum);
+    showPage(Number(pageNum)); // Show the desired page immediately
   } else {
     alert("Incorrect password. Please try again.");
   }

@@ -20,8 +20,9 @@
   <div class="content-container" id="contentContainer"></div>
   <div class="buttons-container" id="buttonsContainer">
     <div style="font-weight: 800; font-family: Arial, Helvetica, sans-serif;color: red;">INDEX</div>
-    <button class="colorButton" onclick="checkPassword('ibps po')">Banking [IBPS Po 2023]</button>
-    <button class="colorButton" onclick="checkPassword('rrb po')">Banking [RRB Po 2024]</button>
+    <button class="colorButton" onclick="checkPassword(0)">Banking [IBPS Po 2023]</button>
+    <button class="colorButton" onclick="checkPassword(0-1)">Banking [IBPS Po 2023]</button>
+    <button class="colorButton" onclick="checkPassword(1)">Banking [RRB Po 2024]</button>
     <button class="colorButton" onclick="checkPassword(2)">Questions [IBPS, RRB, SBI]</button>
     <button class="colorButton" onclick="checkPassword(3)">Questions [IBPS, RRB, SBI]</button>
     <button class="colorButton" onclick="checkPassword(4)">Questions [IBPS, RRB, SBI]</button>
@@ -33,7 +34,7 @@
 <div id="passwordModal" class="modal">
   <div class="modal-content">
     <div class="offer-title">1 Year Subscription Offer!</div>
-    <div class="offer-text">Pay <strong>Rs. 50</strong> and WhatsApp the screenshot to get a 1-year subscription.</div>
+    <div class="offer-text">Pay <strong>Rs. 10</strong> and WhatsApp the screenshot to get a 1-year subscription.</div>
     <div class="upi-details">UPI: 8521859948 <br>  WhatsApp: 8521859948</div>
     <h4>Enter Password</h4>
     <input type="password" id="passwordInput" placeholder="Enter your password">
@@ -51,7 +52,7 @@ const passwordKey = "currentPasswords";
   function showPage(pageNum) {
     const contentContainer = document.getElementById('contentContainer');
 
-     if(pageNum === "ibps po"){
+     if(pageNum === 0){
       contentContainer.innerHTML = `
 <div class="scrollbar">
   <div class="qa-container">
@@ -120,13 +121,45 @@ const passwordKey = "currentPasswords";
     </div>
 
     <div class="question"> Name one reform of Banking sector and Explain.</div>
-    <div class="answer"></div>
+    <div class="answer">
+    <h3>Insolvency and Bankruptcy Code (IBC), 2016</h3>
+    <p>The IBC was introduced to address the growing problem of <strong>non-performing assets (NPAs)</strong> in the banking sector.
+     Before the IBC, banks and financial institutions faced significant challenges in recovering loans from defaulting companies, 
+     as the legal system was fragmented and inefficient.</p>
+    
+    <h3>Key Features of IBC:</h3>
+    <h4>1. Time-Bound Resolution:</h4>
+    <p>The IBC provides a structured framework for resolving insolvency within <strong>330 days</strong> (including litigation period).
+     This is far more efficient than the earlier system where cases dragged on for years.</p>
+    
+    <h4>2. Creditor-Centric Process:</h4>
+    <p>The creditor-centric process gives priority to creditors over the company’s owners (promoters) during insolvency proceedings.
+    Creditors, through the CoC, decide how to handle the company’s insolvency to recover as much of their money as possible, 
+    ensuring their interests are protected.</p>
+
+    <h4>3. Corporate Insolvency Resolution Process (CIRP):</h4>
+    <p>This process enables financially distressed companies to either restructure their debts or liquidate assets to repay 
+    creditors.</p>
+
+    <h4>4. Shift in Borrower Accountability:</h4>
+    <p>Defaulting promoters lose control over their companies during insolvency proceedings. This discourages willful defaults and 
+    encourages financial discipline.</p>
+    
+    <h4>5. Ease of Doing Business:</h4>
+    <p>IBC improved India’s ranking in the <strong>World Bank’s Ease of Doing Business Report</strong>, particularly in the 
+      "Resolving Insolvency" parameter.</p>
+    </div>
 
     <div class="question">State the differences between Growth and Development.</div>
-    <div class="answer"></div>
+    <div class="answer">
+      Growth refers to an increase in physical size, quantity, or output. It is quantitative and measurable (e.g., income, population, production). <br>
+      Development refers to overall improvement in quality, efficiency, and functionality. It is both quantitative and qualitative, encompassing social, economic, and environmental aspects. <br>
+      <strong>Example:</strong>
+     <p><strong>Growth:</strong> A factory produces <strong>1,000 cars</strong> in 2023 and increases its production to <strong>1,500 cars</strong> in 2024. This is growth because the quantity increased.</p>
+     <p><strong>Development:</strong> The same factory not only increases production but also improves its <strong>technology</strong>, ensures <strong>better working conditions</strong> for employees, reduces <strong>pollution</strong>, and starts using <strong>renewable energy</strong>. This is development because it improves quality and sustainability, not just quantity.</p>
 
-    <div class="question">What is net interest margin ?</div>
-    <div class="answer"></div>
+    </div>
+
 
     <div class="question">What is the effect of digitisation?</div>
     <div class="answer"></div>
@@ -149,6 +182,16 @@ const passwordKey = "currentPasswords";
     <div class="question">Difference between public and private sector banks.</div>
     <div class="answer"></div>
 
+
+  
+  </div>
+</div>  
+      `;
+    }
+    else if(pageNum === 0-1){
+      contentContainer.innerHTML = `
+<div class="scrollbar">  
+  <div class="qa-container">
     <div class="question">Work of Po ?</div>
     <div class="answer"></div>
 
@@ -194,13 +237,11 @@ const passwordKey = "currentPasswords";
 
     <div class="question">So Tell me,How would u handle the situation where customer is dissatisfied with your service?</div>
     <div class="answer"></div>
-  
   </div>
-</div>  
+</div>
       `;
     }
-
-    else if (pageNum === "rrb po") {    // Banking awerness
+    else if (pageNum === 1) {    // Banking awerness
       contentContainer.innerHTML = `
       
 <div class="scrollbar">
@@ -632,7 +673,7 @@ const passwordKey = "currentPasswords";
 
 
 <!-- script tag for poupText -->
-<script src="commonProperty.js"></script>
+<!-- <script src="commonProperty.js"></script> -->
 <script>
 
 </script>
