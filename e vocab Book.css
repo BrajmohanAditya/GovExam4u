@@ -70,7 +70,7 @@ h1{
 
 
 .buttons-container {
-  position: fixed;
+   position: fixed; /* for floating scroll*/ 
    scroll-behavior:smooth;
     width: 200px; /* Adjust as needed */
     height: 18rem;
@@ -78,7 +78,7 @@ h1{
     overflow-y: scroll;
     border-right: 0 solid #ccc;
     /* Updated CSS for aligning buttons to the right */
-    margin-left: 82%; 
+    margin-left: 81%; 
 }
 
 button {
@@ -136,7 +136,36 @@ button {
     color: purple;
 }
   /* The actual popup (appears on top) */
-.popup .popuptext {
+  .popup .popuptext {
+    font-size: small;
+    visibility: hidden;
+    width: 30rem;
+    background-color: #555;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px; padding: 1rem ;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; margin-left: 1rem;
+}
+.popup .popupdown {
+   font-size: small;
+    visibility: hidden;
+    width: 30rem;
+    background-color: #555;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px; padding: 1rem ;
+    position: absolute;
+    z-index: 1;
+    /* bottom: 125%; */
+    top: 100%; margin-left: 1rem;
+}
+/* ya media query ko separetly laptop ka liya likha hu or isi query ko baher likhna seh wo automatically 
+mobile ka liya apply ho jata hai 
+*/
+@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+  .popup .popuptext {
     visibility: hidden;
     width: 40rem;
     background-color: #555;
@@ -147,17 +176,19 @@ button {
     z-index: 1;
     bottom: 125%; margin-left: -5rem;
 }
+
 .popup .popupdown {
-    visibility: hidden;
-    width: 40rem;
-    background-color: #555;
-    color: #fff;
-    text-align: left;
-    border-radius: 6px; padding: 1rem ;
-    position: absolute;
-    z-index: 1;
-    /* bottom: 125%; */
-    top: 100%; margin-left: -5rem;
+  visibility: hidden;
+  width: 40rem;
+  background-color: #555;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px; padding: 1rem ;
+  position: absolute;
+  z-index: 1;
+  /* bottom: 125%; */
+  top: 100%; margin-left: -5rem;
+}
 }
 
   
@@ -315,7 +346,7 @@ button {
   }
   
   .popup {
-   margin-left: -4%;
+   margin-left: -22%;
   }
 
   .search-form {
@@ -361,7 +392,9 @@ button {
     border: solid white;
     height: 82vh;
     position: relative;
+
   }
+
 
 } 
 
