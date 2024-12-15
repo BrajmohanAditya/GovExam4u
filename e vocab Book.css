@@ -70,6 +70,7 @@ h1{
 
 
 .buttons-container {
+  position: fixed;
    scroll-behavior:smooth;
     width: 200px; /* Adjust as needed */
     height: 18rem;
@@ -77,7 +78,7 @@ h1{
     overflow-y: scroll;
     border-right: 0 solid #ccc;
     /* Updated CSS for aligning buttons to the right */
-    margin-left: auto; /* Pushes buttons to the right */
+    margin-left: 82%; 
 }
 
 button {
@@ -300,7 +301,7 @@ button {
 
   #absolute{
     overflow: auto;
-    left: 10rem;
+    left: 12rem;
     position:absolute; 
 }
 
@@ -314,13 +315,13 @@ button {
   }
   
   .popup {
-
-    display: none;
+   margin-left: -4%;
   }
 
   .search-form {
     width: 60%; 
-    
+    /* margin-left: 10%; */
+    margin-right: -1%;
   }
   
 
@@ -339,11 +340,12 @@ button {
     height: 2.6rem;
   }
   .buttons-container {
+    position: fixed;
     scroll-behavior:smooth;
     height: 18rem;
     background-color: #f1f1f1;
     border-right: 0 solid #ccc;
-    margin-left:60%; 
+    margin-left:  90%; 
     width: fit-content;
     overflow-x: auto;
     width: 5rem;
