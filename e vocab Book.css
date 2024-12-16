@@ -124,6 +124,7 @@ button {
 /*  */
 
 .scrollbar {
+  background-color: white;
   overflow-y: auto;
   scrollbar-width:20px;
   scrollbar-color: #888 ;
@@ -506,8 +507,4 @@ color: red;
 /* end of page wise password */
 
 /* Disable Night Eye or forced dark mode */
-html, body {
-  background-color: white !important;
-  color: black !important;
-  forced-color-adjust: none; /* Prevent extensions from overriding styles */
-}
+
