@@ -505,7 +505,9 @@ color: red;
 
 /* end of page wise password */
 
-html.no-dark-mode body {
-  background-color: #ffffff !important;
-  color: #000000 !important;
+/* Disable Night Eye or forced dark mode */
+html, body {
+  background-color: white !important;
+  color: black !important;
+  forced-color-adjust: none; /* Prevent extensions from overriding styles */
 }
