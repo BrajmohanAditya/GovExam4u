@@ -48,7 +48,7 @@ span:hover{
 }
 
 
-#absolute{
+#absolute{   /*left and absolute ka karan he pura break line ak vertical line meh hai */
     overflow: auto;
     left:26%;
     position:absolute; 
@@ -306,7 +306,7 @@ button {
 
   #absolute{
     overflow: auto;
-    left: 12rem;
+    left: 12rem;           
     position:absolute; 
 }
 
@@ -504,3 +504,8 @@ color: red;
 }
 
 /* end of page wise password */
+
+html.no-dark-mode body {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
