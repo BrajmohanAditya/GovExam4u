@@ -1,43 +1,4 @@
-// const correctPassword = "123";  
-// const storageKey = "isPasswordVerified"; 
-// const passwordKey = "currentPassword"; 
-// function initializePage() {
-//   const savedPassword = localStorage.getItem(passwordKey);
-//   if (savedPassword !== correctPassword)  {
-//     localStorage.removeItem(storageKey);
-//     localStorage.setItem(passwordKey, correctPassword); 
-//   }
 
-//   const isPasswordVerified = localStorage.getItem(storageKey) === "true";
-//   if (isPasswordVerified) {
-//     showPage(3); 
-//   }
-// }
-
-// function checkPassword(pageNum) {
-//   const isPasswordVerified = localStorage.getItem(storageKey) === "true";
-//   if (!isPasswordVerified) { 
-//     document.getElementById("passwordModal").style.display = "flex";
-//     document.getElementById("passwordModal").setAttribute("data-page", pageNum);
-//   } else {
-//     showPage(pageNum); 
-//   }
-// }
-
-
-// function validatePassword() {
-//   const enteredPassword = document.getElementById("passwordInput").value;
-//   const modal = document.getElementById("passwordModal");
-//   const pageNum = modal.getAttribute("data-page");
-
-//   if (enteredPassword === correctPassword) {
-//     localStorage.setItem(storageKey, "true"); 
-//     modal.style.display = "none"; 
-//     showPage(pageNum);
-//   } else {
-//     alert("Incorrect password. Please try again.");
-//   }
-// } 
 
 // Multiple password facility 
 
