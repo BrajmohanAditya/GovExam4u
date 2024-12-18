@@ -346,12 +346,12 @@ button {
   
   }
   .scrollbar {
-    margin-left: -1rem;
+    margin-left: -4rem;
     overflow-x: hidden;
     overflow-y: auto;
     scrollbar-width: thin; 
     scrollbar-color: #888 #ddd;
-    width: 340%;
+    width: 60rem;
     border: solid white;
     height: 82vh;
     position: relative;
@@ -371,7 +371,7 @@ button {
 
   #absolute{
     overflow: auto;
-    left: 8rem;
+    left: 9rem;
     position:absolute; 
 }
 
