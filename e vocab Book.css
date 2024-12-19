@@ -186,13 +186,24 @@ button {
     border-style: solid;
     border-color: #555 transparent transparent transparent;
 }
-  
+.popup .popupdown::after {
+  content: "";
+  position: absolute;
+  top: 100%; left: 50%; border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
   /* Toggle this class when clicking on the popup container (hide and show the popup) */
-  .popup .show {
+  .popup:hover .popuptext {
     visibility: visible;
-    -webkit-animation: fadeIn 1s;
+    -webkit-animation: fadeIn 2s;
     animation: fadeIn 1s
   }
+  .popup:hover .popupdown {
+    visibility: visible;
+    opacity: 1;
+    animation: fadeIn 1s;
+}
   
   /* Add animation (fade in the popup) */
   @-webkit-keyframes fadeIn {

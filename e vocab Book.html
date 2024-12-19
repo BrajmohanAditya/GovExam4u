@@ -10583,7 +10583,24 @@ improve education,.</span>
 </script>
 
 <script src="commonProperty.js"></script>  
+<!-- popup ab hover seh hoga no need to click  -->
+<script>
+  function myFunction(popupId) {
+    var popup = document.getElementById(popupId);
+    var isVisible = popup.classList.contains("show");
 
+    // Close all popups
+    var allPopups = document.querySelectorAll(".popuptext, .popupdown");
+    allPopups.forEach(function (p) {
+        p.classList.remove("show");
+    });
+
+    // Toggle the visibility of the clicked popup
+    if (!isVisible) {
+        popup.classList.add("show");
+    }
+}
+</script>
 
 </body>
 </html>
