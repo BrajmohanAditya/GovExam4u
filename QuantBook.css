@@ -23,21 +23,7 @@ h1{
     background-color: #000000d4;
 }
 
-  .option {
-    display: block;
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-  }
-  .correct {
-    background-color: green;
-    color: white;
-  }
-  .incorrect {
-    background-color: red;
-    color: white;
-  }
+
   .container1 {
     margin-top: 0.5rem;
     padding: 3px;
@@ -50,12 +36,13 @@ h1{
   }
 
   .buttons-container {
+    position: fixed;
     width: 15rem; /* Adjust as needed */
     height: 200px;
     background-color: #f1f1f1;
     border-right: 0 solid #ccc;
-    margin: 5px;
-    margin-left: auto;
+    /* margin: 5px; */
+    margin-left: 80%;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #888 #f1f1f1;
@@ -78,11 +65,11 @@ button {
     color: white;  
 }
 .scrollbar {
-   position: relative;
+    position: relative;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #888 #f1f1f1;
-    width: 100%;
+    width: 80%;
     height: 85vh;
     border: solid white;
     margin-top: -2.5rem;
@@ -189,4 +176,29 @@ body {
 
 #fastForward:hover {
   color: #0056b3;
+}
+
+@media (max-width: 1000px) and (orientation: landscape){
+  .buttons-container {
+    width: 9rem;
+    margin-left: 75%;
+  }
+  .scrollbar{
+    width: 27rem;
+    left:-1rem;
+  }
+  .body{
+    margin: 0%;
+    left: 0%;
+  }
+  .ansButton{
+    position: relative;
+    left: -2rem;
+  }
+  #voiceNotes{
+    margin-left: -1rem;
+  }
+  #fastForward {
+    margin-left: 5rem;
+  }
 }
