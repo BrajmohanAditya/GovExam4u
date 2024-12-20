@@ -189,35 +189,13 @@ const passwordKey = "currentPasswords";
         <div class="grid-item">Their</div>
 
     </div>
-               <div class="heading">Bullet Rule</div>
-<ul style="background-color: #f0f0f0;">
-    <li>Adjective suffix: -AL, -FUL, -OUS, -ABLE, -IBLE</li>
-    <li>-Ous: turns noun into adjective. Infection (noun) : Infectious (adj)</li>
-    <li>On + day, date :On December 15,  on monday, Tuesday</li>
-    <li>Clothes, Pants, Scissors, Shorts, Thanks, Trousers (ya sb plural consider kiya jata hai). </li>
-    <li>When words like school, college, church, hospital, prison, temple, etc. Are used for their primary purpose, we don't use "the" before them.</li>
-    <li>looking forward to + ving.</li>
-    <li>a number of + PN + Pv </li>
-    <li>the number of + PN + Sv</li>
-    <li>About + quantity (about ₹50,000 , about 10 kilometers)</li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-
-</ul>
-
-
-  
-    
 
   </div>
       `;
-  }
-   else if(pageNum == 'Rule_1st'){
+}
+else if(pageNum == 'Rule_1st'){
     contentContainer.innerHTML = `
-    <div class="scrollbar">  
+<div class="scrollbar">  
             <div class="heading">Conditional  Sentence</div>
     <div class="grid-container_4th">
         <div style="color:red" class="grid-item_1st">If, unless</div>
@@ -230,11 +208,27 @@ const passwordKey = "currentPasswords";
         <div class="grid-item_1st">Would/Could + Have + V3</div>
         <div class="grid-item_1st">Were/V2</div>
         <div class="grid-item_1st">Would + V1</div>
-
     </div>
-            <div class="heading">To + Ving</div>
+               <div class="heading">Bullet Rule</div>
+<ul style="background-color: #f0f0f0;">
+    <li>Adjective suffix: -AL, -FUL, -OUS, -ABLE, -IBLE</li>
+    <li>-Ous: turns noun into adjective. Infection (noun) : Infectious (adj)</li>
+    <li>On + day, date :On December 15,  on monday, Tuesday</li>
+    <li>Clothes, Pants, Scissors, Shorts, Thanks, Trousers (ya sb plural consider kiya jata hai). </li>
+    <li>When words like school, college, church, hospital, prison, temple, etc. Are used for their primary purpose, we don't use "the" before them.</li>
+    <li>looking forward to + ving.</li>
+    <li>a number of + PN + Pv </li>
+    <li>the number of + PN + Sv</li>
+    <li>About + quantity (about ₹50,000 , about 10 kilometers)</li>
+    <li></li>
+    <li>"Some" is typically used in positive sentences, "Any" is used in negative sentences </li>
+    <li></li>
+    <li></li>
+    <li></li>
 
-    </div>
+</ul>
+
+</div>
       `;
   }
   else if(pageNum == 'Word'){
@@ -658,32 +652,33 @@ Q5) You and your brother should make it a habit (A)/  to regularly discuss the i
  as doing so will strengthen your bond (C)/ and help you both address challenges more effectively. (D)/ 
 </p>
 <div class="option_container">
-  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, that)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
   <div class="popup" onclick="myFunction('pop5')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop5">issue that concern</span>
+    <span class="popuptext" id="pop5">issues that concern</span>
   </div> <button id="voiceNotes" onclick="toggleAudio('errorAudioAns/P2_Q5.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
-Q6) 
+Q6) I don’t understand why some people (A)/ refuse to accept change, (B)/ even though it could make their (C)/lives better and open up more opportunities for them. (D)/ 
 </p>
 <div class="option_container">
-  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, true)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
   <div class="popup" onclick="myFunction('pop6')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop6"> </span>
+    <span class="popuptext" id="pop6"> some nahi any </span>
   </div> <button id="voiceNotes" onclick="toggleAudio('errorAudioAns/P2_Q6.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
-Q7)
+Q7) "The wealthier a nation gets, (A) more it stands to lose in war, (B) as its resources,  infrastructure,
+ and global influence (C) become greater targets for destruction and exploitation.(D)"
 </p>
 <div class="option_container">
-  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, true)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
   <div class="popup" onclick="myFunction('pop7')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop7"></span>
+    <span class="popuptext" id="pop7">the more</span>
   </div> <button id="voiceNotes" onclick="toggleAudio('errorAudioAns/P2_Q7.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
