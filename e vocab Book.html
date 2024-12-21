@@ -125,7 +125,7 @@
 
 <script>
 
-const correctPasswords = ["govexam4u.com", "456", "789"]; // Multiple passwords
+const correctPasswords = ["govexam4u.com", "111", "789"]; // Multiple passwords
 const storageKey = "isPasswordVerified";
 const passwordKey = "currentPasswords"; 
 
@@ -1209,45 +1209,42 @@ const passwordKey = "currentPasswords";
                 contentContainer.innerHTML= `
                 <div class="scrollbar">
 
-<div>Parse <span id="absolute" class="hover">Analyze</span></div>
 <div>Discern <span id="absolute" class="hover">identify</span>
   <div class="popup" onclick="myFunction('p8_pop1')"><i class="fa-solid fa-play"></i>
       <span class="popuptext" id="p8_pop1">To discern truth and lies</span>
   </div>
 </div>
 
-<div>Cue <span id="absolute" class="hover">संकेत, signal, reminder</span></div>
 <div>Rig<span id="absolute" class="hover">Manipulate, tamper with</span>
   <div class="popup" onclick="myFunction('p8_pop2')"><i class="fa-solid fa-play"></i>
       <span class="popuptext" id="p8_pop2">The election scandal revealed how some officials attempted to rig the vote.</span>
   </div>
 </div>
+
 <div>Quip <span id="absolute" class="hover"> ताना, चुटकी lena.</span>
   <div class="popup" onclick="myFunction('p8_pop3')"><i class="fa-solid fa-play"></i>
       <span class="popuptext" id="p8_pop3">Flattery will get you nowhere,” she quipped</span>
   </div>
 </div>
-<div>Proponent <span id="absolute" class="hover">Backer, Supporter</span></div>
-<div>Outspoken rebel <span id="absolute" class="hover">मुखर, speak openly</span></div>
+
 <div>Vice <span id="absolute" class="hover">immoral or wicked behavior. </span>
   <div class="popup" onclick="myFunction('p8_pop4')"><i class="fa-solid fa-play"></i>
       <span class="popuptext" id="p8_pop4">Cruelty is a vice</span>
   </div>
 </div>
+
 <div>Retributive <span id="absolute" class="hover">दंड देनेवाला</span>
   <div class="popup" onclick="myFunction('p8_pop5')"><i class="fa-solid fa-play"></i>
       <span class="popuptext" id="p8_pop5">Our retributive propensities and dispositions is a kind of cruelty</span>
   </div>
 </div>
-<div>Propensity <span id="absolute" class="hover">tendency, inclination, झुकाव</span></div>
-<div>Dispositions<span id="absolute" class="hover">Temperament, Nature</span></div>
+
 <div>Humdrum <span id="absolute" class="hover">नीरस, monotonous</span>
   <div class="popup" onclick="myFunction('p8_pop6')"><i class="fa-solid fa-play"></i>
       <span class="popuptext" id="p8_pop6">Something humdrum has been achieved</span>
   </div>
 </div>
-<div>Stupendous <span id="absolute" class="hover">extremely impressive, amazing</span></div>
-<div>Compelling imperative <span id="absolute" class="hover">A strong and unavoidable necessity</span></div>
+
 <div>Clarion call <span id="absolute" class="hover">स्पष्ट आह्वान</span>
   <div class="popup" onclick="myFunction('p8_pop7')"><i class="fa-solid fa-play"></i>
       <span class="popuptext" id="p8_pop7">The president's speech was a clarion call for unity and action against climate change.</span>
@@ -1265,33 +1262,115 @@ const passwordKey = "currentPasswords";
       <span class="popuptext" id="p8_pop9"> Israel demand for retribution</span>
   </div>
 </div>
-<div>Simulate <span id="absolute" class="hover">नक़ली,Counterfeit imitate</span></div>
+
 <div>Seemingly <span id="absolute" class="hover">प्रतीत होता है</span>
   <div class="popup" onclick="myFunction('p8_pop11')"><i class="fa-solid fa-play"></i>
       <span class="popuptext" id="p8_pop11">She smiled seemingly at ease, though inside she felt quite nervous.</span>   
   </div>
 </div>
+
 <div>Inexplicably <span id="absolute" class="hover">बेवजह</span>
   <div class="popup" onclick="myFunction('p8_pop12')"><i class="fa-solid fa-play"></i>
       <span class="popuptext" id="p8_pop12"> He inexplicably left the party early without saying goodbye to anyone.</span>
   </div>
 </div>
-<div>On the brink(verge) of <span id="absolute" class="hover">something about to happen</span></div>
-<div>Flagship initiative <span id="absolute" class="hover">high profile programme or project</span></div>
-<div>Concessions <span id="absolute" class="hover">compromise</span></div>
-<div>Quiet <span id="absolute" class="hover">silent</span></div>
-<div>Quite <span id="absolute" class="hover">Completely</span></div>
+
 <div>Tenacious <span id="absolute" class="hover">firm, दृढ़</span>
   <div class="popup" onclick="myFunction('p8_pop13')"><i class="fa-solid fa-play"></i>
       <span class="popuptext" id="p8_pop13"> His tenacious grip on the rope saved him from falling off the cliff</span>
   </div>
 </div>
-<div>Mellow <span id="absolute" class="hover">मधुर</span></div>
+
 <div>Scintillating <span id="absolute" class="hover">sparking or shining brightly</span>
   <div class="popup" onclick="myFunction('p8_pop14')"><i class="fa-solid fa-play"></i>
       <span class="popuptext" id="p8_pop14">The scintillating sun</span>
   </div>
 </div>
+
+<div>Parse <span id="absolute" class="hover">Analyze</span>
+  <div class="popup" onclick="myFunction('pop15')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop15"></span> 
+  </div>
+</div>
+
+<div>Flagship initiative <span id="absolute" class="hover">high profile programme or project</span>
+  <div class="popup" onclick="myFunction('pop16')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop16">"The government's flagship initiative to reduce carbon emissions has garnered international praise for its ambitious goals and effective implementation."</span> 
+  </div>
+</div>
+
+<div>On the brink of <span id="absolute" class="hover">being very close to</span>
+  <div class="popup" onclick="myFunction('pop17')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop17">"The country was on the brink(verge) of economic collapse due to the severe recession."</span> 
+  </div>
+</div>
+
+<div>Simulate <span id="absolute" class="hover"> imitate</span>
+  <div class="popup" onclick="myFunction('pop18')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop18"></span> 
+  </div>
+</div>
+
+<div>Concessions <span id="absolute" class="hover">compromise</span>
+  <div class="popup" onclick="myFunction('pop19')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop19"></span> 
+  </div>
+</div>
+
+<div>Quiet <span id="absolute" class="hover">silent</span>
+  <div class="popup" onclick="myFunction('pop20')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop20"></span> 
+  </div>
+</div>
+
+<div>Quite <span id="absolute" class="hover">Completely</span>
+  <div class="popup" onclick="myFunction('pop21')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop21"></span> 
+  </div>
+</div>
+
+<div>Mellow <span id="absolute" class="hover">मधुर</span>
+  <div class="popup" onclick="myFunction('pop22')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop22"></span> 
+  </div>
+</div>
+
+<div>Stupendous <span id="absolute" class="hover">extremely impressive, amazing</span>
+  <div class="popup" onclick="myFunction('pop23')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop23"></span> 
+  </div>
+</div>
+
+<div>Compelling imperative <span id="absolute" class="hover">A strong and unavoidable necessity</span>
+  <div class="popup" onclick="myFunction('pop24')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop24"></span> 
+  </div>
+</div>
+
+<div>Propensity <span id="absolute" class="hover">tendency, inclination, झुकाव</span>
+  <div class="popup" onclick="myFunction('pop26')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop26"></span> 
+  </div>
+</div>
+
+<div>Dispositions<span id="absolute" class="hover">Temperament, Nature</span>
+  <div class="popup" onclick="myFunction('pop27')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop27"></span> 
+  </div>
+</div>
+
+<div>Cue <span id="absolute" class="hover">संकेत, signal, reminder</span>
+  <div class="popup" onclick="myFunction('pop28')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop28"></span> 
+  </div>
+</div>
+
+<div>Proponent <span id="absolute" class="hover">Backer, Supporter</span>
+  <div class="popup" onclick="myFunction('pop29')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop29"></span> 
+  </div>
+</div>
+
 </div>
                 
                 `;}
@@ -7618,9 +7697,9 @@ const passwordKey = "currentPasswords";
   </div>
 </div>
 
-<div>Palpable <span id="absolute" class="hover"> tangible.</span>
+<div>Palpable <span id="absolute" class="hover"> tangible, noticeable</span>
   <div class="popup" onclick="myFunction('p_pop21')"><i class="fa-solid fa-play"></i>
-    <span class="popuptext" id="p_pop21"></span>
+    <span class="popuptext" id="p_pop21">His determination and anger were palpable.</span>
   </div>
 </div>
 
@@ -9290,13 +9369,13 @@ improve education,.</span>
   </div>
 </div>
 
-<div> <span id="absolute" class="hover"></span>
+<div>Eminent <span id="absolute" class="hover">Well known</span>
   <div class="popup" onclick="myFunction('p_pop24')"><i class="fa-solid fa-play"></i>
     <span class="popuptext" id="p_pop24"></span>
   </div>
 </div>
 
-<div> <span id="absolute" class="hover"></span>
+<div>imminent<span id="absolute" class="hover">about to happen</span>
   <div class="popup" onclick="myFunction('p_pop25')"><i class="fa-solid fa-play"></i>
     <span class="popuptext" id="p_pop25"></span>
   </div>
@@ -9853,31 +9932,85 @@ improve education,.</span>
 </div>
 
 <div>gaiety<span id="absolute" class="hover">cheerfulness</span>
-  <div class="popup" onclick="myFunction('pop3')"><i class="fa-solid fa-play"></i> 
-    <span class="popuptext" id="pop3"></span> 
+  <div class="popup" onclick="myFunction('pop12')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop12"></span> 
   </div>
 </div>
 
 <div>vex<span id="absolute" class="hover">annoy </span>
-  <div class="popup" onclick="myFunction('pop3')"><i class="fa-solid fa-play"></i> 
-    <span class="popuptext" id="pop3"></span> 
+  <div class="popup" onclick="myFunction('pop13')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop13"></span> 
   </div>
 </div>
 
 <div>fervor<span id="absolute" class="hover">enthusiasm</span>
-  <div class="popup" onclick="myFunction('pop3')"><i class="fa-solid fa-play"></i> 
-    <span class="popuptext" id="pop3"> JRD Tata's birth anniversary is on 29th July. The TATA group celebrates it like a festival, with all gaiety and fervor.</span> 
+  <div class="popup" onclick="myFunction('pop14')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop14"> JRD Tata's birth anniversary is on 29th July. The TATA group celebrates it like a festival, with all gaiety and fervor.</span> 
   </div>
 </div>
 
 <div>untainted<span id="absolute" class="hover">not contaminated, honest </span>
-  <div class="popup" onclick="myFunction('pop3')"><i class="fa-solid fa-play"></i> 
-    <span class="popuptext" id="pop3"></span> 
+  <div class="popup" onclick="myFunction('pop15')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop15"></span> 
   </div>
 </div>
 <div>rectitude<span id="absolute" class="hover"> goodness, fair deal </span>
-  <div class="popup" onclick="myFunction('pop3')"><i class="fa-solid fa-play"></i> 
-    <span class="popuptext" id="pop3"> Tata Group is a phrase synonymous with the pride of India, a symbol of excellence, and an untainted legacy of principles, rectitude, and business ethic.</span> 
+  <div class="popup" onclick="myFunction('pop16')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop16"> Tata Group is a phrase synonymous with the pride of India, a symbol of excellence, and an untainted legacy of principles, rectitude, and business ethic.</span> 
+  </div>
+</div>
+
+<div><span id="absolute" class="hover"></span>
+  <div class="popup" onclick="myFunction('pop17')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop17"></span> 
+  </div>
+</div>
+
+<div>tiny-tots <span id="absolute" class="hover">छोटे-छोटे बच्चे</span>
+  <div class="popup" onclick="myFunction('pop18')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop18">The tiny-tots would much rather  have lollipops than spaghetti  during their break  or in any other time </span> 
+  </div>
+</div>
+
+<div><span id="absolute" class="hover"></span>
+  <div class="popup" onclick="myFunction('pop19')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop19"></span> 
+  </div>
+</div>
+
+<div><span id="absolute" class="hover"></span>
+  <div class="popup" onclick="myFunction('pop20')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop20"></span> 
+  </div>
+</div>
+
+<div><span id="absolute" class="hover"></span>
+  <div class="popup" onclick="myFunction('pop21')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop21"></span> 
+  </div>
+</div>
+
+<div><span id="absolute" class="hover"></span>
+  <div class="popup" onclick="myFunction('pop22')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop22"></span> 
+  </div>
+</div>
+
+<div><span id="absolute" class="hover"></span>
+  <div class="popup" onclick="myFunction('pop23')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop23"></span> 
+  </div>
+</div>
+
+<div><span id="absolute" class="hover"></span>
+  <div class="popup" onclick="myFunction('pop24')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop24"></span> 
+  </div>
+</div>
+
+<div><span id="absolute" class="hover"></span>
+  <div class="popup" onclick="myFunction('pop25')"><i class="fa-solid fa-play"></i> 
+    <span class="popuptext" id="pop25"></span> 
   </div>
 </div>
 
