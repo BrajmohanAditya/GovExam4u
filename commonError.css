@@ -268,9 +268,9 @@ body {
 
 
  ul{
-  font-size: larger; /* Specify a unit for font-size */
+  font-size: large; /* Specify a unit for font-size */
   line-height: 2rem;
-  font-weight: 600; /* This is correct */
+  font-weight: 500; /* This is correct */
   margin-left: 1rem;
   border-radius: 1rem;
   
