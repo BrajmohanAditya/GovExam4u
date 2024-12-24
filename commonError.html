@@ -222,6 +222,19 @@ else if(pageNum == 'Rule_1st'){
     <li>About + quantity (about ₹50,000 , about 10 kilometers)</li>
     <li>We use as + adjective/adverb + as</li>
     <li>"Some" is typically used in positive sentences, "Any" is used in negative sentences </li>
+    <li>
+      यदि दो Sub को 'as well as'&nbsp; 'with'&nbsp; 'alongwith'&nbsp; 'in addition to' &nbsp;'but'&nbsp; 'besides' &nbsp;'except'&nbsp; 'rather than' &nbsp;'
+      accompanied by' से जोड़ा जाये तो verb का प्रयोग पहले sub के अनुसार होना चाहिये।
+    </li>
+    <li>
+      यदि दो Sub को Pair conjunctions 'Not only...but also' &nbsp; 'Either...or' &nbsp; 'Neither...nor' &nbsp; 'Both...and'  etc 
+       से जोड़ा जाये तो verb का प्रयोग बाद sub के अनुसार होना चाहिये।
+    </li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
     <li></li>
     <li></li>
     <li></li>
@@ -250,6 +263,42 @@ else if(pageNum == 'Rule_1st'){
   <li>Yet  </li>
   <li>while  </li>
   <li>However  </li>
+        <li class="word-container">
+            <span class="word" onclick="toggleSentence(this)">Dissent</span>
+            <div class="sentence">The legal battle over land ownership has grown increasingly convoluted, with multiple parties now laying claim to the property.</div>
+        </li>
+        <li class="word-container">
+            <span class="word" onclick="toggleSentence(this)">Descent</span>
+            <div class="sentence">
+                The bungee jumpers decided to synchronize their descent.<br>
+                He is a descendant of Lord Rama.<br>
+                He is a descendant of Lord Rama.<br>
+                He is a descendant of Lord Rama.<br>
+                He is a descendant of Lord Rama.<br>
+                He is a descendant of Lord Rama.<br>
+                He is a descendant of Lord Rama.
+            </div>
+        </li>
+        <li class="word-container">
+            <span class="word" onclick="toggleSentence(this)">Dissent</span>
+            <div class="sentence">The legal battle over land ownership has grown increasingly convoluted, with multiple parties now laying claim to the property.</div>
+        </li>
+        <li class="word-container">
+            <span class="word" onclick="toggleSentence(this)">Dissent</span>
+            <div class="sentence">The legal battle over land ownership has grown increasingly convoluted, with multiple parties now laying claim to the property.</div>
+        </li>
+        <li class="word-container">
+            <span class="word" onclick="toggleSentence(this)">Dissent</span>
+            <div class="sentence">The legal battle over land ownership has grown increasingly convoluted, with multiple parties now laying claim to the property.</div>
+        </li>
+        <li class="word-container">
+            <span class="word" onclick="toggleSentence(this)">Dissent</span>
+            <div class="sentence">The legal battle over land ownership has grown increasingly convoluted, with multiple parties now laying claim to the property.</div>
+        </li>
+        <li class="word-container">
+            <span class="word" onclick="toggleSentence(this)">Dissent</span>
+            <div class="sentence">The legal battle over land ownership has grown increasingly convoluted, with multiple parties now laying claim to the property.</div>
+        </li>       
 </ul>                   
 
     </div>
@@ -774,11 +823,12 @@ A. AB &nbsp; B. AD  &nbsp; C. BC  &nbsp;  D. CD
 </div>
 
 <p class="question">
-Q16)
+Q16) Not only the managers but also the employee was (A) / informed about the new policies which (B) / aims to increase transparency (C) / and efficiency across departments. (D).<br><br> 
+A. AB &nbsp; B. AD  &nbsp; C. BC  &nbsp;  D. CD
 </p>
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
-  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, true)">D</button>
   <div class="popup" onclick="myFunction('pop16')"> <button id="ReasonButton">Answer</button>
     <span class="popuptext" id="pop16"></span>
   </div> <button id="voiceNotes" onclick="toggleAudio('errorAudioAns/P2_Q16.ogg', this)"><i class="fas fa-play"></i></button>
@@ -2102,6 +2152,14 @@ Q25)
 <!-- script tag for poupText -->
 <script src="commonProperty.js"></script>
 <script src="voiceAnswer.js"></script>
-
+<!-- <script>
+  function toggleSentence(wordElement) {
+      const sentenceElement = wordElement.nextElementSibling;
+      if (sentenceElement && sentenceElement.classList.contains('sentence')) {
+          sentenceElement.style.display = 
+              sentenceElement.style.display === 'block' ? 'none' : 'block';
+      }
+  }
+</script> -->
 </body>
 </html>
