@@ -1,0 +1,215 @@
+
+h1{
+    color: white;
+    box-shadow: whitesmoke;
+    /* font-style: italic; */
+    display: inline-block;
+    margin-left: 30px; border-radius: 10px;
+    padding: 2px; font-size: 2rem;
+    margin-top: 3px;
+    font-family: "Jersey 10 Charted", sans-serif;
+    font-weight: 400px;
+    font-style: normal;   
+}
+
+.navbar{
+    padding: 0;
+    margin-top: 0;
+    width: 100%;
+    height: 3.5rem;
+    background-color: #000000d4;
+}
+
+ 
+  .container1 {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between; 
+  }
+  .content-container {
+    flex: 1; /* Take up remaining space */
+    padding: 20px;
+  }
+
+  .buttons-container {
+    width: 18rem; /* Adjust as needed */
+    height: 200px;
+    background-color: #f1f1f1;
+    border-right: 0 solid #ccc;
+    margin-left: auto;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+    border: solid white;
+}
+
+button {
+    text-align: left;
+    display: inline-block;
+    width: 90%; padding: 8px; margin-bottom: 5px;  
+    cursor: pointer;
+    border-radius: .5rem;
+    background-color:#6c757d;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: white;  
+    margin-left: 2px;
+}
+.scrollbar {
+    margin-top: -1rem;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+    width: 100%;
+    height: 85vh;
+    border: solid white;
+    margin: top 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .scrollbar::-webkit-scrollbar {
+    width: 20px;
+  }
+  .scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  .scrollbar::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    border: 3px solid #f1f1f1;
+  }
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+
+
+body {
+    overflow: hidden;   
+    padding: 0;
+    margin: 0;
+}
+
+.colorButton.clicked {
+  background-color: #28a745;
+  border: #007bff;
+}
+
+/* General Container */
+.qa-container {
+  width: 90%;
+  margin-left: 20px ;
+  font-family: Arial, sans-serif;
+  font-size: larger;
+
+}
+
+/* Styling for Questions */
+.question {
+  background-color: #f8f9fa;
+  border-left: 4px solid #007bff;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bolder;
+  color: #343a40;
+  border-radius: 4px;
+}
+
+/* Styling for Answers */
+.answer {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #495057;
+  border-radius: 4px;
+}
+
+/* Hover Effect for Questions */
+.question:hover {
+  background-color: #e9ecef;
+  border-color: #0056b3;
+  cursor: pointer;
+}
+
+/* Optional: Add spacing between items */
+.qa-container > .question + .answer {
+  margin-top: -10px; /* Adjust spacing if needed */
+}
+
+
+/* Password protection on every page  */
+
+.modal {
+  color: #007BFF;
+  font-family: Arial, Helvetica, sans-serif;
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  margin-top: 5%;
+  height: fit-content;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 40%;
+}
+.modal-content h4 {
+ text-align: center;
+ padding: 1rem;
+}
+.modal-content input {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.modal-content button {
+  width: fit-content;
+  text-align: center;
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.modal-content button:hover {
+  background-color: #0056b3;
+}
+
+.modal-content p {
+font-size: small;
+padding: 2px;
+color: red;
+}
+/* end of page wise password */
+
+
+/*Css for price*/
+.upi-details {
+  color: #ff5722;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.offer-title {
+  color: #0056b3;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
