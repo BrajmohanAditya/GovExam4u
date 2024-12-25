@@ -251,20 +251,96 @@ else if(pageNum == 'Rule_1st'){
                     
 <ul style="background-color:#eee0e1"> 
   <span style="color: purple; font-weight: bold;">Contrast showing words :- There is  difference between what you expected what actually happened.  </span>
-  <li>Nevertheless</li>
-  <li>Nonetheless </li>
-  <li>Notwithstanding   </li>
-  <li>Though   </li> 
-  <li>Even though   </li>
-  <li>Although   </li>
-  <li>In spite of  </li>
-  <li>Despite  </li>
-  <li>Whereas  </li>
-  <li>Yet  </li>
-  <li>while  </li>
-  <li>However  </li>
-      
-</ul>                   
+
+  <div class="container">
+    <span class="word" onclick="toggleDefinition('w1', this)">Nevertheless</span>
+    <span class="word" onclick="toggleDefinition('w2', this)"> Nonetheless</span>
+    <span class="word" onclick="toggleDefinition('w3', this)">Notwithstanding</span>
+    <span class="word" onclick="toggleDefinition('w4', this)">Though</span>
+    <span class="word" onclick="toggleDefinition('w5', this)">Even though</span>
+    <span class="word" onclick="toggleDefinition('w6', this)">Although</span>
+    <span class="word" onclick="toggleDefinition('w7', this)">In spite of</span>
+    <span class="word" onclick="toggleDefinition('w8', this)">Despite</span>
+    <span class="word" onclick="toggleDefinition('w9', this)">Whereas</span>
+    <span class="word" onclick="toggleDefinition('w10', this)">Yet</span>
+    <span class="word" onclick="toggleDefinition('w11', this)">However</span>
+    <span class="word" onclick="toggleDefinition('w12', this)">while</span>
+    <span class="word" onclick="toggleDefinition('w13', this)">With</span>
+    <span class="word" onclick="toggleDefinition('w14', this)"></span>
+    <span class="word" onclick="toggleDefinition('w15', this)"></span>
+    <span class="word" onclick="toggleDefinition('w16', this)"></span>
+    <span class="word" onclick="toggleDefinition('w17', this)"></span>
+    <span class="word" onclick="toggleDefinition('w18', this)"></span>
+    <span class="word" onclick="toggleDefinition('w19', this)"></span>
+    <span class="word" onclick="toggleDefinition('w20', this)"></span>
+  </div>
+
+  <div class="definition-container">
+    <div id="w1" class="definition">
+      <strong>Nevertheless : shows contrast </strong>
+      <li></li>
+    </div>
+
+    <div id="w2" class="definition">
+      99 no time; not ever.
+    </div>
+
+    <div id="w3" class="definition"> 
+    </div>
+
+    <div id="w4" class="definition"> 
+    </div>
+
+    <div id="w5" class="definition"> 
+    </div>
+
+    <div id="w6" class="definition"> 
+    </div>
+
+    <div id="w7" class="definition"> 
+    </div>
+
+    <div id="w8" class="definition"> 
+    </div>
+
+    <div id="w9" class="definition"> 
+    </div>
+
+    <div id="w10" class="definition"> 
+    </div>
+
+    <div id="w11" class="definition"> 
+    </div>
+
+    <div id="w12" class="definition"> 
+    </div>
+
+    <div id="w13" class="definition"> 
+      <strong>uses of With</strong> </br>
+      Accompaniment or Togetherness , Tool or Instrument, Characteristics, Cause or Reason, Agreement/Opposition, Simultaneity, Manner or Attitude, Containment/Material.
+      <li>The rate of sand mining in rivers has seen a quantum leap, <strong>with</strong> most of these illegal sand mining operations being run by local politicians (Accompaniment)</li>
+    </div>
+
+    <div id="w14" class="definition"> 
+    </div>
+
+    <div id="w15" class="definition"> 
+    </div>
+
+    <div id="w16" class="definition"> 
+    </div>
+
+    <div id="w17" class="definition"> 
+    </div>
+
+    <div id="w18" class="definition"> 
+    </div>
+
+    <div id="w19" class="definition"> 
+    </div>
+
+  </div>
+</ul>     
 
     </div>
       `;
@@ -2117,14 +2193,27 @@ Q25)
 <!-- script tag for poupText -->
 <script src="commonProperty.js"></script>
 <script src="voiceAnswer.js"></script>
-<!-- <script>
-  function toggleSentence(wordElement) {
-      const sentenceElement = wordElement.nextElementSibling;
-      if (sentenceElement && sentenceElement.classList.contains('sentence')) {
-          sentenceElement.style.display = 
-              sentenceElement.style.display === 'block' ? 'none' : 'block';
+<!-- script for connector -->
+
+<script>
+  function toggleDefinition(id, element) {
+      // Toggle the visibility of the definition
+      const definition = document.getElementById(id);
+      if (definition.style.display === "none" || !definition.style.display) {
+          definition.style.display = "block";
+      } else {
+          definition.style.display = "none";
       }
+
+      // Reset all words' colors to blue
+      const allWords = document.querySelectorAll(".word");
+      allWords.forEach(word => word.style.color = "blue");
+
+      // Change the clicked word's color to green
+      element.style.color = "green";
   }
-</script> -->
+</script>
+
+
 </body>
 </html>

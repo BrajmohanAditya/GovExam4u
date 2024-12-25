@@ -381,18 +381,29 @@ color: red;
 }
 
 
-/* .word-container {
-  margin-bottom: 20px;
-  list-style: none;
+/* css for connector  */
+.container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap; /* Ensures proper wrapping for small screens */
 }
 .word {
-  color: blue;
   cursor: pointer;
+  color: blue;
   text-decoration: underline;
 }
-.sentence {
-  margin-top: 5px;
-  font-size: 1em;
-  color: #333;
+.active-word {
+  color: green !important; /* Ensure green overrides any inline styles */
+}
+.definition-container {
+  margin-top: 1rem; /* Ensures the definitions appear 1rem below the row */
+}
+.definition {
+  font-size: larger;
+  font-family: Arial, Helvetica, sans-serif;
   display: none;
-} */
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #000000;
+}
