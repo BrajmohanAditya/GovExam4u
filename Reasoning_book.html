@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="CSS/Reasoning_book.css">
+<link rel="stylesheet" href="SmartAudioPlayer.css">
 
 </head>
 <body onload="showPage(1)">
@@ -42,7 +43,9 @@
     <!-- More buttons if needed -->
   </div>
 </div>
-
+<audio id="audioPlayer" style="display: none;">
+  <source id="audioSource" src="" type="audio/mpeg">
+</audio>
 <script>
  
 
@@ -879,161 +882,216 @@ Q25)
 
     else if(pageNum == 6){
       contentContainer.innerHTML = `
-            <div class="scrollbar">  
+            <div class="scrollbar"> 
 <p class="question">
-Q1)
+Q1) A machine rearrangement machine rearranges a series of words into a final output following certain rules. Study the following information carefully and
+answer the below questions. </br></br>
+Input: Group Private Microbe Items Clove Avoid   </br> </br>
+Step I: it_ur, r_ix_ve, oi_t_d_,  i_e_u, en_xe, _x_i_   </br> </br>
+Step II: ktq_r, _tk_cvg, qkgtqdg, kv_qw, _nq_g, c_q_f   </br> </br>
+Step III: _tr_r, _tky_v_, qkg_qdg, k_hq_,  g_r_g, cx_k_   </br> </br>
+Step IV: j_q_q, qujzbwf, _lf_p_f, j_gr_, _o_y_, b_q_e   </br> </br>
+Step V: sr, _g, jg, u_, mg,  _f
+
 </p>
-<button class="ansButton" onclick="toggleAnswer('ans2')">Answer</button>
-<div id="ans1" class="answer">ans:<img src="Reasoning/p5_fig1.jpg"></div>
+<button class="ansButton" onclick="toggleAnswer('ans1')">Answer</button>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q1.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans1" class="answer">ans: </div>
 
 <p class="question">
 Q2)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans2')">Answer</button>
-<div id="ans2" class="answer">ans:<img src="Reasoning/p5_fig2.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q2.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans2" class="answer">ans:</div>
 
 <p class="question">
 Q3)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans3')">Answer</button>
-<div id="ans3" class="answer">ans:<img src="Reasoning/p5_fig3.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q3.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans3" class="answer">ans:</div>
 
 <p class="question">
 Q4)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans4')">Answer</button>
-<div id="ans4" class="answer">ans:<img src="Reasoning/p5_fig4.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q4.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans4" class="answer">ans:</div>
 
 <p class="question">
 Q5)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans5')">Answer</button>
-<div id="ans5" class="answer">ans:<img src="Reasoning/p5_fig5.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q5.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans5" class="answer">ans:</div>
 
 <p class="question">
 Q6)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans6')">Answer</button>
-<div id="ans6" class="answer">ans:<img src="Reasoning/p5_fig6.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q6.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans6" class="answer">ans:</div>
 
 <p class="question">
 Q7)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans7')">Answer</button>
-<div id="ans7" class="answer">ans:<img src="Reasoning/p5_fig7.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q7.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans7" class="answer">ans:</div>
 
 <p class="question">
 Q8)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans8')">Answer</button>
-<div id="ans8" class="answer">ans:<img src="Reasoning/p5_fig8.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q8.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans8" class="answer">ans:</div>
 
 <p class="question">
 Q9)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans9')">Answer</button>
-<div id="ans9" class="answer">ans:<img src="Reasoning/p5_fig9.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q9.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans9" class="answer">ans:</div>
 
 <p class="question">
 Q10)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans10')">Answer</button>
-<div id="ans10" class="answer">ans:<img src="Reasoning/p5_fig10.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q10.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans10" class="answer">ans:</div>
 
 <p class="question">
 Q11)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans11')">Answer</button>
-<div id="ans11" class="answer">ans:<img src="Reasoning/p5_fig11.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q11.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans11" class="answer">ans:</div>
 
 <p class="question">
 Q12)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans12')">Answer</button>
-<div id="ans12" class="answer">ans:<img src="Reasoning/p5_fig12.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q12.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans12" class="answer">ans:</div>
 
 <p class="question">
 Q13)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans13')">Answer</button>
-<div id="ans13" class="answer">ans:<img src="Reasoning/p5_fig13.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q13.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans13" class="answer">ans:</div>
 
 <p class="question">
 Q14)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans14')">Answer</button>
-<div id="ans14" class="answer">ans:<img src="Reasoning/p5_fig14.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q14.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans14" class="answer">ans:</div>
 
 <p class="question">
 Q15)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans15')">Answer</button>
-<div id="ans15" class="answer">ans:<img src="Reasoning/p5_fig15.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q15.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans15" class="answer">ans:</div>
 
 <p class="question">
 Q16)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans16')">Answer</button>
-<div id="ans16" class="answer">ans:<img src="Reasoning/p5_fig16.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q16.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans16" class="answer">ans:</div>
 
 <p class="question">
 Q17)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans17')">Answer</button>
-<div id="ans17" class="answer">ans:<img src="Reasoning/p5_fig17.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q17.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans17" class="answer">ans:</div>
 
 <p class="question">
 Q18)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans18')">Answer</button>
-<div id="ans18" class="answer">ans:<img src="Reasoning/p5_fig18.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q18.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans18" class="answer">ans:</div>
 
 <p class="question">
 Q19)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans19')">Answer</button>
-<div id="ans19" class="answer">ans:<img src="Reasoning/p5_fig19.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q19.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans19" class="answer">ans:</div>
 
 <p class="question">
 Q20)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans20')">Answer</button>
-<div id="ans20" class="answer">ans:<img src="Reasoning/p5_fig20.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q20.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans20" class="answer">ans:</div>
 
 <p class="question">
 Q21)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans21')">Answer</button>
-<div id="ans21" class="answer">ans:<img src="Reasoning/p5_fig21.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q21.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans21" class="answer">ans:</div>
 
 <p class="question">
 Q22)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans22')">Answer</button>
-<div id="ans22" class="answer">ans:<img src="Reasoning/p5_fig22.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q22.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans22" class="answer">ans:</div>
 
 <p class="question">
 Q23)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans23')">Answer</button>
-<div id="ans23" class="answer">ans:<img src="Reasoning/p5_fig23.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q23.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans23" class="answer">ans:</div>
 
 <p class="question">
 Q24)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans24')">Answer</button>
-<div id="ans24" class="answer">ans:<img src="Reasoning/p5_fig24.jpg"></div>
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q24.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans24" class="answer">ans:</div>
 
 <p class="question">
 Q25)
 </p>
 <button class="ansButton" onclick="toggleAnswer('ans25')">Answer</button>
-<div id="ans25" class="answer">ans:<img src="Reasoning/p5_fig25.jpg"></div>
-
+<button id="voiceNotes" onclick="toggleAudio('Quant_PracticeBook/AudioAnswer/P_Q25.ogg', this)"><i class="fas fa-play"></i></button>
+<span id="fastForward" onclick="fastForwardAudio()"> <i class="fas fa-forward"></i> </span>
+<div id="ans25" class="answer">ans:</div>    
 
                   </div>
-
-
       `;
     }
 
@@ -1079,6 +1137,7 @@ Q25)
 
 <!-- script tag for poupText -->
 <script src="commonProperty.js"></script>
+<script src="voiceAnswer.js"></script>
 
 </body>
 </html>

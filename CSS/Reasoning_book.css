@@ -21,21 +21,7 @@ h1{
     background-color: #000000d4;
 }
 
-  .option {
-    display: block;
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-  }
-  .correct {
-    background-color: green;
-    color: white;
-  }
-  .incorrect {
-    background-color: red;
-    color: white;
-  }
+
   .container1 {
     margin-top: 1rem;
     display: flex;
@@ -135,7 +121,7 @@ body {
 .answer {
   display: none; color: green; font-weight: bold;
   margin-top: 10px;
-  font-size: x-large;
+  font-size: large;
 }
 .ansButton{
   width: 5rem;
@@ -158,3 +144,39 @@ body {
     }
   }
 
+  #voiceNotes {
+    position: relative;
+    width: 5rem;
+    text-align: center;
+    left: 13rem; font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  #voiceNotes:hover {
+    background-color: #0056b3;
+    /* transform: scale(1.05); */
+  }
+  
+  #VoiceNotes.playing {
+    background-color: #28a745;
+  }
+  
+  #voiceNotes.playing:hover {
+    background-color: #1e7e34;
+  }
+  /* Fast forward */
+  #fastForward {
+    margin-left: 14rem;
+    cursor: pointer;
+    font-size: 20px;
+    color: #007BFF;
+  }
+  
+  #fastForward:hover {
+    color: #0056b3;
+  }
