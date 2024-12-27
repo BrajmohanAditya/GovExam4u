@@ -161,13 +161,15 @@ h1 {
     height: 86vh;
 
 }
+
+/* Ensure the margin-left of .main_content matches the width of .sidebar_menu.  */
 .main_content {
     height: 100%;
     position: relative; /* or absolute, depending on your layout */
-    width: 83.6%; /* Set width to 90% */
+    width: 82%; /* Set width to 90% */
     height: calc(100vh - 3rem); /* Adjust height for navbar */
-    left: 0; /* Align to left side */
-    margin-left: 13rem; /* Adjust margin if necessary to avoid overlap with sidebar */
+    /* left: 0; Align to left side */
+    margin-left:18%; /* Adjust margin if necessary to avoid overlap with sidebar */
     overflow-y: auto; /* Allow scrolling if content overflows */
 }
 .card {
