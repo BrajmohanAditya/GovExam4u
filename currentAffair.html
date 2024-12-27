@@ -19,9 +19,9 @@
   <div class="content-container" id="contentContainer"></div>
   <div class="buttons-container" id="buttonsContainer">
     <div style="font-weight: 800; font-family: Arial, Helvetica, sans-serif;color: red;">INDEX</div>
-    <button class="colorButton" onclick="showPage(1)">History of Banking</button>
-    <button class="colorButton" onclick="showPage(2)">2</button>
-    <button class="colorButton" onclick="showPage(3)">3</button>
+    <button class="colorButton" onclick="showPage(1)">December</button>
+    <button class="colorButton" onclick="showPage(2)">January</button>
+    <button class="colorButton" onclick="showPage(3)">February</button>
     <button class="colorButton" onclick="showPage(4)"> 4</button>
     <button class="colorButton" onclick="checkPassword(5)"> 5</button>
     <button class="colorButton" onclick="checkPassword(6)"> 6</button>
@@ -71,7 +71,9 @@ const passwordKey = "currentPasswords";
   <li>Lord Tuivakano</li>
   <li>Semisi Sika</li>
 </ol>
-<div class="answer">Ans. 3</div>
+<div class="popup" onclick="myFunction('pop1')"> <button id="AnsButton">Answer</button>
+  <span class="popupdown" id="pop1">3</span>
+</div> 
 
 <div class="question">Q.2 Where did Prime Minister Narendra Modi lay the foundation stone of the Ken-Betwa river linking project?</div>
 <ol>

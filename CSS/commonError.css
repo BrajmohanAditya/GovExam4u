@@ -60,16 +60,8 @@ h2{
   display: flex; 
   align-items: center;
 }
-.popup {
-  position:absolute;   
-  cursor: pointer;     
-  color: #555;
-  margin-left: 40rem;
-}
-/* Ak important bate ager mai chahta hu ki popup  apna left margin option container seh leh toh
-ya must hai ki option_container ko relative set karo, or popup ko absolute yahi concept use kr ka hum na 
-word meaning ko banaya hai isi liya wo ak line meh ata hai . 
-*/
+
+
   .container1 {
     margin-top: 1rem;
     display: flex;
@@ -146,6 +138,12 @@ body {
 
 
 /* The actual popup (appears on top) */
+.popup {
+  position:absolute;   
+  cursor: pointer;     
+  color: #555;
+  margin-left: 40rem;
+}
 .popup .popuptext {
   visibility: hidden;
   width: 25rem;

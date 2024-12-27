@@ -111,9 +111,9 @@ ul li{
 .question {
   background-color: #f8f9fa;
   border-left: 4px solid #007bff;
-  padding: 10px 15px;
+  padding: .5rem;
   margin-bottom: 10px;
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: bolder;
   color: #343a40;
   border-radius: 4px;
@@ -123,9 +123,9 @@ ul li{
 .answer {
   background-color: #ffffff;
   border: 1px solid #ddd;
-  padding: 10px 15px;
+  padding: .5rem;
   margin-bottom: 20px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.5;
   color: #495057;
   border-radius: 4px;
@@ -218,3 +218,86 @@ color: red;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
+/* popup ka css */
+
+.popup {
+  left:20rem;     /* ya use hua popup button ko left shift meh*/
+  position:relative;
+  display: inline-block;
+  cursor: pointer;
+  color: #555;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  font-size: large;
+  visibility: hidden;
+  width: 30rem;
+  background-color: #555;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px; padding: 1rem ;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; margin-left: 7rem; /* ya use hua popup button ko left shift meh*/
+}
+.popup .popupdown {
+ font-size: large;
+  visibility: hidden;
+  width: 10rem;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px; 
+  position: absolute;
+  z-index: 1;
+  /* bottom: 125%; */
+  top: 100%; left: 7rem; /* ya use hua popup button ko left shift meh*/
+}
+
+
+
+/* Popup box kaha appear hoga uska css hai*/
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%; left: 50%; border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+.popup .popupdown::after {
+content: "";
+position: absolute;
+top: 100%; left: 50%; border-width: 5px;
+border-style: solid;
+border-color: #555 transparent transparent transparent;
+}
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup:hover .popuptext {
+  visibility: visible;
+  -webkit-animation: fadeIn 2s;
+  animation: fadeIn 1s
+}
+.popup:hover .popupdown {
+  visibility: visible;
+  opacity: 1;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+#AnsButton{
+ width: 10rem;
+ text-align: center;
+ border-radius: 1rem;
+ height: fit-content;
+}
+/* popup ka css end */
