@@ -1,5 +1,6 @@
 * {
     margin: 0;
+    list-style: none;
     padding: 0;
     box-sizing: border-box;
 }
@@ -217,6 +218,7 @@ h1 {
     }
 
     .search-form, .btn, #user_image, .sidebar_menu {
+        list-style: none;
         display: none;
     }
     .card-container {
