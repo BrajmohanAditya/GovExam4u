@@ -271,7 +271,7 @@ body {
   font-weight: 500; /* This is correct */
   margin-left: 1rem;
   border-radius: 1rem;
-  
+  line-height: 3;
 }
 
 h3{
