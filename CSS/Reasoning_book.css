@@ -7,7 +7,7 @@ h1{
     border-radius: 10px;
     padding: 2px;
     font-size: 40px;
-    margin-top: 3px;
+    margin-top: -1rem;
     font-family: " sans-serif";
     font-weight: 400px;
     font-style: normal;   
@@ -91,8 +91,12 @@ body {
     overflow: hidden;   
     padding: 0;
     margin: 0;
+    font-size: larger;
+    line-height: 2;
 }
-
+ul{
+  list-style-type: none; 
+}
 .colorButton.clicked {
   background-color: #28a745;
   border: #007bff;
