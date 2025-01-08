@@ -120,7 +120,6 @@ body {
 }
 img{
   width:50%; height:auto;
-  overflow-y: scroll;
 }
 
 .ansButton{
