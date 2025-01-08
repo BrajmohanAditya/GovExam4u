@@ -118,8 +118,9 @@ body {
   margin-top: 10px;
   font-size: large;
 }
-.image{
-  width: auto; height: auto; object-fit: cover;
+img{
+  width:50%; height:auto;
+  overflow-y: scroll;
 }
 
 .ansButton{
