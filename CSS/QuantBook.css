@@ -117,6 +117,10 @@ body {
   font-weight: 400;
   margin-top: 10px;
   font-size: large;
+  display: none;
+}
+.answer.show {
+  display: block; /* Toggle hone par visible karein */
 }
 img{
   width:50%; height:auto;
