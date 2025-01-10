@@ -397,11 +397,12 @@ color: red;
 .definition-container {
   margin-top: 1rem; /* Ensures the definitions appear 1rem below the row */
 }
-.definition {
+/* connector and bullet meh jo explanation hai uska css yahi hai  */
+.definition { 
   font-size: large;
   font-family: Arial, Helvetica, sans-serif;
   display: none;
-  margin-top: 1rem;
   font-size: 1rem;
   color: #000000;
 }
+
