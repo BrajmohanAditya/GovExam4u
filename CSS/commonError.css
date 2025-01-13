@@ -72,16 +72,16 @@ h2{
     padding: 20px;
   }
 
-  .buttons-container {
-    width: 200px; /* Adjust as needed */
-    height: 200px;
-    background-color: #f1f1f1;
-    border-right: 0 solid #ccc;
-    margin-left: auto;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #888 #f1f1f1;
-    border: solid white;
+.buttons-container {
+  position: fixed; /* for floating scroll*/ 
+  scroll-behavior:smooth;
+  width: 200px; /* Adjust as needed */
+  height: 18rem;
+  background-color: #f1f1f1;
+  overflow-y: scroll;
+  border-right: 0 solid #ccc;
+   /* Updated CSS for aligning buttons to the right */
+  margin-left: 84%;
 }
 
 button {
@@ -99,14 +99,12 @@ button {
     margin-left: 2px;
 }
 .scrollbar {
-   overflow-x: hidden;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #888 #f1f1f1;
-    width: 100%;
+    width: 67rem;
     height: 83vh;
     margin-left: 1rem;
-    margin-top:-1.2rem;
     border: solid white;
     font-weight: 540;
     font-family: Arial, Helvetica, sans-serif;
@@ -142,11 +140,11 @@ body {
   position:absolute;   
   cursor: pointer;     
   color: #555;
-  margin-left: 40rem;
+  margin-left: 40rem; 
 }
 .popup .popuptext {
   visibility: hidden;
-  width: 25rem;
+  width: 15rem;
   background-color: #555;
   color: #fff;
   border-radius: 6px;
@@ -154,7 +152,7 @@ body {
   position: absolute;
   z-index: 1;
   bottom: 125%;
-  margin-left: -10rem;  /*poup box kaha show hoga ya uska location btayaga */
+  margin-left: -15rem;  /*poup box kaha show hoga ya uska location btayaga */
 }
 
 
@@ -322,6 +320,73 @@ h3{
   /* bottom: 125%; */
   top: 100%; margin-left: -5rem;
 }
+
+
+@media (max-width: 1000px) and (orientation: landscape) {    /* 750 ko decrease krna seh ve button container disappear ho jayaga*/
+  html {
+    font-size: 12px;   /* isko remove krna seh button container disappear ho jayaga*/
+  }
+
+  #absolute{
+    overflow: auto;
+    left: 12rem;           
+    position:absolute; 
+}
+
+
+  .buttons-container button {
+    font-size: x-small;
+    padding: 0cap;
+    margin-left: 5px;
+    width: 3rem;
+    height: 3rem;
+  }
+  
+
+  .search-form {
+    width: 60%; 
+    /* margin-left: 10%; */
+    margin-right: -1%;
+  }
+
+
+  .btn {
+    width: auto; /* Buttons remain compact */
+  }
+
+  .buttons-container {
+    position: fixed;
+    scroll-behavior:smooth;
+    height: 18rem;
+    background-color: #f1f1f1;
+    border-right: 0 solid #ccc;
+    margin-left:  90%; 
+    width: fit-content;
+    overflow-x: auto;
+    width: 5rem;
+  
+  }
+  .scrollbar {
+    margin-left: -4rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin; 
+    scrollbar-color: #888 #ddd;
+    width: 60rem;
+    border: solid white;
+    height: 82vh;
+    position: relative;
+
+  }
+  h1{
+    border-radius: 5px;
+    padding: 1px;
+  }
+
+} 
+
+
+
 
 /* Password on every page */
 
