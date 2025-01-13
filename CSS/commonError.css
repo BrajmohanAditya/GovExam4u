@@ -367,7 +367,6 @@ h3{
   
   }
   .scrollbar {
-    margin-left: -4rem;
     overflow-x: hidden;
     overflow-y: auto;
     scrollbar-width: thin; 
