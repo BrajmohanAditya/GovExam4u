@@ -118,12 +118,17 @@ body {
   margin-top: 10px;
   font-size: large;
   display: none;
+  overflow-y: scroll;
+  height: 20rem;
+  width: 30rem;
+  scrollbar-width: thin;
+
 }
 .answer.show {
   display: block; /* Toggle hone par visible karein */
 }
 img{
-  width:50%; height:auto;
+  width:100%; height:auto;
 }
 
 .ansButton{
