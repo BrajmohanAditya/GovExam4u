@@ -1,0 +1,18 @@
+/* Reset body margin to remove white space */
+body {
+    margin: 0;
+    /* padding: 0;  */
+    /* box-sizing: border-box;  */
+}
+
+.navbar {
+    background-color: #394F9B;
+    /* margin: 0;  */
+    height: 5rem; 
+    /* display: flex;  */
+    align-items: center;
+    justify-content: center; 
+    color: white; 
+    font-family: Arial, sans-serif; 
+}
+    
