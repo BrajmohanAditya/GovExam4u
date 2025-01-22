@@ -381,10 +381,74 @@ h3{
     border-radius: 5px;
     padding: 1px;
   }
+  .option{
+    display: flex;  
+    justify-content: center;  /* Horizontal center align text */
+    align-items: center;  /* Vertical center align text */  
+  }
 
 } 
 
+@media (max-width: 600px) and (orientation: portrait) {
+  html {
+    font-size: 12px;   /* isko remove krna seh button container disappear ho jayaga*/
+  }
 
+  #absolute{
+    overflow: auto;
+    left: 12rem;           
+    position:absolute; 
+}
+
+
+  .buttons-container button {
+    font-size: x-small;
+    padding: 0cap;
+    margin-left: 5px;
+    width: 3rem;
+    height: 3rem;
+  }
+  
+
+  .search-form {
+    width: 60%; 
+    /* margin-left: 10%; */
+    margin-right: -1%;
+  }
+
+
+  .btn {
+    width: auto; /* Buttons remain compact */
+  }
+
+  .buttons-container {
+    position: fixed;
+    scroll-behavior:smooth;
+    height: 18rem;
+    background-color: #f1f1f1;
+    border-right: 0 solid #ccc;
+    margin-left:  90%; 
+    width: fit-content;
+    overflow-x: auto;
+    width: 5rem;
+  
+  }
+  .scrollbar {
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin; 
+    scrollbar-color: #888 #ddd;
+    width: 25rem;
+    border: solid white;
+    height: 82vh;
+    position: relative;
+
+  }
+  h1{
+    border-radius: 5px;
+    padding: 1px;
+  }
+}
 
 
 /* Password on every page */
