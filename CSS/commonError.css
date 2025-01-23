@@ -514,7 +514,7 @@ color: red;
   margin-bottom: 1rem;
   flex-wrap: wrap; /* Ensures proper wrapping for small screens */
 }
-.word {
+.ruleExplanation{
   cursor: pointer;
   color: blue;
   text-decoration: underline;
