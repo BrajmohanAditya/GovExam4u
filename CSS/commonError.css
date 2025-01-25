@@ -517,7 +517,6 @@ color: red;
 .ruleExplanation{
   cursor: pointer;
   color: blue;
-  text-decoration: underline;
 }
 .active-word {
   color: green !important; /* Ensure green overrides any inline styles */
@@ -532,5 +531,9 @@ color: red;
   display: none;
   font-size: 1rem;
   color: #000000;
+  border-left: 4px solid #007bff;
+  background-color: #ccc;
+  border-radius: 5px;
+  padding-left: 0.5rem;
 }
 
