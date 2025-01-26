@@ -62,11 +62,11 @@ h2{
 }
 
 
-  .container1 {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: space-between; /* Distribute space between items */
-  }
+.container1 {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between; /* Distribute space between items */
+}
   .content-container {
     flex: 1; /* Take up remaining space */
     padding: 20px;
@@ -509,6 +509,8 @@ color: red;
 
 /* css for connector  */
 .container {
+  line-height: 2rem;
+  cursor: pointer;
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
@@ -523,14 +525,15 @@ color: red;
 }
 .definition-container {
   margin-top: 1rem; /* Ensures the definitions appear 1rem below the row */
+  line-height: 2rem;
 }
 /* connector and bullet meh jo explanation hai uska css yahi hai  */
 .definition { 
-  font-size: large;
+  
   font-family: Arial, Helvetica, sans-serif;
   display: none;
-  font-size: 1rem;
-  color: #000000;
+  font-size: 1.1rem;
+  color: #3c4043;
   border-left: 4px solid #007bff;
   background-color: #ccc;
   border-radius: 5px;
