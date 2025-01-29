@@ -143,13 +143,11 @@ h1 {
 /*  */
 
 #user_image {
-    height: 100%;
-    margin-left: 21%;
-    /* value percentage meh likhna seh web page responsive bnta hai */
+   height: 100%;
+   position: absolute; 
+   margin-left: 0; 
+   right: 0;
 }
-
-
-  
 
 
 /* Card design */
