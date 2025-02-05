@@ -14,6 +14,8 @@
 
 <nav class="navbar">
         <h1>Error Detection</h1>
+        <form class="search-form">
+      </form>
 </nav>
 
 <div class="container1">
@@ -212,7 +214,7 @@ else if(pageNum == 'Rule_1st'){
                <div class="heading">Bullet Rule</div>
 <ul style="background-color: #f0f0f0;">
 
-    <li class="ruleExplanation" onclick="toggleExplanation(this)">Noun suffic :</li>
+    <li class="ruleExplanation" onclick="toggleExplanation(this)">Noun suffic : -er, -or, -tion, -sion, -ment, -ness, -ity, -ty, -ance, -ence, -ship, -ism, -ist, -hood, -ility</li>
     <div class="definition">
       1. -er / -or (Person or thing that does an action)<br>
       ✅ Teacher, Writer, Actor, Doctor<br>
@@ -314,9 +316,15 @@ else if(pageNum == 'Rule_1st'){
       </ul>
     </div>
 
-    <li>Clothes, Pants, Scissors, Shorts, Thanks, Trousers (ya sb plural consider kiya jata hai). </li>
-    <li>When words like school, college, church, hospital, prison, temple, etc. Are used for their primary purpose, we don't use "the" before them.</li>
-    <li>looking forward to + ving.</li>
+
+    <li class="ruleExplanation" onclick="toggleExplanation(this)">Clothes, Pants, Scissors, Shorts, Thanks, Trousers (ya sb plural consider kiya jata hai).</li>
+    <div class="definition"></div>
+
+    <li class="ruleExplanation" onclick="toggleExplanation(this)">When words like school, college, church, hospital, prison, temple, etc. Are used for their primary purpose, we don't use "the" before them.</li>
+    <div class="definition"></div>
+
+    <li class="ruleExplanation" onclick="toggleExplanation(this)">looking forward to + ving</li>
+    <div class="definition"></div>
 
     <li class="ruleExplanation" onclick="toggleExplanation(this)">the number of + PN + Sv</li>
     <div class="definition">
@@ -442,12 +450,12 @@ else if(pageNum == 'Rule_1st'){
     
    </ol>
 
-    </div>
+  </div>
 
 
-    <li>Relative pronoun + Main verb (✅)</li>
-    <li>Relative pronoun + HV + MV (❌)</li>
     <li><strong>"each of them" ya "every one of them"</strong> : ek group ke sabhi members ke liye baat karta hai, lekin ek-ek kar ke.</li>
+
+
 
     <li class="ruleExplanation" onclick="toggleExplanation(this)">Scarcely ................ when</li>
     <div class="definition">
@@ -481,12 +489,29 @@ else if(pageNum == 'Rule_1st'){
     <li class="ruleExplanation" onclick="toggleExplanation(this)">So .... +ve degree ... that</li>
     <div class="definition"></div>
 
-    <li>Hardly, rarely, scarcely and seldom are frequency adverbs. (We don't use not with it)</li>
-    <li>Adverb of time like yesterday, today etc. are always used in the end of anysentence</li>
-    <li> superior, inferior, senior, junior, prior, anterior, posterior + to </li>
-    <li> older + than</li>
-    <li>elder + to</li>
-    <li>Modal ➕ V1</li>
+    <li class="ruleExplanation" onclick="toggleExplanation(this)">Hardly, rarely, scarcely and seldom are frequency adverbs. (We don't use not with it)</li>
+    <div class="definition">
+    </div>
+
+    <li class="ruleExplanation" onclick="toggleExplanation(this)">Adverb of time like yesterday, today etc. are always used in the end of anysentence</li>
+    <div class="definition">
+    </div>
+
+    <li class="ruleExplanation" onclick="toggleExplanation(this)">superior, inferior, senior, junior, prior, anterior, posterior + to</li>
+    <div class="definition">
+    </div>
+
+    <li class="ruleExplanation" onclick="toggleExplanation(this)">Modal ➕ V1</li>
+    <div class="definition">
+      (Can, Could, May, Might, Shall, Should, Will, Would, Must.) + V1 <br>
+      Let + V1 <br>
+      ❌  I would have taken a bullet for you at that point in time, but I would not have let him gets away with all the problems. (get )
+    </div>
+
+    <li class="ruleExplanation" onclick="toggleExplanation(this)">elder + to,  older + than</li>
+    <div class="definition">
+    </div>
+
     <li class="ruleExplanation" onclick="toggleExplanation(this)">(Adjective, Ving, V₂) + Noun</li>
     <div class="definition">
       <strong>Ving, V₂ form of verb ko adjective consider kiya jata hai.</strong>
@@ -557,8 +582,10 @@ else if(pageNum == 'Rule_1st'){
     </div>
 
 
-    <li class="ruleExplanation" onclick="toggleExplanation(this)"></li>
-    <div class="definition">
+    <li class="ruleExplanation" onclick="toggleExplanation(this)">WH-Word + Helping Verb + Subject + Main Verb ?</li>
+    <div class="definition"> 
+      wH-word : what, who, where etc </br>
+      If they stop farming, how they will eat and provide for their families? (how will they)
     </div>
 
     <li class="ruleExplanation" onclick="toggleExplanation(this)"></li>
@@ -1499,13 +1526,17 @@ Q10)  In his thinking, any safety (A)/ advantage of the new regulations  (B)/ wa
 </div>
 
 <p class="question">
-Q11)
+Q11) <br>
+A) So far, he has not called me to recognise my victory, and I don't know if he will call or if he will recognise my victory. <br><br>
+B) The clips of the incident have been viewed millions of times this past weekend.   <br><br>
+C) The song has become an anthem for millions of Chinese who remain locked down in their homes amid a surge in COVID-19 cases.   <br><br>
+D) If they stop farming, how they will eat and provide for their families?   <br><br>
 </p>
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
-  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, true)">D</button>
   <div class="popup" onclick="myFunction('pop11')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop11"></span>
+    <span class="popuptext" id="pop11">how will they.</span>
   </div> <button id="voiceNotes" onclick="toggleAudio('errorAudioAns/P3_Q11.oga', this)"><i class="fas fa-play"></i></button>
 </div>
 
