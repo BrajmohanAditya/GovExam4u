@@ -369,7 +369,7 @@ else if(pageNum == 'Rule_1st'){
 
     <li class="ruleExplanation" onclick="toggleExplanation(this)">the + adjective + Pv</li>
     <div class="definition">
-      ❌ The brave fights for their country. (<b>fights nahi fight</b>)
+      ❌ The brave fights for their country. (<b>fights nahi fight</b>) <br>
       ❌ The poor needs help. (<b>needs nahi need</b>)
     </div>
 
@@ -388,6 +388,7 @@ else if(pageNum == 'Rule_1st'){
       से जोड़ा जाये तो verb का प्रयोग S2 के अनुसार होना चाहिये।
     </li>
     <div class="definition">
+      <b>Both</b> the rich <b>along with</b> the poor suffer from economic instability.(alongwith nahi "and", both ... and)<br>
     </div>
 
     <li class="ruleExplanation" onclick="toggleExplanation(this)">S1..or..S2.. the verb agrees with the subject S2 </li>
@@ -605,21 +606,29 @@ else if(pageNum == 'Rule_1st'){
                      <div class="heading">Connector</div>
                     
 <ul style="background-color:#eee0e1"> 
-  <span style="color: purple; font-weight: bold;">Contrast showing words :- There is  difference between what you expected what actually happened.  </span>
+    <li class="ruleExplanation" onclick="toggleExplanation(this)"><span style="color: purple; font-weight: bold;">Contrast showing words :- There is  difference between what you expected what actually happened.  </span></li>
+    <div class="definition">
+        Nevertheless, Nonetheless <br>
+        Notwithstanding, Though <br>
+        Even though , Although <br>
+        In spite of  , Despite <br>
+        Whereas, Yet <br>
+        However, while
+    </div>
 
   <div class="container">
-    <span class="word" onclick="toggleDefinition('w1', this)">Nevertheless</span>
-    <span class="word" onclick="toggleDefinition('w2', this)"> Nonetheless</span>
+    <span class="word" onclick="toggleDefinition('w1', this)">Nevertheless/Nonetheless </span>
+    <span class="word" onclick="toggleDefinition('w2', this)"> while/Whereas</span>
     <span class="word" onclick="toggleDefinition('w3', this)">Notwithstanding</span>
     <span class="word" onclick="toggleDefinition('w4', this)">Though</span>
     <span class="word" onclick="toggleDefinition('w5', this)">Even though</span>
     <span class="word" onclick="toggleDefinition('w6', this)">Although</span>
     <span class="word" onclick="toggleDefinition('w7', this)">In spite of</span>
     <span class="word" onclick="toggleDefinition('w8', this)">Despite</span>
-    <span class="word" onclick="toggleDefinition('w9', this)">Whereas</span>
-    <span class="word" onclick="toggleDefinition('w10', this)">Yet</span>
-    <span class="word" onclick="toggleDefinition('w11', this)">However</span>
-    <span class="word" onclick="toggleDefinition('w12', this)">while</span>
+    <span class="word" onclick="toggleDefinition('w9', this)"></span>
+    <span class="word" onclick="toggleDefinition('w10', this)">Yet/However</span>
+    <span class="word" onclick="toggleDefinition('w11', this)"></span>
+    <span class="word" onclick="toggleDefinition('w12', this)"></span>
     <span class="word" onclick="toggleDefinition('w13', this)">With</span>
     <span class="word" onclick="toggleDefinition('w14', this)"></span>
     <span class="word" onclick="toggleDefinition('w15', this)"></span>
@@ -684,6 +693,10 @@ else if(pageNum == 'Rule_1st'){
     </div>
 
     <div id="w14" class="definition"> 
+      <b></b>
+      <ul>
+        <li></li>
+      </ul>
     </div>
 
     <div id="w15" class="definition"> 
@@ -1544,10 +1557,14 @@ D) If they stop farming, how they will eat and provide for their families?   <br
 </div>
 
 <p class="question">
-Q12)
+Q12) Though the blackbucks and chinkara look like sisters they actually may have very<b> difference evolutionary histories.</b><br><br>
+A different evolutionary histories<br><br>
+B different evolutionary history<br><br>
+C different evolutions histories<br><br>
+D different evolutionarily histories<br><br>
 </p>
 <div class="option_container">
-  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, true)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
   <div class="popup" onclick="myFunction('pop12')"> <button id="ReasonButton">Answer</button>
     <span class="popuptext" id="pop12"></span>
@@ -1555,13 +1572,13 @@ Q12)
 </div>
 
 <p class="question">
-Q13)
+Q13) As soon as the peon (A) rings the bell, (B) then all (C) the students leave the class. (D)
 </p>
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
-  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, true)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
   <div class="popup" onclick="myFunction('pop13')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop13"></span>
+    <span class="popuptext" id="pop13">remove then</span>
   </div> <button id="voiceNotes" onclick="toggleAudio('errorAudioAns/P3_Q13.oga', this)"><i class="fas fa-play"></i></button>
 </div>
 
