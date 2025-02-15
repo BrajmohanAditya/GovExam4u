@@ -265,11 +265,10 @@ body {
 
  ul{
   font-size: large; /* Specify a unit for font-size */
-  line-height: 2rem;
+  line-height: 2.5rem;
   font-weight: 500; /* This is correct */
   margin-left: 1rem;
   border-radius: 1rem;
-  line-height: 3;
 }
 
 h3{
