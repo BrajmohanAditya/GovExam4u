@@ -193,7 +193,7 @@ const passwordKey = "currentPasswords";
     </div>
                 <div class="heading">Conditional  Sentence</div>
     <div class="grid-container_4th">
-        <div style="color:red" class="grid-item_1st">If, unless</div>
+        <div style="color:red" class="grid-item_1st">If, unless, as if, i wish</div>
         <div style="color:red" class="grid-item_1st">Main  Clause</div>
         <div class="grid-item_1st">V1</div>
         <div class="grid-item_1st">May, Can, Will, Shall</div>
@@ -323,8 +323,12 @@ else if(pageNum == 'Rule_1st'){
     <li class="ruleExplanation" onclick="toggleExplanation(this)">When words like school, college, church, hospital, prison, temple, etc. Are used for their primary purpose, we don't use "the" before them.</li>
     <div class="definition"></div>
 
-    <li class="ruleExplanation" onclick="toggleExplanation(this)">looking forward to + ving</li>
-    <div class="definition"></div>
+    <li class="ruleExplanation" onclick="toggleExplanation(this)">When to use: to + ving</li>
+    <div class="definition">
+      <b>Note: With these phrasel verb we use ing form of verb. </b>
+        looking forward to, used to, accustomed to , averse to,  addicted to, in addition to <br>
+        But constituents were  averse to pay their members, no Speaker was elected, the reform never came into being. (averse to paying)
+    </div>
 
     <li class="ruleExplanation" onclick="toggleExplanation(this)">the number of + PN + Sv</li>
     <div class="definition">
@@ -510,6 +514,14 @@ else if(pageNum == 'Rule_1st'){
     <div class="definition">
     </div>
 
+    <li class="ruleExplanation" onclick="toggleExplanation(this)">Let + objective pronoun. </li>
+    <div class="definition">
+      ✅ Let me go. (✔ Correct)<br>
+      ❌ Let I go. (✘ Incorrect)<br>
+      ✅ Let him speak. (✔ Correct)<br>
+      ❌ Let he speak. (✘ Incorrect)<br>
+    </div>
+
     <li class="ruleExplanation" onclick="toggleExplanation(this)">(Adjective, Ving, V₂) + Noun</li>
     <div class="definition">
       <strong>Ving, V₂ form of verb ko adjective consider kiya jata hai.</strong>
@@ -615,6 +627,19 @@ else if(pageNum == 'Rule_1st'){
         enough rich ❌ (rich is an adjective so use it before enough) <br>
         good enough ✅ (after adjective)
       </ul>
+    </div>
+
+    <li class="ruleExplanation" onclick="toggleExplanation(this)">"Die of" and "Die from"</li>
+    <div class="definition">
+      1️⃣ <b>Die of (Internal Factors)</b> </br>
+      🔹 Used when someone dies due to a disease, condition, or internal cause (like old age, illness, or emotional distress).</br>
+      ✅ Examples:</br>
+      ✔️ He died of a heart attack. </br>
+
+      2️⃣ <b>Die from (External Factors)</b> <br>
+      🔹 Used when someone dies due to an external factor, injury, accident, or consequence of something. </br>
+      ✅ <b>Examples:</b> </br>
+      ✔️ He died from a car accident
     </div>
 
     <li class="ruleExplanation" onclick="toggleExplanation(this)"></li>
@@ -796,7 +821,21 @@ else if(pageNum == 'Rule_1st'){
     <div class="definition">
       <b>
         Tricks to Remember 🧠 Insure ya Insurence wala case meh use hota hai </br>
-        
+      </b>
+    </div>
+
+    <li class="ruleExplanation" onclick="toggleExplanation(this)"> Later &nbsp;&nbsp; Letter &nbsp;&nbsp; Latter </li>
+    <div class="definition">
+      <ul>
+        Latter - बाद वाला, second of the two  </br>
+        Later - बाद में  <br>
+        Letter - पत्र
+      </ul>
+    </div>
+
+    <li class="ruleExplanation" onclick="toggleExplanation(this)">  &nbsp;&nbsp;  </li>
+    <div class="definition">
+      <b>
       </b>
     </div>
 
@@ -1678,35 +1717,39 @@ Q15) Calculating the (A) lifespan of our close relatives (B) gives clues to how 
 </div>
 
 <p class="question">
-Q16)
+Q16)<br>
+A I'm not sure what's going on around here, but I'm determined to find out.<br>
+B I believe it is unjust that poor people cannot receive a decent education.<br>
+C Radhika behaved as if she was the queen of this castle.<br>
+D I need to replace my old coat because it is worn out.<br>
 </p>
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
-  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, true)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
   <div class="popup" onclick="myFunction('pop16')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop16"></span>
+    <span class="popuptext" id="pop16">was nahi were(conditional sentence)</span>
   </div> <button id="voiceNotes" onclick="toggleAudio('errorAudioAns/P3_Q16.oga', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
-Q17)
+Q17)The ancient Britons (A)/ inhabited these part (B)/ of England / before the (C)/ Roman invasion (D).
 </p>
 <div class="option_container">
-  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, true)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
   <div class="popup" onclick="myFunction('pop17')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop17"></span>
+    <span class="popuptext" id="pop17">these parts</span>
   </div> <button id="voiceNotes" onclick="toggleAudio('errorAudioAns/P3_Q17.oga', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
-Q18)
+Q18)She wanted to / go on the (A)/ trip, but her (B)/ parents wouldn't (C)/ let she (D)
 </p>
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
-  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, true)">D</button>
   <div class="popup" onclick="myFunction('pop18')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop18"></span>
+    <span class="popuptext" id="pop18">let her.</span>
   </div> <button id="voiceNotes" onclick="toggleAudio('errorAudioAns/P3_Q18.oga', this)"><i class="fas fa-play"></i></button>
 </div>
 
