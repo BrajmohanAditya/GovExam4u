@@ -642,6 +642,14 @@ else if(pageNum == 'Rule_1st'){
       ✔️ He died from a car accident
     </div>
 
+    <li class="ruleExplanation" onclick="toggleExplanation(this)">These + Plural Noun</li>
+    <div class="definition">These students are performing well in the exams.
+    </div>
+
+    <li class="ruleExplanation" onclick="toggleExplanation(this)">All + P.N</li>
+    <div class="definition">All students must submit their assignments by Friday.
+    </div>
+
     <li class="ruleExplanation" onclick="toggleExplanation(this)"></li>
     <div class="definition">
     </div>
@@ -1754,10 +1762,15 @@ Q18)She wanted to / go on the (A)/ trip, but her (B)/ parents wouldn't (C)/ let 
 </div>
 
 <p class="question">
-Q19)
+Q19)<br>
+The other <b>textile(A)</b> will house a <b>buildings(B)</b> cooperative and an exhibition cum performance hall, and a <b>women's(C)</b> museum. <br>
+A. BCA<br>
+B. CBA<br>
+C. CAB<br>
+D. ACB<br>
 </p>
 <div class="option_container">
-  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, true)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
   <div class="popup" onclick="myFunction('pop19')"> <button id="ReasonButton">Answer</button>
     <span class="popuptext" id="pop19"></span>
@@ -1765,13 +1778,18 @@ Q19)
 </div>
 
 <p class="question">
-Q20)
+Q20) Find out the word that is wrongly spelt or inappropriately used . <br>
+Decades <b>ago</b>, I used to <b>work</b> in Kolkata and a <b>colleague</b> and I were walking <b>throughout</b> the College Street. <br>
+A Ago<br>
+B Work<br>
+C Colleague<br>
+D Throughout<br>
 </p>
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
-  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, true)">D</button>
   <div class="popup" onclick="myFunction('pop20')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop20"></span>
+    <span class="popuptext" id="pop20">throughout nahi through.</span>
   </div> <button id="voiceNotes" onclick="toggleAudio('errorAudioAns/P3_Q20.oga', this)"><i class="fas fa-play"></i></button>
 </div>
 
