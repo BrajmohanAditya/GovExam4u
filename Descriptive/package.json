@@ -2,10 +2,6 @@
   "name": "descriptive",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "dev": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "type": "module",
   "keywords": [],
   "author": "",
@@ -15,5 +11,11 @@
     "@google/generative-ai": "^0.24.0",
     "dotenv": "^16.4.7",
     "openai": "^4.92.1"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
+
