@@ -1,14 +1,16 @@
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Ask Gemini</title>
 </head>
 <body>
-  <h1>Ask the Key to Success</h1>
+  <h1>Ask for Descriptive Answer</h1>
 
   <form action="/generate" method="POST">
-    <input type="text" name="prompt" placeholder="Type your prompt here" required>
-    <button type="submit">Ask</button>
+    <textarea name="prompt" rows="10" cols="80" placeholder="Type your letter, essay or prompt here..." required></textarea>
+    <br>
+    <button type="submit">Submit</button>
   </form>
 
   <% if (answer) { %>
@@ -17,4 +19,3 @@
   <% } %>
 </body>
 </html>
-

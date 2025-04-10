@@ -38,7 +38,32 @@ app.get('/', (req, res) => {
 
 // POST: Process form
 app.post('/generate', async (req, res) => {
-  const prompt = req.body.prompt;
+  // const prompt = req.body.prompt;
+  const prompt = `
+  You are a grammar and writing evaluator. A student has submitted a descriptive answer.
+  
+  Your task is to evaluate only the following:
+  
+  1. **Give marks out of 20** (just one line) </br>
+  2. **List all spelling mistakes** in bullet points (write "None" if there are no mistakes)
+  3. **List all grammar or sentence construction issues** in bullet points (write "None" if there are no issues)
+  
+  ⚠️ Strictly use this exact format for output:
+  
+  * Marks: x/20  
+  * Spelling Mistakes:  
+    - mistake 1  
+    - mistake 2  
+  * Grammar Mistakes:  
+    - issue 1  
+    - issue 2
+  
+  Only use bullet points. Do not return explanation in paragraph form.
+  
+  Here is the student’s answer:
+  ${req.body.prompt}
+  `;
+  
 
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
