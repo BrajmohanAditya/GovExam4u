@@ -88,7 +88,7 @@ app.post('/content', async(req, res) => { // Route 1: form ka request ko receive
 
 // . get- Jab user server se kuch maangta hai .
 app.get("/", (req, res)=>{
-    res.send("root is working");
+  res.redirect("/templet");
 });
 
 app.listen(8080, ()=>{
