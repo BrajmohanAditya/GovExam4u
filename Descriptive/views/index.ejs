@@ -7,9 +7,21 @@
 </head>
 <body>
   <h1>Descriptive for IBPS & SBI</h1>
-
+  <b style="color: red;">As per the IBPS guidelines, copying and pasting is strictly prohibited.</b>
   <form action="/content" method="POST"> <!-- Route 1 per request send karega -->
-    <textarea name="prompt" rows="15" cols="60"  required></textarea>  <!--submit krna per sara data name="prompt" meh aa gaya or ya route 1 per jo prompt hai woha send kr diya.  -->
+    <!--submit krna per sara data name="prompt" meh aa gaya or ya route 1 per jo prompt hai woha send kr diya.  -->
+    <textarea
+      name="prompt"
+      rows="15"
+      cols="60"
+      required
+      spellcheck="false"
+      onpaste="return false;"
+      oncopy="return false;"
+      oncut="return false;"
+      oncontextmenu="return false;"
+    ></textarea>
+
     <br>
     <button type="submit">Submit</button>
   </form>
