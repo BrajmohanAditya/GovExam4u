@@ -2,20 +2,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ask Gemini</title>
+  <title>Descriptive</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <h1>Ask for Descriptive Answer</h1>
+  <h1>Descriptive for IBPS & SBI</h1>
 
-  <form action="/generate" method="POST">
-    <textarea name="prompt" rows="10" cols="80" placeholder="Type your letter, essay or prompt here..." required></textarea>
+  <form action="/content" method="POST"> <!-- Route 1 per request send karega -->
+    <textarea name="prompt" rows="15" cols="60"  required></textarea>  <!--submit krna per sara data name="prompt" meh aa gaya or ya route 1 per jo prompt hai woha send kr diya.  -->
     <br>
     <button type="submit">Submit</button>
   </form>
 
-  <% if (answer) { %>
-    <h2>Answer:</h2>
-    <p><%= answer %></p>
-  <% } %>
+  <div class="box" id="marks-box">
+    <h3>Marks: <span><%= marks %></span></h3>
+  </div>
+  
+
+  <div class="box" id="spelling-box">
+    <h3>Spelling Mistakes</h3>
+    <pre><%= spellingMistakes %></pre>
+  </div>
+
+  <div class="box" id="grammar-box">
+    <h3>Grammar Mistakes</h3>
+    <pre><%= grammarMistakes %></pre>
+  </div>
+
+  
 </body>
 </html>

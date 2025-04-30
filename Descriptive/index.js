@@ -1,83 +1,107 @@
-// import { GoogleGenerativeAI } from "@google/generative-ai";
+//  npm init -y, npm i express, npm i ejs : ya module , lock and packeg all three install kr dega 
 
-// const genAI = new GoogleGenerativeAI("AIzaSyA1756YkXQKxHzv5HQqW2LYkpBPvauAjlc");
-
-// async function run() {
-//   const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
-
-//   const prompt = "Key of sucess.";
-//   const result = await model.generateContent(prompt);
-//   const response = await result.response;
-//   const text = response.text();
-//   console.log(text);
-// }
-
-// run();
-import express from 'express';
+import express from 'express';  // Express framework ko import karna
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { GoogleGenerativeAI } from "@google/generative-ai";
-
-const genAI = new GoogleGenerativeAI("AIzaSyA1756YkXQKxHzv5HQqW2LYkpBPvauAjlc");
-
-const app = express();
-const port = 3000;
+const genAI = new GoogleGenerativeAI("AIzaSyBPyu55cgjsin65qmNzduhNtNGS1t536TY");
+const app = express();              //  server banana  hai that is why  isko import kiya gaya hai 
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+app.set('view engine', 'ejs');    // iska explanation necha likha hai 
+app.set('views', path.join(__dirname, 'views')); //  (EJS files) views folder ke andar hongi.
+app.use(express.static(path.join(__dirname, 'public')));  // css ka liya 
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
 
-app.use(express.urlencoded({ extended: true }));
 
-// GET: Show form
-app.get('/', (req, res) => {
-  res.render('index', { answer: null });
+// post request seh aaya hua data ko read krna ka liya we use this middle malwere. 
+app.use(express.urlencoded({extended:true})); 
+
+
+
+app.get("/templet", (req, res)=>{  
+  res.render("index.ejs", { 
+      marks: null, 
+      spellingMistakes: null, 
+      grammarMistakes: null 
+  });
 });
 
-// POST: Process form
-app.post('/generate', async (req, res) => {
-  // const prompt = req.body.prompt;
-  const prompt = `
-  You are a grammar and writing evaluator. A student has submitted a descriptive answer.
-  
-  Your task is to evaluate only the following:
-  
-  1. **Give marks out of 20** (just one line) </br>
-  2. **List all spelling mistakes** in bullet points (write "None" if there are no mistakes)
-  3. **List all grammar or sentence construction issues** in bullet points (write "None" if there are no issues)
-  
-  ⚠️ Strictly use this exact format for output:
-  
-  * Marks: x/20  
-  * Spelling Mistakes:  
-    - mistake 1  
-    - mistake 2  
-  * Grammar Mistakes:  
-    - issue 1  
-    - issue 2
-  
-  Only use bullet points. Do not return explanation in paragraph form.
-  
-  Here is the student’s answer:
-  ${req.body.prompt}
-  `;
-  
 
-  try {
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = await response.text();
+app.post('/content', async(req, res) => { // Route 1: form ka request ko receive karega 
+      // const prompt = req.body.prompt;
+    const prompt = `      
+      ⚠️ Strictly use this exact format for output:
+      
+      * Marks: x/20  
+      * Spelling Mistakes (write incorrect word and correct version):  
+        > wrong → right  
+      * Grammar Mistakes (mention incorrect sentence/phrase and correct version):  
+        > wrong → right  
 
-    res.render('index', { answer: text });
-  } catch (error) {
-    console.error(error);
-    res.render('index', { answer: "Something went wrong!" });
-  }
+      Here is the student’s answer:
+      ${req.body.prompt}   
+      `;
+      // req.body.prompt form se aayi user ki input hai (matlab student ka answer).
+    
+      try {
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
+        const result = await model.generateContent(prompt);
+        const response = await result.response;
+        const text = await response.text(); // (Matlab jo plain answer AI ne likha — woh string form me nikaal kar text variable me store ho gaya.)
+
+        const marksMatch = text.match(/\* Marks:\s*(.*)/);
+        const spellingMatch = text.match(/\* Spelling Mistakes:\s*([\s\S]*?)\* Grammar Mistakes:/);
+        const grammarMatch = text.match(/\* Grammar Mistakes:\s*([\s\S]*)/);
+
+
+        
+
+
+        const marks = marksMatch ? marksMatch[1].trim() : "Not found";
+        const spelling = spellingMatch ? spellingMatch[1].trim() : "No spelling mistakes";
+        const grammar = grammarMatch ? grammarMatch[1].trim() : "No grammar mistakes";
+
+
+        res.render('index', {
+          marks: marks,
+          spellingMistakes: spelling,
+          grammarMistakes: grammar
+        });
+
+
+      } catch (error) {
+        console.error(error);
+        // res.render('index', { answer: "Something went wrong!" });
+        res.render('index', { 
+          marks: "N/A", 
+          spellingMistakes: "N/A", 
+          grammarMistakes: "N/A" 
+        });
+      }
+    // res.redirect("/templet")   templet per redirect krna hai q ki wohi hamara form hai
 });
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+
+
+
+// . get- Jab user server se kuch maangta hai .
+app.get("/", (req, res)=>{
+    res.send("root is working");
 });
+
+app.listen(8080, ()=>{
+    console.log("server is listening on port 8080");
+});
+
+/*
+app.set('view engine', 'ejs'); ka matlab hai:
+
+Jab bhi aap res.render() ka use karenge, tab Express ko view engine ke through automatically pata chalega ki:
+
+File ka extension .ejs hoga.
+
+Aur is file ko process karne ke liye EJS view engine ka use kiya jayega, jo template ko dynamic HTML mein convert karega.
+*/
+
