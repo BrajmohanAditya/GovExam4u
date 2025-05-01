@@ -1,4 +1,5 @@
 //  npm init -y, npm i express, npm i ejs : ya module , lock and packeg all three install kr dega 
+// npm 
 
 import express from 'express';  // Express framework ko import karna
 import path from 'path';
