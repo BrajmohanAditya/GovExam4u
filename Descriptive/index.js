@@ -56,9 +56,6 @@ app.post('/content', async(req, res) => { // Route 1: form ka request ko receive
         const grammarMatch = text.match(/\* Grammar Mistakes:\s*([\s\S]*)/);
 
 
-        
-
-
         const marks = marksMatch ? marksMatch[1].trim() : "Not found";
         const spelling = spellingMatch ? spellingMatch[1].trim() : "No spelling mistakes";
         const grammar = grammarMatch ? grammarMatch[1].trim() : "No grammar mistakes";
@@ -86,9 +83,9 @@ app.post('/content', async(req, res) => { // Route 1: form ka request ko receive
 
 
 
-// . get- Jab user server se kuch maangta hai .
+// . get- Jab user server se kuch maangta hai then we use get method  .
 app.get("/", (req, res)=>{
-  res.redirect("/templet");
+  res.redirect("/templet"); // here we are redirecting to route templet 
 });
 
 app.listen(8080, ()=>{
