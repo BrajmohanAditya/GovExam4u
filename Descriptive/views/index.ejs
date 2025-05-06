@@ -9,6 +9,7 @@
   <div style="margin-left: 1rem;">
     <h2>Descriptive for IBPS & SBI</h2>
     <b style="color: red;">As per the IBPS guidelines, copying and pasting is strictly prohibited.</b>
+    <div id="timer" style="font-weight:bold; color:green; margin: 1rem 0;">Time left: 10:00</div>
   </div>
 
   <form action="/content" method="POST"> <!-- Route 1 per request send karega -->
@@ -41,5 +42,34 @@
     <h3>Grammar Mistakes</h3>
     <pre><%= grammarMistakes %></pre>
   </div>
+
+  <script>
+    // Prevent double ENTER
+    const textarea = document.querySelector('textarea');
+    textarea.addEventListener('input', function () {
+      const value = textarea.value;
+      if (value.includes('\n\n')) {
+        textarea.value = value.replace(/\n\n+/g, '\n');
+      }
+    });
+  
+    // Auto submit and countdown timer
+    let totalSeconds = 600; // 10 minutes
+  
+    const timerElement = document.getElementById('timer');
+  
+    const countdown = setInterval(function () {
+      const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+      const seconds = String(totalSeconds % 60).padStart(2, '0');
+      timerElement.textContent = `Time left: ${minutes}:${seconds}`;
+      
+      totalSeconds--;
+  
+      if (totalSeconds < 0) {
+        clearInterval(countdown);
+        document.querySelector('form').submit();
+      }
+    }, 1000);
+  </script> 
 </body>
 </html>
