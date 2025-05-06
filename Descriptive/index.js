@@ -65,7 +65,7 @@ app.post('/content', async(req, res) => { // Route 1: form ka request ko receive
         res.render('index', {
           marks: marks,
           spellingMistakes: spelling,
-          grammarMistakes: grammar
+          grammarMistakes: grammar,
         });
 
 
