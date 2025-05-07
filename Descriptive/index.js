@@ -73,7 +73,7 @@ app.post('/content', async(req, res) => { // Route 1: form ka request ko receive
         console.error(error);
         // res.render('index', { answer: "Something went wrong!" });
         res.render('index', { 
-          marks: "N/A", 
+          marks: "Too Many Requests", 
           spellingMistakes: "N/A", 
           grammarMistakes: "N/A" 
         });
