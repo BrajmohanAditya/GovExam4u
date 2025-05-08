@@ -73,7 +73,7 @@ app.post('/content', async(req, res) => { // Route 1: form ka request ko receive
         console.error(error);
         // res.render('index', { answer: "Something went wrong!" });
         res.render('index', { 
-          marks: "Too Many Requests", 
+          marks: "N/A", 
           spellingMistakes: "N/A", 
           grammarMistakes: "N/A" 
         });
@@ -88,6 +88,13 @@ app.post('/content', async(req, res) => { // Route 1: form ka request ko receive
 app.get("/", (req, res)=>{
   res.redirect("/templet"); // here we are redirecting to route templet 
 });
+
+
+app.post('/content', (req, res) => {     //  prompt ka coding hai ya 
+  const prompt = req.body.prompt;
+  // process this 'prompt'
+});
+
 
 app.listen(8080, ()=>{
     console.log("server is listening on port 8080");
