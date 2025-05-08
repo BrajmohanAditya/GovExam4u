@@ -71,7 +71,7 @@
     });
   
     // Auto submit and countdown timer
-    let totalSeconds = 600; // 10 minutes
+    let totalSeconds = 50; // 10 minutes
   
     const timerElement = document.getElementById('timer');
   
@@ -84,7 +84,8 @@
   
       if (totalSeconds < 0) {
         clearInterval(countdown);
-        document.querySelector('form').submit();
+        // document.querySelector('form').submit();
+        handleSubmit(new Event('submit'));
       }
     }, 1000);
 
