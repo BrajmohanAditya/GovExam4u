@@ -255,17 +255,15 @@ Q1)
 
     else if (pageNum == 'PYQ 2023 2nd') {
       contentContainer.innerHTML = `
-      <div class="scrollbar">  
+  <div class="scrollbar"> 
 <p class="question">
-  Q1) hi
+Q1)
 </p>
 <div class="option_container">
-  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, true)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop1')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop1">hi</span>
-  </div>   <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q1.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
+
 
 <p class="question">
   Q2)
@@ -273,9 +271,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop2')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop2"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q2.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -284,9 +279,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop3')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop3"></span>
-  </div>   <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q3.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -295,9 +287,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop4')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop4"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q4.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -306,9 +295,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop5')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop5"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q5.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -317,9 +303,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop6')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop6"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q6.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -328,9 +311,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop7')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop7"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q7.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -339,9 +319,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop8')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop8"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q8.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -350,9 +327,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop9')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop9"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q9.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -361,9 +335,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop10')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop10"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q10.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -372,9 +343,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop11')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop11"></span>
-  </div>   <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q11.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -383,9 +351,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop12')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop12"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q12.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -394,9 +359,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop13')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop13"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q13.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -405,9 +367,7 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop14')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop14"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q14.ogg', this)"><i class="fas fa-play"></i></button>
+
 </div>
 
 <p class="question">
@@ -416,9 +376,7 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop15')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop15"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q15.ogg', this)"><i class="fas fa-play"></i></button>
+
 </div>
 
 <p class="question">
@@ -427,9 +385,7 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop16')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop16"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q16.ogg', this)"><i class="fas fa-play"></i></button>
+
 </div>
 
 <p class="question">
@@ -438,9 +394,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop17')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop17"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q17.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -449,9 +402,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop18')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop18"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q18.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -460,9 +410,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop19')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop19"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q19.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -471,9 +418,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop20')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop20"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q20.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -482,9 +426,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop21')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop21"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q21.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -493,9 +434,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop22')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop22"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q22.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -504,9 +442,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop23')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop23"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q23.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -515,9 +450,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop24')"><button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop24"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q24.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -526,27 +458,23 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop25')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop25"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q25.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
-      </div>
+
+  </div>
       `;
     }
     else if(pageNum == 3){
       contentContainer.innerHTML = `
-      <div class="scrollbar">  
+  <div class="scrollbar"> 
 <p class="question">
-  Q1)
+Q1)
 </p>
 <div class="option_container">
-  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, true)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop1')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop1">hi</span>
-  </div>   <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q1.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
+
 
 <p class="question">
   Q2)
@@ -554,9 +482,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop2')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop2"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q2.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -565,9 +490,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop3')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop3"></span>
-  </div>   <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q3.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -576,9 +498,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop4')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop4"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q4.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -587,9 +506,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop5')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop5"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q5.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -598,9 +514,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop6')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop6"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q6.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -609,9 +522,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop7')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop7"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q7.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -620,9 +530,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop8')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop8"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q8.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -631,9 +538,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop9')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop9"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q9.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -642,9 +546,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop10')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop10"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q10.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -653,9 +554,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop11')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop11"></span>
-  </div>   <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q11.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -664,9 +562,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop12')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop12"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q12.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -675,9 +570,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop13')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop13"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q13.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -686,9 +578,7 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop14')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop14"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q14.ogg', this)"><i class="fas fa-play"></i></button>
+
 </div>
 
 <p class="question">
@@ -697,9 +587,7 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop15')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop15"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q15.ogg', this)"><i class="fas fa-play"></i></button>
+
 </div>
 
 <p class="question">
@@ -708,9 +596,7 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop16')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop16"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q16.ogg', this)"><i class="fas fa-play"></i></button>
+
 </div>
 
 <p class="question">
@@ -719,9 +605,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop17')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop17"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q17.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -730,9 +613,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop18')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop18"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q18.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -741,9 +621,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop19')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop19"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q19.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -752,9 +629,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop20')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop20"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q20.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -763,9 +637,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop21')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop21"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q21.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -774,9 +645,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop22')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop22"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q22.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -785,9 +653,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop23')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop23"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q23.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -796,9 +661,6 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop24')"><button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop24"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q24.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 <p class="question">
@@ -807,18 +669,223 @@ Q1)
 <div class="option_container">
   <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
   <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
-  <div class="popup" onclick="myFunction('pop25')"> <button id="ReasonButton">Answer</button>
-    <span class="popuptext" id="pop25"></span>
-  </div>  <button id="voiceNotes" onclick="toggleAudio('compAudioAns/P_Q25.ogg', this)"><i class="fas fa-play"></i></button>
 </div>
 
 
-      </div>
+  </div>
       `;
     }
 
     else if(pageNum == 4){
-      contentContainer.innerHTML = `Hai mohan`;
+      contentContainer.innerHTML = `
+  <div class="scrollbar"> 
+<p class="question">
+Q1)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, true)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+
+<p class="question">
+  Q2)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q3)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q4)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q5)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q6)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q7)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q8)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q9)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q10)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q11)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q12)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q13)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q14)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+
+</div>
+
+<p class="question">
+  Q15)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+
+</div>
+
+<p class="question">
+  Q16)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+
+</div>
+
+<p class="question">
+  Q17)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q18)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q19)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q20)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q21)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q22)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q23) 
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q24)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+<p class="question">
+  Q25)
+</p>
+<div class="option_container">
+  <button class="option" onclick="highlight(this, false)">A</button> <button class="option" onclick="highlight(this, false)">B</button>
+  <button class="option" onclick="highlight(this, false)">C</button> <button class="option" onclick="highlight(this, false)">D</button>
+</div>
+
+
+  </div>
+      `;
     }
 
     else if(pageNum == 5){
