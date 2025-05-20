@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head> 
+  <title>Descriptive</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="descriptive.js" defer></script>
+</head>
+<body>
+  <nav class="custom-navbar">
+    <div class="navbar-title">Descriptive Writing</div>
+    <div class="navbar-buttons">
+      <button class="custom-btn" data-type="Letter">Letter</button>
+      <button class="custom-btn" data-type="Essay">Essay</button>
+      <button class="custom-btn" data-type="Report">Report</button>
+      <button class="custom-btn" data-type="Email">Email</button>
+      <button class="custom-btn" data-type="Situation">Situation Analysis</button>
+    </div>
+  </nav>  
+  <div style="margin-left: 25%;">
+    <div id="timer" style="font-weight:bold; color:green; margin: 1rem 0;">Time left: 10:00</div>
+  </div>
+  <div class="floating-buttons">
+    <button onclick="copyTextarea()">📋 Copy</button>
+  </div>
+
+  <form id="descriptiveForm"> 
+    <textarea
+      id="descriptiveBox"
+      name="prompt"
+      rows="15"
+      cols="50"
+      required
+      spellcheck="false"
+      onpaste="return false;"
+      oncopy="return false;"
+      oncut="return false;"
+      oncontextmenu="return false;"
+    ></textarea>
+    <div>
+      <button type="submit" onclick="handleSubmit(event)">Submit</button>      
+      <button type="button" onclick="window.open('https://chatgpt.com/', '_blank')">ChatGpt</button>
+    </div>
+  </form>
+</body>
+</html>
+

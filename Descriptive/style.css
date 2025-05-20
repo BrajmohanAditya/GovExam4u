@@ -4,7 +4,9 @@ body {
     /* padding: 20px; */
     background-color: #f4f6f9;
   }
-  
+  #descriptiveForm{
+    margin-left: 25%;
+  }
   h2 {
     color: #333;
   }
@@ -132,7 +134,7 @@ body {
 
 .floating-buttons {
   position:absolute;
-  margin-left: 41%;
+  margin-left: 64%;
   margin-top: -30px;
 }
 
