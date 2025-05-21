@@ -13,7 +13,7 @@
     <a class="btn-back" href="index.html">Back</a>
   </div>
 
-  <script>
+  <!-- <script>
     async function loadQuestion() {
       const params = new URLSearchParams(window.location.search);
       const type = params.get("type");
@@ -32,7 +32,46 @@
     }
 
     loadQuestion();
-  </script>
+  </script> -->
+  
+<script>
+  async function loadQuestion() {
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get("type");
+
+    try {
+      const response = await fetch("questions.json");
+      const data = await response.json();
+
+      document.getElementById("typeHeading").innerText = type + " writing";
+
+      const questions = data[type];
+
+      if (Array.isArray(questions)) {
+        const list = document.createElement("ul");
+        questions.forEach((q) => {
+          const li = document.createElement("li");
+          li.innerText = q;
+          list.appendChild(li);
+        });
+        const qText = document.getElementById("questionText");
+        qText.innerHTML = ""; // Clear previous text
+        qText.appendChild(list);
+      } else {
+        document.getElementById("questionText").innerText = questions || "No question found.";
+      }
+
+    } catch (error) {
+      document.getElementById("typeHeading").innerText = "Error";
+      document.getElementById("questionText").innerText = "Unable to load the question. Please try again.";
+      console.error("Error loading question:", error);
+    }
+  }
+
+  // Call the function
+  loadQuestion();
+</script>
+
 </body>
 </html>
  
