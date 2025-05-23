@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -132,24 +136,3 @@ body {
 
 
 
-.floating-buttons {
-  position:absolute;
-  margin-left: 64%;
-  margin-top: -30px;
-}
-
-.floating-buttons button {
-  background-color: #2d2d2d;
-  color: white;
-  border: none;
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  cursor: pointer;
-  opacity: 0.85;
-}
-
-.floating-buttons button:hover {
-  opacity: 1;
-  background-color: #444;
-}
