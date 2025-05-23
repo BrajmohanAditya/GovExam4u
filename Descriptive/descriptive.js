@@ -110,11 +110,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-const textArea = document.getElementById("descriptiveBox");
-const wordCountDiv = document.getElementById("wordCount");
-
-textArea.addEventListener("input", () => {
-  const text = textArea.value.trim();
-  const words = text === "" ? 0 : text.split(/\s+/).length;
-  wordCountDiv.textContent = `Word count: ${words}`;
-});
