@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    /* padding: 20px; */
+    background-color: #f4f6f9;
+  }
+  #descriptiveForm{
+    margin-left: 25%;
+  }
+  h2 {
+    color: #333;
+  }
+  
+  form {
+    max-width: 600px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  textarea {
+    width: 100%;
+    /* padding: 10px; */
+    font-size: 16px;
+    resize: vertical;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #2e86de;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #1e6abf;
+  }
+  
+  .box {
+    max-width: 800px;
+    margin: 20px;
+    background-color: #fff;
+    border-left: 5px solid #2e86de;
+    padding: 15px 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-radius: 5px;
+  }
+  
+  .box h3 {
+    margin-top: 0;
+    color: #2e86de;
+  }
+  
+  pre {
+    margin-left: 0;
+    line-height: 1.6;
+    text-align: left;
+    white-space: pre-wrap; /* optional: wraps long lines */
+    font-family: monospace;
+  }
+  
+  
+  span {
+    font-weight: bold;
+    color: green;
+  }
+
+/* Navbar styling */
+
+
+/* Navbar Styling */
+.custom-navbar {
+  justify-content: space-between; /* Title left, buttons right */
+  align-items: center;
+  display: flex;
+  background-color: #004080; /* Dark Blue for the navbar background */
+  color: white; /* Text color inside the navbar */
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+.navbar-title {
+  color: white;
+  font-size: larger;
+}
+.custom-btn {
+  margin: 5px 15px;
+  padding: 10px 20px;
+  background-color: #0066cc; /* Light blue background for buttons */
+  color: white; /* Button text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover Effect for Buttons */
+.custom-navbar button:hover {
+  background-color: #0057a3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Active Button State */
+.custom-navbar button:active {
+  background-color: #003366; /* Dark blue when the button is clicked */
+}
+
+/* Add responsive design for smaller screens */
+@media (max-width: 600px) {
+  .custom-navbar {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .custom-navbar button {
+    padding: 8px 16px;
+    font-size: 14px;
+    margin: 5px 10px;
+  }
+}
+
+
+
+
