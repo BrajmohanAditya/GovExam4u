@@ -1,6 +1,0 @@
-{
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/descriptive.js", "destination": "/descriptive.js" }
-  ]
-}
