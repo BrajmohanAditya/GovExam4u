@@ -23,12 +23,22 @@ document.querySelectorAll('.custom-btn').forEach(button => {
     const type = button.getAttribute('data-type');
     if (timeMap[type]) {
       totalSeconds = timeMap[type];
+      sessionStorage.setItem('selectedType', type); // save to sessionStorage
       timerStarted = false;
       clearInterval(countdown);
       timerElement.textContent = `Time left: ${String(Math.floor(totalSeconds / 60)).padStart(2, '0')}:${String(totalSeconds % 60).padStart(2, '0')}`;
     }
   });
 });
+window.addEventListener('pageshow', () => {
+  const type = sessionStorage.getItem('selectedType');
+  if (type && timeMap[type]) {
+    totalSeconds = timeMap[type];
+    timerElement.textContent = `Time left: ${String(Math.floor(totalSeconds / 60)).padStart(2, '0')}:${String(totalSeconds % 60).padStart(2, '0')}`;
+  }
+});
+
+
 
 // ✅ Clean double line spacing
 textarea.addEventListener('input', function () {
