@@ -6,6 +6,9 @@ let countdown;
 let totalSeconds = 600;
 const allowedKeys = ['Backspace', ' ', 'Delete', 'Tab'];
 const timerElement = document.getElementById('timer');
+const textArea = document.getElementById("descriptiveBox"); // wordCount ka liya require kiya hu
+const wordCountDiv = document.getElementById("wordCount"); // wordCount ka liya require kiya hu 
+
 
 // 🔁 STEP 1: Mapping topic to time
 const timeMap = {
@@ -120,11 +123,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-const textArea = document.getElementById("descriptiveBox");
-const wordCountDiv = document.getElementById("wordCount");
+// WordCount. 
 
-textArea.addEventListener("input", () => {
+textArea.addEventListener("input", () => {     // Ye ek "event listener" hai jo textarea par "input" event ko sunta hai.
   const text = textArea.value.trim();
   const words = text === "" ? 0 : text.split(/\s+/).length;
-  wordCountDiv.textContent = `Word count: ${words}`;
+  wordCountDiv.textContent = `Word count : ${words}`;
 });
+
+// npm run dev (command to run on local host )
+
+/*   wordcount code . 
+let words;
+
+if (text === "") {
+  words = 0;
+} else {
+  words = text.split(/\s+/).length;
+}
+*/
