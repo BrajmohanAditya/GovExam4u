@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 textArea.addEventListener("input", () => {     // Ye ek "event listener" hai jo textarea par "input" event ko sunta hai.
   const text = textArea.value.trim();
-  const words = text === "" ? 0 : text.split(/\s+/).length;
+  const words = text === "" ? 0 : text.split(/\s+/).length;  // ya word count nikalta hai 
   wordCountDiv.textContent = `Word count : ${words}`;
 });
 
