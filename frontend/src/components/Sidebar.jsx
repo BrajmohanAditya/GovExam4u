@@ -67,7 +67,7 @@ export default function SidebarMenu() {
     <>
       {/* Toggle Button */}
       <button
-        className="md:hidden fixed top-4 left-4 z-50 text-white bg-gray-800 p-2 rounded"
+        className="md:hidden fixed top-4 left-4 z-50 text-white bg-red-500 p-2 rounded"
         onClick={toggleSidebar}
       >
         <FontAwesomeIcon icon={faBars} />
@@ -75,7 +75,7 @@ export default function SidebarMenu() {
 
       {/* Sidebar */}
       <div
-        className={`min-h-screen bg-black text-[#c3d0d7] fixed top-0 left-0 mt-8 overflow-y-auto py-4 px-2 z-40 transform transition-transform duration-300 ease-in-out
+        className={` h-[92vh]  bg-black text-[#c3d0d7] fixed top-0 left-0 mt-11 font-roboto  overflow-y-auto py-4 px-2 z-40 transform transition-transform duration-300 ease-in-out
         ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0 md:w-[18%] w-64`}
@@ -84,7 +84,7 @@ export default function SidebarMenu() {
           {sidebarItems.map((item, index) => (
             <li
               key={index}
-              className={`flex items-center gap-2 px-3 py-2 rounded transition text-sm cursor-pointer
+              className={`flex items-center gap-2 px-3 py-2 rounded transition text-lg cursor-pointer
                 ${
                   active === item.label
                     ? "bg-gray-700 text-white"
