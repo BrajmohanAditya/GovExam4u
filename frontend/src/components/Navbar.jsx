@@ -1,9 +1,7 @@
 
 import React from "react";
-// import avatar from "../assets/images/tb-avatar.svg";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
-import logo from "../assets/logo.png";
 import { GraduationCap } from "lucide-react";
 
 function Logo() {

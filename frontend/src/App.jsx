@@ -4,12 +4,11 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import HomePage from './components/HomePage'
 
-
 function App() {
 
   return (
     <>
-      <HomePage/>
+      <HomePage />
     </>
   );
 }
