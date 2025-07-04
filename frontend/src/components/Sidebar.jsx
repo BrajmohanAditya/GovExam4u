@@ -57,39 +57,23 @@ const sidebarItems = [
   },
 ];
 
+
 export default function SidebarMenu() {
   const [active, setActive] = useState("Home");
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleSidebar = () => setIsOpen(!isOpen);
-
   return (
     <>
-      {/* Toggle Button */}
-      <button
-        className="md:hidden fixed top-4 left-4 z-50 text-white bg-red-500 p-2 rounded"
-        onClick={toggleSidebar}
-      >
-        <FontAwesomeIcon icon={faBars} />
-      </button>
-
-      {/* Sidebar */}
-      <div
-        className={` h-[92vh]  bg-black text-[#c3d0d7] fixed top-0 left-0 mt-11 font-roboto  overflow-y-auto py-4 px-2 z-40 transform transition-transform duration-300 ease-in-out
-        ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 md:w-[18%] w-64`}
-      >
+      {/* <div className="h-[92vh] bg-black text-[#c3d0d7] fixed top-0 left-0 mt-11 font-roboto overflow-y-auto py-4 px-2 z-40 w-64"> */}
+      <div className="fixed top-11 left-0 z-40 w-64 h-[calc(100vh-2.75rem)] bg-black text-[#c3d0d7] font-roboto overflow-y-auto py-4 px-2">
         <ul className="space-y-2">
           {sidebarItems.map((item, index) => (
             <li
               key={index}
               className={`flex items-center gap-2 px-3 py-2 rounded transition text-lg cursor-pointer
-                ${
-                  active === item.label
-                    ? "bg-gray-700 text-white"
-                    : "hover:bg-gray-800 hover:text-white"
-                }`}
+              ${
+                active === item.label
+                  ? "bg-gray-700 text-white"
+                  : "hover:bg-gray-800 hover:text-white"
+              }`}
               onClick={() => setActive(item.label)}
             >
               <FontAwesomeIcon icon={item.icon} className="w-4" />
@@ -108,3 +92,78 @@ export default function SidebarMenu() {
     </>
   );
 }
+
+
+// export default function SidebarMenu() {
+//   const [active, setActive] = useState("Home");
+//   const [isOpen, setIsOpen] = useState(false);
+
+//   const toggleSidebar = () => setIsOpen(!isOpen);
+
+//   return (
+//     <>
+//       <button
+//         className="md:hidden fixed top-4 left-4 z-50 text-white bg-red-500 p-2 rounded"
+//         onClick={toggleSidebar}
+//       >
+//         <FontAwesomeIcon icon={faBars} />
+//       </button>
+
+      
+//       <div
+//         className={` h-[92vh]  bg-black text-[#c3d0d7] fixed top-0 left-0 mt-11 font-roboto  overflow-y-auto py-4 px-2 z-40 transform transition-transform duration-300 ease-in-out
+//         ${
+//           isOpen ? "translate-x-0" : "-translate-x-full"
+//         } md:translate-x-0 md:w-[18%] w-64`}
+//       >
+//         <ul className="space-y-2">
+//           {sidebarItems.map((item, index) => (
+//             <li
+//               key={index}
+//               className={`flex items-center gap-2 px-3 py-2 rounded transition text-lg cursor-pointer
+//                 ${
+//                   active === item.label
+//                     ? "bg-gray-700 text-white"
+//                     : "hover:bg-gray-800 hover:text-white"
+//                 }`}
+//               onClick={() => setActive(item.label)}
+//             >
+//               <FontAwesomeIcon icon={item.icon} className="w-4" />
+//               <a
+//                 href={item.link}
+//                 target={item.link.startsWith("http") ? "_blank" : "_self"}
+//                 rel="noreferrer"
+//                 className="hover:text-white"
+//               >
+//                 {item.label}
+//               </a>
+//             </li>
+//           ))}
+//         </ul>
+//       </div>
+//     </>
+//   );
+// }
+
+
+
+
+/*
+🧠 .map() ka kaam hai: ek array ke har item ko leke, uske upar koi kaam karna — jaise display karna, convert karna, ya element banana.
+Aapke sidebar me bhi wahi ho raha hai — har item ke liye ek li ban raha hai.
+
+> item ek object hai jisme 3 cheezein hoti hain: icon, label, link
+
+* User onClick karta hai kisi menu item pe.
+
+* setActive(item.label) call hota hai.
+
+* React active state ko update karta hai.
+
+* Component re-renders hota hai new active value ke saath.
+
+* Conditional class (bg-gray-700 text-white) apply hoti hai active item pe
+
+* Bydefault active meh home para hai. 
+
+*/

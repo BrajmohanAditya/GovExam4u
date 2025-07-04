@@ -3,6 +3,9 @@ import React from "react";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
 import { GraduationCap } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 function Logo() {
   return (
@@ -20,10 +23,17 @@ function Logo() {
 export default function Navbar() {
   return (
     <nav className="w-full  bg-blue-800 sticky top-0 z-[1000] px-4 py-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-      {/* <h1 className="relative left-3 font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#eb51eb] font-serif tracking-wide pr-4">
-        GovExam4u
-      </h1> */}
-      <Logo />
+
+      <div className="w-auto flex items-center gap-x-2 sm:justify-start">
+        {/* 👇 Hamburger button */}
+        <button
+          className="sm:hidden p-2 text-white"
+          onClick={() => setShowSidebar(!showSidebar)}
+        >
+          <FontAwesomeIcon icon={faBars} className="text-xl" />
+        </button>
+        <Logo />
+      </div>
 
       <form className="flex flex-col sm:flex-row sm:items-center gap-2 w-full sm:w-auto">
         <input
