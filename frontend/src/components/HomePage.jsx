@@ -18,7 +18,7 @@ import SidebarMenu from "./Sidebar";
 
 export default function HomePage() {
   const [showSidebar, setShowSidebar] = useState(false);
-
+  console.log("HomePage render — showSidebar:", showSidebar);
   return (
     <>
       <Navbar setShowSidebar={setShowSidebar} />

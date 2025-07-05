@@ -98,13 +98,16 @@ const sidebarItems = [
 export default function SidebarMenu({ showSidebar, setShowSidebar }) {
   //
   const [active, setActive] = useState("Home");
-  // const isMobile = window.innerWidth < 640; 
   return (
     <>
       <div
-        className={`${
-          showSidebar ? "block" : "hidden"
-        }fixed top-11 left-0 z-40 w-64 h-[calc(100vh-2.75rem)] bg-black text-[#c3d0d7] font-roboto overflow-y-auto py-4 px-2`}
+        className={` 
+          fixed top-11 left-0 z-40 w-64 h-[calc(100vh-2.75rem)] bg-black text-[#c3d0d7] font-roboto overflow-y-auto  px-2  pt-32 sm:pt-6
+          transform transition-transform duration-300 ease-in-out
+          ${showSidebar ? "translate-x-0" : "-translate-x-full"} 
+          sm:translate-x-0
+          
+        `} // toggle
       >
         <ul className="space-y-2">
           {sidebarItems.map((item, index) => (
@@ -116,10 +119,11 @@ export default function SidebarMenu({ showSidebar, setShowSidebar }) {
                   ? "bg-gray-700 text-white"
                   : "hover:bg-gray-800 hover:text-white"
               }`}
-              // onClick={() => setActive(item.label)}
-              onClick={() => {
+              onClick={() => { // toggle
                 setActive(item.label);
-                setShowSidebar(false); // mobile meh click karne ke baad close ho jaye
+                if (window.innerWidth < 640) {
+                  setShowSidebar(false);
+                }
               }}
             >
               <FontAwesomeIcon icon={item.icon} className="w-4" />
@@ -140,56 +144,7 @@ export default function SidebarMenu({ showSidebar, setShowSidebar }) {
 }
 
 
-// export default function SidebarMenu() {
-//   const [active, setActive] = useState("Home");
-//   const [isOpen, setIsOpen] = useState(false);
 
-//   const toggleSidebar = () => setIsOpen(!isOpen);
-
-//   return (
-//     <>
-//       <button
-//         className="md:hidden fixed top-4 left-4 z-50 text-white bg-red-500 p-2 rounded"
-//         onClick={toggleSidebar}
-//       >
-//         <FontAwesomeIcon icon={faBars} />
-//       </button>
-
-      
-//       <div
-//         className={` h-[92vh]  bg-black text-[#c3d0d7] fixed top-0 left-0 mt-11 font-roboto  overflow-y-auto py-4 px-2 z-40 transform transition-transform duration-300 ease-in-out
-//         ${
-//           isOpen ? "translate-x-0" : "-translate-x-full"
-//         } md:translate-x-0 md:w-[18%] w-64`}
-//       >
-//         <ul className="space-y-2">
-//           {sidebarItems.map((item, index) => (
-//             <li
-//               key={index}
-//               className={`flex items-center gap-2 px-3 py-2 rounded transition text-lg cursor-pointer
-//                 ${
-//                   active === item.label
-//                     ? "bg-gray-700 text-white"
-//                     : "hover:bg-gray-800 hover:text-white"
-//                 }`}
-//               onClick={() => setActive(item.label)}
-//             >
-//               <FontAwesomeIcon icon={item.icon} className="w-4" />
-//               <a
-//                 href={item.link}
-//                 target={item.link.startsWith("http") ? "_blank" : "_self"}
-//                 rel="noreferrer"
-//                 className="hover:text-white"
-//               >
-//                 {item.label}
-//               </a>
-//             </li>
-//           ))}
-//         </ul>
-//       </div>
-//     </>
-//   );
-// }
 
 
 
