@@ -13,6 +13,7 @@ import {
   faHandHoldingDollar,
   faAddressCard,
   faBars,
+  faCircleQuestion,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faSquareWhatsapp,
@@ -30,7 +31,11 @@ const sidebarItems = [
     label: "Live Mock",
     link: "MockTest/liveMock.html",
   },
-  { icon: faQuestion, label: "Doubt Support", link: "#" },
+  {
+    icon: faCircleQuestion,
+    label: "Doubt Support",
+    link: "#",
+  },
   { icon: faMicrophone, label: "Make Voice Note", link: "VoiceNotes.html" },
   { icon: faBookOpenReader, label: "Revision", link: "e vocab Book.html" },
   { icon: faNewspaper, label: "Current Affair", link: "#" },
@@ -82,14 +87,20 @@ export default function SidebarMenu({ showSidebar, setShowSidebar }) { // prop r
                   ? "bg-gray-700 text-white"
                   : "hover:bg-gray-800 hover:text-white"
               }`}
-              onClick={() => { // toggle
+              onClick={() => {
+                // toggle
                 setActive(item.label);
                 if (window.innerWidth < 640) {
                   setShowSidebar(false);
                 }
               }}
             >
-              <FontAwesomeIcon icon={item.icon} className="w-4" />
+              <FontAwesomeIcon
+                icon={item.icon}
+                className={`w-4 ${
+                  active === item.label ? "text-[#45f3f3]" : "text-[#45f3f3]"
+                }`}
+              />
               <a
                 href={item.link}
                 target={item.link.startsWith("http") ? "_blank" : "_self"}
@@ -116,7 +127,7 @@ export default function SidebarMenu({ showSidebar, setShowSidebar }) { // prop r
 🧠 .map() ka kaam hai: ek array ke har item ko leke, uske upar koi kaam karna — jaise display karna, convert karna, ya element banana.
 Aapke sidebar me bhi wahi ho raha hai — har item ke liye ek li ban raha hai.
 
-> item ek object hai jisme 3 cheezein hoti hain: icon, label, link
+> "item" ek object hai jisme 3 cheezein hoti hain: icon, label, link
 
 * User onClick karta hai kisi menu item pe.
 
@@ -129,5 +140,12 @@ Aapke sidebar me bhi wahi ho raha hai — har item ke liye ek li ban raha hai.
 * Conditional class (bg-gray-700 text-white) apply hoti hai active item pe
 
 * Bydefault active meh home para hai. 
+
+Har item ke liye active === item.label alag se check hota hai. Sirf active wale ko true wala milega, baaki sabko else part (hover classes) milta hai. 
+Isliye baaki bhi execute hote hain — apna apna result leke. Qki it is inside loop so all elements will
+come with their propert. 
+
+Tumne kuch click kiya ho ya nahi — default active = "Home" se ek item pehle se hi active hota hai. 
+Toh active vs inactive ka game tab se chalu hai.
 
 */
