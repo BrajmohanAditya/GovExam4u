@@ -23,7 +23,7 @@ import {
 
 const sidebarItems = [
   { icon: faHouse, label: "Home", link: "#" },
-  { icon: faChalkboardUser, label: "Live learning", link: "#" },
+  { icon: faChalkboardUser, label: "Live Classes", link: "#" },
   { icon: faFileSignature, label: "Mock Test", link: "#" },
   {
     icon: faFileCircleQuestion,
@@ -95,7 +95,7 @@ const sidebarItems = [
 
 
 
-export default function SidebarMenu({ showSidebar, setShowSidebar }) {
+export default function SidebarMenu({ showSidebar, setShowSidebar }) { // prop receiving
   //
   const [active, setActive] = useState("Home");
   return (

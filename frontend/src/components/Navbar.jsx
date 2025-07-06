@@ -20,14 +20,14 @@ function Logo() {
 }
 
 
-export default function Navbar({ setShowSidebar }) {
+export default function Navbar({ setShowSidebar }) {   // prop receiving 
   return (
     <nav className="w-full  bg-blue-800 sticky top-0 z-[1000] px-4 py-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
       <div className="w-auto flex items-center gap-x-2 sm:justify-start">
         {/* 👇 Hamburger button */}
         <button
           className="sm:hidden p-2 text-white"
-          onClick={() => setShowSidebar(prev => !prev)}
+          onClick={() => setShowSidebar((prev) => !prev)} // 
         >
           <FontAwesomeIcon icon={faBars} className="text-xl" />
         </button>
@@ -50,8 +50,13 @@ export default function Navbar({ setShowSidebar }) {
         </Button>
       </form>
 
-      <div className="flex justify-end sm:ml-auto">
-      </div>
+      <div className="flex justify-end sm:ml-auto"></div>
     </nav>
   );
 }    
+
+/*
+* when i click  line 30 "setShowSidebar" function jo ki HomePage meh hai usko call karaga or uska ander "true" update kr dega or
+  fir wo rerender hoga , or ya prev current value hai "false"
+
+*/
