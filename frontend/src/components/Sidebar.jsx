@@ -58,43 +58,6 @@ const sidebarItems = [
 ];
 
 
-// export default function SidebarMenu() {
-//   const [active, setActive] = useState("Home");
-//   return (
-//     <>
-//       <div className="fixed top-11 left-0 z-40 w-64 h-[calc(100vh-2.75rem)] bg-black text-[#c3d0d7] font-roboto overflow-y-auto py-4 px-2">
-//         <ul className="space-y-2">
-//           {sidebarItems.map((item, index) => (
-//             <li
-//               key={index}
-//               className={`flex items-center gap-2 px-3 py-2 rounded transition text-lg cursor-pointer
-//               ${
-//                 active === item.label
-//                   ? "bg-gray-700 text-white"
-//                   : "hover:bg-gray-800 hover:text-white"
-//               }`}
-//               onClick={() => setActive(item.label)}
-//             >
-//               <FontAwesomeIcon icon={item.icon} className="w-4" />
-//               <a
-//                 href={item.link}
-//                 target={item.link.startsWith("http") ? "_blank" : "_self"}
-//                 rel="noreferrer"
-//                 className="hover:text-white"
-//               >
-//                 {item.label}
-//               </a>
-//             </li>
-//           ))}
-//         </ul>
-//       </div>
-//     </>
-//   );
-// }
-
-
-
-
 export default function SidebarMenu({ showSidebar, setShowSidebar }) { // prop receiving
   //
   const [active, setActive] = useState("Home");
