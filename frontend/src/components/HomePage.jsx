@@ -1,24 +1,10 @@
-// src/pages/HomePage.jsx
-// import React from "react";
-// import Navbar from "../components/Navbar";
-// import SidebarMenu from "./Sidebar";
 
-// export default function HomePage() {
-//   return (
-//     <>
-//       <Navbar />
-//       <SidebarMenu/>
-//     </>
-//   );
-// }
-// src/components/HomePage.jsx
 import React, { useState } from "react";
 import Navbar from "./Navbar";
 import SidebarMenu from "./Sidebar";
 
 export default function HomePage() {
   const [showSidebar, setShowSidebar] = useState(false);
-  console.log("HomePage render — showSidebar:", showSidebar);
   return (
     <>
       <Navbar setShowSidebar={setShowSidebar} />

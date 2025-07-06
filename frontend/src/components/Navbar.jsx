@@ -51,7 +51,6 @@ export default function Navbar({ setShowSidebar }) {
       </form>
 
       <div className="flex justify-end sm:ml-auto">
-        {/* <img src={avatar} alt="User Avatar" className="w-8 h-8 rounded-full" /> */}
       </div>
     </nav>
   );
