@@ -19,7 +19,7 @@ export default function HomePage() {
 }
 
 /*
-
+* Ya page bus 3 cheese ka liya hai cards , nav, side bar
 * jo component state manage karta hai — wo parent hota hai by React philosophy.
 * React Data Flow = Top to Bottom Only
 
