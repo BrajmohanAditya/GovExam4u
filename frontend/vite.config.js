@@ -10,4 +10,7 @@ export default defineConfig({
       usePolling: true, // 👈 important for Windows users or network drives
     },
   },
+  build: {
+    outDir: "dist", // ✅ Must match what Render expects
+  },
 });
