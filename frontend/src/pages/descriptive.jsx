@@ -180,6 +180,9 @@ export default function Descriptive() {
     Email: 600,
     Situation: 600,
   };
+useEffect(() => {
+  console.log("🎯 Descriptive component mounted");
+}, []);
 
   useEffect(() => {
     const savedType = sessionStorage.getItem("selectedType");
