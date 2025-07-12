@@ -164,7 +164,7 @@
 //   );
 // }
 import React, { useEffect, useRef, useState } from "react";
-
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 export default function Descriptive() {
   const [selectedType, setSelectedType] = useState("Letter");
   const [timeLeft, setTimeLeft] = useState(600);
