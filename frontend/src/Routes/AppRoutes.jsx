@@ -5,7 +5,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import HomePage from "../components/HomePage";
+import HomePage from "../Home/HomePage";
 import Descriptive from "../pages/descriptive";
 
 export default function AppRoutes() {
