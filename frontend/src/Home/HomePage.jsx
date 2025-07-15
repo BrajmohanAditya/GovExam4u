@@ -1,19 +1,22 @@
 
 import React, { useState } from "react";
-import Navbar from "./Navbar";
 import SidebarMenu from "./Sidebar";
 import CardGrid from "./CardGrid";
+import LandingPgNav from "../Navbar/LandingPgNav";
 
 export default function HomePage() {
   const [showSidebar, setShowSidebar] = useState(false);
   return (
     //   Props Sending HomePage →Navbar:
     <>
-      <Navbar setShowSidebar={setShowSidebar} />
+      <LandingPgNav setShowSidebar={setShowSidebar} />
+
       <SidebarMenu showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
+
       <div className="pl-0 sm:pl-64 transition-all duration-300">
         <CardGrid />
       </div>
+
     </>
   );
 }
