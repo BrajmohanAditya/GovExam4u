@@ -5,7 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { GraduationCap } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars ,faTimes, } from "@fortawesome/free-solid-svg-icons";
 
 function Logo() {
   return (
@@ -20,16 +20,21 @@ function Logo() {
 }
 
 
-export default function Navbar({ setShowSidebar }) {   // prop receiving 
+export default function Navbar({ showSidebar, setShowSidebar }) {
+  // prop receiving
   return (
     <nav className="w-full  bg-blue-800 sticky top-0 z-[1000] px-4 py-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
       <div className="w-auto flex items-center gap-x-2 sm:justify-start">
         {/* 👇 Hamburger button */}
         <button
           className="sm:hidden p-2 text-white"
-          onClick={() => setShowSidebar((prev) => !prev)} // 
+          onClick={() => setShowSidebar((prev) => !prev)} //
         >
-          <FontAwesomeIcon icon={faBars} className="text-xl" />
+          {/* <FontAwesomeIcon icon={faBars} className="text-xl" /> */}
+          <FontAwesomeIcon
+            icon={showSidebar ? faTimes : faBars}
+            className="text-xl"
+          />
         </button>
         <Logo />
       </div>

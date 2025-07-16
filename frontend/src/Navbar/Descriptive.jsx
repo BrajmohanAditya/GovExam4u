@@ -1,12 +1,7 @@
 import React, { useState } from "react";
+import {timeMap} from "./TimeControle";
 
-export const timeMap = {
-  Letter: 600,
-  Essay: 1200,
-  Report: 1200,
-  Email: 600,
-  Situation: 600,
-};
+// { selectedType, handleTypeChange } yaha props send karo to controle time 
 
 export default function Navbar() {
   const [selectedType, setSelectedType] = useState("Letter");

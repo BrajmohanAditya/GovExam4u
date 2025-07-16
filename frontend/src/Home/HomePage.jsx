@@ -9,14 +9,13 @@ export default function HomePage() {
   return (
     //   Props Sending HomePage →Navbar:
     <>
-      <LandingPgNav setShowSidebar={setShowSidebar} />
+      <LandingPgNav showSidebar={showSidebar}  setShowSidebar={setShowSidebar} />
 
       <SidebarMenu showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
 
       <div className="pl-0 sm:pl-64 transition-all duration-300">
         <CardGrid />
       </div>
-
     </>
   );
 }
