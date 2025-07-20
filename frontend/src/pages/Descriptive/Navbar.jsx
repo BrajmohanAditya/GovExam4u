@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import {timeMap} from "./TimeControle";
+import { timeMap } from "./TimeControle";
 
-// { selectedType, handleTypeChange } yaha props send karo to controle time 
+// { selectedType, handleTypeChange } yaha props send karo to controle time
 
-export default function Navbar() {
-  const [selectedType, setSelectedType] = useState("Letter");
+export default function Navbar({ selectedType, handleTypeChange }) {
+  // const [selectedType, setSelectedType] = useState("Letter");
 
-  const handleTypeChange = (type) => {
-    setSelectedType(type);
-    sessionStorage.setItem("selectedType", type);
-  };
+  // const handleTypeChange = (type) => {
+  //   setSelectedType(type);
+  //   sessionStorage.setItem("selectedType", type);
+  // };
 
   return (
     <nav className="flex flex-col md:flex-row justify-between items-center bg-blue-900 text-white px-4 py-3 text-base font-semibold gap-2 shadow-md">
