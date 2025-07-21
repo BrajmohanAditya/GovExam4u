@@ -1,4 +1,4 @@
-{
+ const QuestionData = {
   "Letter": [
     "Write a letter to the bank manager requesting a new cheque book.",
     "Write a letter to the bank manager complaining about the delay in processing your loan application.",
@@ -133,5 +133,6 @@
   ]
 }
 
+export default QuestionData;
 
 
