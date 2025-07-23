@@ -26,6 +26,7 @@ export default function Navbar({ selectedType, handleTypeChange }) {
     </nav>
   );
 }
+
 /*
   Object.keys(timeMap).map((type) => (
   <button key={type}>{type}</button>

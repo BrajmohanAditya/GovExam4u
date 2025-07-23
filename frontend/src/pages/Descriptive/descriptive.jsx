@@ -3,13 +3,12 @@ import Navbar from "./Navbar";
 import {timeMap} from "./TimeControle";
 
 export default function Descriptive() {
-  const [selectedType, setSelectedType] = useState("Letter");
+  const [selectedType, setSelectedType] = useState("Letter"); // selectedType = "Letter"
   const [timeLeft, setTimeLeft] = useState(timeMap["Letter"]);
   const [wordCount, setWordCount] = useState(0);
   const [timerStarted, setTimerStarted] = useState(false);
   const timerRef = useRef(null);
   const textRef = useRef(null);
-
 
   useEffect(() => {
     console.log("🎯 Descriptive component mounted");
@@ -51,7 +50,7 @@ export default function Descriptive() {
   };
 
   const handleTypeChange = (type) => {
-    setSelectedType(type);      // state change
+    setSelectedType(type); // state change
     setTimeLeft(timeMap[type]);
     sessionStorage.setItem("selectedType", type);
     setTimerStarted(false);
@@ -98,10 +97,10 @@ export default function Descriptive() {
 
   return (
     <div className="bg-gray-100 font-sans min-h-screen">
-      <Navbar         /* Nabbar component*/
+      <Navbar /* Nabbar component*/
         selectedType={selectedType}
         handleTypeChange={handleTypeChange}
-      />    
+      />
 
       <div className="flex flex-col sm:flex-row items-center justify-center gap-3 px-4 py-4 text-center sm:text-left">
         <div className="text-green-600 font-bold">
