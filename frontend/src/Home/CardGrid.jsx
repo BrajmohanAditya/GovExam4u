@@ -16,7 +16,7 @@ export default function CardGrid() {
         </div>
       </Link>
 
-      <Link to="/mocktest" className="no-underline">
+      <Link to="/mock" className="no-underline">
         <div className="bg-blue-600 rounded-lg shadow-md p-4 w-52 cursor-pointer hover:shadow-lg transition h-52">
           <h3 className="text-xl font-semibold mb-2 text-white">Mock Test</h3>
           <p className="text-gray-200">Total Sets: 10</p>
