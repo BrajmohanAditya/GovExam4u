@@ -1,22 +1,4 @@
-// import React from "react";
-// import { useParams } from "react-router-dom";
-// import { QuestionData } from "./questions"; 
 
-// export default function QuestionPage() {
-//   const { type } = useParams();
-//   const questions = QuestionData[type] || [];
-
-//   return (
-//     <div className="p-6">
-//       <h1 className="text-2xl font-bold mb-4">{type} Questions</h1>
-//       <ul className="list-disc pl-6 space-y-2">
-//         {questions.map((q, i) => (
-//           <li key={i}>{q}</li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// }
 
 import React from "react";
 import { useParams } from "react-router-dom";

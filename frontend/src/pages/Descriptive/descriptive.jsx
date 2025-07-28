@@ -78,7 +78,7 @@ export default function Descriptive() {
 
     try {
       await navigator.clipboard.writeText(finalText);
-      alert("✅ Copied to clipboard!");
+      alert("✅ Submitted and copied to clipboard!");
     } catch (err) {
       console.warn("❌ Copy failed!", err);
       alert("❌ Copy failed! Please copy manually.");
@@ -93,7 +93,7 @@ export default function Descriptive() {
 
   const handleCopyClick = () => {
     const text = textRef.current.value.trim();
-    if (!text) return alert("Nothing to copy!");
+    if (!text) return alert("Text Copied!");
     navigator.clipboard
       .writeText(text)
       .then(() => alert("✅ Copied to clipboard!"))
