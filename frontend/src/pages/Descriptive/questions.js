@@ -1,4 +1,4 @@
- const QuestionData = {
+ export const  QuestionData = {
   "Letter": [
     "Write a letter to the bank manager requesting a new cheque book.",
     "Write a letter to the bank manager complaining about the delay in processing your loan application.",
@@ -131,8 +131,7 @@
 
 "You are the Branch Manager of Kotak Mahindra Bank in Bhopal. Frequent revisions in internal guidelines are causing uncertainty among employees, leading to miscommunication with customers. Assess the consequences of this communication gap and recommend measures to ensure clarity and consistency among staff."
   ]
-}
+};
 
-export default QuestionData;
 
 

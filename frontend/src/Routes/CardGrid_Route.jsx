@@ -8,7 +8,7 @@ export default function CardGrid_Route() {
   return (
     <Routes>
       <Route path="/descriptive" element={<Descriptive />} />
-      <Route path="/mock" element={<Mocktest />} />     
+      <Route path="/mock" element={<Mocktest />} />
     </Routes>
   );
 }

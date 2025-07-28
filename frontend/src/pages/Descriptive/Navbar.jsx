@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { timeMap } from "./TimeControle";
-import QuestionData from "./questions";
+import { Link } from "react-router-dom";
 
 export default function Navbar({ selectedType, handleTypeChange }) {
 
@@ -10,6 +10,7 @@ export default function Navbar({ selectedType, handleTypeChange }) {
 
       <div className="flex flex-wrap justify-center gap-2">
         {Object.keys(timeMap).map((type) => (
+          <Link to={`/questions/${type}`} key={type}>
           <button
             key={type}
             onClick={() => handleTypeChange(type)}
@@ -21,6 +22,7 @@ export default function Navbar({ selectedType, handleTypeChange }) {
           >
             {type}
           </button>
+          </Link>
         ))}
       </div>
     </nav>

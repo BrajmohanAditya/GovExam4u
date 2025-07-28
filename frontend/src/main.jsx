@@ -5,11 +5,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import HomePage from "./Home/HomePage";
 import CardGrid_Route from "./Routes/CardGrid_Route";
+import QuestionPage from "./pages/Descriptive/QuestionPage";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/questions/:type" element={<QuestionPage />} />
     </Routes>
     <CardGrid_Route />
   </BrowserRouter>

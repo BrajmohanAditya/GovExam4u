@@ -3,12 +3,14 @@ import Navbar from "./Navbar";
 import {timeMap} from "./TimeControle";
 
 export default function Descriptive() {
+  console.log("6");
   const [selectedType, setSelectedType] = useState("Letter"); // selectedType = "Letter"
   const [timeLeft, setTimeLeft] = useState(timeMap["Letter"]);
   const [wordCount, setWordCount] = useState(0);
   const [timerStarted, setTimerStarted] = useState(false);
   const timerRef = useRef(null);
   const textRef = useRef(null);
+  console.log("13");
 
   useEffect(() => {
     console.log("🎯 Descriptive component mounted");
@@ -20,7 +22,7 @@ export default function Descriptive() {
       setSelectedType(savedType);
       setTimeLeft(timeMap[savedType]);
     }
-  }, []);
+  }, []); // 🔁 Kitni bhi baar state change ho — ye useEffect kabhi nahi chalega. npm run dev krta time he bus ak bar chalta hai.
 
   useEffect(() => {
     if (timerStarted) {
@@ -36,7 +38,7 @@ export default function Descriptive() {
       }, 1000);
     }
     return () => clearInterval(timerRef.current);
-  }, [timerStarted]);
+  }, [timerStarted]); //   Is project me setTimerStarted(true) call hota hai line 130 pe tabhi ya run hoga
 
   const formatTime = (seconds) =>
     `${String(Math.floor(seconds / 60)).padStart(2, "0")}:${String(
@@ -50,6 +52,7 @@ export default function Descriptive() {
   };
 
   const handleTypeChange = (type) => {
+    console.log("52");
     setSelectedType(type); // state change
     setTimeLeft(timeMap[type]);
     sessionStorage.setItem("selectedType", type);
@@ -57,11 +60,13 @@ export default function Descriptive() {
     clearInterval(timerRef.current);
     setWordCount(0);
     if (textRef.current) textRef.current.value = "";
+    console.log("60");
   };
+  console.log("65");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    console.log("66");
     const textarea = textRef.current;
     let currentText = textarea.value.trim();
 
@@ -84,7 +89,7 @@ export default function Descriptive() {
     setTimeLeft(timeMap[selectedType]);
     setWordCount(0);
     textarea.value = "";
-  };
+  }; // React re-renders the component only to refresh the UI, not to re-execute functions like handleSubmit.
 
   const handleCopyClick = () => {
     const text = textRef.current.value.trim();
@@ -94,13 +99,15 @@ export default function Descriptive() {
       .then(() => alert("✅ Copied to clipboard!"))
       .catch(() => alert("❌ Failed to copy!"));
   };
-
   return (
     <div className="bg-gray-100 font-sans min-h-screen">
-      <Navbar /* Nabbar component*/
-        selectedType={selectedType}
-        handleTypeChange={handleTypeChange}
-      />
+      <Navbar selectedType={selectedType} handleTypeChange={handleTypeChange} />
+
+      <p className="text-lg  px-6 py-4 rounded-xl shadow-sm   ml-1 text-gray-500 ">
+        User sees a random question (Essay/Letter/etc.), writes their answer in
+        a textarea, clicks “Submit,” and the answer is copied to GPT evaluation
+        engine, which evaluates and shows feedback (marks + suggestions).
+      </p>
 
       <div className="flex flex-col sm:flex-row items-center justify-center gap-3 px-4 py-4 text-center sm:text-left">
         <div className="text-green-600 font-bold">
@@ -114,7 +121,6 @@ export default function Descriptive() {
           📋 Copy
         </button>
       </div>
-
       <form
         id="descriptiveForm"
         onSubmit={handleSubmit}
