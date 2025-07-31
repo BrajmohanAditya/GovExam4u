@@ -51,7 +51,7 @@ export default function Descriptive() {
     setWordCount(count);
   };
 
-  const handleTypeChange = (type) => {
+  const handleTypeChange = (type) => { 
     console.log("52");
     setSelectedType(type); // state change
     setTimeLeft(timeMap[type]);
