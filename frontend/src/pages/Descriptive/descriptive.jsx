@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Navbar from "./Navbar";
 import {timeMap} from "./TimeControle";
+import DescriptiveForm from "./DescriptiveForm";
 
 export default function Descriptive() {
   console.log("6");
@@ -109,75 +110,17 @@ export default function Descriptive() {
         engine, which evaluates and shows feedback (marks + suggestions).
       </p>
 
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-3 px-4 py-4 text-center sm:text-left">
-        <div className="text-green-600 font-bold">
-          Time left: {formatTime(timeLeft)}
-        </div>
-        <div className="text-gray-700 font-bold">Word count: {wordCount}</div>
-        <button
-          onClick={handleCopyClick}
-          className="bg-zinc-800 text-white px-3 py-1 rounded text-sm hover:bg-zinc-700 transition"
-        >
-          📋 Copy
-        </button>
-      </div>
-      <form
-        id="descriptiveForm"
-        onSubmit={handleSubmit}
-        className="mx-4 md:mx-auto max-w-2xl flex flex-col gap-4"
-      >
-        <textarea
-          ref={textRef}
-          name="prompt"
-          rows="12"
-          required
-          spellCheck="false"
-          className="w-full border border-gray-300 p-3 text-base rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white"
-          onFocus={() => !timerStarted && setTimerStarted(true)}
-          onInput={(e) => {
-            handleWordCount(e);
-            if (e.target.value.includes("\n\n")) {
-              e.target.value = e.target.value.replace(/\n\n+/g, "\n");
-            }
-          }}
-          onPaste={(e) => e.preventDefault()}
-          onCopy={(e) => e.preventDefault()}
-          onCut={(e) => e.preventDefault()}
-          onContextMenu={(e) => e.preventDefault()}
-          onKeyDown={(e) => {
-            const cursorAtEnd =
-              e.target.selectionStart === e.target.value.length;
-            if (
-              !cursorAtEnd &&
-              ![
-                "Backspace",
-                "Delete",
-                "ArrowLeft",
-                "ArrowRight",
-                "Tab",
-              ].includes(e.key)
-            ) {
-              e.preventDefault();
-            }
-          }}
-        ></textarea>
-
-        <div className="flex flex-col sm:flex-row justify-center sm:justify-start gap-4">
-          <button
-            type="submit"
-            className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-          >
-            Submit
-          </button>
-          <button
-            type="button"
-            onClick={() => window.open("https://chatgpt.com/", "_blank")}
-            className="px-6 py-2 bg-gray-600 text-white rounded hover:bg-gray-700"
-          >
-            ChatGpt
-          </button>
-        </div>
-      </form>
+      <DescriptiveForm
+        timeLeft={timeLeft}
+        wordCount={wordCount}
+        timerStarted={timerStarted}
+        textRef={textRef}
+        formatTime={formatTime}
+        handleWordCount={handleWordCount}
+        handleSubmit={handleSubmit}
+        handleCopyClick={handleCopyClick}
+        setTimerStarted={setTimerStarted}
+      />
     </div>
   );
 }
