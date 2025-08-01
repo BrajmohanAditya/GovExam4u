@@ -51,7 +51,7 @@ export default function Descriptive() {
     setWordCount(count);
   };
 
-  const handleTypeChange = (type) => { 
+  const handleTypeChange = (type) => { // the movement you click letter, essay then ya pura looop chalaga. 
     console.log("52");
     setSelectedType(type); // state change
     setTimeLeft(timeMap[type]);

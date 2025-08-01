@@ -1,12 +1,10 @@
-// HomeRoute.jsx
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import HomePage from "./HomePage";
 
-export default function HomeRoute() {
-  return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-    </Routes>
-  ); 
-}
+import React from "react";
+import HomePage from "./HomePage"; // Your Home component
+import { Route } from "react-router-dom";
+
+const HomeRoutes = [
+  <Route path="/" element={<HomePage />} key="home" />
+];
+
+export default HomeRoutes;
