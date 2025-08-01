@@ -1,140 +1,148 @@
- export const QuestionData = {
-   Letter: [
-     "Write a letter to the bank manager requesting a new cheque book.",
-     "Write a letter to the bank manager complaining about the delay in processing your loan application.",
-     "Write a letter to the bank manager requesting to update your address in bank records.",
-     "Write a letter to the bank manager reporting a lost debit card and requesting a replacement.",
-     "Write a letter to the bank manager requesting the closure of your fixed deposit account.",
-     "Write a letter to the bank manager requesting a statement of your savings account for the last three months.",
-     "Write a letter to the bank manager requesting information about home loan interest rates.",
-     "Write a letter to the bank manager requesting the activation of your new debit card.",
-     "Write a letter to the bank manager requesting the addition of a nominee to your savings account.",
-     "Write a letter to the bank manager requesting the correction of a wrong transaction in your account.",
-   ],
+export const QuestionData = {
+  Letter: [
+    "Write a letter to the bank manager requesting a new cheque book.",
+    "Write a letter to the bank manager complaining about the delay in processing your loan application.",
+    "Write a letter to the bank manager requesting to update your address in bank records.",
+    "Write a letter to the bank manager reporting a lost debit card and requesting a replacement.",
+    "Write a letter to the bank manager requesting the closure of your fixed deposit account.",
+    "Write a letter to the bank manager requesting a statement of your savings account for the last three months.",
+    "Write a letter to the bank manager requesting information about home loan interest rates.",
+    "Write a letter to the bank manager requesting the activation of your new debit card.",
+    "Write a letter to the bank manager requesting the addition of a nominee to your savings account.",
+    "Write a letter to the bank manager requesting the correction of a wrong transaction in your account.",
+  ],
 
-   Essay: [
-     "Write an essay on the importance of time management.",
-     "Discuss the growth, challenges, and opportunities in the Indian startup ecosystem.",
+  Essay: [
+    "Write an essay on the importance of time management.",
+    "Discuss the growth, challenges, and opportunities in the Indian startup ecosystem.",
+    "Analyze the pros and cons of implementing a four-day work week in India.",
+    "What are the causes and consequences of the recent economic slowdown in India?",
+    "Discuss the changes in WhatsApp's user policy and their implications for user privacy and surveillance.",
+    "What is the role of cybersecurity in the banking sector? Highlight the key challenges.",
+    "Examine the issues and opportunities associated with the growth of digital payments in India.",
+    "How has social media affected various aspects of our daily lives?",
+    "Why is pollution in Delhi NCR still an unsolved problem? Suggest effective measures.",
+    "Discuss the contribution of self-reliant farmers and MSMEs to India’s rural economy.",
+    "Examine the major border disputes India is currently facing and their historical background.",
+    "Discuss the role of women entrepreneurs in India’s economic development.",
+    "Highlight the key features and implications of India’s New Education Policy.",
+    "Is women’s empowerment in India a reality or just rhetoric? Explain.",
+    "Analyze the pros and cons of artificial intelligence in modern industries.",
+    "Examine the rise of cryptocurrencies and the role of blockchain technology in today’s economy.",
+    "Discuss the impact of Covid-19 and the lockdown on the Indian economy and society.",
+    "What are the advantages and disadvantages of online learning, especially during the pandemic?",
+    "Discuss the causes and global impact of the Russia-Ukraine war.",
+    "Should India implement a universal healthcare system? Debate its feasibility.",
+    "How is climate change affecting the globe? Suggest steps to mitigate it.",
+    "Discuss the pros and cons of privatizing public sector banks in India.",
+    "What are the challenges and benefits of implementing 5G services in India.",
+    "Discuss how the Aatm Nirbhar Bharat campaign is pushing India towards economic self-reliance.",
+    "What are the causes of rising unemployment in India, and what can be done to solve it?",
+    "Discuss the pros and cons of adopting renewable energy in India.",
+    "Why are today’s youth losing focus on contributing to global progress? Suggest solutions.",
+    "What are the advantages and disadvantages of digital payments in India?",
+    "Discuss the significance and challenges of implementing the One Nation, One Ration Card scheme.",
+    "Analyze the future prospects and challenges of electric vehicles in India.",
+    "What challenges is the Indian economy currently facing, and how can they be addressed?",
+    "What are the main causes of gender discrimination in India and how can they be tackled?",
+    "Analyze the implementation of GST in India. What are its benefits and drawbacks?",
+    "What challenges and opportunities does an interconnected global economy present?",
+    "Suggest effective measures to prevent excessive migration from rural to urban areas.",
+    "Discuss the role of banks in promoting financial inclusion in rural India.",
+    "Pollution remains one of the biggest environmental challenges. Discuss its forms and solutions.",
+    "How has UPI changed the landscape of digital payments in India?",
+    "Why is the G20 2024 Summit significant for addressing global economic and environmental issues?",
+    "How is BRICS 2024 expected to shape global power dynamics and cooperation?",
+    "Discuss the risks and benefits of deepfake technology and the need for regulation.",
+    "Role of Digital Banking in Financial Inclusion",
+    "Impact of RBI’s Monetary Policy on Indian Economy",
+    "Non-Performing Assets: Causes and Remedies",
+    "Future of UPI and Digital Payments in India",
+    "Privatization of Public Sector Banks – Pros and Cons",
+    "Cybersecurity Challenges in Banking Sector",
+    "Role of NBFCs in Indian Financial System",
+    "Credit Culture in India: Need for Reform",
+    "Financial Literacy – Key to Economic Growth",
+    "Green Banking – Need of the Hour",
+    "One Nation One Ration Card: Boon or Burden?",
+    "Impact of GST on Small Businesses",
+    "Atmanirbhar Bharat: Vision or Reality?",
+    "NITI Aayog vs Planning Commission",
+    "PLI Scheme: Boost to Manufacturing?",
+    "Jan Dhan Yojana and Its Impact on Rural Economy",
+    "Impact of Farm Bills on Indian Agriculture",
+    "Make in India vs Made in India",
+    "Role of DBT (Direct Benefit Transfer) in Governance",
+    "Ease of Doing Business in India – Challenges Ahead",
+    "Role of AI and Machine Learning in Banking",
+    "Blockchain Technology – Future of Financial Transactions",
+    "Fintech Revolution in India",
+    "5G and Its Impact on Indian Economy",
+    "Cybercrime and Digital Awareness",
+    "Internet of Things (IoT): Boon or Threat?",
+    "Role of Chatbots in Customer Service",
+    "Data Privacy and the Role of Legislation",
+    "Cryptocurrency: Threat or Opportunity?",
+    "Ethical Use of AI in Governance",
+    "Unemployment and Underemployment in India",
+    "Women Empowerment in Corporate and Banking Sectors",
+    "Education vs Employability in India",
+    "Poverty and Inclusive Growth",
+    "Gender Equality and Social Development",
+    "Mental Health Awareness in Modern India",
+    "Drug Abuse Among Youth: Reasons and Solutions",
+    "Urbanization and Its Challenges",
+    "Impact of Social Media on Youth",
+    "Reservation System: Is It Still Relevant?",
+    "Climate Change and India’s Preparedness",
+    "Importance of Sustainable Development",
+    "Renewable Energy in India – Progress and Challenges",
+    "Electric Vehicles – The Road Ahead",
+    "Pollution Control Measures in Urban India",
+    "Water Conservation and Management",
+    "Afforestation and Carbon Neutrality Goals",
+    "Role of Individuals in Combating Global Warming",
+    "India’s Role in BRICS & G20",
+    "India’s Soft Power – Yoga, Culture & Diplomacy",
+  ],
 
-     "Analyze the pros and cons of implementing a four-day work week in India.",
+  Report: [
+    "Write a report on the recent blood donation camp in your college.",
+    " Write a detailed report analyzing an incident involving a conflict between a customer who defaulted on home loan payments and the bank manager. Focus on presenting the facts, reasons for the conflict, and possible recommendations to address such situations in the future.",
+    "A digital banking awareness workshop was recently organized for senior citizens in your locality by SBI staff. Submit a report to the Branch Manager summarizing the event, attendance, response and recommending future initiatives to enhance digital literacy among elderly customers.",
+    "During Q1‑2025, the loan disbursement targets at your branch were consistently missed due to staffing shortages. Prepare a report to the Regional Office outlining findings, analysing root causes, and suggesting corrective actions to improve disbursement efficiency",
+    "Your college student group visited a local microfinance institution to understand financial inclusion practices. Write a report to your college administration describing key observations, strengths and weaknesses of the MFIs, and recommendations to include this insight in your curriculum",
+  ],
 
-     "What are the causes and consequences of the recent economic slowdown in India?",
+  Email: [
+    "Write an email to your HR manager requesting leave for 3 days.",
+    "You are a Branch Manager at ABC Bank, and customers are facing issues with their net banking login. Write a formal email to the IT Support Team requesting urgent resolution",
+    "You received repeated customer complaints regarding delayed cheque clearing due to staff shortages. Write an email to HR requesting temporary reassignment or extra manpower to address delays and maintain service quality.",
+    "A customer requested an account statement older than six months which requires special approval. Email the Compliance/Operations Team justifying the request, including customer details, and seeking approval for manual processing.",
+  ],
 
-     "Discuss the changes in WhatsApp's user policy and their implications for user privacy and surveillance.",
+  Situation: [
+    "With an upcoming festive season, your SBI Mumbai branch anticipates a significant increase in customer footfall and transaction volume. What operational challenges do you foresee, and how would you ensure seamless and efficient banking services during this high-demand period?",
 
-     "What is the role of cybersecurity in the banking sector? Highlight the key challenges.",
+    "As the branch manager of State Bank of India, you are facing a high rate of employee turnover caused by excessive workload and declining staff morale. Analyze the underlying issues and recommend effective strategies to retain and motivate your employees.",
 
-     "Examine the issues and opportunities associated with the growth of digital payments in India.",
+    "Customers have consistently expressed frustration over the poor performance of the online banking platform, leading to dissatisfaction and negative reviews. As a bank official, how would you identify the root causes and implement corrective measures to enhance customer experience?",
 
-     "How has social media affected various aspects of our daily lives?",
+    "You are the branch manager of SBI in Rajasthan. As your branch expands its digital banking services, many rural customers continue to prefer traditional banking methods. Identify the key barriers to digital adoption and suggest practical ways to encourage the shift toward digital platforms.",
 
-     "Why is pollution in Delhi NCR still an unsolved problem? Suggest effective measures.",
+    "You are a bank manager evaluating a loan proposal from a local shop seeking funds for expansion. However, the business shows irregular income patterns. Analyze the financial viability of the shop, assess its repayment capacity, and suggest strategies to manage the lending risk.",
 
-     "Discuss the contribution of self-reliant farmers and MSMEs to India’s rural economy.",
+    "As the branch manager of SBI Delhi, you are dealing with frequent ATM downtimes in your jurisdiction, leading to customer complaints and service disruptions. Analyze the situation and recommend solutions to ensure uninterrupted access to ATM services.",
 
-     "Examine the major border disputes India is currently facing and their historical background.",
+    "As the CEO of SBI, you are confronted with a crisis following a major data breach that has compromised customer information, resulting in panic and loss of trust. Evaluate the situation and outline the steps you will take to mitigate the damage and rebuild customer confidence.",
+    "Despite launching a new mobile banking application, your bank is witnessing poor download rates and low user engagement. As the CEO of SBI, identify the potential causes for this underperformance and propose targeted measures to boost adoption and usability.",
 
-     "Discuss the role of women entrepreneurs in India’s economic development.",
+    "You are the Managing Director of Bank of Maharashtra. Despite rolling out several financial awareness workshops in remote districts of Madhya Pradesh, community turnout remains minimal. Evaluate potential reasons behind the lack of engagement and recommend actionable strategies to boost participation.",
 
-     "Highlight the key features and implications of India’s New Education Policy.",
+    "You are the Branch Head of Canara Bank in Jaipur. A growing number of elderly customers are finding digital banking services confusing and continue to rely on in-person visits, increasing operational strain. Examine the issue and propose a customer-friendly solution that caters to all age groups.",
 
-     "Is women’s empowerment in India a reality or just rhetoric? Explain.",
+    "You are the Assistant General Manager of IndusInd Bank, Nagpur. Recent negative coverage in regional newspapers has highlighted lapses in your branch’s complaint resolution system. Investigate the matter and suggest corrective steps to improve service quality and restore public confidence.",
 
-     "Analyze the pros and cons of artificial intelligence in modern industries.",
-
-     "Examine the rise of cryptocurrencies and the role of blockchain technology in today’s economy.",
-
-     "Discuss the impact of Covid-19 and the lockdown on the Indian economy and society.",
-
-     "What are the advantages and disadvantages of online learning, especially during the pandemic?",
-
-     "Discuss the causes and global impact of the Russia-Ukraine war.",
-
-     "Should India implement a universal healthcare system? Debate its feasibility.",
-
-     "How is climate change affecting the globe? Suggest steps to mitigate it.",
-
-     "Discuss the pros and cons of privatizing public sector banks in India.",
-
-     "What are the challenges and benefits of implementing 5G services in India?",
-
-     "Discuss how the Aatm Nirbhar Bharat campaign is pushing India towards economic self-reliance.",
-
-     "What are the causes of rising unemployment in India, and what can be done to solve it?",
-
-     "Discuss the pros and cons of adopting renewable energy in India.",
-
-     "Why are today’s youth losing focus on contributing to global progress? Suggest solutions.",
-
-     "What are the advantages and disadvantages of digital payments in India?",
-
-     "Discuss the significance and challenges of implementing the One Nation, One Ration Card scheme.",
-
-     "Analyze the future prospects and challenges of electric vehicles in India.",
-
-     "What challenges is the Indian economy currently facing, and how can they be addressed?",
-
-     "What are the main causes of gender discrimination in India and how can they be tackled?",
-
-     "Analyze the implementation of GST in India. What are its benefits and drawbacks?",
-
-     "What challenges and opportunities does an interconnected global economy present?",
-
-     "Suggest effective measures to prevent excessive migration from rural to urban areas.",
-
-     "Discuss the role of banks in promoting financial inclusion in rural India.",
-
-     "Pollution remains one of the biggest environmental challenges. Discuss its forms and solutions.",
-
-     "How has UPI changed the landscape of digital payments in India?",
-
-     "Why is the G20 2024 Summit significant for addressing global economic and environmental issues?",
-
-     "How is BRICS 2024 expected to shape global power dynamics and cooperation?",
-
-     "Discuss the risks and benefits of deepfake technology and the need for regulation.",
-   ],
-
-   Report: [
-     "Write a report on the recent blood donation camp in your college.",
-     " Write a detailed report analyzing an incident involving a conflict between a customer who defaulted on home loan payments and the bank manager. Focus on presenting the facts, reasons for the conflict, and possible recommendations to address such situations in the future.",
-     "A digital banking awareness workshop was recently organized for senior citizens in your locality by SBI staff. Submit a report to the Branch Manager summarizing the event, attendance, response and recommending future initiatives to enhance digital literacy among elderly customers.",
-     "During Q1‑2025, the loan disbursement targets at your branch were consistently missed due to staffing shortages. Prepare a report to the Regional Office outlining findings, analysing root causes, and suggesting corrective actions to improve disbursement efficiency",
-     "Your college student group visited a local microfinance institution to understand financial inclusion practices. Write a report to your college administration describing key observations, strengths and weaknesses of the MFIs, and recommendations to include this insight in your curriculum",
-   ],
-
-   Email: [
-     "Write an email to your HR manager requesting leave for 3 days.",
-     "You are a Branch Manager at ABC Bank, and customers are facing issues with their net banking login. Write a formal email to the IT Support Team requesting urgent resolution",
-     "You received repeated customer complaints regarding delayed cheque clearing due to staff shortages. Write an email to HR requesting temporary reassignment or extra manpower to address delays and maintain service quality.",
-     "A customer requested an account statement older than six months which requires special approval. Email the Compliance/Operations Team justifying the request, including customer details, and seeking approval for manual processing."
-   ],
-
-   Situation: [
-     "With an upcoming festive season, your SBI Mumbai branch anticipates a significant increase in customer footfall and transaction volume. What operational challenges do you foresee, and how would you ensure seamless and efficient banking services during this high-demand period?",
-
-     "As the branch manager of State Bank of India, you are facing a high rate of employee turnover caused by excessive workload and declining staff morale. Analyze the underlying issues and recommend effective strategies to retain and motivate your employees.",
-
-     "Customers have consistently expressed frustration over the poor performance of the online banking platform, leading to dissatisfaction and negative reviews. As a bank official, how would you identify the root causes and implement corrective measures to enhance customer experience?",
-
-     "You are the branch manager of SBI in Rajasthan. As your branch expands its digital banking services, many rural customers continue to prefer traditional banking methods. Identify the key barriers to digital adoption and suggest practical ways to encourage the shift toward digital platforms.",
-
-     "You are a bank manager evaluating a loan proposal from a local shop seeking funds for expansion. However, the business shows irregular income patterns. Analyze the financial viability of the shop, assess its repayment capacity, and suggest strategies to manage the lending risk.",
-
-     "As the branch manager of SBI Delhi, you are dealing with frequent ATM downtimes in your jurisdiction, leading to customer complaints and service disruptions. Analyze the situation and recommend solutions to ensure uninterrupted access to ATM services.",
-
-     "As the CEO of SBI, you are confronted with a crisis following a major data breach that has compromised customer information, resulting in panic and loss of trust. Evaluate the situation and outline the steps you will take to mitigate the damage and rebuild customer confidence.",
-     "Despite launching a new mobile banking application, your bank is witnessing poor download rates and low user engagement. As the CEO of SBI, identify the potential causes for this underperformance and propose targeted measures to boost adoption and usability.",
-
-     "You are the Managing Director of Bank of Maharashtra. Despite rolling out several financial awareness workshops in remote districts of Madhya Pradesh, community turnout remains minimal. Evaluate potential reasons behind the lack of engagement and recommend actionable strategies to boost participation.",
-
-     "You are the Branch Head of Canara Bank in Jaipur. A growing number of elderly customers are finding digital banking services confusing and continue to rely on in-person visits, increasing operational strain. Examine the issue and propose a customer-friendly solution that caters to all age groups.",
-
-     "You are the Assistant General Manager of IndusInd Bank, Nagpur. Recent negative coverage in regional newspapers has highlighted lapses in your branch’s complaint resolution system. Investigate the matter and suggest corrective steps to improve service quality and restore public confidence.",
-
-     "You are the Branch Manager of Kotak Mahindra Bank in Bhopal. Frequent revisions in internal guidelines are causing uncertainty among employees, leading to miscommunication with customers. Assess the consequences of this communication gap and recommend measures to ensure clarity and consistency among staff.",
-   ],
- };
-
-
-
+    "You are the Branch Manager of Kotak Mahindra Bank in Bhopal. Frequent revisions in internal guidelines are causing uncertainty among employees, leading to miscommunication with customers. Assess the consequences of this communication gap and recommend measures to ensure clarity and consistency among staff.",
+  ],
+};
