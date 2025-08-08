@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import {timeMap} from "./TimeControle";
 import DescriptiveForm from "./DescriptiveForm";
 import { wordLimitMap } from "./WordLimitMap";
+import { MaxMarksMap } from "./MaxMarksMap";
 export default function Descriptive() {
   console.log("6");
   const [selectedType, setSelectedType] = useState("Letter"); // selectedType = "Letter"
@@ -74,8 +75,7 @@ export default function Descriptive() {
     const textarea = textRef.current;
     let currentText = textarea.value.trim();
 
-    const extraPrompt =
-      `\n\nMarks out of 15, check spelling error, check grammar error,  Max words: ${wordLimitMap[selectedType]}`;
+    const extraPrompt = `\n\n Marks out of ${MaxMarksMap[selectedType]}, check spelling error, check grammar error,  Max words should be: ${wordLimitMap[selectedType]}`;
     const finalText = currentText + extraPrompt;
 
     textarea.value = finalText;

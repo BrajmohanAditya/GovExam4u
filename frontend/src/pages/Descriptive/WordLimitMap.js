@@ -5,5 +5,5 @@ export const wordLimitMap = {
   Essay: 250,
   Report: 200,
   Email: 150,
-  Situation: 300,
+  "Situation Analysis": 300,
 };
