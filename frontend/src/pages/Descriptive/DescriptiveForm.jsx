@@ -39,7 +39,7 @@ export default function DescriptiveForm({
           required
           spellCheck="false"
           className="w-full border border-gray-300 p-3 text-base rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white"
-          onFocus={() => !timerStarted && setTimerStarted(true)}
+          onFocus={() => !timerStarted && setTimerStarted(true)} // Jab element pe focus aaye (user click kare ya tab kare), aur agar timer start nahi hua hai, to usko start kar do."
           onInput={(e) => {
             handleWordCount(e);
             if (e.target.value.includes("\n\n")) {

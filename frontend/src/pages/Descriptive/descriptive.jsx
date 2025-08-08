@@ -2,16 +2,17 @@ import React, { useEffect, useRef, useState } from "react";
 import Navbar from "./Navbar";
 import {timeMap} from "./TimeControle";
 import DescriptiveForm from "./DescriptiveForm";
-
+import { wordLimitMap } from "./WordLimitMap";
 export default function Descriptive() {
   console.log("6");
   const [selectedType, setSelectedType] = useState("Letter"); // selectedType = "Letter"
-  const [timeLeft, setTimeLeft] = useState(timeMap["Letter"]);
+  const [timeLeft, setTimeLeft] = useState(timeMap["Letter"]); // useState(600);
   const [wordCount, setWordCount] = useState(0);
   const [timerStarted, setTimerStarted] = useState(false);
+  console.log("12");
   const timerRef = useRef(null);
   const textRef = useRef(null);
-  console.log("13");
+  console.log(timerRef);
 
   useEffect(() => {
     console.log("🎯 Descriptive component mounted");
@@ -29,6 +30,7 @@ export default function Descriptive() {
     if (timerStarted) {
       timerRef.current = setInterval(() => {
         setTimeLeft((prev) => {
+          // yaha prev hamesha
           if (prev <= 1) {
             clearInterval(timerRef.current);
             handleSubmit(new Event("submit"));
@@ -52,7 +54,8 @@ export default function Descriptive() {
     setWordCount(count);
   };
 
-  const handleTypeChange = (type) => { // the movement you click letter, essay then ya pura looop chalaga. 
+  const handleTypeChange = (type) => {
+    // the movement you click letter, essay then ya pura looop chalaga.
     console.log("52");
     setSelectedType(type); // state change
     setTimeLeft(timeMap[type]);
@@ -108,6 +111,11 @@ export default function Descriptive() {
         User sees a random question (Essay/Letter/etc.), writes their answer in
         a textarea, clicks “Submit,” and the answer is copied to GPT evaluation
         engine, which evaluates and shows feedback (marks + suggestions).
+        <div className=" text-red-700 py-2 ">
+          <strong >
+            Max words: {wordLimitMap[selectedType]}
+          </strong>
+        </div>
       </p>
 
       <DescriptiveForm

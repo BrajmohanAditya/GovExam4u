@@ -5,5 +5,5 @@ export const timeMap = {
   Essay: 1200,
   Report: 900,
   Email: 900,
-  Situation: 1200,
+  "Situation Analysis": 1200,
 };
