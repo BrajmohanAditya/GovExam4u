@@ -1,15 +1,6 @@
 export const QuestionData = {
-  Letter: [
-    "Write a letter to the bank manager requesting a new cheque book.",
-    "Write a letter to the bank manager complaining about the delay in processing your loan application.",
-    "Write a letter to the bank manager requesting to update your address in bank records.",
-    "Write a letter to the bank manager reporting a lost debit card and requesting a replacement.",
-    "Write a letter to the bank manager requesting the closure of your fixed deposit account.",
-    "Write a letter to the bank manager requesting a statement of your savings account for the last three months.",
-    "Write a letter to the bank manager requesting information about home loan interest rates.",
-    "Write a letter to the bank manager requesting the activation of your new debit card.",
-    "Write a letter to the bank manager requesting the addition of a nominee to your savings account.",
-    "Write a letter to the bank manager requesting the correction of a wrong transaction in your account.",
+  Comprehension: [
+
   ],
 
   Essay: [

@@ -75,7 +75,7 @@ export default function Descriptive() {
     let currentText = textarea.value.trim();
 
     const extraPrompt =
-      "\n\nMarks out of 15, check spelling error, check grammar error";
+      `\n\nMarks out of 15, check spelling error, check grammar error,  Max words: ${wordLimitMap[selectedType]}`;
     const finalText = currentText + extraPrompt;
 
     textarea.value = finalText;
