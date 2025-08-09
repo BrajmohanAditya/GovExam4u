@@ -32,6 +32,8 @@
 //   );
 // }
 
+// jo comment out kiya hu bahut imp function hai next page k liya
+
 import React from "react";
 import { timeMap } from "./TimeControle";
 

@@ -7,8 +7,8 @@ import { MaxMarksMap } from "./MaxMarksMap";
 import QuestionPage from "./QuestionPage";
 export default function Descriptive() {
   console.log("6");
-  const [selectedType, setSelectedType] = useState("Letter"); // selectedType = "Letter"
-  const [timeLeft, setTimeLeft] = useState(timeMap["Letter"]); // useState(600);
+  const [selectedType, setSelectedType] = useState("Essay"); // selectedType = "Letter"
+  const [timeLeft, setTimeLeft] = useState(timeMap["Essay"]); // useState(600);
   const [wordCount, setWordCount] = useState(0);
   const [timerStarted, setTimerStarted] = useState(false);
   console.log("12");
