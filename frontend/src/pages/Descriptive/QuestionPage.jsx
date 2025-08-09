@@ -4,12 +4,12 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { QuestionData } from "./questions";
 
-export default function QuestionPage() {
-  const { type } = useParams(); // "Essay" ya "Letter"
+export default function QuestionPage({ type }) {
+  // const { type } = useParams(); 
   const questions = QuestionData[type] || [];
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4 md:px-20">
+    <div className="min-h-screen bg-gray-100 px-4 md:px-5">
       <div className="bg-white shadow-md rounded-lg p-6">
         <h1 className="text-3xl font-semibold text-blue-700 mb-6 border-b pb-2">
           {type} Questions for practice

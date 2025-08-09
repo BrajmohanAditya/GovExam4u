@@ -4,6 +4,7 @@ import {timeMap} from "./TimeControle";
 import DescriptiveForm from "./DescriptiveForm";
 import { wordLimitMap } from "./WordLimitMap";
 import { MaxMarksMap } from "./MaxMarksMap";
+import QuestionPage from "./QuestionPage";
 export default function Descriptive() {
   console.log("6");
   const [selectedType, setSelectedType] = useState("Letter"); // selectedType = "Letter"
@@ -107,28 +108,37 @@ export default function Descriptive() {
     <div className="bg-gray-100 font-sans min-h-screen">
       <Navbar selectedType={selectedType} handleTypeChange={handleTypeChange} />
 
-      <p className="text-lg  px-6 py-4 rounded-xl shadow-sm   ml-1 text-gray-500 ">
-        User sees a random question (Essay/Letter/etc.), writes their answer in
-        a textarea, clicks “Submit,” and the answer is copied to GPT evaluation
-        engine, which evaluates and shows feedback (marks + suggestions).
-        <div className=" text-red-700 py-2 ">
-          <strong >
-            Max words: {wordLimitMap[selectedType]}
-          </strong>
-        </div>
-      </p>
+      <div className="flex flex-col md:flex-row gap-4 px-0">
+        {/* Left Column */}
+        <div className="flex-1 flex flex-col h-[80vh] overflow-y-auto overflow-x-hidden">
+          <div className="text-lg px-6 py-3 shadow-sm text-gray-500 bg-white ">
+            User sees a random question (Essay/Letter/etc.), writes their answer
+            in a textarea, clicks “Submit,” and the answer is copied to GPT
+            evaluation engine, which evaluates and shows feedback (marks +
+            suggestions).
+            <div className="text-red-700 py-2">
+              <strong>Max words: {wordLimitMap[selectedType]}</strong>
+            </div>
+          </div>
 
-      <DescriptiveForm
-        timeLeft={timeLeft}
-        wordCount={wordCount}
-        timerStarted={timerStarted}
-        textRef={textRef}
-        formatTime={formatTime}
-        handleWordCount={handleWordCount}
-        handleSubmit={handleSubmit}
-        handleCopyClick={handleCopyClick}
-        setTimerStarted={setTimerStarted}
-      />
+          <DescriptiveForm
+            timeLeft={timeLeft}
+            wordCount={wordCount}
+            timerStarted={timerStarted}
+            textRef={textRef}
+            formatTime={formatTime}
+            handleWordCount={handleWordCount}
+            handleSubmit={handleSubmit}
+            handleCopyClick={handleCopyClick}
+            setTimerStarted={setTimerStarted}
+          />
+        </div>
+
+        {/* Right Column */}
+        <div className="w-full md:w-3/7 md:sticky md:top-4 self-start h-[80vh] overflow-y-auto overflow-x-hidden">
+          <QuestionPage type={selectedType} />
+        </div>
+      </div>
     </div>
   );
 }

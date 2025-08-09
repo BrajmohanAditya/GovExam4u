@@ -13,7 +13,7 @@ export default function DescriptiveForm({
   setTimerStarted,
 }) {
   return (
-    <>
+    <div>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-3 px-4 py-4 text-center sm:text-left">
         <div className="text-green-600 font-bold">
           Time left: {formatTime(timeLeft)}
@@ -30,7 +30,7 @@ export default function DescriptiveForm({
       <form
         id="descriptiveForm"
         onSubmit={handleSubmit}
-        className="mx-4 md:mx-auto max-w-2xl flex flex-col gap-4"
+        className="mx-4 md:mx-auto max-w-2xl flex flex-col gap-4 "
       >
         <textarea
           ref={textRef}
@@ -85,6 +85,6 @@ export default function DescriptiveForm({
         </div>
       </form>
       <br />
-    </>
+    </div>
   );
 }
