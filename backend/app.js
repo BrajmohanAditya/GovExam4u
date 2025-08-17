@@ -6,6 +6,7 @@ const cors = require("cors");
 const examTrackRoute = require("./routes/examTrack.js"); // step - (3a)
 
 
+
 // Establishing connection to Data base ---> (Step-2)
 const MONGO_URL = "mongodb://127.0.0.1:27017/govexam4u";  // govexam4u is a data base
 main().then(()=>{    //  calling main method  
@@ -19,7 +20,8 @@ async function main(){   // ya main method raha
    await mongoose.connect(MONGO_URL); 
 }
 //--
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
@@ -36,7 +38,7 @@ app.use("/examTrack", examTrackRoute);//("/call receive on this route", redirect
 
 
 app.get("/", (req, res) => {
-  res.send("Hi i am root");
+  res.send("Hi i am root Babu");
 });
 
 
