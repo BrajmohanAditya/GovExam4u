@@ -4,6 +4,7 @@ import { Routes } from "react-router-dom";
 import DescriptiveRoutes from "./pages/Descriptive/descriptiveRoute";
 import HomeRoutes from "./Home/HomeRoute";
 import MockRoutes from "./pages/Mock/MockRoute";
+import examTrackRoute from "./pages/examTrack/examtrackRoute";
 
 export default function AppRoutes() {
   return (
@@ -11,6 +12,7 @@ export default function AppRoutes() {
       {HomeRoutes}
       {DescriptiveRoutes}
       {MockRoutes}
+      {examTrackRoute}
     </Routes>
   );
 }

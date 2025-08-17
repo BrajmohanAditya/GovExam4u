@@ -5,8 +5,6 @@ import {
   faChalkboardUser,
   faFileSignature,
   faFileCircleQuestion,
-  faQuestion,
-  faMicrophone,
   faBookOpenReader,
   faNewspaper,
   faCartShopping,
@@ -36,7 +34,6 @@ const sidebarItems = [
     label: "Doubt Support",
     link: "#",
   },
-  { icon: faMicrophone, label: "Make Voice Note", link: "VoiceNotes.html" },
   { icon: faBookOpenReader, label: "Revision", link: "e vocab Book.html" },
   { icon: faNewspaper, label: "Current Affair", link: "#" },
   { icon: faFileSignature, label: "Daily Quiz", link: "#" },
@@ -47,7 +44,7 @@ const sidebarItems = [
   { icon: faAddressCard, label: "Our Selections", link: "#" },
   {
     icon: faSquareWhatsapp,
-    label: "Connect Us",
+    label: "whatsApp",
     link: "https://chat.whatsapp.com/EF6x76bLnSe47jBOvzIuGe",
   },
   {

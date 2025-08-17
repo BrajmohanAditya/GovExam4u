@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 export default function CardGrid() {
   return (
-    <div className="p-4 flex flex-wrap gap-6">
+    <div className="p-4 flex flex-wrap gap-6 ">
       {/* ✅ Descriptive Card - uses React Router Link */}
       <Link to="/descriptive" className="no-underline">
-        <div className="">
+        <div className="card-wrapper ">
           <img
             src="/assets/descriptive.png"
             alt="Descriptive"
@@ -17,9 +17,16 @@ export default function CardGrid() {
       </Link>
 
       <Link to="/mock" className="no-underline">
-        <div className="bg-blue-600 rounded-lg shadow-md p-4 w-52 cursor-pointer hover:shadow-lg transition h-52">
+        <div className="bg-blue-600 rounded-lg shadow-md p-4 w-52 cursor-pointer hover:shadow-lg transition h-52 card-wrapper">
           <h3 className="text-xl font-semibold mb-2 text-white">Mock Test</h3>
           <p className="text-gray-200">Total Sets: 10</p>
+        </div>
+      </Link>
+
+      <Link to="/examTracker" className="no-underline">
+        <div className="bg-blue-600 rounded-lg shadow-md p-4 w-52 cursor-pointer hover:shadow-lg transition h-52 card-wrapper">
+          <h3 className="text-xl font-semibold mb-2 text-white">Track Exam</h3>
+          <p className="text-gray-200">Track Exam</p>
         </div>
       </Link>
     </div>

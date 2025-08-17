@@ -13,7 +13,7 @@ export default function HomePage() {
 
       <SidebarMenu showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
 
-      <div className="pl-0 sm:pl-64 transition-all duration-300">
+      <div className="pl-0 sm:pl-64 transition-all duration-300"> 
         <CardGrid />
       </div>
     </>

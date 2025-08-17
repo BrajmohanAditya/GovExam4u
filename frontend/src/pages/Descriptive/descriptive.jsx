@@ -106,6 +106,7 @@ export default function Descriptive() {
   };
   return (
     <div className="bg-gray-100 font-sans min-h-screen">
+      
       <Navbar selectedType={selectedType} handleTypeChange={handleTypeChange} />
 
       <div className="flex flex-col md:flex-row gap-4 px-0">
