@@ -4,7 +4,6 @@ import axios from "axios";
 import { Link } from "react-router-dom"; 
 import { calculateTimeLeft } from "./timeLeft";
 import Nav from "./Navbar"
-
 export default function ExamTrack() {
   const [exams, setExams] = useState([]);
   const [timeLeft, setTimeLeft] = useState({});
@@ -42,11 +41,13 @@ export default function ExamTrack() {
   return (
     <>
       <Nav />;
-      <div className="m-10 md:m-10 p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="m-10  md:m-15 p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 bg-gray-200 rounded-md ">
         {exams.map((exam) => (
           <Link to={`/exam/${exam._id}/edit`} key={exam._id}>
             <div className="bg-linear-to-r/oklab  from-indigo-500 to-teal-400 rounded-xl p-5 w-[80%] card-wrapper">
-              <h2 className="text-lg font-bold text-white">{exam.Exam}</h2>
+              <h2 className="text-lg font-bold text-white">
+                {exam.Exam} 
+              </h2>
               <p className="text-gray-200">
                 Pre:{" "}
                 {new Date(exam.Pre).toLocaleDateString("en-GB", {

@@ -39,7 +39,6 @@ export default function ExamEditForm() {
     <form
       onSubmit={handleSubmit}
       method="POST"
-
       className="p-6 bg-white shadow-md rounded-xl max-w-md mx-auto mt-10"
     >
       <h2 className="text-xl font-bold mb-4">Edit Exam</h2>
@@ -68,12 +67,12 @@ export default function ExamEditForm() {
         className="border p-2 w-full rounded mb-4"
       />
 
-      <button
+      {/* <button
         type="submit"
         className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
       >
         Save
-      </button>
+      </button> */}
     </form>
   );
 }
