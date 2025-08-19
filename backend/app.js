@@ -44,6 +44,6 @@ app.get("/", (req, res) => {
   res.send("Hi i am root Babu");
 });
 
-app.listen(8080, () => {
-  console.log("server is listening to port 8080");
+app.listen(PORT, () => {
+  console.log("server is listening to port 8080${PORT}");
 });
