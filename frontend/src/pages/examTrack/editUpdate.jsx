@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import api from "../../api";
 
 export default function ExamEditForm() {
   const { id } = useParams();
@@ -11,8 +12,8 @@ export default function ExamEditForm() {
 
   // Backend se exam fetch karna
   useEffect(() => {
-    axios
-      .get(`http://localhost:8080/examTrack/${id}/edit`)
+    api
+      .get(`/examTrack/${id}/edit`)
       .then((res) => {
         setExam(res.data);
         setLoading(false);

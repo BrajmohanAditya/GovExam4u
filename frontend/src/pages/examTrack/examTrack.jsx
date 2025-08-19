@@ -1,17 +1,17 @@
 
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom"; 
 import { calculateTimeLeft } from "./timeLeft";
 import Nav from "./Navbar"
+import api from "../../api";
 export default function ExamTrack() {
   const [exams, setExams] = useState([]);
   const [timeLeft, setTimeLeft] = useState({});
 
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/examTrack") //examTrack route se tumhe sara exam ka data mil raha hai jo DB me save hai.
+    api
+      .get("/examTrack") //examTrack route se tumhe sara exam ka data mil raha hai jo DB me save hai.
       .then((res) => setExams(res.data)) //setExams(res.data) use karke wo data state (exams) me save kar diya jata hai.
       .catch((err) => console.error(err));
   }, []);
