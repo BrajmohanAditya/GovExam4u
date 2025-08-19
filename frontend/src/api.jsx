@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://myapi.govexam4u.com",  // 👈 yaha tera backend ka real URL
+  // baseURL: "http://localhost:8080",
+  baseURL: "https://govexam4ubackend.onrender.com",
 });
 
 export default api;
