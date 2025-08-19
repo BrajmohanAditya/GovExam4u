@@ -40,26 +40,36 @@ export default function Nav(props) {
 
 
 
-  const drawer = (
+  const drawer = ( // mobile code 
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
         Exam Countdown
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText
-                primary={item}
-                primaryTypographyProps={{
-                  fontSize: "1.2rem",
-                  textAlign: "center",
-                }}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        {navItems.map((item) => {
+          // yahan har item ka path decide kiya
+          const path = item === "Home" ? "/" : "/add-exam";
+
+          return (
+            <ListItem key={item} disablePadding>
+              <ListItemButton
+                component={Link} // 🔹 React Router ka Link use kiya
+                to={path} // 🔹 path assign kiya ("/" ya "/add-exam")
+                onClick={handleDrawerToggle} // 🔹 click ke baad Drawer band hoga
+                sx={{ textAlign: "center" }}
+              >
+                <ListItemText
+                  primary={item}
+                  primaryTypographyProps={{
+                    fontSize: "1.2rem",
+                    textAlign: "center",
+                  }}
+                />
+              </ListItemButton>
+            </ListItem>
+          );
+        })}
       </List>
     </Box>
   );
@@ -84,18 +94,18 @@ export default function Nav(props) {
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: "none", sm: "flex" },
+              display: "flex",
               alignItems: "center",
             }}
           >
             <Typography
               variant="h4"
               component="div"
-              sx={{ fontSize: "2rem", marginRight: "1rem" }}
+              sx={{ fontSize: "1.5rem", marginRight: "1rem" }}
             >
               Exam Countdown
             </Typography>
-            <Clock value={time} size={45} />
+            <Clock value={time} size={40} />
           </Box>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => {
@@ -104,7 +114,7 @@ export default function Nav(props) {
               return (
                 <Button
                   key={item}
-                  sx={{ color: "#fff", fontSize: "1.2rem" }}
+                  sx={{ color: "#fff", fontSize: "1rem" }}
                   component={Link} // Link component
                   to={path} // yahan dynamically path use karo
                 >
