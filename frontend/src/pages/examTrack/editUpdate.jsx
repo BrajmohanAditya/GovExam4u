@@ -27,7 +27,7 @@ export default function ExamEditForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8080/examTrack/${id}`, exam);
+      await api.put(`/examTrack/${id}`, exam);
       alert("Exam updated successfully!");
       navigate("/examTracker"); // redirect back to exam list
     } catch (err) {
