@@ -9,12 +9,14 @@ export default function ExamTrack() {
   const [timeLeft, setTimeLeft] = useState({});
 
 
+  // show route 
   useEffect(() => {
     api
       .get("/examTrack") //examTrack route se tumhe sara exam ka data mil raha hai jo DB me save hai.
       .then((res) => setExams(res.data)) //setExams(res.data) use karke wo data state (exams) me save kar diya jata hai.
       .catch((err) => console.error(err));
   }, []);
+  //---
 
 
   // hook for calculation of time left
@@ -31,12 +33,12 @@ export default function ExamTrack() {
       setTimeLeft(newTimeLeft);
     };
 
-    updateTimeLeft(); 
+    updateTimeLeft();
     const interval = setInterval(updateTimeLeft, 60000); // update updateTimeLeft after every 1 min
 
     return () => clearInterval(interval); // cleanup function ka type return hota hai
   }, [exams]);
-//---
+  //---
 
   return (
     <>
@@ -45,9 +47,7 @@ export default function ExamTrack() {
         {exams.map((exam) => (
           <Link to={`/exam/${exam._id}/edit`} key={exam._id}>
             <div className="bg-linear-to-r/oklab  from-indigo-500 to-teal-400 rounded-xl p-5 w-full card-wrapper">
-              <h2 className="text-lg font-bold text-white">
-                {exam.Exam} 
-              </h2>
+              <h2 className="text-lg font-bold text-white">{exam.Exam}</h2>
               <p className="text-gray-200">
                 Pre:{" "}
                 {new Date(exam.Pre).toLocaleDateString("en-GB", {

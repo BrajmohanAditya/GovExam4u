@@ -1,7 +1,8 @@
+// Aim: This page if for edit and update form. 
+// Aim:  added BootsTrap validation in form(novalidate class="needs-validation").
 
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
 import api from "../../api";
 
 export default function ExamEditForm() {
@@ -10,7 +11,7 @@ export default function ExamEditForm() {
   const [exam, setExam] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Backend se exam fetch karna
+  //aim :  backend k "/examTrack/${id}/edit" route seh data receive kr raha hai.
   useEffect(() => {
     api
       .get(`/examTrack/${id}/edit`)
@@ -20,10 +21,11 @@ export default function ExamEditForm() {
       })
       .catch((err) => console.error(err));
   }, [id]);
+  //---
 
   if (loading) return <p>Loading...</p>;
 
-  // Form submit handler
+  // (Update form submit) backend k ak route ko data send kr raha hai.
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -35,12 +37,28 @@ export default function ExamEditForm() {
       alert("Failed to update exam.");
     }
   };
+  //--
 
+  // Delet route
+  const handleDelete = async () => {
+     console.log("Deleting ID:", id);
+    if (window.confirm("Are you sure you want to delete this exam?")) {
+      try {
+        await api.delete(`/examTrack/${id}`);
+        alert("Exam deleted successfully!");
+        navigate("/examTracker"); // redirect after delete
+      } catch (err) {
+        console.error(err);
+        alert("Failed to delete exam.");
+      }
+    }
+  };
+//-- 
   return (
     <form
       onSubmit={handleSubmit}
       method="POST"
-      className="p-6 bg-white shadow-md rounded-xl max-w-md mx-auto mt-10"
+      className="p-6 bg-amber-50 shadow-md rounded-xl max-w-md mx-auto mt-10"
     >
       <h2 className="text-xl font-bold mb-4">Edit Exam</h2>
 
@@ -48,8 +66,14 @@ export default function ExamEditForm() {
       <input
         type="text"
         value={exam.Exam}
-        onChange={(e) => setExam({ ...exam, Exam: e.target.value })}
+        onChange={(e) => {
+          let charCount = e.target.value.length;
+          if (charCount <= 20) {
+            setExam({ ...exam, Exam: e.target.value });
+          }
+        }}
         className="border p-2 w-full rounded mb-4"
+        required
       />
 
       <label className="block mb-2">Pre Date</label>
@@ -73,6 +97,14 @@ export default function ExamEditForm() {
         className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
       >
         Save
+      </button>
+
+      <button
+        type="button"
+        onClick={handleDelete}
+        className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+      >
+        Delete
       </button>
     </form>
   );

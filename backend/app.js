@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 const path = require("path");
 const cors = require("cors");
 const examTrackRoute = require("./routes/examTrack.js"); // step - (3a)
-
 // Establishing connection to Data base ---> (Step-2)
 // const MONGO_URL = "mongodb://127.0.0.1:27017/govexam4u";  // govexam4u is a data base
 const PORT = process.env.PORT || 8080
@@ -51,3 +50,4 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log("server is listening to port 8080${PORT}");
 });
+ 
