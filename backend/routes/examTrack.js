@@ -50,4 +50,37 @@ router.delete("/:id", async (req, res) => {
 });
 //--
 
+
+// POST route - naya exam add karne ke liye
+// router.post("/", async (req, res) => {
+//   try {
+//     const newExam = new examTrack(req.body);  // frontend se data aayega
+//     await newExam.save();                     // DB me save karo
+//     res.status(201).json(newExam);            // response bhejo
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json({ message: "Failed to add exam" });
+//   }
+// });
+
+// naya exam card add karne ka route
+router.post("/", async (req, res) => {
+  try {
+    // pehle count check karo
+    const count = await examTrack.countDocuments();
+    if (count >= 9) {
+      return res.status(400).json({ message: "Maximum 9 exams allowed" });
+    }
+
+    // agar 9 se kam hai toh naya add karo
+    const newExam = new examTrack(req.body);
+    await newExam.save();
+
+    res.status(201).json(newExam);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Something went wrong while adding exam" });
+  }
+});
+
 module.exports = router;

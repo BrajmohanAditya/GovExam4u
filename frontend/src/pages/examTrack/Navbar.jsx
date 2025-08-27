@@ -110,7 +110,7 @@ export default function Nav(props) {
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => {
               // Har item ke liye path decide karo
-              const path = item === "Home" ? "/" : "";
+              const path = item === "Home" ? "/" : "/add-exam"; // yaha seh ak add request jayaga or ya ak form ko render kr dega "ExamAddForm"
               return (
                 <Button
                   key={item}
