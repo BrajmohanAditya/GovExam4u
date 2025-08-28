@@ -33,7 +33,12 @@ export default function ExamAddForm() {
       <input
         type="text"
         value={exam.Exam}
-        onChange={(e) => setExam({ ...exam, Exam: e.target.value })}
+        onChange={(e) => {
+          let charCount = e.target.value.length;
+          if (charCount <= 20) {
+            setExam({ ...exam, Exam: e.target.value });
+          }
+        }}
         className="border p-2 w-full rounded mb-4"
         required
       />
