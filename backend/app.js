@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
+const ExpressError = require("./utils/ExpressError");
 const cors = require("cors");
 const examTrackRoute = require("./routes/examTrack.js"); // step - (3a)
 // Establishing connection to Data base ---> (Step-2)
@@ -48,10 +49,15 @@ app.get("/", (req, res) => {
 });
 
 
+app.all(/.*/, (req, res, next) => {
+  next(new ExpressError(404, "Page Not Found"));
+});
+
+
 //aim: Adding server side validation, # error handling middle malware.
 app.use((err, req, res, next) => {
   let { statusCode = 500, message = "something went wrong" } = err;
-  res.render("error.ejs", { message });
+  // res.render("error.ejs", { message });
   res.status(statusCode).json({
     // bina ya line k hopscotch meh status ok nahi milaga.
     success: false,
@@ -59,7 +65,7 @@ app.use((err, req, res, next) => {
   });
 }); // # jb koi error aya or koi route nahi work kara toh express khud hi ishko call kr deta hai or server crash nahi hota
 
-
+  
 app.listen(PORT, () => {
   console.log("server is listening to port 8080${PORT}");
 });

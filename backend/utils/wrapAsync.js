@@ -1,4 +1,4 @@
-//aim: Adding server side validation. 
+//aim: Adding server side validation. use wrapAsync to get rid of try and catch
 module.exports = (fn) => {
   return (req, res, next) => {
     fn(req, res, next).catch(next);
@@ -9,9 +9,8 @@ module.exports = (fn) => {
 
 
 /*
-wrapAsync ne .catch(next) lagaya hua hai → iska matlab error automatically next(err) call karega.
-Aur Express ke paas jo global error handler middleware hoga (app.use((err, req, res, next)=>{...})),
-usme wo error chala jayega.
+wrapAsync ka kaam alag hai — ye async route handlers ke andar jo bhi error aaye, 
+unko catch karke global error handler tak pahunchana. ish tarah seh sever crash nahi hoga 
 */
 
 // WrapAsink is better version of try catch validation. 

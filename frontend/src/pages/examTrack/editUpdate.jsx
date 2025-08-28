@@ -43,8 +43,8 @@ export default function ExamEditForm() {
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete this exam?")) {
       try {
-        await api.delete(`/examTrack/${id}`);
-        alert("Exam deleted successfully!");
+        const res = await api.delete(`/examTrack/${id}`); //backend ko delete request send kr k await kr raha hai ki delete hua ki nahi, promise return krta hai na.
+        alert(res.data.message); // receiving delete alert from backend
         navigate("/examTracker"); // redirect after delete
       } catch (err) {
         alert("Failed to delete exam.");

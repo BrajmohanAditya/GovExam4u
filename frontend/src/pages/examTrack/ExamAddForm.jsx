@@ -44,6 +44,7 @@ export default function ExamAddForm() {
         value={exam.Pre}
         onChange={(e) => setExam({ ...exam, Pre: e.target.value })}
         className="border p-2 w-full rounded mb-4"
+        required
       />
 
       <label className="block mb-2">Mains Date</label>
@@ -52,6 +53,7 @@ export default function ExamAddForm() {
         value={exam.Mains}
         onChange={(e) => setExam({ ...exam, Mains: e.target.value })}
         className="border p-2 w-full rounded mb-4"
+        required
       />
 
       <button // aim: Adding new card.(yaha seh backend ko request jayaga or wo db meh data add kr dega)
