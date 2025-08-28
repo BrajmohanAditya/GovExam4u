@@ -41,14 +41,12 @@ export default function ExamEditForm() {
 
   // Delet route
   const handleDelete = async () => {
-     console.log("Deleting ID:", id);
     if (window.confirm("Are you sure you want to delete this exam?")) {
       try {
         await api.delete(`/examTrack/${id}`);
         alert("Exam deleted successfully!");
         navigate("/examTracker"); // redirect after delete
       } catch (err) {
-        console.error(err);
         alert("Failed to delete exam.");
       }
     }

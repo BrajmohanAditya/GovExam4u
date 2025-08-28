@@ -47,6 +47,19 @@ app.get("/", (req, res) => {
   res.send("Hi i am root Babu");
 });
 
+
+//aim: Adding server side validation, # error handling middle malware.
+app.use((err, req, res, next) => {
+  let { statusCode = 500, message = "something went wrong" } = err;
+  res.render("error.ejs", { message });
+  res.status(statusCode).json({
+    // bina ya line k hopscotch meh status ok nahi milaga.
+    success: false,
+    error: message,
+  });
+}); // # jb koi error aya or koi route nahi work kara toh express khud hi ishko call kr deta hai or server crash nahi hota
+
+
 app.listen(PORT, () => {
   console.log("server is listening to port 8080${PORT}");
 });

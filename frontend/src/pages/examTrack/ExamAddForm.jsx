@@ -54,7 +54,7 @@ export default function ExamAddForm() {
         className="border p-2 w-full rounded mb-4"
       />
 
-      <button
+      <button // aim: Adding new card.(yaha seh backend ko request jayaga or wo db meh data add kr dega)
         type="submit"
         className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
       >
