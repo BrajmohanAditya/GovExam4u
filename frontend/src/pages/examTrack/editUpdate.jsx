@@ -25,7 +25,7 @@ export default function ExamEditForm() {
 
   if (loading) return <p>Loading...</p>;
 
-  // (Update form submit) backend k ak route ko data send kr raha hai.
+  //aim: update route,  backend k ak route ko data send kr raha hai.
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -33,13 +33,12 @@ export default function ExamEditForm() {
       alert("Exam updated successfully!");
       navigate("/examTracker"); // redirect back to exam list
     } catch (err) {
-      console.error(err);
       alert("Failed to update exam.");
     }
   };
   //--
 
-  // Delet route
+  // Delete route
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete this exam?")) {
       try {

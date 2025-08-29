@@ -54,7 +54,7 @@ app.all(/.*/, (req, res, next) => {
 });
 
 
-//aim: Adding server side validation, # error handling middle malware.
+//aim: Adding server side validation, # gloval middle malware.
 app.use((err, req, res, next) => {
   let { statusCode = 500, message = "something went wrong" } = err;
   // res.render("error.ejs", { message });

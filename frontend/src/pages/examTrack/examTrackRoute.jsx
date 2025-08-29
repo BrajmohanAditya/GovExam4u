@@ -6,8 +6,12 @@ import ExamEditForm from "./editUpdate"
 import ExamAddForm from "./ExamAddForm";
 const examTrackRoute = [
   <Route path="/examTracker" element={<ExamTrack />} key="examTracker" />,
-  <Route path="/exam/:id/edit" element={<ExamEditForm />} key="/exam/:id/edit" />,
-  <Route path="/add-exam" element={<ExamAddForm />} />   
+  <Route                                //step: A1 aim: editUpdate form ko render krna
+    path="/exam/:id/edit"
+    element={<ExamEditForm />}
+    key="/exam/:id/edit"
+  />,
+  <Route path="/add-exam" element={<ExamAddForm />} />,
 ];
 
 export default examTrackRoute;

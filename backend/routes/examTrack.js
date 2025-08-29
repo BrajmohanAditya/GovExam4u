@@ -1,9 +1,10 @@
+// Backend File. 
 const express = require("express");
 const router = express.Router();
 const examTrack = require("../models/examTrack.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 
-// work: db seh data nikal k frontend ko send kr raha (sending all exam)
+//step: A0, aim: Display card, work: db seh All exams ka data nikal k frontend(examTrack) ko send kr raha . 
 router.get(
   "/",
   wrapAsync(async (req, res) => {
@@ -24,7 +25,7 @@ router.get(
 );
 //--
 
-//fronttend seh aya hua data ko receive kr k save krta hai
+//aim: update route, fronttend seh aya hua data ko receive kr k save krta hai, (editUpdate.jsx meh ya route ka connection hai)
 router.put(
   "/:id",
   wrapAsync(async (req, res) => {
@@ -40,7 +41,7 @@ router.put(
 );
 //--
 
-//delet route
+//delet route (editUpdate.jsx meh ya route ka connection hai)
 router.delete(
   "/:id",
   wrapAsync(async (req, res) => {
@@ -70,3 +71,18 @@ router.post(
 );
 
 module.exports = router;
+
+
+/*
+1. wrapAsync
+Ye ek error handling utility hai.
+Sirf async routes ke errors ko automatically catch karta hai.
+Iska kaam hai:
+try–catch bar-bar likhne se bachana.
+Agar koi error aaya toh next(err) karke Express ke global error handler tak bhejna.
+server crash seh bachata hai. 
+
+2. Joi Validation
+Ye ek data validation library hai.
+Iska kaam hai: frontend se aane wale data ko check karna ki wo required format me hai ya nahi.
+*/

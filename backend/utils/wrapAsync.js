@@ -1,4 +1,4 @@
-//aim: Adding server side validation. use wrapAsync to get rid of try and catch
+//aim: wrapAsync- Adding server side validation.
 module.exports = (fn) => {
   return (req, res, next) => {
     fn(req, res, next).catch(next);

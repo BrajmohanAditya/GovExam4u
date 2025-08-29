@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import { calculateTimeLeft } from "./timeLeft";
 import Nav from "./Navbar"
 import api from "../../api";
+
 export default function ExamTrack() {
   const [exams, setExams] = useState([]);
   const [timeLeft, setTimeLeft] = useState({});
 
 
-  // show route 
+  //step: A0, aim: Display card, work: receiving data from backend.  
   useEffect(() => {
     api
       .get("/examTrack") //examTrack route se tumhe sara exam ka data mil raha hai jo DB me save hai.
@@ -41,6 +42,7 @@ export default function ExamTrack() {
   //---
 
   return (
+    //step: A1,  aim: edit form rendering,  click a link jo "examTrackRoute.jsx" k ander hai wo ak "EditUpdate.jsx" file ko render kr dega,
     <>
       <Nav />;
       <div className="m-5  md:m-20  p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 bg-gray-200 rounded-md ">
@@ -69,7 +71,6 @@ export default function ExamTrack() {
               {timeLeft[exam._id] && (
                 <div>
                   <p
-                    // className="text-yellow-300 font-semibold"
                     className={
                       typeof timeLeft[exam._id]?.pre === "string"
                         ? "text-red-700 font-bold" // agar Exam Over hai
