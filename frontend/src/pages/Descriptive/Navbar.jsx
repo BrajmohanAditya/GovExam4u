@@ -40,21 +40,21 @@ import { timeMap } from "./TimeControle";
 export default function Navbar({ selectedType, handleTypeChange }) {
   return (
     <nav className="flex flex-col md:flex-row justify-between items-center bg-blue-900 text-white px-4 py-3 text-base font-semibold gap-2 shadow-md">
-      <div className="text-lg font-bold">Descriptive Writing</div>
+      <strong className="text-2xl font-bold">Descriptive Writing</strong>
 
-      <div className="flex flex-wrap justify-center gap-2">
+      <div className="flex flex-wrap justify-center gap-1 cursor-pointer">
         {Object.keys(timeMap).map((type) => (
-          <button
+          <span
             key={type}
             onClick={() => handleTypeChange(type)}
             className={`px-4 py-2 rounded transition font-medium ${
               selectedType === type
-                ? "bg-green-600 hover:bg-green-700"
-                : "bg-blue-600 hover:bg-blue-700"
+                ? "text-green-400 font-semibold border-b-2 border-green-400"
+                : "text-white hover:text-green-300"
             }`}
           >
             {type}
-          </button>
+          </span>
         ))}
       </div>
     </nav>

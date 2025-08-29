@@ -21,7 +21,7 @@ export default function DescriptiveForm({
         <div className="text-gray-700 font-bold">Word count: {wordCount}</div>
         <button
           onClick={handleCopyClick}
-          className="bg-zinc-800 text-white px-3 py-1 rounded text-sm hover:bg-zinc-700 transition"
+          className="bg-zinc-800 text-white px-3 py-1 rounded text-sm hover:bg-zinc-700 transition cursor-pointer"
         >
           📋 Copy
         </button>
@@ -68,17 +68,17 @@ export default function DescriptiveForm({
           }}
         ></textarea>
 
-        <div className="flex flex-col sm:flex-row justify-center sm:justify-start gap-4">
+        <div className="flex flex-col sm:flex-row justify-center sm:justify-start gap-4 ">
           <button
             type="submit"
-            className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 cursor-pointer"
           >
             Submit
           </button>
           <button
             type="button"
             onClick={() => window.open("https://chatgpt.com/", "_blank")}
-            className="px-6 py-2 bg-gray-600 text-white rounded hover:bg-gray-700"
+            className="px-6 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 cursor-pointer"
           >
             ChatGpt
           </button>

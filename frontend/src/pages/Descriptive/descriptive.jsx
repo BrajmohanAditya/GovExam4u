@@ -106,7 +106,6 @@ export default function Descriptive() {
   };
   return (
     <div className="bg-gray-100 font-sans min-h-screen">
-      
       <Navbar selectedType={selectedType} handleTypeChange={handleTypeChange} />
 
       <div className="flex flex-col md:flex-row gap-4 px-0">
@@ -118,7 +117,10 @@ export default function Descriptive() {
             evaluation engine, which evaluates and shows feedback (marks +
             suggestions).
             <div className="text-red-700 py-2">
-              <strong>Max words: {wordLimitMap[selectedType]}</strong>
+              <strong>
+                Max words: {wordLimitMap[selectedType]} &nbsp; Max Marks =
+                {MaxMarksMap[selectedType]}
+              </strong>
             </div>
           </div>
 
