@@ -105,12 +105,11 @@ export default function Nav(props) {
             >
               Exam Countdown
             </Typography>
-            <Clock value={time} size={40} />
           </Box>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => {
-              // Har item ke liye path decide karo
-              const path = item === "Home" ? "/" : "/add-exam"; // aim: Adding new card.  yaha seh ak add request jayaga or ya ak form ko render kr dega "ExamAddForm"
+              // aim: Adding new card.  yaha seh ak add request jayaga examTrackRoute.jsx ko or ya ak form ko render kr dega "ExamAddForm"
+              const path = item === "Home" ? "/" : "/add-exam";
               return (
                 <Button
                   key={item}

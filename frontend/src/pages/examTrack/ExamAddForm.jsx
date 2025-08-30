@@ -9,7 +9,7 @@ export default function ExamAddForm() {
     Pre: "",
     Mains: "",
   });
-
+  //step: A3, aim: Adding new card, work: Backend(examTrack.js) ko data send kr raha hai
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -17,11 +17,10 @@ export default function ExamAddForm() {
       alert("Exam added successfully!");
       navigate("/examTracker"); // ✅ list page par redirect
     } catch (err) {
-      console.error(err);
       alert("Failed to add exam.");
     }
   };
-
+ //---
   return (
     <form
       onSubmit={handleSubmit}

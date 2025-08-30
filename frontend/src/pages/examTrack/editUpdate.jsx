@@ -11,7 +11,7 @@ export default function ExamEditForm() {
   const [exam, setExam] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  //aim :  backend k "/examTrack/${id}/edit" route seh data receive kr raha hai.
+  //step: A2, aim: edit editUpdate form,  work : backend k "/examTrack/${id}/edit" route seh data receive kr raha hai or form meh daal raha hai
   useEffect(() => {
     api
       .get(`/examTrack/${id}/edit`)
@@ -25,7 +25,7 @@ export default function ExamEditForm() {
 
   if (loading) return <p>Loading...</p>;
 
-  //aim: update route,  backend k ak route ko data send kr raha hai.
+  //step: A2, aim: edit, editUpdate form,  work : backend(examtrack.js) k ak route ko data send kr raha hai.
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -50,7 +50,7 @@ export default function ExamEditForm() {
       }
     }
   };
-//-- 
+  //--
   return (
     <form
       onSubmit={handleSubmit}

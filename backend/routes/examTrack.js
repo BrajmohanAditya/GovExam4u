@@ -14,7 +14,7 @@ router.get(
 );
 //
 
-//  edit route, frontend k editUpdate page k ander ak route ko data send kr raha hai
+//step: A2, aim: edit editUpdate form, work: frontend k editUpdate page k ander ak route ko data send kr raha hai
 router.get(
   "/:id/edit",
   wrapAsync(async (req, res) => {
@@ -25,7 +25,7 @@ router.get(
 );
 //--
 
-//aim: update route, fronttend seh aya hua data ko receive kr k save krta hai, (editUpdate.jsx meh ya route ka connection hai)
+//step: A2, aim: save data of, editUpdate form,  work : fronttend(editUpdate.jsx) seh aya hua data ko receive kr k save krta hai.
 router.put(
   "/:id",
   wrapAsync(async (req, res) => {
@@ -55,7 +55,7 @@ router.delete(
 );
 //--
 
-// aim: Adding new card.
+//step: A3, aim: Adding new card, work: Frontend(ExamAddForm.jsx) seh aya hua data ko receive kr ka save krna
 router.post(
   "/",
   wrapAsync(async (req, res) => {
@@ -69,7 +69,7 @@ router.post(
     res.status(201).json(newExam);
   })
 );
-
+//---
 module.exports = router;
 
 
