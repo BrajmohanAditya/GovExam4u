@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import {
   AppBar,
@@ -16,8 +15,6 @@ import {
   CssBaseline,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import Clock from "react-clock";
-import "react-clock/dist/Clock.css";
 import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -26,53 +23,45 @@ const navItems = ["Home", "Add Exam"];
 export default function Nav(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [time, setTime] = useState(new Date());
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
-  // Update clock every second
-  useEffect(() => {
-    const timer = setInterval(() => setTime(new Date()), 1000);
-    return () => clearInterval(timer);
-  }, []);
+  const drawer = // mobile code
+    (
+      <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+        <Typography variant="h6" sx={{ my: 2 }}>
+          Exam Countdown
+        </Typography>
+        <Divider />
+        <List>
+          {navItems.map((item) => {
+            // yahan har item ka path decide kiya
+            const path = item === "Home" ? "/" : "/add-exam";
 
-
-
-  const drawer = ( // mobile code 
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        Exam Countdown
-      </Typography>
-      <Divider />
-      <List>
-        {navItems.map((item) => {
-          // yahan har item ka path decide kiya
-          const path = item === "Home" ? "/" : "/add-exam";
-
-          return (
-            <ListItem key={item} disablePadding>
-              <ListItemButton
-                component={Link} // 🔹 React Router ka Link use kiya
-                to={path} // 🔹 path assign kiya ("/" ya "/add-exam")
-                onClick={handleDrawerToggle} // 🔹 click ke baad Drawer band hoga
-                sx={{ textAlign: "center" }}
-              >
-                <ListItemText
-                  primary={item}
-                  primaryTypographyProps={{
-                    fontSize: "1.2rem",
-                    textAlign: "center",
-                  }}
-                />
-              </ListItemButton>
-            </ListItem>
-          );
-        })}
-      </List>
-    </Box>
-  );
+            return (
+              <ListItem key={item} disablePadding>
+                <ListItemButton
+                  component={Link} // 🔹 React Router ka Link use kiya
+                  to={path} // 🔹 path assign kiya ("/" ya "/add-exam")
+                  onClick={handleDrawerToggle} // 🔹 click ke baad Drawer band hoga
+                  sx={{ textAlign: "center" }}
+                >
+                  <ListItemText
+                    primary={item}
+                    primaryTypographyProps={{
+                      fontSize: "1.2rem",
+                      textAlign: "center",
+                    }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            );
+          })}
+        </List>
+      </Box>
+    );
 
   const container =
     window !== undefined ? () => window().document.body : undefined;

@@ -3,6 +3,19 @@ const express = require("express");
 const router = express.Router();
 const examTrack = require("../models/examTrack.js");
 const wrapAsync = require("../utils/wrapAsync.js");
+const {joiexamdateSchema} = require("../joiSchema.js")   // step:4
+const ExpressError = require("../utils/ExpressError");
+
+//step- 4 , aim: restricting wrong data from hopscotch , work: creating middlemalwere. 
+const validateExamDate = (req, res, next) => {
+  let { error } = joiexamdateSchema.validate(req.body);
+  if (error) {
+    throw new ExpressError(400, error);
+  } else {
+    next();
+  }
+}; 
+//--- 
 
 //step: A0, aim: Display card, work: db seh All exams ka data nikal k frontend(examTrack) ko send kr raha . 
 router.get(
@@ -36,7 +49,7 @@ router.put(
     if (!updatedExam) {
       return res.status(404).json({ message: "Exam not found" });
     }
-    res.json(updatedExam);
+    res.json({ message: "Exam updated successfully!", exam: updatedExam });
   })
 );
 //--
@@ -58,6 +71,7 @@ router.delete(
 //step: A3, aim: Adding new card, work: Frontend(ExamAddForm.jsx) seh aya hua data ko receive kr ka save krna
 router.post(
   "/",
+  validateExamDate, // step- 4 , aim: restricting wrong data from hopscotch , work: middlemalwere implemented to restrict data.
   wrapAsync(async (req, res) => {
     const count = await examTrack.countDocuments();
     if (count >= 9) {

@@ -25,12 +25,12 @@ export default function ExamEditForm() {
 
   if (loading) return <p>Loading...</p>;
 
-  //step: A2, aim: edit, editUpdate form,  work : backend(examtrack.js) k ak route ko data send kr raha hai.
+  //step: A2, aim: edit krna hai  editUpdate form ko,  work : backend(examtrack.js) k ak route ko data send kr raha hai.
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await api.put(`/examTrack/${id}`, exam);
-      alert("Exam updated successfully!");
+      const res = await api.put(`/examTrack/${id}`, exam);
+      alert(res.data.message); //// receiving edit alert from backend
       navigate("/examTracker"); // redirect back to exam list
     } catch (err) {
       alert("Failed to update exam.");
