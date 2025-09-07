@@ -10,8 +10,8 @@ import {
   faCartShopping,
   faHandHoldingDollar,
   faAddressCard,
-  faBars,
   faCircleQuestion,
+  faCalendarDays,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faSquareWhatsapp,
@@ -34,14 +34,18 @@ const sidebarItems = [
     label: "Doubt Support",
     link: "#",
   },
-  { icon: faBookOpenReader, label: "Revision", link: "e vocab Book.html" },
+  {
+    icon: faBookOpenReader,
+    label: "Descriptive Writing",
+    link: "/descriptive",
+  },
   { icon: faNewspaper, label: "Current Affair", link: "#" },
   { icon: faFileSignature, label: "Daily Quiz", link: "#" },
-  { icon: faCartShopping, label: "Purchased Item", link: "#" },
-  { icon: faFileCircleQuestion, label: "Exam", link: "#" },
+  { icon: faCalendarDays, label: "Track Your Exam", link: "/examTracker" },
   { icon: faHandHoldingDollar, label: "Win Prize", link: "#" },
   { icon: faRocketchat, label: "Discuss Forum", link: "#" },
   { icon: faAddressCard, label: "Our Selections", link: "#" },
+  { icon: faCartShopping, label: "Purchased Item", link: "#" },
   {
     icon: faSquareWhatsapp,
     label: "whatsApp",
