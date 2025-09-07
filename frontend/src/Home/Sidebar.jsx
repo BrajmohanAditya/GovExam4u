@@ -69,6 +69,19 @@ export default function SidebarMenu({ showSidebar, setShowSidebar }) { // prop r
   const [active, setActive] = useState("Home");
   return (
     <>
+      {showSidebar && (
+        <>
+          {/* Transparent overlay (clickable) */}
+          <div
+            className="fixed inset-0 sm:hidden z-30"
+            onClick={() => setShowSidebar(false)} // backdrop click → sidebar close
+          ></div>
+
+          {/* Sidebar ka background black */}
+          <div className="fixed top-0 left-0 h-full w-64 bg-black sm:hidden z-40"></div>
+        </>
+      )}
+
       <div
         className={` 
           fixed top-11 left-0 z-40 w-64  h-[calc(100vh-55px)]   sm:h-[calc(100vh-45px)] bg-black text-[#c3d0d7] font-roboto overflow-y-auto  px-2  pt-32 pb-25 sm:pb-6 sm:pt-6
