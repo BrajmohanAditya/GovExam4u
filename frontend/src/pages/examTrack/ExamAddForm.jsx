@@ -13,12 +13,12 @@ export default function ExamAddForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await api.post("/examTrack", exam); // ✅ POST request
-      alert("Exam added successfully!");
-      navigate("/examTracker"); // ✅ list page par redirect
+      const res = await api.post("/examTrack", exam); // ✅ POST request
+      alert(res.data.message);
     } catch (err) {
-      alert("Failed to add exam.");
+      alert(err.response?.data?.message || "Failed to add exam.");
     }
+    navigate("/examTracker"); // ✅ list page par redirect
   };
  //---
   return (

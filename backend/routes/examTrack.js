@@ -75,12 +75,12 @@ router.post(
   wrapAsync(async (req, res) => {
     const count = await examTrack.countDocuments();
     if (count >= 9) {
-      return res.status(400).json({ message: "Maximum 9 exams allowed" });
+      return res.status(400).json({ message: "You Can't Add more than 9 Exams" });
     }
     // agar 9 se kam hai toh naya add karo
     const newExam = new examTrack(req.body);
     await newExam.save();
-    res.status(201).json(newExam);
+    res.status(201).json({message: "Exam added successfully!", data: newExam});
   })
 );
 //---

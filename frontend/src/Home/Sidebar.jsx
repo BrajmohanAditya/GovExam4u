@@ -10,7 +10,7 @@ import {
   faCartShopping,
   faHandHoldingDollar,
   faAddressCard,
-  faCircleQuestion,
+  faListOl,
   faCalendarDays,
 } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -27,11 +27,11 @@ const sidebarItems = [
   {
     icon: faFileCircleQuestion,
     label: "Live Mock",
-    link: "MockTest/liveMock.html",
+    link: "#",
   },
   {
-    icon: faCircleQuestion,
-    label: "Doubt Support",
+    icon: faListOl,
+    label: "To-Do List",
     link: "#",
   },
   {
@@ -42,8 +42,8 @@ const sidebarItems = [
   { icon: faNewspaper, label: "Current Affair", link: "#" },
   { icon: faFileSignature, label: "Daily Quiz", link: "#" },
   { icon: faCalendarDays, label: "Track Your Exam", link: "/examTracker" },
+  { icon: "🎯", label: "Cutoff Dekho", link: "#" },
   { icon: faHandHoldingDollar, label: "Win Prize", link: "#" },
-  { icon: faRocketchat, label: "Discuss Forum", link: "#" },
   { icon: faAddressCard, label: "Our Selections", link: "#" },
   { icon: faCartShopping, label: "Purchased Item", link: "#" },
   {
@@ -112,12 +112,26 @@ export default function SidebarMenu({ showSidebar, setShowSidebar }) { // prop r
                 }
               }}
             >
-              <FontAwesomeIcon
-                icon={item.icon}
-                className={`w-4 ${
-                  active === item.label ? "text-[#45f3f3]" : "text-[#45f3f3]"
-                }`}
-              />
+
+              {typeof item.icon === "string" ? (
+                // 🎯 emoji
+                <span className="inline-flex items-center justify-center w-4 mr-2">
+                  {item.icon}
+                </span>
+              ) : (
+                // FontAwesome
+                <span className="inline-flex items-center justify-center w-4 mr-2">
+                  <FontAwesomeIcon
+                    icon={item.icon}
+                    className={`${
+                      active === item.label
+                        ? "text-[#45f3f3]"
+                        : "text-[#45f3f3]"
+                    }`}
+                  />
+                </span>
+              )}
+
               <a
                 href={item.link}
                 target={item.link.startsWith("http") ? "_blank" : "_self"}
