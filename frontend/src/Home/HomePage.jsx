@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     //   Props Sending HomePage →Navbar:
     <>
-      <Navbar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
+      <Navbar showSidebar={showSidebar} setShowSidebar={setShowSidebar} /> 
 
       <SidebarMenu showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
 

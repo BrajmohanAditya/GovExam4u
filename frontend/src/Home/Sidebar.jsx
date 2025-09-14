@@ -69,9 +69,9 @@ export default function SidebarMenu({ showSidebar, setShowSidebar }) { // prop r
   const [active, setActive] = useState("Home");
   return (
     <>
+      {/* mobile mode meh ab ager kahi v click karo toh side bar hide ho jayaga */}
       {showSidebar && (
         <>
-          {/* Transparent overlay (clickable) */}
           <div
             className="fixed inset-0 sm:hidden z-30"
             onClick={() => setShowSidebar(false)} // backdrop click → sidebar close
@@ -81,6 +81,7 @@ export default function SidebarMenu({ showSidebar, setShowSidebar }) { // prop r
           <div className="fixed top-0 left-0 h-full w-64 bg-black sm:hidden z-40"></div>
         </>
       )}
+
 
       <div
         className={` 
@@ -112,7 +113,6 @@ export default function SidebarMenu({ showSidebar, setShowSidebar }) { // prop r
                 }
               }}
             >
-
               {typeof item.icon === "string" ? (
                 // 🎯 emoji
                 <span className="inline-flex items-center justify-center w-4 mr-2">

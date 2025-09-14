@@ -1,0 +1,193 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top= 1 cm,
+    bottom= 0 cm,
+    left=1.5 cm,
+    right=1.5 cm,
+    footskip=1.0 cm
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Sachin Kumar's CV},
+    pdfauthor={Sachin Kumar},
+    pdfcreator={LaTeX},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+% Settings
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\pagenumbering{gobble}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{-1pt}{0.3 cm}{0.2 cm}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+\newenvironment{highlights}{\begin{itemize}[topsep=0.10 cm,parsep=0.10 cm,itemsep=0pt,leftmargin=10pt]}{\end{itemize}}
+
+\newenvironment{twocolentry}[2][]{\onecolentry \def\secondColumn{#2} \setcolumnwidth{\fill, 4.5 cm}\begin{paracol}{2}}{\switchcolumn \raggedleft \secondColumn \end{paracol}\endonecolentry}
+
+\newenvironment{onecolentry}{\begin{adjustwidth}{0 cm}{0 cm}}{\end{adjustwidth}}
+\newenvironment{header}{\setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}}{\par\kern\topsep}
+
+\begin{document}
+
+% Header
+\begin{header}
+    {\fontsize{20pt}{20pt}\selectfont Brajmohan Aditya Singh} \\[6pt]
+\href{mailto:cckumarsingh39ar@gmail.com}{cckumarsingh39ar@gmail.com} | +91 95821 85838 | \url{https://linkedin.com/in/brajmohan-07627629b}
+
+\end{header}
+
+
+
+\vspace{5 pt - 0.3 cm}
+
+% Education
+\section*{Education}
+\begin{tabularx}{\textwidth}{Xr}
+    \textbf{University of Delhi} & \textit{July 2015 -- June 2018} \\
+    B.Sc. in Computer Science | GPA: 7.2/10 & \\[0.8em]
+
+    \textbf{Chandigarh University} & \textit{Jan 2024 -- Present} \\
+    Master of Computer Applications (MCA) |Current GPA: 8.6/10 & \\
+\end{tabularx}
+
+
+
+% Experience
+\section{Experience}
+\begin{twocolentry}{}
+\begin{tabularx}{\textwidth}{Xr}
+\textbf{Founder and Developer | \href{https://www.govexam4u.com}{GovExam4u.com} (Educational Website)} & \textit{July 2023 -- Present} \\
+\end{tabularx}
+
+
+\end{twocolentry}
+\begin{onecolentry}
+\begin{highlights}
+
+\item \textbf{GovExam4u — Homepage:} Designed   the homepage using \textbf{React} (frontend) and \textbf{Node.js/Express} with \textbf{MongoDB} (backend). Built a responsive layout featuring a left-side navigation panel, top \textbf{search bar} and \textbf{card-based} highlights that dynamically fetch featured courses and upcoming exams via \textbf{RESTful APIs}. Implemented authentication-aware content, client/server validation and robust error handling to provide secure, personalized access to core CRUD-enabled modules (Exam Tracker, Descriptive Writing).
+
+
+
+
+\item \textbf{Exam Tracker:} Built a \textbf{React-driven UI} integrated with Node.js/Express and MongoDB services, enabling exam card CRUD workflows for exam cards, per-user exam management with secure authentication, client/server-side validation, RESTful APIs, and structured error handling. Enhanced usability with real-time exam countdown features.
+
+
+   
+\item \textbf{Descriptive Writing Platform:} Engineered a full-stack platform with \textbf{React} frontend and \textbf{Node.js/Express} backend, enabling timed writing tasks (essays, letters, emails) with real-time \textbf{word counter} and \textbf{auto-submit} on time-out. Integrated \textbf{AI-powered evaluation} through \textbf{API calls} to deliver instant feedback on \textbf{grammar}, \textbf{spelling}, and \textbf{scoring}, ensuring personalized and data-driven assessment.
+
+\item Led and managed a \textbf {learning community of 300+ aspirants on Telegram}, promoting collaboration, mentorship, and peer-to-peer learning.”
+
+    
+
+    
+\end{highlights}
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+
+
+% Projects
+\section*{Projects}
+ \begin{tabularx}{\textwidth}{Xr}
+\textbf{PracWanderlust (Full Stack Web App)} -- 
+\href{https://pracwanderlust.onrender.com}{Live Demo} \,|\, 
+\href{https://github.com/BrajmohanAditya/PracWanderlust}{GitHub} & 
+\textit{March 2025 -- july 2025} \\
+\end{tabularx}
+
+\begin{onecolentry}
+\begin{highlights}
+    \item Built a full-stack travel listings platform using \textbf{Node.js}, \textbf{Express.js}, and \textbf{MongoDB (Mongoose)} following MVC architecture and RESTful routing.
+
+    \item  \textbf {Authentication (user login/signup), Authorization (role-based access control), and Session Management} to ensure secure user interactions.
+    
+    \item  \textbf{Create, Read, Update and Delete operations} for destinations with \textbf{Cloudinary integration} for image uploads.
+    
+   \item Ensured robust \textbf {error handling, debugging, and flash messaging} for better user experience.
+
+  \item Devised a responsive frontend using \textbf{EJS templating} and \textbf{Bootstrap}, deployed on \textbf{Render}.
+    
+\end{highlights}
+\end{onecolentry}
+
+
+
+
+
+
+% Technical Skills
+\section{Technical Skills}
+\begin{onecolentry}
+\textbf{Programming Languages:}
+ Java (DSA), SQL, JavaScript, Python
+
+\textbf{Frontend:}  HTML, CSS, React.js, Redux, Tailwind CSS, EJS, Bootstrap, Responsive Web Design \\
+\textbf{Backend:} Node.js, Express.js, RESTful APIs, MVC Architecture ,Server-Side Validation (Hopscotch, Joi)\\
+\textbf{Database:}  MongoDB (Mongoose), MySQL (Basics) \\
+\textbf{Tools \& DevOps:} Docker, Kubernetes, GitHub Actions (CI/CD Pipelines), Git, GitHub, AWS(Basic) Render (Deployment), Cloudinary (Image Upload) \\
+\textbf{Other:} Authentication , Authorization, Session Management, Error Handling, Debugging
+\end{onecolentry}
+
+
+
+% Achievements
+\section{Achievements}
+\begin{onecolentry}
+\begin{highlights}
+    \item Compiled and curated a collection of \textbf{1000+ vocabulary words} for competitive exam aspirants.
+    
+    \item Founded and managed a \textbf{Telegram study group of 300+ members}, fostering peer-to-peer learning and collaboration.
+    \item Developed and maintained an educational website \textbf{GovExam4u.com} to provide free resources for aspirants.
+\end{highlights}
+\end{onecolentry}
+
+
+% Key Courses Taken
+\section{Key Courses Taken}
+\begin{onecolentry}
+\begin{highlights}
+    \item Data Structures, Algorithms, Object Oriented Programming
+    \item Operating Systems, DBMS, REST API
+\end{highlights}
+\end{onecolentry}
+
+\end{document}

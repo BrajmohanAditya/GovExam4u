@@ -44,7 +44,7 @@ export default function ExamEditForm() {
       try {
         const res = await api.delete(`/examTrack/${id}`); //backend ko delete request send kr k await kr raha hai ki delete hua ki nahi, promise return krta hai na.
         alert(res.data.message); // receiving delete alert from backend
-        navigate("/examTracker"); // redirect after delete
+        navigate("/examTracker", { replace: true }); // redirect after delete
       } catch (err) {
         alert("Failed to delete exam.");
       }
