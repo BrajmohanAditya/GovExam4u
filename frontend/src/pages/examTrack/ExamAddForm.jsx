@@ -19,8 +19,6 @@ export default function ExamAddForm() {
       alert(err.response?.data?.message || "Failed to add exam.");
     }
     navigate("/examTracker", { replace: true });
-
-
   };
  //---
   return (

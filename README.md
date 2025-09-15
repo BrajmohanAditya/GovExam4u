@@ -20,15 +20,17 @@
 
 ------------- .get()   .post()   .put()    .delet()   .use()   .listen()  .all()  ------------------
 
-.get() :  is use to give response to  the request which comes from browser.
+> .get() :  is use to give response to  the request which comes from browser.
 
 app.get("/", (req, res) => {
   res.send("Hi, I am root"); or to render something. 
 });
 
-.post(): is use to receive  request which comes from browser. like we submit a form. 
+> .post(): is use to receive  request which comes from browser. like we submit a form. 
 
-app.use() ek middleware ko attach karta hai, jo request-response ke beech me kaam karta hai (jaise logging, authentication, body parsing, routes handle karna, etc.).
+> app.use() ek middleware ko attach karta hai, jo request-response ke beech me kaam karta hai (jaise logging, authentication, body parsing, routes handle karna, etc.).
 
+# RESTful API = A standard way for client and server to communicate using  HTTP methods.
 
+# Nodejs provide runtime environment to javascript
 

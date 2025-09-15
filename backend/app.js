@@ -6,9 +6,11 @@ const path = require("path");
 const ExpressError = require("./utils/ExpressError");
 const cors = require("cors");
 const examTrackRoute = require("./routes/examTrack.js"); // step - (3a)
+const session = require("express-session");   // aim: "Implementing session",  work: require
+
+
 
 // Establishing connection to Data base ---> (Step-2)
-  // const MONGO_URL = "mongodb://127.0.0.1:27017/govexam4u";  // govexam4u is a data base
 const PORT = process.env.PORT || 8080
 const MONGO_URL = process.env.ATLASDB_URL;
 
@@ -27,7 +29,12 @@ async function main() {
 }
 //--
 
- 
+
+
+
+
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -47,9 +54,13 @@ app.use(
 app.use("/examTrack", examTrackRoute); //("/call receive on this route", redirect to this file);
 //--
 
-app.get("/", (req, res) => {
-  res.send("Hi i am root Babu");
-});
+
+
+
+
+
+
+
 
 
 app.all(/.*/, (req, res, next) => {

@@ -1,7 +1,5 @@
 export const QuestionData = {
-  Comprehension: [
-
-  ],
+  Comprehension: [],
 
   Essay: [
     "Write an essay on the importance of time management.",
@@ -110,9 +108,10 @@ export const QuestionData = {
     "You are a Branch Manager at ABC Bank, and customers are facing issues with their net banking login. Write a formal email to the IT Support Team requesting urgent resolution",
     "You received repeated customer complaints regarding delayed cheque clearing due to staff shortages. Write an email to HR requesting temporary reassignment or extra manpower to address delays and maintain service quality.",
     "A customer requested an account statement older than six months which requires special approval. Email the Compliance/Operations Team justifying the request, including customer details, and seeking approval for manual processing.",
+    "Write an email to digitalize the office complaint box",
   ],
 
-  Situation: [
+  "Situation Analysis": [
     "With an upcoming festive season, your SBI Mumbai branch anticipates a significant increase in customer footfall and transaction volume. What operational challenges do you foresee, and how would you ensure seamless and efficient banking services during this high-demand period?",
 
     "As the branch manager of State Bank of India, you are facing a high rate of employee turnover caused by excessive workload and declining staff morale. Analyze the underlying issues and recommend effective strategies to retain and motivate your employees.",
@@ -135,5 +134,30 @@ export const QuestionData = {
     "You are the Assistant General Manager of IndusInd Bank, Nagpur. Recent negative coverage in regional newspapers has highlighted lapses in your branch’s complaint resolution system. Investigate the matter and suggest corrective steps to improve service quality and restore public confidence.",
 
     "You are the Branch Manager of Kotak Mahindra Bank in Bhopal. Frequent revisions in internal guidelines are causing uncertainty among employees, leading to miscommunication with customers. Assess the consequences of this communication gap and recommend measures to ensure clarity and consistency among staff.",
+    "You are living in an apartment complex. One neighbor has been keeping unhygienic surroundings — leaving garbage in shared areas, failing to maintain cleanliness, which is causing foul smell, pests, health concerns, and discomfort among other residents. As a concerned and responsible resident, analyze the situation. Discuss who is affected, what the root causes might be, what possible ways there are to resolve the issue, and recommend what you would do.",
+    "You approached a bank to apply for a personal loan. While explaining the repayment schedule, the bank official mistakenly provided you with incorrect financial year–based details regarding EMIs and interest calculations. Later, you realize this error may misguide not only you but also other customers. As a vigilant customer, how will you analyze this situation and suggest appropriate steps to resolve the matter?",
+  ],
+  Letter: [
+    "Letter to Bank Manager: Report a missing debit card and request assistance.",
+    "Letter to HR Manager: Inquire about a job advertisement in the newspaper for an HR executive role.",
+    "Letter to Local Newspaper: Pay tribute to a legendary sportsperson who recently passed away, highlighting their achievements.",
+    "Letter to Manager: Request approval for outbound training for employees.",
+    "Letter to Bank Manager: Request your bank statement for a specific period.",
+    "Letter to Editor: Discuss the importance of restoring and maintaining historical monuments in the country.",
+    "Letter to Local Govt. Authority: Request a farmer awareness program on organic crop farming in your remote village.",
+    "Letter to School Principal: Raise concerns about sexual harassment prevention measures in school and urge immediate action.",
+    "Informal Letter to Your Mother: Share your achievements in college and express gratitude for her support.",
+    "Complaint Letter to Bank Manager: Address the negligence and irresponsibility of bank employees.",
+    "Complaint to Municipal Corporation: Highlight the poor condition of roads and the absence of street lights in your area.",
+    "Letter to Newspaper Editor: Address the lack of a bus stop near your colony and request action from government authorities.",
+    "Whistleblower Letter to Head of Department: Report corruption practices within the staff and request an investigation.",
+    "Letter to Editor: Express your views on the government’s mission against black money.",
+    "Letter to Bank Manager: Request the opening of a new savings account.",
+    "Letter to Newspaper Editor: Share your views on the current education system in India and request it be published.",
+    "Letter to Branch Manager: Report an issue with transferring funds due to the unavailability of UPI services.",
+    "Letter to Manager: Request outbound training for employees to improve their skills.",
+    "Letter to Editor: Encourage youth to consider joining the armed forces and discuss the benefits.",
+    "Letter to HR Manager: Request an extension of the joining date after receiving your offer letter for SBI.",
+    "Letter to HR Manager: Apply for a summer internship program in 2021, providing your qualifications and reasons for interest.",
   ],
 };
