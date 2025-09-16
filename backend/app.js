@@ -6,8 +6,11 @@ const path = require("path");
 const ExpressError = require("./utils/ExpressError");
 const cors = require("cors");
 const examTrackRoute = require("./routes/examTrack.js"); // step - (3a)
-const session = require("express-session");   // aim: "Implementing session",  work: require
 
+// aim: "Implementing session",  work: require
+const session = require("express-session");   
+const MongoStore = require("connect-mongo"); 
+//---
 
 
 // Establishing connection to Data base ---> (Step-2)
@@ -30,11 +33,36 @@ async function main() {
 //--
 
 
+// aim: "implementing session", 
+const store = MongoStore.create({
+  mongoUrl: process.env.ATLASDB_URL,
+  crypto: {
+    secret: "mysupersecretcode",
+  },
+  touchAfter: 24 * 3600,
+});
+
+store.on("error", ()=>{
+  console.log("error in mongo session store", err)
+}); 
+const sessionOptions = {
+  store,
+  secret: "mysupersecretcode",
+  resave: false,
+  saveUninitialized: true,
+  cookie: {  
+    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+  },
+};
+//------------
 
 
 
 
 
+app.use(session(sessionOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

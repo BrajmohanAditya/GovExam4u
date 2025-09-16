@@ -57,8 +57,8 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
         </form>
 
         <div className="flex justify-end sm:ml-auto"></div>
+        <div className="text-lg text-white">Login &nbsp; Logout</div>
       </nav>
-
     </>
   );
 }    
