@@ -1,11 +1,11 @@
-
 import React from "react";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
 import { GraduationCap } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { LogIn, UserPlus, LogOut } from "lucide-react";
 
-import { faBars ,faTimes, } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 function Logo() {
   return (
@@ -18,7 +18,6 @@ function Logo() {
     </div>
   );
 }
-
 
 export default function Navbar({ showSidebar, setShowSidebar }) {
   // prop receiving
@@ -39,7 +38,6 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
           </button>
           <Logo />
         </div>
-
         <form className="flex flex-col sm:flex-row sm:items-center gap-2 w-full sm:w-auto">
           <input
             type="search"
@@ -55,17 +53,28 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
             Search
           </Button>
         </form>
-
         <div className="flex justify-end sm:ml-auto"></div>
-        <div className="text-lg text-white">Login &nbsp; Logout</div>
+
+        <div className="flex flex-row flex-wrap gap-2 sm:gap-3 ">
+          {/* Login */}
+          <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-blue-800 font-semibold hover:bg-gray-100 transition cursor-pointer">
+            <LogIn className="w-4 h-4" /> Login
+          </button>
+
+          {/* Signup (highlighted) */}
+          <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700 transition shadow cursor-pointer">
+            <UserPlus className="w-4 h-4" /> Signup
+          </button>
+
+          {/* Logout */}
+          <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition cursor-pointer">
+            <LogOut className="w-4 h-4" /> Logout
+          </button>
+        </div>
       </nav>
     </>
   );
-}    
-
-
-
-
+}
 
 /*
 * when i click  line 30 "setShowSidebar" function jo ki HomePage meh hai usko call karaga or uska ander "true" update kr dega or

@@ -30,7 +30,7 @@ async function main() {
   // ya main method raha
   await mongoose.connect(MONGO_URL);
 }
-//--
+//---
 
 
 // aim: "implementing session", 
@@ -56,13 +56,10 @@ const sessionOptions = {
     httpOnly: true,
   },
 };
-//------------
+//---
 
 
-
-
-
-app.use(session(sessionOptions));
+app.use(session(sessionOptions)); // aim: "implementing session", 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -78,17 +75,9 @@ app.use(
   })
 );
 
-// step - (3a) aim: jo v call "/examTrac" seh aya usko examTrackRoute yaha redirect kr doh.
+// step - (3a) 
 app.use("/examTrack", examTrackRoute); //("/call receive on this route", redirect to this file);
 //--
-
-
-
-
-
-
-
-
 
 
 app.all(/.*/, (req, res, next) => {

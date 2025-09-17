@@ -22,15 +22,24 @@
 
 > .get() :  is use to give response to  the request which comes from browser.
 
-app.get("/", (req, res) => {
-  res.send("Hi, I am root"); or to render something. 
-});
+> .post():    is use to receive  request which comes from browser. like we submit a form. 
 
-> .post(): is use to receive  request which comes from browser. like we submit a form. 
+> app.use():  ek middleware ko attach karta hai, jo request-response ke beech me kaam karta hai (jaise logging,      authentication, body parsing, routes handle karna, etc.).
 
-> app.use() ek middleware ko attach karta hai, jo request-response ke beech me kaam karta hai (jaise logging, authentication, body parsing, routes handle karna, etc.).
+> CORS() is a middleware in Express that specifies which frontend origins (domains or URLs) are permitted to communicate with the backend server.
+
+
+
 
 # RESTful API = A standard way for client and server to communicate using  HTTP methods.
 
 # Nodejs provide runtime environment to javascript
+
+--------------------------  Aim: signUp Login, Logout --------------------------------
+# How to render a form ? 
+>Q: jb frontend seh signUp ya Login form per call aya toh usko render karo. 
+
+process: Make a folder "users" , inside "users" make 3 files "login.jsx" and "signup.jsx" and "usersRoute.jsx" create routes for login.jsx and signUp.jsx in "usersRoute.jsx" which contains "/paths" of every route yahi path ko hum frontend k button seh link krta hai. now put "usersRoute.jsx" in "AppRoutes.jsx" for final rendering.
+
+
 
