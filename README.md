@@ -40,6 +40,30 @@
 >Q: jb frontend seh signUp ya Login form per call aya toh usko render karo. 
 
 process: Make a folder "users" , inside "users" make 3 files "login.jsx" and "signup.jsx" and "usersRoute.jsx" create routes for login.jsx and signUp.jsx in "usersRoute.jsx" which contains "/paths" of every route yahi path ko hum frontend k button seh link krta hai. now put "usersRoute.jsx" in "AppRoutes.jsx" for final rendering.
+The moment you submit the form make a route in "app.js" to receive that data and save in data base. 
+
+
+
+
+
+# what are hooks in react  ?
+ans: Hooks are functions introduced in React 16.8 that let functional components use state and lifecycle features.
+useState, useEffect, useContext. 
+
+import { useState } from "react";
+function Counter() {
+  const [count, setCount] = useState(0); // hook use kiya
+
+  return (
+    <div>
+      <p>Value: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+    </div>
+  );
+}
+----------------------------------------------------------------------------------------------------------------
+
+
 
 
 

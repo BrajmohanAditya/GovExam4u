@@ -5,7 +5,7 @@ import { Route } from "react-router-dom";
 import MockTest from "./mock";
 
 const MockRoutes = [
-  <Route path="/mock" element={<MockTest />} key="mock" />
+  <Route path="/mock" element={<MockTest/>} key="mock" />
 ];
 
 export default MockRoutes;

@@ -4,9 +4,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import { GraduationCap } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { LogIn, UserPlus, LogOut } from "lucide-react";
-
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-
+import { useNavigate } from "react-router-dom";
 function Logo() {
   return (
     <div className="flex items-center space-x-2">
@@ -20,6 +19,7 @@ function Logo() {
 }
 
 export default function Navbar({ showSidebar, setShowSidebar }) {
+  const navigate = useNavigate();
   // prop receiving
   return (
     <>
@@ -57,12 +57,18 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
 
         <div className="flex flex-row flex-wrap gap-2 sm:gap-3 ">
           {/* Login */}
-          <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-blue-800 font-semibold hover:bg-gray-100 transition cursor-pointer">
-            <LogIn className="w-4 h-4" /> Login
+          <button
+            onClick={() => navigate("/login")}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-blue-800 font-semibold hover:bg-gray-100 transition cursor-pointer"
+          >
+            <UserPlus className="w-4 h-4" /> Login
           </button>
 
           {/* Signup (highlighted) */}
-          <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700 transition shadow cursor-pointer">
+          <button
+            onClick={() => navigate("/signup")}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700 transition shadow cursor-pointer"
+          >
             <UserPlus className="w-4 h-4" /> Signup
           </button>
 
