@@ -42,7 +42,6 @@ const sidebarItems = [
   { icon: faNewspaper, label: "Current Affair", link: "#" },
   { icon: faFileSignature, label: "Daily Quiz", link: "#" },
   { icon: faCalendarDays, label: "Track Your Exam", link: "/examTracker" },
-  { icon: "🎯", label: "Cutoff Dekho", link: "#" },
   { icon: faHandHoldingDollar, label: "Win Prize", link: "#" },
   { icon: faAddressCard, label: "Our Selections", link: "#" },
   { icon: faCartShopping, label: "Purchased Item", link: "#" },
@@ -61,6 +60,7 @@ const sidebarItems = [
     label: "Telegram",
     link: "https://t.me/+K5o2Ti1aRZdlNDY9",
   },
+  { icon: "🎯", label: "Log Out", link: "#" },
 ];
 
 

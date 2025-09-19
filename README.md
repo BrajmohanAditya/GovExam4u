@@ -62,8 +62,22 @@ function Counter() {
   );
 }
 ----------------------------------------------------------------------------------------------------------------
+# CORS(Cross-Origin Resource Sharing) ?
+> It’s like giving permission for which frontends are allowed to talk to your backend. we define this in our server file
 
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://govexam4u-frontend.onrender.com",
+      "https://govexam4u.com",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+-------------------------------------------------------------------------------------------------------------------
+# Why we use schema and JOI ? (SERVER side VALIDATION)
+> Schema is used to define data types and apply server-side validation before saving data to the database.
 
-
-
-
+> “Joi is used for server-side validation as middleware, so any data from forms or requests is checked before saving to the database, ensuring correctness and security.”

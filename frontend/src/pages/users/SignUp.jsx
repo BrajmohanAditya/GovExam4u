@@ -6,12 +6,12 @@ import api from "../../api"; // 🔥 backend API instance
 export default function Signup() {
   const navigate = useNavigate();
   const [user, setUser] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
-
+   
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -27,6 +27,7 @@ export default function Signup() {
     } catch (err) {
       alert(err.response?.data?.message || "Signup failed!");
     }
+    navigate("/", { replace: true });
   };
 
   return (
@@ -35,15 +36,15 @@ export default function Signup() {
       className="p-6 bg-white shadow-lg rounded-xl max-w-md mx-auto mt-10"
     >
       <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
-        Signup on Wanderlust
+        Signup on Govexam4u.com
       </h2>
 
       {/* Username */}
       <label className="block mb-2">Username</label>
       <input
         type="text"
-        value={user.name}
-        onChange={(e) => setUser({ ...user, name: e.target.value })}
+        value={user.username}
+        onChange={(e) => setUser({ ...user, username: e.target.value })}  
         className="border p-2 w-full rounded mb-4"
         required
       />

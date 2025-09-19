@@ -72,10 +72,6 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
             <UserPlus className="w-4 h-4" /> Signup
           </button>
 
-          {/* Logout */}
-          <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition cursor-pointer">
-            <LogOut className="w-4 h-4" /> Logout
-          </button>
         </div>
       </nav>
     </>
