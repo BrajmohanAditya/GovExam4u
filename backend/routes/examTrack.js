@@ -20,7 +20,7 @@ const validateExamDate = (req, res, next) => {
 
 //step: A0, aim: Display card, work: db seh All exams ka data nikal k frontend(examTrack) ko send kr raha . 
 router.get(
-  "/",isLoggedIn,
+  "/",
   wrapAsync(async (req, res) => {
     const Allexam = await examTrack.find({});
     res.json(Allexam); // Allexam - ya just above wala line seh aya hai

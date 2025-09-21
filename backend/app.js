@@ -68,31 +68,31 @@ store.on("error", (err)=>{
   console.log("error in mongo session store", err)
 }); 
 
+const sessionOptions = {
+  store,
+  secret: "mysupersecretcode",
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: false,
+    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+  },
+};
+
 // const sessionOptions = {
 //   store,
 //   secret: "mysupersecretcode",
 //   resave: false,
 //   saveUninitialized: true,
 //   cookie: {
-//     secure: false,
-//     expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
-//     maxAge: 7 * 24 * 60 * 60 * 1000,
+//     secure: process.env.NODE_ENV === "production", // only HTTPS in prod
 //     httpOnly: true,
+//     maxAge: 7 * 24 * 60 * 60 * 1000,
+//     expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
 //   },
 // };
-
-const sessionOptions = {
-  store,
-  secret: "mysupersecretcode",
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    secure: true, // HTTPS required
-    httpOnly: true,
-    sameSite: "none", // cross-site cookie
-    maxAge: 7 * 24 * 60 * 60 * 1000,
-  },
-};
 
 
 
