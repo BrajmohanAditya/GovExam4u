@@ -25,17 +25,24 @@ function Logo() {
 
 export default function Navbar({ showSidebar, setShowSidebar }) {
   const navigate = useNavigate();
-const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);
 
 // Check if user is logged in
-// useEffect(() => {
-//   api
-//     .get("/current-user") // Backend route to get logged-in user
-//     .then((res) => setUser(res.data.user))
-//     .catch(() => setUser(null));
-// }, []);
+useEffect(() => {
+  const fetchUser = async () => {
+    try {
+      const res = await api.get("/current-user"); // backend route
+      setUser(res.data.user); // user object ya null
+    } catch (err) {
+      setUser(null);
+    }
+  };
 
-const handleLogout = async () => {
+  fetchUser();
+}, []);
+
+
+const handleLogout = async () => { 
   try {
     const res = await api.post("/logout");
     alert(res.data.message);
@@ -45,9 +52,6 @@ const handleLogout = async () => {
     console.error("Logout failed:", err);
   }
 };
-
-
-
 
   return (
     <>
@@ -84,29 +88,40 @@ const handleLogout = async () => {
         </form>
 
         {/* Right: Auth Buttons */}
+
         <div className="flex flex-row flex-wrap gap-2 sm:gap-3 justify-end">
-          {/* Login */}
-          <button
-            onClick={() => navigate("/login")}
-            className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-white text-blue-800 text-sm sm:text-base font-semibold hover:bg-gray-100 transition cursor-pointer"
-          >
-            <LogIn className="w-4 h-4" /> Login
-          </button>
 
-          {/* Signup */}
-          <button
-            onClick={() => navigate("/signup")}
-            className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-green-600 text-white text-sm sm:text-base font-semibold hover:bg-green-700 transition shadow cursor-pointer"
-          >
-            <UserPlus className="w-4 h-4" /> Signup
-          </button>
+          {user ? (
+            // Agar login hai → username show + logout button
+            <>
+              <span className="px-3 sm:px-4 py-2 rounded-lg text-white text-sm sm:text-base font-semibold">
+                {user.username}
+              </span>
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-red-500 text-white text-sm sm:text-base font-semibold hover:bg-red-600 transition shadow cursor-pointer"
+              >
+                <LogOut className="w-4 h-4" /> Logout
+              </button>
+            </>
+          ) : (
+            // Agar logout hai → Login / Signup buttons
+            <>
+              <button
+                onClick={() => navigate("/login")}
+                className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-white text-blue-800 text-sm sm:text-base font-semibold hover:bg-gray-100 transition cursor-pointer"
+              >
+                <LogIn className="w-4 h-4" /> Login
+              </button>
 
-          <button
-            onClick={handleLogout}
-            className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-red-500 text-white text-sm sm:text-base font-semibold hover:bg-red-600 transition shadow cursor-pointer"
-          >
-            <LogOut className="w-4 h-4" /> Logout
-          </button>
+              <button
+                onClick={() => navigate("/signup")}
+                className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-green-600 text-white text-sm sm:text-base font-semibold hover:bg-green-700 transition shadow cursor-pointer"
+              >
+                <UserPlus className="w-4 h-4" /> Signup
+              </button>
+            </>
+          )}
         </div>
       </nav>
     </>

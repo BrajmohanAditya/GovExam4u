@@ -56,15 +56,15 @@ router.post(
   }
 );
 
-// // Current logged-in user
-// router.get("/current-user", (req, res) => {
-//   if (req.isAuthenticated()) {
-//     return res.json({ user: { id: req.user._id, username: req.user.username, email: req.user.email } });
-//   }
-//   return res.status(401).json({ user: null });
-// });
+// Current logged-in user
+router.get("/current-user", (req, res) => {
+  if (req.isAuthenticated()) {
+    return res.json({ user: { id: req.user._id, username: req.user.username, email: req.user.email } });
+  }
+  return res.status(401).json({ user: null });
+});
 
-
+ 
 // ✅ Logout Route
 router.post("/logout", (req, res, next) => {
   req.logout((err) => {

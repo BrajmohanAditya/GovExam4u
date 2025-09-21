@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import {
   faHouse,
   faChalkboardUser,
@@ -17,11 +18,7 @@ import {
   faSquareWhatsapp,
   faYoutube,
   faTelegram,
-  faRocketchat,
 } from "@fortawesome/free-brands-svg-icons";
-
-
-
 
 const sidebarItems = [
   { icon: faHouse, label: "Home", link: "#" },
@@ -63,13 +60,16 @@ const sidebarItems = [
     label: "Telegram",
     link: "https://t.me/+K5o2Ti1aRZdlNDY9",
   },
-  { icon: "🎯", label: "Log Out", link: "logout" },
+  { icon: "🎯", label: "Log Out", link: "#" },
 ];
 
 
-export default function SidebarMenu({ showSidebar, setShowSidebar }) { // prop receiving
+
+export default function SidebarMenu({ showSidebar, setShowSidebar }) {
+  // prop receiving
   //
   const [active, setActive] = useState("Home");
+
   return (
     <>
       {/* mobile mode meh ab ager kahi v click karo toh side bar hide ho jayaga */}
@@ -84,7 +84,6 @@ export default function SidebarMenu({ showSidebar, setShowSidebar }) { // prop r
           <div className="fixed top-0 left-0 h-full w-64 bg-black sm:hidden z-40"></div>
         </>
       )}
-
 
       <div
         className={` 
