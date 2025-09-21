@@ -64,7 +64,7 @@ const store = MongoStore.create({
   touchAfter: 24 * 3600,
 });
   
-store.on("error", ()=>{
+store.on("error", (err)=>{
   console.log("error in mongo session store", err)
 }); 
 const sessionOptions = {
@@ -72,7 +72,8 @@ const sessionOptions = {
   secret: "mysupersecretcode",
   resave: false,
   saveUninitialized: true,
-  cookie: {  
+  cookie: {
+    secure: false,
     expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
     maxAge: 7 * 24 * 60 * 60 * 1000,
     httpOnly: true,

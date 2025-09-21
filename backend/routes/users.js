@@ -10,7 +10,7 @@ router.post(
   wrapAsync(async (req, res, next) => {
     try {
       const { username, email, password } = req.body;
-      // naya user object
+      // naya user object 
       const newUser = new User({ email, username });
       // passport-local-mongoose ka register()
       const registeredUser = await User.register(newUser, password);
@@ -56,6 +56,15 @@ router.post(
   }
 );
 
+// // Current logged-in user
+// router.get("/current-user", (req, res) => {
+//   if (req.isAuthenticated()) {
+//     return res.json({ user: { id: req.user._id, username: req.user.username, email: req.user.email } });
+//   }
+//   return res.status(401).json({ user: null });
+// });
+
+
 // ✅ Logout Route
 router.post("/logout", (req, res, next) => {
   req.logout((err) => {
@@ -66,6 +75,7 @@ router.post("/logout", (req, res, next) => {
     });
   });
 });
+
 
 module.exports = router;
 

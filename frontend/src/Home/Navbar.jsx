@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
 import { GraduationCap } from "lucide-react";
@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { LogIn, UserPlus, LogOut } from "lucide-react";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import api from "../api"; // Axios instance
 
 function Logo() {
   return (
@@ -19,8 +20,34 @@ function Logo() {
   );
 }
 
+
+
+
 export default function Navbar({ showSidebar, setShowSidebar }) {
   const navigate = useNavigate();
+const [user, setUser] = useState(null);
+
+// Check if user is logged in
+// useEffect(() => {
+//   api
+//     .get("/current-user") // Backend route to get logged-in user
+//     .then((res) => setUser(res.data.user))
+//     .catch(() => setUser(null));
+// }, []);
+
+const handleLogout = async () => {
+  try {
+    const res = await api.post("/logout");
+    alert(res.data.message);
+    setUser(null);
+    navigate("/", { replace: true });
+  } catch (err) {
+    console.error("Logout failed:", err);
+  }
+};
+
+
+
 
   return (
     <>
@@ -72,6 +99,13 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
             className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-green-600 text-white text-sm sm:text-base font-semibold hover:bg-green-700 transition shadow cursor-pointer"
           >
             <UserPlus className="w-4 h-4" /> Signup
+          </button>
+
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-red-500 text-white text-sm sm:text-base font-semibold hover:bg-red-600 transition shadow cursor-pointer"
+          >
+            <LogOut className="w-4 h-4" /> Logout
           </button>
         </div>
       </nav>

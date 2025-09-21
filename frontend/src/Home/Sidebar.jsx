@@ -20,6 +20,9 @@ import {
   faRocketchat,
 } from "@fortawesome/free-brands-svg-icons";
 
+
+
+
 const sidebarItems = [
   { icon: faHouse, label: "Home", link: "#" },
   { icon: faChalkboardUser, label: "Live Classes", link: "#" },
@@ -60,7 +63,7 @@ const sidebarItems = [
     label: "Telegram",
     link: "https://t.me/+K5o2Ti1aRZdlNDY9",
   },
-  { icon: "🎯", label: "Log Out", link: "/logout" },
+  { icon: "🎯", label: "Log Out", link: "logout" },
 ];
 
 
