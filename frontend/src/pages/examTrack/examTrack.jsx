@@ -20,7 +20,7 @@ export default function ExamTrack() {
           console.error("Error:", err.response.data.message);
           if (err.response.status === 401) {
             alert(err.response.data.message); // ✅ "You must be logged in to do anything"
-            navigate("/signup"); // React Router ka navigate use karo agar redirect karna ho
+            navigate("/login"); // React Router ka navigate use karo agar redirect karna ho
           }
         } else {
           console.error("Unexpected error:", err);
