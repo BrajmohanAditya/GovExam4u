@@ -81,3 +81,10 @@ app.use(
 > Schema is used to define data types and apply server-side validation before saving data to the database.
 
 > “Joi is used for server-side validation as middleware, so any data from forms or requests is checked before saving to the database, ensuring correctness and security.”
+
+
+---------------------------------------------------------------------------------
+# Login Logout Signup
+>aim: if Login show only username (step-17 wonderlust)
+
+>aim : signup  login logout 

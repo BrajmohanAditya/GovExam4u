@@ -5,6 +5,7 @@ const examTrack = require("../models/examTrack.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 const {joiexamdateSchema} = require("../joiSchema.js")   // step:4
 const ExpressError = require("../utils/ExpressError");
+const { isLoggedIn } = require("../middleware.js");
 
 //step- 4 , aim: restricting wrong data from hopscotch , work: creating middlemalwere. 
 const validateExamDate = (req, res, next) => {
@@ -19,7 +20,7 @@ const validateExamDate = (req, res, next) => {
 
 //step: A0, aim: Display card, work: db seh All exams ka data nikal k frontend(examTrack) ko send kr raha . 
 router.get(
-  "/",
+  "/",isLoggedIn,
   wrapAsync(async (req, res) => {
     const Allexam = await examTrack.find({});
     res.json(Allexam); // Allexam - ya just above wala line seh aya hai

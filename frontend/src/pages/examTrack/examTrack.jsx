@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; 
+import { Link, useNavigate } from "react-router-dom"; 
 import { calculateTimeLeft } from "./timeLeft";
 import Nav from "./Navbar"
 import api from "../../api";
@@ -8,17 +8,28 @@ import api from "../../api";
 export default function ExamTrack() {
   const [exams, setExams] = useState([]);
   const [timeLeft, setTimeLeft] = useState({});
+  const navigate = useNavigate(); // <-- yaha define karo
 
-
-  //step: A0, aim: Display card, work: receiving data from backend.  
+  //step: A0, aim: Display card, work: receiving data from backend.
   useEffect(() => {
     api
       .get("/examTrack") //examTrack route se tumhe sara exam ka data mil raha hai jo DB me save hai.
       .then((res) => setExams(res.data)) //setExams(res.data) use karke wo data state (exams) me save kar diya jata hai.
-      .catch((err) => console.error(err));
-  }, []);
+      .catch((err) => {
+        if (err.response) {
+          console.error("Error:", err.response.data.message);
+          if (err.response.status === 401) {
+            alert(err.response.data.message); // ✅ "You must be logged in to do anything"
+            navigate("/signup"); // React Router ka navigate use karo agar redirect karna ho
+          }
+        } else {
+          console.error("Unexpected error:", err);
+        }
+      });
+  }, [navigate]);
   //---
 
+  //---
 
   // hook for calculation of time left
   useEffect(() => {
@@ -45,9 +56,7 @@ export default function ExamTrack() {
     //step: A1,  aim: edit form rendering,  click a link jo "examTrackRoute.jsx" k ander hai wo ak "EditUpdate.jsx" file ko render kr dega,
     <>
       <Nav />;
-      <div
-        className="m-5  md:m-20  p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  rounded-md "
-      >
+      <div className="m-5  md:m-20  p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  rounded-md ">
         {exams.map((exam) => (
           <Link to={`/exam/${exam._id}/edit`} key={exam._id}>
             <div className="bg-linear-to-r/oklab  from-indigo-500 to-teal-400 rounded-xl p-5 w-full card-wrapper">
