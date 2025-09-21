@@ -20,38 +20,34 @@ function Logo() {
   );
 }
 
-
-
-
 export default function Navbar({ showSidebar, setShowSidebar }) {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
-// Check if user is logged in
-useEffect(() => {
-  const fetchUser = async () => {
+  // Check if user is logged in
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await api.get("/current-user"); // backend route
+        setUser(res.data.user); // user object ya null
+      } catch (err) {
+        setUser(null);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+  const handleLogout = async () => {
     try {
-      const res = await api.get("/current-user"); // backend route
-      setUser(res.data.user); // user object ya null
-    } catch (err) {
+      const res = await api.post("/logout");
+      alert(res.data.message);
       setUser(null);
+      navigate("/", { replace: true });
+    } catch (err) {
+      console.error("Logout failed:", err);
     }
   };
-
-  fetchUser();
-}, []);
-
-
-const handleLogout = async () => { 
-  try {
-    const res = await api.post("/logout");
-    alert(res.data.message);
-    setUser(null);
-    navigate("/", { replace: true });
-  } catch (err) {
-    console.error("Logout failed:", err);
-  }
-};
 
   return (
     <>
@@ -71,7 +67,6 @@ const handleLogout = async () => {
           <Logo />
         </div>
 
-        {/* Center: Search bar */}
         <form className="flex flex-1 sm:flex-none flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 max-w-full sm:max-w-2xl w-full">
           <input
             type="search"
@@ -87,10 +82,7 @@ const handleLogout = async () => {
           </Button>
         </form>
 
-        {/* Right: Auth Buttons */}
-
         <div className="flex flex-row flex-wrap gap-2 sm:gap-3 justify-end">
-
           {user ? (
             // Agar login hai → username show + logout button
             <>
@@ -102,7 +94,7 @@ const handleLogout = async () => {
                 onClick={handleLogout}
                 className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-red-500 text-white text-sm sm:text-base font-semibold hover:bg-red-600 transition shadow cursor-pointer"
               >
-                <LogOut className="w-4 h-4" /> 
+                <LogOut className="w-4 h-4" />
               </button>
             </>
           ) : (

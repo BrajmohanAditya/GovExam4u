@@ -67,18 +67,35 @@ const store = MongoStore.create({
 store.on("error", (err)=>{
   console.log("error in mongo session store", err)
 }); 
+
+// const sessionOptions = {
+//   store,
+//   secret: "mysupersecretcode",
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: {
+//     secure: false,
+//     expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+//     maxAge: 7 * 24 * 60 * 60 * 1000,
+//     httpOnly: true,
+//   },
+// };
+
 const sessionOptions = {
   store,
   secret: "mysupersecretcode",
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   cookie: {
-    secure: false,
-    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
-    maxAge: 7 * 24 * 60 * 60 * 1000,
+    secure: true, // HTTPS required
     httpOnly: true,
+    sameSite: "none", // cross-site cookie
+    maxAge: 7 * 24 * 60 * 60 * 1000,
   },
 };
+
+
+
 //---
 
 
@@ -108,6 +125,17 @@ app.use("/examTrack", examTrackRoute); //("/call receive on this route", redirec
 //--
 
 app.use("/", userRouter); // aim:signup login logout, work: redirect. 
+
+
+
+
+app.get("/debug-session", (req, res) => {
+  res.json({
+    cookies: req.headers.cookie,
+    session: req.session,
+    user: req.user || null,
+  });
+});
 
 
 app.all(/.*/, (req, res, next) => {
