@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/user.js");
 const wrapAsync = require("../utils/wrapAsync");
+const passport = require("passport");
 
 // ✅ Signup Route (JSON response)
 router.post(
@@ -9,17 +10,13 @@ router.post(
   wrapAsync(async (req, res, next) => {
     try {
       const { username, email, password } = req.body;
-
       // naya user object
       const newUser = new User({ email, username });
-
       // passport-local-mongoose ka register()
       const registeredUser = await User.register(newUser, password);
-
       // Auto login after signup
       req.login(registeredUser, (err) => {
         if (err) return next(err);
-
         // ✅ React ke liye JSON response
         return res.status(201).json({
           success: true,
@@ -40,6 +37,35 @@ router.post(
     }
   })
 );
+
+// ✅ Login Route
+router.post(
+  "/login",
+  passport.authenticate("local", { failureMessage: true }),
+  (req, res) => {
+    const user = req.user; // passport user
+    return res.json({
+      success: true,
+      message: "Login successful!",
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+      },
+    });
+  }
+);
+
+// ✅ Logout Route
+router.post("/logout", (req, res, next) => {
+  req.logout((err) => {
+    if (err) return next(err);
+    return res.json({
+      success: true,
+      message: "Logged out successfully!",
+    });
+  });
+});
 
 module.exports = router;
 

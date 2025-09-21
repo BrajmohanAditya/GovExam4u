@@ -60,7 +60,7 @@ const sidebarItems = [
     label: "Telegram",
     link: "https://t.me/+K5o2Ti1aRZdlNDY9",
   },
-  { icon: "🎯", label: "Log Out", link: "#" },
+  { icon: "🎯", label: "Log Out", link: "/logout" },
 ];
 
 
