@@ -74,8 +74,11 @@ const sessionOptions = {
   resave: false,
   saveUninitialized: false,
   cookie: {
-    maxAge: 7 * 24 * 60 * 60 * 1000,
+    secure: true, // HTTPS required
     httpOnly: true,
+    sameSite: "none", // cross-subdomain cookie
+    domain: ".govexam4u.com", // ✅ subdomain sharing
+    maxAge: 7 * 24 * 60 * 60 * 1000,
   },
 };
 
