@@ -53,6 +53,7 @@ router.post(
         email: user.email,
       },
     });
+          console.log(req.session);
   }
 );
 
