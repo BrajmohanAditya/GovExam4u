@@ -24,11 +24,12 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
+
   // Check if user is logged in
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await api.get("/current-user"); // backend route
+        const res = await api.get("/current-user", { withCredentials: true }); // backend route
         setUser(res.data.user); // user object ya null
       } catch (err) {
         setUser(null);
@@ -37,6 +38,12 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
 
     fetchUser();
   }, []);
+
+ 
+
+
+
+
 
   const handleLogout = async () => {
     try {

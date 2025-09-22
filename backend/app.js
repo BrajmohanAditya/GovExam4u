@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 const path = require("path");
 const cors = require("cors");
 const examTrackRoute = require("./routes/examTrack.js"); // step - (3a)
-
 // aim: "Implementing session",  work: require
 const session = require("express-session");   
 const MongoStore = require("connect-mongo"); 
@@ -18,6 +17,7 @@ const userRouter = require("./routes/users.js");
 //---  
 const ExpressError = require("./utils/ExpressError");
 
+
 // Establishing connection to Data base ---> (Step-2)
 const PORT = process.env.PORT || 8080
 const MONGO_URL = process.env.ATLASDB_URL;
@@ -28,7 +28,7 @@ main()
     console.log("connected to DB");
   })
   .catch((err) => {
-    console.log(err);
+    console.log(err); 
   });
 
 async function main() {
@@ -37,7 +37,7 @@ async function main() {
 }
 //---
 
-
+ 
 app.use(
   cors({
     origin: [
@@ -62,7 +62,7 @@ const store = MongoStore.create({
     secret: "mysupersecretcode",
   }, 
   touchAfter: 24 * 3600,
-});
+}); 
   
 store.on("error", (err)=>{
   console.log("error in mongo session store", err)
@@ -74,11 +74,11 @@ const sessionOptions = {
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: true, // HTTPS required
     httpOnly: true,
-    sameSite: "none", // cross-subdomain cookie
     domain: ".govexam4u.com", // ✅ subdomain sharing
     maxAge: 7 * 24 * 60 * 60 * 1000,
+    secure: true, 
+    sameSite: "none", 
   },
 };
 
@@ -131,15 +131,15 @@ app.all(/.*/, (req, res, next) => {
 
 
 // //aim: Adding server side validation, # gloval middle malware.
-app.use((err, req, res, next) => {
-  let { statusCode = 500, message = "something went wrong" } = err;
-  // res.render("error.ejs", { message });
-  res.status(statusCode).json({
-    // bina ya line k hopscotch meh status ok nahi milaga.
-    success: false,
-    error: message,
-  });
-}); // # jb koi error aya or koi route nahi work kara toh express khud hi ishko call kr deta hai or server crash nahi hota
+// app.use((err, req, res, next) => {
+//   let { statusCode = 500, message = "something went wrong" } = err;
+//   // res.render("error.ejs", { message });
+//   res.status(statusCode).json({
+//     // bina ya line k hopscotch meh status ok nahi milaga.
+//     success: false,
+//     error: message,
+//   });
+// }); // # jb koi error aya or koi route nahi work kara toh express khud hi ishko call kr deta hai or server crash nahi hota
 
   
 app.listen(PORT, () => {
