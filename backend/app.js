@@ -125,9 +125,9 @@ app.use("/", userRouter); // aim:signup login logout, work: redirect.
 
 
 
-app.all(/.*/, (req, res, next) => {
-  next(new ExpressError(404, "Page Not Found"));
-});
+// app.all(/.*/, (req, res, next) => {
+//   next(new ExpressError(404, "Page Not Found"));
+// });
 
 
 // //aim: Adding server side validation, # gloval middle malware.
