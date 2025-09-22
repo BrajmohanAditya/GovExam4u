@@ -72,27 +72,13 @@ const sessionOptions = {
   store,
   secret: "mysupersecretcode",
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   cookie: {
-    secure: false,
-    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
     maxAge: 7 * 24 * 60 * 60 * 1000,
     httpOnly: true,
   },
 };
 
-// const sessionOptions = {
-//   store,
-//   secret: "mysupersecretcode",
-//   resave: false,
-//   saveUninitialized: true,
-//   cookie: {
-//     secure: process.env.NODE_ENV === "production", // only HTTPS in prod
-//     httpOnly: true,
-//     maxAge: 7 * 24 * 60 * 60 * 1000,
-//     expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-//   },
-// };
 
 
 
@@ -129,30 +115,21 @@ app.use("/", userRouter); // aim:signup login logout, work: redirect.
 
 
 
-app.get("/debug-session", (req, res) => {
-  res.json({
-    cookies: req.headers.cookie,
-    session: req.session,
-    user: req.user || null,
-  });
-});
-
-
 app.all(/.*/, (req, res, next) => {
   next(new ExpressError(404, "Page Not Found"));
 });
 
 
 // //aim: Adding server side validation, # gloval middle malware.
-app.use((err, req, res, next) => {
-  let { statusCode = 500, message = "something went wrong" } = err;
-  // res.render("error.ejs", { message });
-  res.status(statusCode).json({
-    // bina ya line k hopscotch meh status ok nahi milaga.
-    success: false,
-    error: message,
-  });
-}); // # jb koi error aya or koi route nahi work kara toh express khud hi ishko call kr deta hai or server crash nahi hota
+// app.use((err, req, res, next) => {
+//   let { statusCode = 500, message = "something went wrong" } = err;
+//   // res.render("error.ejs", { message });
+//   res.status(statusCode).json({
+//     // bina ya line k hopscotch meh status ok nahi milaga.
+//     success: false,
+//     error: message,
+//   });
+// }); // # jb koi error aya or koi route nahi work kara toh express khud hi ishko call kr deta hai or server crash nahi hota
 
   
 app.listen(PORT, () => {

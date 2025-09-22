@@ -25,18 +25,18 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
   const [user, setUser] = useState(null);
 
   // Check if user is logged in
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const res = await api.get("/current-user"); // backend route
-        setUser(res.data.user); // user object ya null
-      } catch (err) {
-        setUser(null);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchUser = async () => {
+  //     try {
+  //       const res = await api.get("/current-user"); // backend route
+  //       setUser(res.data.user); // user object ya null
+  //     } catch (err) {
+  //       setUser(null);
+  //     }
+  //   };
 
-    fetchUser();
-  }, []);
+  //   fetchUser();
+  // }, []);
 
   const handleLogout = async () => {
     try {
@@ -83,12 +83,11 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
         </form>
 
         <div className="flex flex-row flex-wrap gap-2 sm:gap-3 justify-end">
-          {user ? (
-            // Agar login hai → username show + logout button
+          {/* {user ? ( */}
             <>
-              <span className="px-3 sm:px-4 py-2 rounded-lg text-white text-sm sm:text-base font-semibold">
+              {/* <span className="px-3 sm:px-4 py-2 rounded-lg text-white text-sm sm:text-base font-semibold">
                 {user.username}
-              </span>
+              </span> */}
 
               <button
                 onClick={handleLogout}
@@ -97,8 +96,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
                 <LogOut className="w-4 h-4" />
               </button>
             </>
-          ) : (
-            // Agar logout hai → Login / Signup buttons
+          {/* // ) : ( */}
             <>
               <button
                 onClick={() => navigate("/login")}
@@ -114,7 +112,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
                 <UserPlus className="w-4 h-4" /> Signup
               </button>
             </>
-          )}
+          {/* )} */}
         </div>
       </nav>
     </>
