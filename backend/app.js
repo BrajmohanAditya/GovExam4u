@@ -17,6 +17,7 @@ const userRouter = require("./routes/users.js");
 //---  
 const ExpressError = require("./utils/ExpressError");
 
+ const fs = require("fs");
 
 // Establishing connection to Data base ---> (Step-2)
 const PORT = process.env.PORT || 8080
@@ -124,14 +125,20 @@ app.use("/", userRouter); // aim:signup login logout, work: redirect.
 
 
 const clientBuildPath = path.join(__dirname, "client/build");
-app.use(express.static(clientBuildPath));
-
-// React fallback for client-side routes
-app.get("*", (req, res) => {
-  res.sendFile(path.join(clientBuildPath, "index.html"));
-});
 
 
+if (fs.existsSync(clientBuildPath)) {
+  app.use(express.static(clientBuildPath));
+
+  app.get("*", (req, res, next) => {
+    // Ignore API routes
+    if (req.path.startsWith("/examTrack") || req.path.startsWith("/users"))
+      return next();
+    res.sendFile(path.join(clientBuildPath, "index.html"));
+  });
+} else {
+  console.warn("React build folder not found! Skipping static serving.");
+}
 
 // //aim: Adding server side validation, # gloval middle malware.
 app.use((err, req, res, next) => {

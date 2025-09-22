@@ -29,7 +29,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await api.get("/current-user", { withCredentials: true }); // backend route
+        const res = await api.get("/current-user"); // backend route
         setUser(res.data.user); // user object ya null
       } catch (err) {
         setUser(null);
