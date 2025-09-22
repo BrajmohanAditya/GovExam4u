@@ -123,11 +123,14 @@ app.get("/", (req, res) => {
 app.use("/", userRouter); // aim:signup login logout, work: redirect. 
 
 
+const clientBuildPath = path.join(__dirname, "client/build");
+app.use(express.static(clientBuildPath));
 
+// React fallback for client-side routes
+app.get("*", (req, res) => {
+  res.sendFile(path.join(clientBuildPath, "index.html"));
+});
 
-// app.all(/.*/, (req, res, next) => {
-//   next(new ExpressError(404, "Page Not Found"));
-// });
 
 
 // //aim: Adding server side validation, # gloval middle malware.
