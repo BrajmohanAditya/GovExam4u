@@ -1,12 +1,12 @@
-// Backend File. 
-const express = require("express");
-const router = express.Router();
-const examTrack = require("../models/examTrack.js");
-const wrapAsync = require("../utils/wrapAsync.js");
-const {joiexamdateSchema} = require("../joiSchema.js")   // step:4
-const ExpressError = require("../utils/ExpressError");
-const { isLoggedIn } = require("../middleware.js");
 
+import express from "express";
+import wrapAsync from "../utils/wrapAsync.js";
+import examTrack from "../models/examTrack.js";
+import { joiexamdateSchema } from "../joiSchema.js"; // Step 4
+import ExpressError from "../utils/ExpressError.js";
+import {authMiddleware} from "../middleware.js";
+
+const router = express.Router();
 //step- 4 , aim: restricting wrong data from hopscotch , work: creating middlemalwere. 
 const validateExamDate = (req, res, next) => {
   let { error } = joiexamdateSchema.validate(req.body);
@@ -14,13 +14,13 @@ const validateExamDate = (req, res, next) => {
     throw new ExpressError(400, error);
   } else {
     next();
-  }
+  } 
 }; 
 //--- 
 
 //step: A0, aim: Display card, work: db seh All exams ka data nikal k frontend(examTrack) ko send kr raha . 
 router.get(
-  "/",isLoggedIn,
+  "/",authMiddleware,
   wrapAsync(async (req, res) => {
     const Allexam = await examTrack.find({});
     res.json(Allexam); // Allexam - ya just above wala line seh aya hai
@@ -85,8 +85,8 @@ router.post(
   })
 );
 //---
-module.exports = router;
-
+// module.exports = router;
+export default router;
 
 /*
 1. wrapAsync
@@ -100,4 +100,4 @@ server crash seh bachata hai.
 2. Joi Validation
 Ye ek data validation library hai.
 Iska kaam hai: frontend se aane wale data ko check karna ki wo required format me hai ya nahi.
-*/
+*/ 

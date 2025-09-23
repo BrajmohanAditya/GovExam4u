@@ -1,23 +1,19 @@
-const ExpressError = require("./utils/ExpressError.js");
+import { verifyTokenHelper } from "./utils/jwt.js"; // ✅ correct import
 
+export function authMiddleware(req, res, next) {
+  const authHeader = req.headers["authorization"];
+  if (!authHeader)
+    return res.status(401).json({ message: "No token provided" });
 
-// aim : signup  login logout  ,   work: login hai ya nhai ya check karo.
-module.exports.isLoggedIn = (req, res, next) => {
-  if (!req.isAuthenticated || !req.isAuthenticated()) {
-    req.session.redirectUrl = req.originalUrl;
-    return res
-      .status(401)
-      .json({ message: "You must be logged in to do anything" });
+  const token = authHeader.split(" ")[1];
+  if (!token) return res.status(401).json({ message: "No token provided" });
+
+  try {
+    const decoded = verifyTokenHelper(token); // ✅ use helper
+    req.user = decoded;
+    next();
+  } catch (err) {
+    console.error("JWT verification error:", err.message);
+    return res.status(401).json({ message: "Invalid or expired token" });
   }
-  next();
-};
-//---
-
-//step:18, aim:  user jaha jaana chahta hai, login ke baad usko wahi wapas wohi send kr doh.
-module.exports.saveRedirectUrl = (req, res, next) => {
-  if (req.session.redirectUrl) {
-    res.locals.redirectUrl = req.session.redirectUrl;
-  }
-  next();
-};
-//--- work: Ye middleware session me rakhe huye redirectUrl ko locals me daal deta hai
+}

@@ -1,146 +1,91 @@
-require("dotenv").config();
-const express = require("express");
-const app = express();
-const mongoose = require("mongoose");
-const path = require("path");
-const cors = require("cors");
-const examTrackRoute = require("./routes/examTrack.js"); // step - (3a)
-// aim: "Implementing session",  work: require
-const session = require("express-session");   
-const MongoStore = require("connect-mongo"); 
-//---
-// aim: signup login logout 
-const passport = require("passport");
-const LocalStrategy = require("passport-local");
-const User = require("./models/user.js");
-const userRouter = require("./routes/users.js");
-//---  
-const ExpressError = require("./utils/ExpressError");
 
- const fs = require("fs");
+  import dotenv from "dotenv";
+  dotenv.config(); // sabse pehle
 
-// Establishing connection to Data base ---> (Step-2)
-const PORT = process.env.PORT || 8080
-const MONGO_URL = process.env.ATLASDB_URL;
+  import express from "express";
+  import mongoose from "mongoose";
+  import cors from "cors";
+  import path from "path";
+  import fs from "fs";
+  import { fileURLToPath } from "url";
 
-main()
-  .then(() => {
-    //  calling main method
-    console.log("connected to DB");
-  })
-  .catch((err) => {
-    console.log(err); 
+  import examTrackRoute from "./routes/examTrack.js";
+  import userRouter from "./routes/users.js";
+  import ExpressError from "./utils/ExpressError.js";
+  import User from "./models/user.js";
+
+  // __dirname fix for ESM
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  // Express app
+  const app = express();
+  const PORT = process.env.PORT || 8080; 
+  const MONGO_URL = process.env.ATLASDB_URL;
+   
+  // Middlewares
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
+  app.use(
+    cors({
+      origin: [
+        "http://localhost:5173",
+        "https://govexam4u-frontend.onrender.com",
+        "https://govexam4u.com",
+      ],
+      methods: ["GET", "POST", "PUT", "DELETE"],
+      credentials: true,
+    })
+  );
+
+  // DB connect
+  async function main() {
+    try {
+      await mongoose.connect(MONGO_URL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+      console.log("✅ Connected to MongoDB");
+    } catch (err) {
+      console.error("❌ DB Connection Error:", err.message);
+      process.exit(1);
+    }
+  }
+  main();
+
+  // Routes
+  app.use("/examTrack", examTrackRoute);
+  app.use("/", userRouter);
+
+  app.get("/", (req, res) => {
+    res.send("Hai, I am root");
   });
 
-async function main() {
-  // ya main method raha
-  await mongoose.connect(MONGO_URL);
-}
-//---
+  // React build serve
+  const clientBuildPath = path.join(__dirname, "client/build");
 
- 
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      "https://govexam4u-frontend.onrender.com",
-      "https://govexam4u.com",
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+  if (fs.existsSync(clientBuildPath)) {
+    app.use(express.static(clientBuildPath));
 
-// app.use(session(sessionOptions)); // aim: "implementing session", 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-//---
-
-// aim: "implementing session", 
-const store = MongoStore.create({
-  mongoUrl: process.env.ATLASDB_URL,
-  crypto: {
-    secret: "mysupersecretcode",
-  }, 
-  touchAfter: 24 * 3600,
-}); 
+    app.get("*", (req, res, next) => {
+      if (req.path.startsWith("/examTrack") || req.path.startsWith("/users"))
+        return next();
+      res.sendFile(path.join(clientBuildPath, "index.html"));
+    });
+  } else {
+    console.warn("⚠️ React build folder not found! Skipping static serving.");
+  }
   
-store.on("error", (err)=>{
-  console.log("error in mongo session store", err)
-}); 
-
-const sessionOptions = {
-  store,
-  secret: "mysupersecretcode",
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    httpOnly: true,
-    // domain: ".govexam4u.com", // ✅ subdomain sharing
-    maxAge: 7 * 24 * 60 * 60 * 1000,
-    // secure: true, 
-    // sameSite: "none", 
-  },
-};
+  // Error handler (ExpressError)
+  // app.use((err, req, res, next) => {
+  //   let { statusCode = 500, message = "Something went wrong" } = err;
+  //   res.status(statusCode).json({
+  //     success: false,
+  //     error: message,
+  //   });
+  // });
 
 
-
-
-
-//---
-
-
-// aim : signup  login logout 
-app.use(session(sessionOptions)); // aim: "implementing session", 
-
-app.use(passport.initialize());
-app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-//---
-
-
-
-
-
-
-
-
- 
-
-
-
-// step - (3a) 
-app.use("/examTrack", examTrackRoute); //("/call receive on this route", redirect to this file);
-//--
-
-// simple root message
-app.get("/", (req, res) => {
-  res.send("Hai, I am root");
-});
-
-
-app.use("/", userRouter); // aim:signup login logout, work: redirect. 
-
-
-const clientBuildPath = path.join(__dirname, "client/build");
-
-
-if (fs.existsSync(clientBuildPath)) {
-  app.use(express.static(clientBuildPath));
-
-  app.get("*", (req, res, next) => {
-    // Ignore API routes
-    if (req.path.startsWith("/examTrack") || req.path.startsWith("/users"))
-      return next();
-    res.sendFile(path.join(clientBuildPath, "index.html"));
-  });
-} else {
-  console.warn("React build folder not found! Skipping static serving.");
-}
-
-// //aim: Adding server side validation, # gloval middle malware.
 app.use((err, req, res, next) => {
   let { statusCode = 500, message = "something went wrong" } = err;
   // res.render("error.ejs", { message });
@@ -149,11 +94,13 @@ app.use((err, req, res, next) => {
     success: false,
     error: message,
   });
-}); // # jb koi error aya or koi route nahi work kara toh express khud hi ishko call kr deta hai or server crash nahi hota
-
-  
-app.listen(PORT, () => {
-  console.log("server is listening to port 8080${PORT}");
 });
+
+  // Server start
+  app.listen(PORT, () => {
+    console.log(`🚀 Server is listening on port ${PORT}`);
+  });
+
+
 
 

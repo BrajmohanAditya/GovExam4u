@@ -1,34 +1,13 @@
-// aim: login logout signup ,  work: signUp  client side validation
+import mongoose from "mongoose";
 
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-const passportLocalMongoose = require("passport-local-mongoose");
-
-// 🎯 User schema
-const userSchema = new Schema(
+const userSchema = new mongoose.Schema(
   {
-    username: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    email: {
-      type: String,
-      required: true,
-      unique: true, // har email unique hona chahiye
-      lowercase: true,
-      match: [/^\S+@\S+\.\S+$/, "Please use a valid email address"], // client side validation ke sath server side bhi
-    },
+    username: { type: String, required: true, unique: true, trim: true },
+    email: { type: String, required: true, unique: true, lowercase: true },
+    password: { type: String, required: true }, // ✅ add password field
   },
-  { timestamps: true } // auto createdAt & updatedAt fields
+  { timestamps: true }
 );
 
-// 🔥 passport-local-mongoose username & password field add karega automatically
-//  - Adds: hash, salt
-//  - Provides: .register(), .authenticate(), etc.
-userSchema.plugin(passportLocalMongoose);
-
-module.exports = mongoose.model("User", userSchema);
-
-//---
- 
+const User = mongoose.model("User", userSchema);
+export default User;

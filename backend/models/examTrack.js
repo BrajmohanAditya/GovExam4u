@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 const examdateSchema = new Schema({
   Exam: {
@@ -18,4 +19,5 @@ const examdateSchema = new Schema({
 
 
 const examdate = mongoose.model("examdate", examdateSchema); // ("collection ka naam ", collection ka schema)
-module.exports = examdate;
+// module.exports = examdate;
+export default examdate;

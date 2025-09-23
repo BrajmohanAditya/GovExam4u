@@ -1,82 +1,69 @@
-const express = require("express");
+import express from "express";
+import User from "../models/user.js";
+import bcrypt from "bcrypt";
+import { generateToken} from "../utils/jwt.js";
+import { authMiddleware } from "../middleware.js";
 const router = express.Router();
-const User = require("../models/user.js");
-const wrapAsync = require("../utils/wrapAsync");
-const passport = require("passport");
 
-// ✅ Signup Route (JSON response)
-router.post(
-  "/signup",
-  wrapAsync(async (req, res, next) => {
-    try {
-      const { username, email, password } = req.body;
-      // naya user object 
-      const newUser = new User({ email, username });
-      // passport-local-mongoose ka register()
-      const registeredUser = await User.register(newUser, password);
-      // Auto login after signup
-      req.login(registeredUser, (err) => {
-        if (err) return next(err);
-        // ✅ React ke liye JSON response
-        return res.status(201).json({
-          success: true,
-          message: "Signup successful!",
-          user: {
-            id: registeredUser._id,
-            username: registeredUser.username,
-            email: registeredUser.email,
-          },
-        });
-      });
-    } catch (e) {
-      console.error("❌ Signup Error:", e.message);
-      return res.status(400).json({
-        success: false,
-        message: e.message,
-      });
+// ✅ Signup
+router.post("/signup", async (req, res) => {
+  try {
+    const { username, email, password } = req.body;
+
+    // Check if username or email already exists
+    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
+    if (existingUser) {
+      return res
+        .status(400)
+        .json({ error: "Username or Email already exists" });
     }
-  })
-);
 
-// ✅ Login Route
-router.post(
-  "/login",
-  passport.authenticate("local", { failureMessage: true }),
-  (req, res) => {
-    const user = req.user; // passport user
-    return res.json({
-      success: true,
-      message: "Login successful!",
-      user: {
-        id: user._id,
-        username: user.username,
-        email: user.email,
-      },
-    });
-          console.log(req.session);
-  }
-);
+    // Hash password
+    const hashed = await bcrypt.hash(password, 10);
+    const user = new User({ username, email, password: hashed });
+    await user.save();
 
-// Current logged-in user
-router.get("/current-user", (req, res) => {
-  if (req.isAuthenticated()) {
-    return res.json({ user: { id: req.user._id, username: req.user.username, email: req.user.email } });
+    const token = generateToken(user);
+    res.status(201).json({ message: "Signup successful", token });
+  } catch (err) {
+    console.error("Signup error:", err);
+    res.status(500).json({ error: "Signup failed" });
   }
-  return res.status(401).json({ user: null });
 });
 
- 
-// ✅ Logout Route
-router.post("/logout", (req, res, next) => {
-  req.logout((err) => {
-    if (err) return next(err);
-    return res.json({
-      success: true,
-      message: "Logged out successfully!",
-    });
-  });
+// ✅ Login
+router.post("/login", async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const user = await User.findOne({ username });
+    if (!user) return res.status(400).json({ error: "User not found" });
+
+    const valid = await bcrypt.compare(password, user.password);
+    if (!valid) return res.status(400).json({ error: "Invalid password" });
+
+    const token = generateToken(user);
+    res.json({ message: "Login successful", token });
+  } catch (err) {
+    console.error("Login error:", err);
+    res.status(500).json({ error: "Login failed" });
+  }
 });
 
+// ✅ Get current user (protected)
+router.get("/current-user", authMiddleware, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select("-password");
+    if (!user) return res.status(404).json({ error: "User not found" });
+    res.json({ user });
+  } catch (err) {
+    console.error("Fetch user error:", err);
+    res.status(500).json({ error: "Failed to fetch user" });
+  }
+});
 
-module.exports = router;
+// ✅ Logout (frontend will delete token)
+router.post("/logout", (req, res) => {
+  res.json({ message: "Logout successful. Delete token on frontend." });
+});
 
+export default router;

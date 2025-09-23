@@ -1,11 +1,21 @@
 // step : 4 , aim : restricting wrong data from hopscotch, work: joi ko use kr k schema likha hu
-const Joi = require("joi");
+// const Joi = require("joi");
+// import Joi from "joi";
+// module.exports.joiexamdateSchema = Joi.object({
+//   Exam: Joi.string().trim().min(1).required(),
+//   Pre: Joi.date().required(),
+//   Mains: Joi.date().required(),
+// });
 
-module.exports.joiexamdateSchema = Joi.object({
+
+import Joi from "joi";
+
+export const joiexamdateSchema = Joi.object({
   Exam: Joi.string().trim().min(1).required(),
   Pre: Joi.date().required(),
   Mains: Joi.date().required(),
 });
+
 //---
 // http://localhost:8080/examTrack, (ish route per ager hopscotch seh bina value ka data send kiya toh add nahi hoga)
 /*
