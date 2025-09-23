@@ -76,7 +76,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
       </div>
 
       {/* Search */}
-      <form className="flex flex-1 sm:flex-none flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 max-w-full sm:max-w-2xl w-full">
+      <form className="flex flex-1 sm:flex-none flex-row items-center gap-2 max-w-full sm:max-w-2xl w-full">
         <input
           type="search"
           placeholder="Search"
@@ -91,14 +91,12 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
         </Button>
       </form>
 
-      {/* Right: User actions */}
-      {/* Right: User actions */}
       <div className="flex flex-row flex-wrap gap-2 sm:gap-3 justify-end items-center">
         {user ? (
           // Logged in: show username + logout
           <>
             <span className="text-white font-semibold text-sm sm:text-base">
-               {user.username}
+              {user.username}
             </span>
             <button
               onClick={handleLogout}
