@@ -92,15 +92,21 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
       </form>
 
       {/* Right: User actions */}
-      <div className="flex flex-row flex-wrap gap-2 sm:gap-3 justify-end">
+      {/* Right: User actions */}
+      <div className="flex flex-row flex-wrap gap-2 sm:gap-3 justify-end items-center">
         {user ? (
-          // Logged in: show logout
-          <button
-            onClick={handleLogout}
-            className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-red-500 text-white text-sm sm:text-base font-semibold hover:bg-red-600 transition shadow cursor-pointer"
-          >
-            <LogOut className="w-4 h-4" /> Logout
-          </button>
+          // Logged in: show username + logout
+          <>
+            <span className="text-white font-semibold text-sm sm:text-base">
+               {user.username}
+            </span>
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-red-500 text-white text-sm sm:text-base font-semibold hover:bg-red-600 transition shadow cursor-pointer"
+            >
+              <LogOut className="w-4 h-4" /> Logout
+            </button>
+          </>
         ) : (
           // Logged out: show login/signup
           <>

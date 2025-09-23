@@ -3,10 +3,10 @@ import { verifyTokenHelper } from "./utils/jwt.js"; // ✅ correct import
 export function authMiddleware(req, res, next) {
   const authHeader = req.headers["authorization"];
   if (!authHeader)
-    return res.status(401).json({ message: "No token provided" });
+    return res.status(401).json({ message: "Please Login or Signup" });
 
   const token = authHeader.split(" ")[1];
-  if (!token) return res.status(401).json({ message: "No token provided" });
+  if (!token) return res.status(401).json({ message: "Please Login or Signup" });
 
   try {
     const decoded = verifyTokenHelper(token); // ✅ use helper
