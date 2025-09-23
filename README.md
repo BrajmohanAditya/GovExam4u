@@ -88,3 +88,17 @@ app.use(
 >aim: if Login show only username (step-17 wonderlust)
 
 >aim : signup  login logout 
+
+
+
+# Backend Token test 
+$headers = @{
+    "Content-Type" = "application/json"
+}
+
+$body = @{
+    username = "l"
+    password = "l"
+} | ConvertTo-Json
+
+Invoke-RestMethod -Uri "http://localhost:8080/login" -Method POST -Headers $headers -Body $body
