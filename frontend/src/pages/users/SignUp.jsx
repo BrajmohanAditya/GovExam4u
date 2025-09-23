@@ -22,12 +22,12 @@ export default function Signup() {
 
     try {
       const res = await api.post("/signup", user); // ✅ backend ko bheja
+      localStorage.setItem("token", res.data.token);
       alert(res.data.message || "Signup successful!");
-      navigate("/login", { replace: true }); // redirect
+      navigate("/", { replace: true }); // redirect
     } catch (err) {
       alert(err.response?.data?.message || "Signup failed!");
     }
-    navigate("/", { replace: true });
   };
 
   return (
