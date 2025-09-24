@@ -37,11 +37,11 @@ const sidebarItems = [
   {
     icon: faBookOpenReader,
     label: "Descriptive Writing",
-    link: "/descriptive",
+    link: "#/descriptive",
   },
   { icon: faNewspaper, label: "Current Affair", link: "#" },
   { icon: faFileSignature, label: "Daily Quiz", link: "#" },
-  { icon: faCalendarDays, label: "Track Your Exam", link: "/examTracker" },
+  { icon: faCalendarDays, label: "Track Your Exam", link: "#/examTracker" },
   { icon: faHandHoldingDollar, label: "Win Prize", link: "#" },
   { icon: faAddressCard, label: "Our Selections", link: "#" },
   { icon: faCartShopping, label: "Purchased Item", link: "#" },
