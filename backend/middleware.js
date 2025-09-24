@@ -1,6 +1,6 @@
 import { verifyTokenHelper } from "./utils/jwt.js"; // ✅ correct import
 
-export function authMiddleware(req, res, next) {
+export function isLoggedin(req, res, next) {
   const authHeader = req.headers["authorization"];
   if (!authHeader)
     return res.status(401).json({ message: "Please Login or Signup" });
