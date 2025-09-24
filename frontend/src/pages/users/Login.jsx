@@ -54,6 +54,7 @@ export default function Login() {
         type="password"
         value={user.password}
         onChange={(e) => setUser({ ...user, password: e.target.value })}
+        autocomplete="off"
         className="border p-2 w-full rounded mb-4"
         required
       />
