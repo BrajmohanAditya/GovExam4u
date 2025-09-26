@@ -17,9 +17,12 @@ export default function CardGrid() {
       </Link>
 
       <Link to="/examTracker" className="no-underline">
-        <div className="bg-blue-600 rounded-lg shadow-md p-4 w-52 cursor-pointer hover:shadow-lg transition h-52 card-wrapper">
-          <h3 className="text-xl font-semibold mb-2 text-white">Track Your Exam</h3>
-          <p className="text-gray-200">Track Exam</p>
+        <div className=" card-wrapper">
+          <img
+            src="/assets/examTracker.png"
+            alt="Descriptive"
+            className="w-52 h-52 object-cover mx-auto rounded"
+          />
         </div>
       </Link>
     </div>
