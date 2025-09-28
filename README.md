@@ -61,6 +61,13 @@ function Counter() {
     </div>
   );
 }
+
+import { useEffect } from "react";
+
+useEffect(() => {
+  console.log("Component mounted");
+}, []);  // [] means only once run hoga
+
 ----------------------------------------------------------------------------------------------------------------
 # CORS(Cross-Origin Resource Sharing) ?
 > It’s like giving permission for which frontends are allowed to talk to your backend. we define this in our server file
@@ -91,7 +98,7 @@ app.use(
 
 
 
-# Backend Token test 
+# Backend Token test in jwt
 $headers = @{
     "Content-Type" = "application/json"
 }

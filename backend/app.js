@@ -11,8 +11,7 @@
 
   import examTrackRoute from "./routes/examTrack.js";
   import userRouter from "./routes/users.js";
-  import ExpressError from "./utils/ExpressError.js";
-  import User from "./models/user.js";
+
 
   // __dirname fix for ESM
   const __filename = fileURLToPath(import.meta.url);
