@@ -102,7 +102,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
               onClick={handleLogout}
               className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-red-500 text-white text-sm sm:text-base font-semibold hover:bg-red-600 transition shadow cursor-pointer"
             >
-              <LogOut className="w-4 h-4" /> Logout
+              <LogOut className="w-4 h-4" /> 
             </button>
           </>
         ) : (
