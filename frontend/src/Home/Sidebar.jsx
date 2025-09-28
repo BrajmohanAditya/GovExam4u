@@ -58,7 +58,7 @@ const sidebarItems = [
   {
     icon: faTelegram,
     label: "Telegram",
-    link: "https://t.me/+K5o2Ti1aRZdlNDY9",
+    link: "@Pathtobanking271",
   },
   { icon: "🎯", label: "Log Out", link: "#" },
 ];
