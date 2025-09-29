@@ -23,7 +23,7 @@ router.post("/signup", async (req, res) => {
     const user = new User({ username, email, password: hashed });
     await user.save();
 
-    const token = generateToken(user);
+    const token = generateToken(user); 
     res.status(201).json({ message: "Signup successful", token });
   } catch (err) {
     console.error("Signup error:", err);
@@ -50,7 +50,7 @@ router.post("/login", async (req, res) => {
 });
 
 // ✅ Get current user (protected)
-router.get("/current-user", isLoggedin, async (req, res) => {
+router.get("/current-user", isLoggedin, async (req, res) => {   // "isLoggedin" ya middlewere.js meh define hai. 
   try {
     const user = await User.findById(req.user.id).select("-password");
     if (!user) return res.status(404).json({ error: "User not found" });

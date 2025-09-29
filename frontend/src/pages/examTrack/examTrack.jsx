@@ -19,7 +19,7 @@ export default function ExamTrack() {
         if (err.response) {
           console.error("Error:", err.response.data.message);
           if (err.response.status === 401) {
-            alert(err.response.data.message); // ✅ "You must be logged in to do anything"
+            alert(err.response.data.message); // 
             navigate("/login"); // React Router ka navigate use karo agar redirect karna ho
           }
         } else {
@@ -56,6 +56,7 @@ export default function ExamTrack() {
     //step: A1,  aim: edit form rendering,  click a link jo "examTrackRoute.jsx" k ander hai wo ak "EditUpdate.jsx" file ko render kr dega,
     <>
       <Nav />;
+      
       <div className="m-5  md:m-20  p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  rounded-md ">
         {exams.map((exam) => (
           <Link to={`/exam/${exam._id}/edit`} key={exam._id}>
