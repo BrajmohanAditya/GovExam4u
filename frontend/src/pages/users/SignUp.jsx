@@ -44,7 +44,8 @@ export default function Signup() {
       <input
         type="text"
         value={user.username}
-        onChange={(e) => setUser({ ...user, username: e.target.value })}  
+        maxLength={20}
+        onChange={(e) => setUser({ ...user, username: e.target.value })}
         className="border p-2 w-full rounded mb-4"
         required
       />
