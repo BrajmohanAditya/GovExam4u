@@ -5,15 +5,15 @@ export function isLoggedin(req, res, next) {
   if (!authHeader)
     return res.status(401).json({ message: "Please Login or Signup" });
 
-  const token = authHeader.split(" ")[1];
+  const token = authHeader.split(" ")[1]; // ##
   if (!token) return res.status(401).json({ message: "Please Login or Signup" });
 
   try {
-    const decoded = verifyTokenHelper(token); // ✅ use helper
+    const decoded = verifyTokenHelper(token); // ya uper seh "token" leh k pass kr raha hai verify krna k liya
     req.user = decoded;
     next();
   } catch (err) {
     console.error("JWT verification error:", err.message);
-    return res.status(401).json({ message: "Invalid or expired token" });
+    return res.status(401).json({ message: "Please Login or Signup" });
   }
 }
