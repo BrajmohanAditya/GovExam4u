@@ -29,7 +29,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
-  // JWT check on mount
+  // page open hota k sath hi login kra doh
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -40,7 +40,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
     const fetchUser = async () => {
       try {
         const res = await api.get("/current-user", {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: { Authorization: `Bearer ${token}` }, // sending tocken on "current-user" for verification
         });
         setUser(res.data.user);
       } catch (err) {

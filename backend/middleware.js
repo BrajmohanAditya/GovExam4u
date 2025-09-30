@@ -1,11 +1,11 @@
 import { verifyTokenHelper } from "./utils/jwt.js"; // ✅ correct import
-
+// it is use for authentication whether you are authorised to access. 
 export function isLoggedin(req, res, next) {
   const authHeader = req.headers["authorization"];
   if (!authHeader)
     return res.status(401).json({ message: "Please Login or Signup" });
 
-  const token = authHeader.split(" ")[1]; // ##
+  const token = authHeader.split(" ")[1]; // ## yaha tocken seperate kiya jaa raha hai 
   if (!token) return res.status(401).json({ message: "Please Login or Signup" });
 
   try {

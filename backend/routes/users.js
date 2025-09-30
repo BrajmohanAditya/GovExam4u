@@ -49,12 +49,12 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// ✅ Get current user (protected)
+// ✅ First time login k liya hai ya . 
 router.get("/current-user", isLoggedin, async (req, res) => {   // "isLoggedin" ya middlewere.js meh define hai. 
   try {
     const user = await User.findById(req.user.id).select("-password");
     if (!user) return res.status(404).json({ error: "User not found" });
-    res.json({ user });
+    res.json({ user }); // backend se frontend ko response bhej rahi hai.
   } catch (err) {
     console.error("Fetch user error:", err);
     res.status(500).json({ error: "Failed to fetch user" });

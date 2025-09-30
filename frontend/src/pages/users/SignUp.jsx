@@ -22,7 +22,7 @@ export default function Signup() {
 
     try {
       const res = await api.post("/signup", user); // ✅ backend ko bheja
-      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("token", res.data.token);    //(auto login) storing Tocken jo backend route seh aya hai. 
       alert(res.data.message || "Signup successful!");
       navigate("/", { replace: true }); // redirect
     } catch (err) {
