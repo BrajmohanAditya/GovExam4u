@@ -82,7 +82,7 @@ app.use(
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
-);
+); means ya 3 url per backend ko call ayaga frontend seh
 -------------------------------------------------------------------------------------------------------------------
 # Why we use schema and JOI ? (SERVER side VALIDATION)
 > Schema is used to define data types and apply server-side validation before saving data to the database.

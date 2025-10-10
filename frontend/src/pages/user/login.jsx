@@ -31,6 +31,9 @@ const Login = () => {
     console.log(values);
   };
 
+  const loginWithGoogle = () => {
+    window.open("http://localhost:8080/auth/google", "_self");
+  }
   return (
     <div className="auth_card">
       <Formik
@@ -50,6 +53,7 @@ const Login = () => {
 
                 {/* Google login button */}
                 <Button
+                  onClick={loginWithGoogle}
                   variant="outlined"
                   fullWidth
                   startIcon={<FcGoogle />}
