@@ -115,7 +115,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
               <LogIn className="w-4 h-4" /> Login
             </button>
             <button
-              onClick={() => navigate("/signup")}
+              onClick={() => navigate("/register")}
               className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-green-600 text-white text-sm sm:text-base font-semibold hover:bg-green-700 transition shadow cursor-pointer"
             >
               <UserPlus className="w-4 h-4" /> Signup
@@ -125,4 +125,4 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
       </div>
     </nav>
   );
-}
+}  
