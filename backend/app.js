@@ -17,13 +17,12 @@ import fs from "fs";
 import { fileURLToPath } from "url";
 import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
-
 // ============================
 // 2️⃣ Routes Imports
 // ============================
 import examTrackRoute from "./routes/examTrack.js";
 import userRouter from "./routes/users.js";
-
+import googleAuth from "./middlewares.js/googleAuth.js";
 // ============================
 // 3️⃣ Path setup for ESM (__dirname fix)
 // ============================
@@ -47,7 +46,6 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      // "https://govexam4u-frontend.onrender.com",
       "https://govexam4u.com",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
@@ -124,6 +122,7 @@ app.get(
   passport.authenticate("google", {
     failureRedirect: "https://govexam4u.com/login",
   }),
+  googleAuth,
   (req, res) => {
     res.redirect("https://govexam4u.com/"); // after successful login
   }
