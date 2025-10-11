@@ -31,7 +31,7 @@ const Login = () => {
     console.log(values);
   };
 
-  const loginWithGoogle = () => {
+  const loginWithGoogle = () => { // isko continue with google button me lagana hai
     window.open("https://govexam4ubackend.onrender.com/auth/google", "_self");
   }
   return (
