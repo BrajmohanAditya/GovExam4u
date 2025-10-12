@@ -33,6 +33,7 @@ const Login = () => {
 
   const loginWithGoogle = () => { // isko continue with google button me lagana hai
     window.open("https://govexam4ubackend.onrender.com/auth/google", "_self");
+    // window.open("http://localhost:8080/auth/google", "_self");
   }
   return (
     <div className="auth_card">

@@ -1,17 +1,23 @@
-// // backend/config/db.js
-// import mongoose from "mongoose";
+// ============================
+// 8️⃣ MongoDB Connection
+// ============================
 
-// const connectDB = async (mongoUrl) => {
-//   try {
-//     await mongoose.connect(mongoUrl, {
-//       useNewUrlParser: true,
-//       useUnifiedTopology: true,
-//     });
-//     console.log("✅ Connected to MongoDB");
-//   } catch (err) {
-//     console.error("❌ DB Connection Error:", err.message);
-//     process.exit(1);
-//   }
-// };
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-// export default connectDB;
+dotenv.config();
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.ATLASDB_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("✅ Connected to MongoDB");
+  } catch (err) {
+    console.error("❌ DB Connection Error:", err.message);
+    process.exit(1);
+  }
+};
+
+export default connectDB;

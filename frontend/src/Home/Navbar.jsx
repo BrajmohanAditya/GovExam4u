@@ -96,7 +96,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
           // Logged in: show username + logout
           <>
             <span className="text-white font-semibold text-sm sm:text-base">
-              {user.username}
+              {user.name}
             </span>
             <button
               onClick={handleLogout}

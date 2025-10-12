@@ -8,7 +8,6 @@ import dotenv from "dotenv";
 dotenv.config(); // sabse pehle load karo
 
 import express from "express";
-import mongoose from "mongoose";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import session from "express-session";
@@ -17,11 +16,12 @@ import fs from "fs";
 import { fileURLToPath } from "url";
 import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
+import connectDB from "./utils/getConnection.js";
+
 // ============================
 // 2️⃣ Routes Imports
 // ============================
 import examTrackRoute from "./routes/examTrack.js";
-import userRouter from "./routes/users.js";
 import googleAuth from "./middlewares.js/googleAuth.js";
 // ============================
 // 3️⃣ Path setup for ESM (__dirname fix)
@@ -32,7 +32,7 @@ const __dirname = path.dirname(__filename);
 // ============================
 // 4️⃣ Express app setup
 // ============================
-const app = express();
+const app = express(); 
 const PORT = process.env.PORT || 8080;
 const MONGO_URL = process.env.ATLASDB_URL;
 
@@ -133,25 +133,15 @@ app.get(
 // ============================
 // 8️⃣ MongoDB Connection
 // ============================
-async function connectDB() {
-  try {
-    await mongoose.connect(MONGO_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log("✅ Connected to MongoDB");
-  } catch (err) {
-    console.error("❌ DB Connection Error:", err.message);
-    process.exit(1);
-  }
-}
+
 connectDB();
+
+
 
 // ============================
 // 9️⃣ Routes
 // ============================
 app.use("/examTrack", examTrackRoute);
-app.use("/", userRouter);
 
 app.get("/", (req, res) => {
   res.send("Hai, I am root");
