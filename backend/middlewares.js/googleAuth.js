@@ -10,7 +10,7 @@ const googleAuth = async (req, res, next) => {
         name: req.user?._json?.name,
         email: req.user?._json?.email,
       });
-      const savedUser = await newUser.save();
+      savedUser = await newUser.save();
     }
  
     const accessToken = generateToken(

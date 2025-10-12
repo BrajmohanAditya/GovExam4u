@@ -1,4 +1,3 @@
-
 /*
 * when i click  line 30 "setShowSidebar" function jo ki HomePage meh hai usko call karaga or uska ander "true" update kr dega or
   fir wo rerender hoga , or ya prev current value hai "false"
@@ -30,27 +29,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
   const [user, setUser] = useState(null);
 
   // page open hota k sath hi login kra doh
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      setUser(null);
-      return;
-    }
 
-    const fetchUser = async () => {
-      try {
-        const res = await api.get("/current-user", {
-          headers: { Authorization: `Bearer ${token}` }, // sending tocken on "current-user" for verification
-        });
-        setUser(res.data.user);
-      } catch (err) {
-        setUser(null);
-        localStorage.removeItem("token"); // remove invalid token
-      }
-    };
-
-    fetchUser();
-  }, []);
 
   // Logout
   const handleLogout = () => {
@@ -102,7 +81,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
               onClick={handleLogout}
               className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg  text-white text-sm sm:text-base font-semibold  transition shadow cursor-pointer"
             >
-              <LogOut className="w-4 h-4" /> 
+              <LogOut className="w-4 h-4" />
             </button>
           </>
         ) : (
@@ -125,4 +104,4 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
       </div>
     </nav>
   );
-}  
+}
