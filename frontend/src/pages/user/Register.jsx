@@ -35,8 +35,15 @@ const Register = () => {
       .required("Password is required"),
   });
 
-  const submitHandler = (values) => {
-    console.log(values);
+  const submitHandler = async(values) => {
+    // console.log(values);
+    const data = {
+      url: apis().registerUser,
+      method: "POST",
+      body: values,
+    };
+    const result = await httpAction(data);
+    console.log(result);
   };
 
   return (

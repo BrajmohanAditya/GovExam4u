@@ -17,7 +17,7 @@ import { fileURLToPath } from "url";
 import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import connectDB from "./utils/getConnection.js";
-
+import userRoutes from "./routes/user.js";
 // ============================
 // 2️⃣ Routes Imports
 // ============================
@@ -143,6 +143,7 @@ connectDB();
 // 9️⃣ Routes
 // ============================
 app.use("/examTrack", examTrackRoute);
+app.use("/users", userRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hai, I am root");
