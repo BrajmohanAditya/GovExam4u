@@ -1,6 +1,8 @@
 /*
 ye ek reusable helper function hai jo HTTP request (GET, POST, PUT, DELETE) bhejne ka kaam karta hai
 */
+import { toast } from "react-hot-toast";
+
 const httpAction = async (data) =>{
     try{
         const response = await fetch(data.url, {
@@ -13,11 +15,12 @@ const httpAction = async (data) =>{
         });
         const result = await response.json();
         if (!response.ok) {
-            throw new Error(result.message || 'HTTP request failed');
+            throw new Error(result?.message);
         }
+        return result;
     } catch (error) {
-        console.error('Error during HTTP action:', error);
-        throw error;
+        console.log('Error during HTTP action:', error);
+        toast.error(error.message);
     }
 }
 export default httpAction; 

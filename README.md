@@ -92,7 +92,10 @@ app.use(
 
 ---------------------------------------------------------------------------------
 # Login Logout Signup
-
+* signup
+> controllers folder meh register.js banao (backend)
+> routes folder meh user.js banao
+> 
 
 
 

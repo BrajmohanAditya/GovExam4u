@@ -6,12 +6,11 @@ import { Form, Formik } from "formik";
 import { InputAdornment, IconButton, Divider } from "@mui/material";
 import { FcGoogle } from "react-icons/fc";
 import useGeneral from "../user/hooks/useGeneral";
+import apis from "../user/utils/apis";
+import httpAction from "../user/utils/httpAction";
+import { toast } from "react-hot-toast";
 
-import {
-  ArrowBack,
-  Visibility,
-  VisibilityOff,
-} from "@mui/icons-material";
+import { ArrowBack, Visibility, VisibilityOff } from "@mui/icons-material";
 
 const Register = () => {
   const [visible, setVisible] = useState(false);
@@ -35,7 +34,7 @@ const Register = () => {
       .required("Password is required"),
   });
 
-  const submitHandler = async(values) => {
+  const submitHandler = async (values) => {
     // console.log(values);
     const data = {
       url: apis().registerUser,
@@ -43,9 +42,16 @@ const Register = () => {
       body: values,
     };
     const result = await httpAction(data);
-    console.log(result);
+    if (result?.status) {
+      toast.success(result?.message);
+      navigate("/login");
+    }
   };
-
+  const loginWithGoogle = () => {
+    // isko continue with google button me lagana hai
+    // window.open("https://govexam4ubackend.onrender.com/auth/google", "_self");
+    window.open("http://localhost:8080/auth/google", "_self");
+  };
   return (
     <div className="auth_card">
       <Formik
@@ -64,6 +70,7 @@ const Register = () => {
                 </div>
 
                 <Button
+                  onClick={loginWithGoogle}
                   variant="outlined"
                   fullWidth
                   startIcon={<FcGoogle />}
@@ -154,7 +161,6 @@ const Register = () => {
                     Back To Login
                   </Button>
                 </div>
-
               </div>
             </div>
           </Form>

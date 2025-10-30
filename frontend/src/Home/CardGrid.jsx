@@ -16,7 +16,7 @@ export default function CardGrid() {
         </div>
       </Link>
 
-      <Link to="/examTracker" className="no-underline">
+      <Link to="/examTracker" className="no-underline">    
         <div className=" card-wrapper">
           <img
             src="/assets/examTracker.png"

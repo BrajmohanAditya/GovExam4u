@@ -11,13 +11,14 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import session from "express-session";
-import path from "path";
+import path from "path";  
 import fs from "fs";
 import { fileURLToPath } from "url";
 import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import connectDB from "./utils/getConnection.js";
 import userRoutes from "./routes/user.js";
+import errorHandler from "./middlewares.js/errorHandler.js";
 // ============================
 // 2️⃣ Routes Imports
 // ============================
@@ -142,7 +143,7 @@ connectDB();
 // ============================
 // 9️⃣ Routes
 // ============================
-app.use("/examTrack", examTrackRoute);
+app.use("/examTrack", examTrackRoute); 
 app.use("/users", userRoutes);
 
 app.get("/", (req, res) => {
@@ -166,9 +167,12 @@ if (fs.existsSync(clientBuildPath)) {
   console.warn("⚠️ React build folder not found! Skipping static serving.");
 }
 
+
+
 // ============================
 // 1️⃣1️⃣ Error Handling Middleware
 // ============================
+app.use(errorHandler);
 app.use((err, req, res, next) => {
   const { statusCode = 500, message = "Something went wrong" } = err;
   res.status(statusCode).json({

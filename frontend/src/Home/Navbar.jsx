@@ -11,7 +11,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import api from "../api"; // Axios instance
-
+import apis from "../pages/user/utils/apis";
+import httpAction from "../pages/user/utils/httpAction";
 function Logo() {
   return (
     <div className="flex items-center space-x-2">
@@ -28,8 +29,18 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
-  // page open hota k sath hi login kra doh
-
+  useEffect(() => {
+    const getUser = async () => {
+      const data = {
+        url: apis().userProfile,
+      }
+      const result = await httpAction(data);
+      if (result?.status) {
+        setUser(result?.user);
+      }
+    };
+    getUser();
+  },[])
 
   // Logout
   const handleLogout = () => {
@@ -75,7 +86,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
           // Logged in: show username + logout
           <>
             <span className="text-white font-semibold text-sm sm:text-base">
-              {user.name}
+            {user?.name?.split(" ")[0]}
             </span>
             <button
               onClick={handleLogout}

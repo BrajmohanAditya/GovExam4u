@@ -1,5 +1,5 @@
 import User from "../models/user.js";
-import generateToken from "../utils/generateTocken.js";
+import generateToken from "../utils/generateToken.js";
 const googleAuth = async (req, res, next) => {
   try {
     const findedUser = await User.findOne({ email: req.user?._json?.email });

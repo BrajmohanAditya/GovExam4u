@@ -1,16 +1,24 @@
 import React, { useState } from "react";
 import "./auth.css";
 import { IoIosLogIn } from "react-icons/io";
-import { TextField, Button, InputAdornment, IconButton, Divider } from "@mui/material";
+import {
+  TextField,
+  Button,
+  InputAdornment,
+  IconButton,
+  Divider,
+} from "@mui/material";
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
 import { Visibility, VisibilityOff, ArrowBack } from "@mui/icons-material";
 import { FcGoogle } from "react-icons/fc";
 import useGeneral from "../user/hooks/useGeneral";
+import apis from "./utils/apis";
+import httpAction from "../user/utils/httpAction";
 
 const Login = () => {
   const [visible, setVisible] = useState(false);
-  const {navigate} = useGeneral();
+  const { navigate } = useGeneral();
   const visibleHandler = () => {
     setVisible(!visible);
   };
@@ -27,15 +35,23 @@ const Login = () => {
       .required("Password is required"),
   });
 
-  const submitHandler = (values) => {
-    console.log(values);
+  const submitHandler = async (values) => {
+    const data = {
+      url: apis().loginUser,
+      method: "POST",
+      body: values,
+    };
+    const result = await httpAction(data);
+    if (result?.status) {
+      navigate("/");
+    }
   };
 
-  const loginWithGoogle = () => { // isko continue with google button me lagana hai
+  const loginWithGoogle = () => {
+    // isko continue with google button me lagana hai
     // window.open("https://govexam4ubackend.onrender.com/auth/google", "_self");
     window.open("http://localhost:8080/auth/google", "_self");
-
-  }
+  };
   return (
     <div className="auth_card">
       <Formik
@@ -148,7 +164,6 @@ const Login = () => {
                     Forgot password?
                   </Button>
                 </div>
-
               </div>
             </div>
           </Form>
