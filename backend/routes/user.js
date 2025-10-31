@@ -3,9 +3,14 @@ import registerUser from '../controllers/register.js';
 import login from '../controllers/login.js';
 import getUser from '../controllers/getUser.js';
 import auth from '../middlewares.js/auth.js';
+import logout from '../controllers/logout.js';
+import getAccess from '../controllers/getAccess.js';
 
 const router = express.Router();
 router.post('/register', registerUser); // frontend userRoute.jsx meh ya /register milaga. 
 router.post('/login', login);
 router.get('/',auth, getUser);
+router.get('/logout', logout);
+router.get('/access', auth, getAccess);
+
 export default router;

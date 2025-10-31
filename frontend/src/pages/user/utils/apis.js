@@ -5,6 +5,8 @@ const apis = () => {
     registerUser: `${baseUrl}/users/register`,
     loginUser: `${baseUrl}/users/login`,
     userProfile: `${baseUrl}/users/`,
+    logoutUser: `${baseUrl}/users/logout`,
+    getAccess: `${baseUrl}/users/access`,
   };
   return list;
 };

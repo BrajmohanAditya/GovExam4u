@@ -33,20 +33,25 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
     const getUser = async () => {
       const data = {
         url: apis().userProfile,
-      }
+      };
       const result = await httpAction(data);
       if (result?.status) {
         setUser(result?.user);
       }
     };
     getUser();
-  },[])
+  }, []);
 
   // Logout
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    setUser(null);
-    navigate("/", { replace: true });
+  const handleLogout = async () => {
+    const data = {
+      url: apis().logoutUser,
+    };
+    const result = await httpAction(data);
+    if (result?.status) {
+      setUser(null);
+      navigate("/");
+    }
   };
 
   return (
@@ -86,7 +91,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
           // Logged in: show username + logout
           <>
             <span className="text-white font-semibold text-sm sm:text-base">
-            {user?.name?.split(" ")[0]}
+              {user?.name?.split(" ")[0]}
             </span>
             <button
               onClick={handleLogout}
