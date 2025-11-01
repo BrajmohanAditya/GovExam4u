@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       send_time: { type: String },
       limit: { type: Number, default: 5 },
+      last_attempt:{type: Object},
     },
   },
   { timestamps: true }
