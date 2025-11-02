@@ -81,7 +81,7 @@ router.post(
     const newExam = new examTrack(req.body);
     await newExam.save();
     res.status(201).json({message: "Exam added successfully!", data: newExam});
-  })
+  })   
 );
 //---
 // module.exports = router;
