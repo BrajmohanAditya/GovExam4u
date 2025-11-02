@@ -5,7 +5,7 @@ import Register from "./Register";
 import ForgotPassword from "./ForgotPassword";
 import OtpVerify from "./OtpVerify";
 import UpdatePassword from "./UpdatePassword";
-import Super from "./super";
+import Super from "./super.jsx";
 import HomePage from "../../Home/HomePage";
 const usersRoutes = [
   <Route path="/login" element={<Login />} key="login" />,
