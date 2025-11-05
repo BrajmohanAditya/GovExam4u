@@ -1,10 +1,10 @@
 import express from 'express';
-import registerUser from '../controllers/register.js';
-import login from '../controllers/login.js';
-import getUser from '../controllers/getUser.js';
-import auth from '../middlewares.js/auth.js';
-import logout from '../controllers/logout.js';
-import getAccess from '../controllers/getAccess.js';
+import registerUser from '../controllers/user/register.js';
+import login from '../controllers/user/login.js';
+import getUser from '../controllers/user/getUser.js';
+import auth from '../middlewares/auth.js';
+import logout from '../controllers/user/logout.js';
+import getAccess from '../controllers/user/getAccess.js';
 
 const router = express.Router();
 router.post('/register', registerUser); // frontend userRoute.jsx meh ya /register milaga. 

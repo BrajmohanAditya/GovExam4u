@@ -13,7 +13,7 @@ import { Form, Formik } from "formik";
 import { Visibility, VisibilityOff, ArrowBack } from "@mui/icons-material";
 import { FcGoogle } from "react-icons/fc";
 import useGeneral from "../user/hooks/useGeneral";
-import apis from "./utils/apis";
+import apis from "./utils/apisUsers";
 import httpAction from "../user/utils/httpAction";
 
 const Login = () => {

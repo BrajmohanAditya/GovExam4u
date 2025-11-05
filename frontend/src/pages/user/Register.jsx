@@ -6,7 +6,7 @@ import { Form, Formik } from "formik";
 import { InputAdornment, IconButton, Divider } from "@mui/material";
 import { FcGoogle } from "react-icons/fc";
 import useGeneral from "../user/hooks/useGeneral";
-import apis from "../user/utils/apis";
+import apis from "./utils/apisUsers";
 import httpAction from "../user/utils/httpAction";
 import { toast } from "react-hot-toast";
 

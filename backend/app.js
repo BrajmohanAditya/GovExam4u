@@ -18,12 +18,12 @@ import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import connectDB from "./utils/getConnection.js";
 import userRoutes from "./routes/user.js";
-import errorHandler from "./middlewares.js/errorHandler.js";
+import errorHandler from "./middlewares/errorHandler.js";
 // ============================
 // 2️⃣ Routes Imports
 // ============================
 import examTrackRoute from "./routes/examTrack.js";
-import googleAuth from "./middlewares.js/googleAuth.js";
+import googleAuth from "./middlewares/googleAuth.js";
 // ============================
 // 3️⃣ Path setup for ESM (__dirname fix)
 // ============================
@@ -46,8 +46,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: [
-      // "http://localhost:5173",
-      "https://govexam4u.com",
+      "http://localhost:5173",
+      // "https://govexam4u.com",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,

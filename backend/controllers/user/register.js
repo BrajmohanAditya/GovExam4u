@@ -1,4 +1,4 @@
-import User from "../models/user.js";
+import User from "../../models/User.js";
 import bcrypt from "bcryptjs";
 const registerUser = async (req, res, next) => {
   const { name, email, password } = req.body; // Extract user details from request body

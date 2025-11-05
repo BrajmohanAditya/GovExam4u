@@ -1,10 +1,10 @@
-import User from "../models/user.js";
+import User from "../../models/user.js";
 import bcrypt from "bcryptjs";
-import generateToken from "../utils/generateToken.js";
+import generateToken from "../../utils/generateToken.js";
 
 const login = async (req, res, next) => {
   const { email, password } = req.body;
-  try {
+  try { 
     const findedUser = await User.findOne({ email: email });
     if (!findedUser) {
       const error = new Error("User not found");

@@ -123,6 +123,27 @@ credentials: true,
 
 2) now put email and password in form and click login button which is inside "login.jsx"(frontend), 
 }
+(1) User fills form & clicks Register
+      ↓
+(2) Frontend builds request → apis.js se URL leke
+      ↓
+(3) httpAction() → fetch() call → backend ko HTTP request
+      ↓
+(4) Express app.js → /users → routes/user.js
+      ↓
+(5) route '/register' → controller registerUser.js
+      ↓
+(6) Controller → database operation (save user)
+      ↓
+(7) Backend sends JSON response
+      ↓
+(8) httpAction() parse response → return to React
+      ↓
+(9) React toast + redirect to login page
+
+
+
+
 
 # Backend Token test in jwt
 
