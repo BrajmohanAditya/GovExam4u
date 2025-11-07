@@ -29,7 +29,6 @@ const UpdatePassword = () => {
       },
     };
     const result = await httpAction(data);
-    console.log("Backend response ya ra raha:", result);
     if (result?.status) {
       toast.success(result?.message);
       navigate("/");
