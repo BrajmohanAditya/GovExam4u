@@ -16,8 +16,8 @@ const verifyOtp = async (req, res, next) => {
         error.statusCode = 400;
         throw error;
     }
-    // findedUser.password_otp.otp = null;
-    // await findedUser.save();
+    findedUser.password_otp.otp = null;
+    await findedUser.save();
     const accessToken = generateToken(findedUser.email);
     res.cookie("accessToken", accessToken);
 

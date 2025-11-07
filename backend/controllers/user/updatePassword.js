@@ -2,6 +2,8 @@ import User from "../../models/user.js";
 import bcrypt from "bcryptjs";
 
 const updatePassword = async (req, res, next) => {
+    console.log("Incoming cookies:", req.cookies);
+
     const {password} = req.body;
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -9,7 +11,7 @@ const updatePassword = async (req, res, next) => {
         findedUser.password = hashedPassword;
         await findedUser.save();
         res.clearCookie("accessToken");
-        res.clearCookie("connect.sid ");
+        res.clearCookie("connect.sid");
         console.log("Password updated for user:", req.email);
         res.status(200).json({message: "Password updated successfully", status: true});
     }catch (error) {

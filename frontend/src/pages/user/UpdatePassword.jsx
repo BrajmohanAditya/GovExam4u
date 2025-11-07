@@ -10,6 +10,7 @@ import httpAction from "../user/utils/httpAction";
 import { toast } from "react-hot-toast";
 
 const UpdatePassword = () => {
+  const { navigate } = useGeneral();
   const initialState = {
     password: "",
   };
@@ -20,7 +21,6 @@ const UpdatePassword = () => {
   });
 
   const submitHandler = async (values) => {
-
     const data = {
       url: apis().updatePassword,
       method: "POST",
@@ -29,18 +29,12 @@ const UpdatePassword = () => {
       },
     };
     const result = await httpAction(data);
-     console.log("Backend response:", result);
-    if (result?.success) {
+    console.log("Backend response ya ra raha:", result);
+    if (result?.status) {
       toast.success(result?.message);
       navigate("/");
     }
   };
-
-
-
-
-
-  const { navigate } = useGeneral();
 
   return (
     <div className="auth_card">

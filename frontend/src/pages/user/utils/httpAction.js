@@ -14,7 +14,6 @@ const httpAction = async (data) =>{
             credentials: 'include',
         });
         const result = await response.json();
-        console.log("Response from backend:", result);
         if (!response.ok) {
             throw new Error(result?.message);
         }
