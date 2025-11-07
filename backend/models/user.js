@@ -8,10 +8,10 @@ const userSchema = new mongoose.Schema(
     email: { type: String },
     password: { type: String },
     password_otp: {
-      type: String,
+      otp: { type: String },
       send_time: { type: String },
       limit: { type: Number, default: 5 },
-      last_attempt:{type: Object},
+      last_attempt: { type: Object },
     },
   },
   { timestamps: true }

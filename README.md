@@ -53,6 +53,7 @@ function Counter() {
 const [count, setCount] = useState(0); // hook use kiya
 
 return (
+
 <div>
 <p>Value: {count}</p>
 <button onClick={() => setCount(count + 1)}>Increase</button>
@@ -93,57 +94,54 @@ credentials: true,
 > “Joi is used for server-side validation as middleware, so any data from forms or requests is checked before saving to the database, ensuring correctness and security.”
 
 ---
-# Add exam complete flow 
+
+# Add exam complete flow
+
 🧍 User clicks Submit
-        ↓
+↓
 🧠 handleSubmit() (frontend)
-        ↓
+↓
 📡 Axios POST → http://localhost:8080/examTrack
-        ↓
+↓
 🧩 Express app.js → app.use("/examTrack", examTrackRoute)
-        ↓
+↓
 📜 examTrackRoute.js → router.post("/")
-        ↓
+↓
 🧱 Middleware: validateExamDate()
-        ↓
+↓
 💾 Controller: Save exam in MongoDB
-        ↓
+↓
 ✅ Response: { message: "Exam added successfully!" }
-        ↓
+↓
 💬 Frontend alert() + navigate("/examTracker")
-
-
 
 # Login Logout Signup
 
->Login using email and password.
-{
-1)  Navbar.jsx meh login button meh "/login" path hai, the movement you hit that button it will
+> Login using email and password.
+> {
+
+1.  Navbar.jsx meh login button meh "/login" path hai, the movement you hit that button it will
     trigger "/login" route of userRoute.jsx and that will render a login form (login.jsx)
 
-2) now put email and password in form and click login button which is inside "login.jsx"(frontend), 
-}
-(1) User fills form & clicks Register
-      ↓
-(2) Frontend builds request → apis.js se URL leke
-      ↓
-(3) httpAction() → fetch() call → backend ko HTTP request
-      ↓
-(4) Express app.js → /users → routes/user.js
-      ↓
-(5) route '/register' → controller registerUser.js
-      ↓
-(6) Controller → database operation (save user)
-      ↓
-(7) Backend sends JSON response
-      ↓
-(8) httpAction() parse response → return to React
-      ↓
-(9) React toast + redirect to login page
-
-
-
-
+2.  now put email and password in form and click login button which is inside "login.jsx"(frontend),
+    }
+    (1) User fills form & clicks Register
+    ↓
+    (2) Frontend builds request → apis.js se URL leke
+    ↓
+    (3) httpAction() → fetch() call → backend ko HTTP request
+    ↓
+    (4) Express app.js → /users → routes/user.js
+    ↓
+    (5) route '/register' → controller registerUser.js
+    ↓
+    (6) Controller → database operation (save user)
+    ↓
+    (7) Backend sends JSON response
+    ↓
+    (8) httpAction() parse response → return to React
+    ↓
+    (9) React toast + redirect to login page
 
 # Backend Token test in jwt
 
@@ -157,3 +155,15 @@ password = "l"
 } | ConvertTo-Json
 
 Invoke-RestMethod -Uri "http://localhost:8080/login" -Method POST -Headers $headers -Body $body
+
+# How to import file .
+
+backend/
+├── controllers/
+│ └── user/
+│     └── forgotPassword.js ← 🧠 tu yahi file likh raha hai
+├── models/
+│    └── user.js ← ⚙️ yaha se import karna hai
+
+import User from "../../models/user.js"; user seh baher nikloga toh controllers and controllers seh baher 
+nikloga toh root folder backend meh aa gaya it means you take 2 jump to come in root folder. so use  double slash. 

@@ -22,7 +22,7 @@ const login = async (req, res, next) => {
     res.cookie("accessToken", accessToken, {
         httpOnly: true,
         sameSite: "none",
-        maxAge: 24 * 60 * 60 * 1000,
+        secure: true,
     });
     res.status(200).json({ message: "Login successful", status: "true" });
   } catch (error) {

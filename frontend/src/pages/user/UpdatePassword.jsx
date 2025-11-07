@@ -1,23 +1,45 @@
-import React from 'react'
+import React from "react";
 import { TextField, Button, Input } from "@mui/material";
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
 import { GrUpdate } from "react-icons/gr";
-import { ArrowBack } from '@mui/icons-material';
+import { ArrowBack } from "@mui/icons-material";
 import useGeneral from "../user/hooks/useGeneral";
+import apis from "./utils/apisUsers";
+import httpAction from "../user/utils/httpAction";
+import { toast } from "react-hot-toast";
 
 const UpdatePassword = () => {
   const initialState = {
     password: "",
   };
   const validationSchema = Yup.object({
-        password: Yup.string().required("Password is required").min(6, "Password must be at least 6 characters"),
-   })
+    password: Yup.string()
+      .required("Password is required")
+      .min(6, "Password must be at least 6 characters"),
+  });
 
-  const submitHandler = (values) => {
-    console.log(values);
-    navigate("/");
+  const submitHandler = async (values) => {
+
+    const data = {
+      url: apis().updatePassword,
+      method: "POST",
+      body: {
+        password: values.password,
+      },
+    };
+    const result = await httpAction(data);
+     console.log("Backend response:", result);
+    if (result?.success) {
+      toast.success(result?.message);
+      navigate("/");
+    }
   };
+
+
+
+
+
   const { navigate } = useGeneral();
 
   return (
@@ -51,12 +73,19 @@ const UpdatePassword = () => {
                   />
                 </div>
                 <div className="col">
-                    <Button type='submit' variant='contained' fullWidth>Update</Button>
+                  <Button type="submit" variant="contained" fullWidth>
+                    Update
+                  </Button>
                 </div>
                 <div className="col">
-                    <Button onClick={()=> navigate("/login")} variant= "outlined" startIcon={<ArrowBack/>} fullWidth>
-                        Back to Login
-                    </Button>
+                  <Button
+                    onClick={() => navigate("/login")}
+                    variant="outlined"
+                    startIcon={<ArrowBack />}
+                    fullWidth
+                  >
+                    Back to Login
+                  </Button>
                 </div>
               </div>
             </div>
@@ -65,6 +94,6 @@ const UpdatePassword = () => {
       </Formik>
     </div>
   );
-}
+};
 
-export default UpdatePassword
+export default UpdatePassword;

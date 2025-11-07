@@ -5,7 +5,9 @@ import { Form, Formik } from "formik";
 import { ArrowBack, Send } from "@mui/icons-material";
 import { GrPowerReset } from "react-icons/gr";
 import useGeneral from "../user/hooks/useGeneral";
-
+import apis from "./utils/apisUsers";
+import httpAction from "../user/utils/httpAction";
+import { toast } from "react-hot-toast";
 const ForgotPassword = () => {
   const initialState = {
     email: "",
@@ -17,8 +19,19 @@ const ForgotPassword = () => {
   });
   const { navigate } = useGeneral();
 
-  const submitHandler = (values) => {
-    console.log(values);
+  const submitHandler = async(values) => {
+    // console.log(values);
+    const data = {
+      url:apis().forgotPassword,
+      method:"POST",
+      body:{email:values.email}
+    }
+    const result = await httpAction(data);
+    if(result?.status){
+      toast.success(result?.message);
+      navigate("/otpVerify");
+      localStorage.setItem("email", values.email);
+    }
   };
 
   return (

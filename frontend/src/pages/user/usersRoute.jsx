@@ -14,8 +14,8 @@ const usersRoutes = [
   <Route path="/otpVerify" element={<OtpVerify />} />,
   <Route path="/passwordReset" element={<UpdatePassword />} />,
   <Route element={<Super />}>
-    <Route path="/" element={<HomePage/>} />
-  </Route>
+    <Route path="/" element={<HomePage />} />,
+  </Route>,
 ];
 
 export default usersRoutes;
