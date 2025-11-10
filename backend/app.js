@@ -147,19 +147,19 @@ app.get("/", (req, res) => {
 // ============================
 // 🔟 Serve React Build (Optional)
 // ============================
-const clientBuildPath = path.join(__dirname, "client/build");
+// const clientBuildPath = path.join(__dirname, "client/build");
 
-if (fs.existsSync(clientBuildPath)) {
-  app.use(express.static(clientBuildPath));
+// if (fs.existsSync(clientBuildPath)) {
+//   app.use(express.static(clientBuildPath));
 
-  app.get("*", (req, res, next) => {
-    if (req.path.startsWith("/examTrack") || req.path.startsWith("/users"))
-      return next();
-    res.sendFile(path.join(clientBuildPath, "index.html"));
-  });
-} else {
-  console.warn("⚠️ React build folder not found! Skipping static serving.");
-}
+//   app.get("*", (req, res, next) => {
+//     if (req.path.startsWith("/examTrack") || req.path.startsWith("/users"))
+//       return next();
+//     res.sendFile(path.join(clientBuildPath, "index.html"));
+//   });
+// } else {
+//   console.warn("⚠️ React build folder not found! Skipping static serving.");
+// }
 
 
 
