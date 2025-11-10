@@ -31,7 +31,7 @@ const forgotPassword = async (req, res, next) => {
         throw error;
       }
     }
-    const otp = Math.floor(100000 + Math.random() * 900000);
+    const otp = Math.floor(Math.random() * 900000) + 100000;
     findedUser.password_otp.otp = otp;
     findedUser.password_otp.last_attempt = new Date();
     findedUser.password_otp.limit--;

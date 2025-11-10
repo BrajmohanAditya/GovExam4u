@@ -46,8 +46,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: [
-      "http://localhost:5173",
-      // "https://govexam4u.com",
+      // "http://localhost:5173",
+      "https://govexam4u.com",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
@@ -59,9 +59,10 @@ app.use(
     secret: "secret",
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false }, // false for render 
+    cookie: { secure: false }, 
   })
 );
+
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -74,8 +75,8 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:8080/auth/google/callback",
-      // callbackURL: "https://govexam4ubackend.onrender.com/auth/google/callback", 
+      // callbackURL: "http://localhost:8080/auth/google/callback",
+      callbackURL: "https://govexam4ubackend.onrender.com/auth/google/callback", 
       // google apna data ish url per send krta hai backend ko 
     },
     (accessToken, refreshToken, profile, done) => {
@@ -110,25 +111,18 @@ app.get(
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "http://localhost:5173/login",
+    // failureRedirect: "http://localhost:5173/login",
+    failureRedirect: "https://govexam4u.com/login",
   }),
-  googleAuth,   // yahi middleware data ko database meh saave krta hai 
+  googleAuth, // yahi middleware data ko database meh saave krta hai
   (req, res) => {
     // redirect frontend after success login
-    res.redirect("http://localhost:5173/");
+    // res.redirect("http://localhost:5173/");
+    res.redirect("https://govexam4u.com/");
+
   }
 );
 
-// app.get(
-//   "/auth/google/callback",
-//   passport.authenticate("google", {
-//     failureRedirect: "https://govexam4u.com/login",
-//   }),
-//   googleAuth,   // yahi data ko data base meh save krta hai
-//   (req, res) => {
-//     res.redirect("https://govexam4u.com/"); // after successful login
-//   }
-// );
 
 
 

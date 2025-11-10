@@ -163,10 +163,12 @@ const OtpVerify = () => {
                       if (completed) {
                         return (
                           <div style={{ textAlign: "left" }}>
-                            <Button onClick={resendOtp} variant="text">Resend</Button>
+                            <Button onClick={resendOtp} variant="text">
+                              Resend
+                            </Button>
                           </div>
                         );
-                      } else {
+                      } else { 
                         return (
                           <span>
                             {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
