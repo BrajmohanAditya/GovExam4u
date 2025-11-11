@@ -16,7 +16,7 @@ const sendEmail = async (data) => {
           text: stringOtp,
         };
         const result = await transporter.sendMail(mailOptions);
-        // console.log('Email sent successfully:', result);
+        console.log('Email sent successfully:', result);
         return result;
 
     }catch (error) {
