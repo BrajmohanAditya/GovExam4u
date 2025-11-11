@@ -71,7 +71,6 @@ const OtpVerify = () => {
       if (result?.status) {
         const minuts = result?.time - new Date().getTime();
         setTimer(minuts);
-        console.log("otp time", result?.time);
       }
     };
   useEffect(() => {
@@ -89,7 +88,7 @@ const OtpVerify = () => {
 
     if (result?.status) {
       getTimer();
-      console.log("resend otp time", result?.time);
+      // console.log("resend otp time", result?.time);
     }
   };
 

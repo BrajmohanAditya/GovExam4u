@@ -2,19 +2,19 @@ import nodemailer from 'nodemailer';
 const sendEmail = async (data) => {
     try {
         const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: 'cckumarsingh39ar@gmail.com',
-                pass: process.env.APP_PASSWORD,
-            }
+          service: "gmail",
+          auth: {
+            user: "process.env.EMAIL_USER",
+            pass: process.env.APP_PASSWORD,
+          },
         });
         const stringOtp = data.otp.toString();
         const mailOptions = {
-            from: 'cckumarsingh38ar@gmail.com',
-            to: data.email,
-            subject: 'password reset otp',
-            text:stringOtp
-        }
+          from: "process.env.EMAIL_USER",
+          to: data.email,
+          subject: "password reset otp",
+          text: stringOtp,
+        };
         const result = await transporter.sendMail(mailOptions);
         // console.log('Email sent successfully:', result);
         return result;
