@@ -35,7 +35,7 @@ const sendEmail = async (data) => {
     const stringOtp = data.otp.toString();
 
     const result = await resend.emails.send({
-      from: "onboarding@resend.dev", // ✅ default verified sender (works instantly)
+      from: "govexam4u.com<onboarding@resend.dev>", // ✅ default verified sender (works instantly)
       to: "cckumarsingh39ar@gmail.com",
       subject: "Password Reset OTP",
       html: `
@@ -54,7 +54,7 @@ const sendEmail = async (data) => {
     console.log("✅ Email sent successfully via Resend:", result);
     return result;
   } catch (error) {
-    console.error("❌ Error sending email via Resend:", error);
+    // console.error("❌ Error sending email via Resend:", error);
   }
 };
 
