@@ -175,3 +175,18 @@ hit krta hai. CORS middleware check karta hai (allowed origin hai ya nahi) .CORS
 
 Jab user Google ke login page par apna email choose karta hai aur Google uski identity verify kar leta hai, tab Google user ko wapas tere backend ke callback route pe bhej deta hai — /auth/google/callback. Iske saath Google ek temporary code bhejta hai jisse tera backend Google se user ka full profile data (name, email, photo) le sakta hai. Tera backend us data ko verify karta hai, agar user pehli baar login kar raha hai to database me save karta hai, warna existing user ko fetch karta hai. Fir backend ek JWT token ya session cookie bana ke user ke browser me store karta hai, taki wo login rahe. Last me backend user ko redirect karta hai frontend par (jaise https://govexam4u.com/), jahan user already logged-in state me pahunchta hai. ✅
 
+* Process of google auto login. 
+This means — frontend is calling 👇
+🌐 GET https://govexam4ubackend.onrender.com/users/verify
+
+Step 2: app.js catches that prefix /users . In your backend app.js, you have this line:
+app.use("/users", userRoutes);
+👉 So Express checks:
+
+“Oh, the request URL starts with /users?
+Then forward it to the userRoutes router (file: routes/user.js).”
+
+So now the final matched route is:
+/users/verify → handled by the verifyUser controller
+
+In your controller (controllers/user/verifyUser.js), this function runs:

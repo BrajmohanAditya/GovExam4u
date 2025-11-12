@@ -43,18 +43,33 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
     getUser();
   }, []);
 
-  useEffect(() => {   // autologin ka logic
-    axios
-      .get("https://govexam4ubackend.onrender.com/users/verify", {
-        withCredentials: true, // send cookies
-      })
-      .then((res) => {
-        if (res.data.loggedIn) {
-          setUser(res.data.user);
-        }
-      })
-      .catch(() => setUser(null));
+  // useEffect(() => {   // autologin ka logic
+  //   axios
+  //     .get("https://govexam4ubackend.onrender.com/users/verify", {
+  //       withCredentials: true, // send cookies
+  //     })
+  //     .then((res) => {
+  //       if (res.data.loggedIn) {
+  //         setUser(res.data.user);
+  //       }
+  //     })
+  //     .catch(() => setUser(null));
+  // }, []);
+
+
+  useEffect(() => {
+    const getUser = async () => {
+      const data = { url: apis().verifyUser };
+      const result = await httpAction(data);
+      if (result?.loggedIn) {
+        setUser(result?.user);
+      } else {
+        setUser(null);
+      }
+    };
+    getUser();
   }, []);
+
 
   // Logout
   const handleLogout = async () => {

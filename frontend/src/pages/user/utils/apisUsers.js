@@ -11,6 +11,7 @@ const baseUrl = "https://govexam4ubackend.onrender.com";
     verifyOtp: `${baseUrl}/users/verify-otp`,
     getTime: `${baseUrl}/users/get-time`,
     updatePassword: `${baseUrl}/users/update-password`,
+    verifyUser: `${baseUrl}/users/verify`,
   };
   return list;
 };
