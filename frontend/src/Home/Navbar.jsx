@@ -3,6 +3,7 @@
   fir wo rerender hoga , or ya prev current value hai "false"
 
 */
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
@@ -40,6 +41,19 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
       }
     };
     getUser();
+  }, []);
+
+  useEffect(() => {   // autologin ka logic
+    axios
+      .get("https://govexam4ubackend.onrender.com/users/verify", {
+        withCredentials: true, // send cookies
+      })
+      .then((res) => {
+        if (res.data.loggedIn) {
+          setUser(res.data.user);
+        }
+      })
+      .catch(() => setUser(null));
   }, []);
 
   // Logout

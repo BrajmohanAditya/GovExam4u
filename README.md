@@ -167,3 +167,11 @@ backend/
 
 import User from "../../models/user.js"; user seh baher nikloga toh controllers and controllers seh baher 
 nikloga toh root folder backend meh aa gaya it means you take 2 jump to come in root folder. so use  double slash. 
+
+# How to do google authentication
+The movement you click on signup button it will render register.jsx page . Now we will click on "continue with google"
+window.open("https://govexam4ubackend.onrender.com/auth/google", "_self"); ya route mera backend k "app.js" k route ko 
+hit krta hai. CORS middleware check karta hai (allowed origin hai ya nahi) .CORS ke baad direct /auth/google route pe hi request aati hai.Ye route Passport.js ke through Google OAuth process shuru karta hai. Isme likha hai passport.authenticate("google", { scope: ["profile", "email"] }), jo Google se bolta hai — “mujhe user ka profile aur email access karna hai.” Fir Passport user ko seedha Google ke login page (accounts.google.com) pe redirect kar deta hai, jahan user apna account select karta hai ya login karta hai.
+
+Jab user Google ke login page par apna email choose karta hai aur Google uski identity verify kar leta hai, tab Google user ko wapas tere backend ke callback route pe bhej deta hai — /auth/google/callback. Iske saath Google ek temporary code bhejta hai jisse tera backend Google se user ka full profile data (name, email, photo) le sakta hai. Tera backend us data ko verify karta hai, agar user pehli baar login kar raha hai to database me save karta hai, warna existing user ko fetch karta hai. Fir backend ek JWT token ya session cookie bana ke user ke browser me store karta hai, taki wo login rahe. Last me backend user ko redirect karta hai frontend par (jaise https://govexam4u.com/), jahan user already logged-in state me pahunchta hai. ✅
+

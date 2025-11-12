@@ -51,15 +51,23 @@ app.use(
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
+    /*
+    credentials: true ka matlab hai – “browser ko allow karo ki wo cookies aur login tokens backend ke sath bheje
+     aur le sake.” 🍪✅
+    */
   })
 );
   
-app.use( 
+  /*
+  Ye line backend me user ka session (temporary login data) store karne ke liye hoti hai, 
+  taki server ko pata rahe ki kaunsa user abhi login hai
+  */
+app.use(
   session({
     secret: "secret",
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false }, 
+    cookie: { secure: false },
   })
 );
 
@@ -77,7 +85,6 @@ passport.use(
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       // callbackURL: "http://localhost:8080/auth/google/callback",
       callbackURL: "https://govexam4ubackend.onrender.com/auth/google/callback", 
-      // google apna data ish url per send krta hai backend ko 
     },
     (accessToken, refreshToken, profile, done) => {
       // console.log( profile);

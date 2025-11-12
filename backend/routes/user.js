@@ -9,9 +9,10 @@ import forgotPassword from '../controllers/user/forgotPassword.js';
 import verifyOtp from '../controllers/user/verifyOtp.js';
 import getTime from '../controllers/user/getTime.js';
 import updatePassword from '../controllers/user/updatePassword.js';
+import verifyUser from "../controllers/user/verifyUser.js";
 
 const router = express.Router();
-router.post('/register', registerUser); // frontend userRoute.jsx meh ya /register milaga. 
+router.post('/register', registerUser); 
 router.post('/login', login);
 router.get('/',auth, getUser);
 router.get('/logout', logout);
@@ -20,4 +21,5 @@ router.post('/forgot-password', forgotPassword);
 router.post('/verify-otp', verifyOtp);
 router.post('/get-time', getTime);
 router.post('/update-password',auth, updatePassword);
+router.get("/verify", verifyUser);
 export default router;
