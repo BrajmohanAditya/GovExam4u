@@ -124,7 +124,7 @@ app.get(
   googleAuth, // yahi middleware data ko database meh saave krta hai
   (req, res) => {
     // redirect frontend after success login
-    res.redirect("http://localhost:5173/");
+    // res.redirect("http://localhost:5173/");
     res.redirect("https://govexam4u.com/");
 
   }
