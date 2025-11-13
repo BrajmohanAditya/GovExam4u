@@ -20,9 +20,9 @@ const googleAuth = async (req, res, next) => {
       httpOnly: true,
       secure: true,
       sameSite: "none",
-      domain: "govexam4u.com",
-      path: "/",
-      maxAge: 7 * 24 * 60 * 60 * 1000,
+      // domain: "govexam4u.com",
+      // path: "/",
+      // maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
     next();
