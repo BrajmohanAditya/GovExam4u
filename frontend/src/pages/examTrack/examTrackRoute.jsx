@@ -5,7 +5,6 @@ import ExamEditForm from "./editUpdate";
 import ExamAddForm from "./ExamAddForm";
 import ProtectedRoute from "../../protectedRoute.jsx";
 const examTrackRoute = [
-  // <Route path="/examTracker" element={<ExamTrack />} key="examTracker" />, // path="/examTracker" this is the path we add in the link of card
 
   <Route
     path="/examTracker"
