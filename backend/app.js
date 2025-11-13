@@ -84,7 +84,7 @@ passport.use(
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       // callbackURL: "http://localhost:8080/auth/google/callback",
-      callbackURL: "https://govexam4ubackend.onrender.com/auth/google/callback", 
+      callbackURL: "https://api.govexam4u.com/auth/google/callback", 
     },
     (accessToken, refreshToken, profile, done) => {
       // console.log( profile);

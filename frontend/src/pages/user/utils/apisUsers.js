@@ -1,6 +1,6 @@
 
 const apis = () => {
-const baseUrl = "https://govexam4ubackend.onrender.com";
+const baseUrl = "https://api.govexam4u.com";
   const list = {
     registerUser: `${baseUrl}/users/register`,
     loginUser: `${baseUrl}/users/login`,

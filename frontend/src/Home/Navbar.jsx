@@ -45,7 +45,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
 
   useEffect(() => {   // autologin ka logic
     axios
-      .get("https://govexam4ubackend.onrender.com/users/verify", {
+      .get("https://api.govexam4u.com/users/verify", {
         withCredentials: true, // send cookies
       })
       .then((res) => {
