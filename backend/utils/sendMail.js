@@ -36,7 +36,7 @@ const sendEmail = async (data) => {
 
     const result = await resend.emails.send({
       from: "govexam4u.com<noreply@govexam4u.com>", // ✅ default verified sender (works instantly)
-      to: "cckumarsingh39ar@gmail.com",
+      to: data.email,
       subject: "Password Reset OTP",
       html: `
         <div style="font-family: Arial, sans-serif; padding: 10px;">
