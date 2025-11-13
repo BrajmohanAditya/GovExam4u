@@ -21,8 +21,8 @@ const googleAuth = async (req, res, next) => {
       secure: true,
       sameSite: "none",
       // domain: "govexam4u.com",
-      // path: "/",
-      // maxAge: 7 * 24 * 60 * 60 * 1000,
+      path: "/",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
     next();
