@@ -143,18 +143,7 @@ credentials: true,
     ↓
     (9) React toast + redirect to login page
 
-# Backend Token test in jwt
 
-$headers = @{
-"Content-Type" = "application/json"
-}
-
-$body = @{
-username = "l"
-password = "l"
-} | ConvertTo-Json
-
-Invoke-RestMethod -Uri "http://localhost:8080/login" -Method POST -Headers $headers -Body $body
 
 # How to import file .
 
@@ -169,11 +158,39 @@ import User from "../../models/user.js"; user seh baher nikloga toh controllers 
 nikloga toh root folder backend meh aa gaya it means you take 2 jump to come in root folder. so use  double slash. 
 
 # How to do google authentication
-The movement you click on signup button it will render register.jsx page . Now we will click on "continue with google"
-window.open("https://govexam4ubackend.onrender.com/auth/google", "_self"); ya route mera backend k "app.js" k route ko 
-hit krta hai. CORS middleware check karta hai (allowed origin hai ya nahi) .CORS ke baad direct /auth/google route pe hi request aati hai.Ye route Passport.js ke through Google OAuth process shuru karta hai. Isme likha hai passport.authenticate("google", { scope: ["profile", "email"] }), jo Google se bolta hai — “mujhe user ka profile aur email access karna hai.” Fir Passport user ko seedha Google ke login page (accounts.google.com) pe redirect kar deta hai, jahan user apna account select karta hai ya login karta hai.
+step-1️⃣
 
-Jab user Google ke login page par apna email choose karta hai aur Google uski identity verify kar leta hai, tab Google user ko wapas tere backend ke callback route pe bhej deta hai — /auth/google/callback. Iske saath Google ek temporary code bhejta hai jisse tera backend Google se user ka full profile data (name, email, photo) le sakta hai. Tera backend us data ko verify karta hai, agar user pehli baar login kar raha hai to database me save karta hai, warna existing user ko fetch karta hai. Fir backend ek JWT token ya session cookie bana ke user ke browser me store karta hai, taki wo login rahe. Last me backend user ko redirect karta hai frontend par (jaise https://govexam4u.com/), jahan user already logged-in state me pahunchta hai. ✅
+User “Signup” button click karta hai → Register.jsx render hota hai. Fir jab user “Continue with Google” button click karta hai, toh window.open("https://api.govexam4u.com/auth/google", "_self") execute hota hai which is inside register.jsx. Yeh frontend se ek GET request bhejta hai "app.js" ko. 
+GET /auth/google
+Host: api.govexam4u.com
+Origin: https://govexam4u.com  , CORS check karega or fir allow kr dega.
+
+step-2️⃣
+Session, cookieParser, passport.initialize i mean sara middleware bari bari seh chalaga but jo middleware nahi hai wo nahi chalaga like passport.use
+
+step-3️⃣
+app.get("/auth/google",);  Ye route Passport.js ke through Google OAuth process shuru karta hai. Isme likha hai passport.authenticate("google", { scope: ["profile", "email"] }), jo Google se bolta hai — “mujhe user ka profile aur email access karna hai.” Fir Passport user ko seedha Google ke login page (accounts.google.com) pe redirect kar deta hai, jahan user apna email select krta hai.
+
+step- 4️⃣
+Jab user Google ke login page par apna email choose karta hai aur Google uski identity verify kar leta hai ki haa ya ak valid email registered hai google cloud meh, tab Google user ko callback route (/auth/google/callback) pe data bhej deta hai. 
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: "https://api.govexam4u.com/auth/google/callback", 
+    },
+    (accessToken, refreshToken, profile, done) => {
+      return done(null, profile);
+    }
+  ) 
+); ya data ko receive krta hai.  Ishmeh Google ek temporary code bhejta hai jisse passport.use() Google se user ka full profile data (name, email, photo) le sakta hai.
+
+step- 5️⃣
+Tera  app.get("/auth/google/callback",) us data ko verify karta hai, agar user pehli baar login kar raha hai to database me save karta hai, warna existing user ko fetch karta hai. Fir backend ek JWT token ya session cookie bana ke user ke browser me store karta hai, taki wo login rahe. Last me backend user ko redirect karta hai frontend par (jaise https://govexam4u.com/), jahan user already logged-in state me pahunchta hai. ✅
+
+
+
 
 * Process of google auto login. 
 This means — frontend is calling 👇
