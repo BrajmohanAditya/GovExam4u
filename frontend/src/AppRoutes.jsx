@@ -6,6 +6,8 @@ import HomeRoutes from "./Home/HomeRoute";
 import MockRoutes from "./pages/Mock/MockRoute";
 import examTrackRoute from "./pages/examTrack/examTrackRoute";
 import usersRoutes from "./pages/user/usersRoute"
+import QuizRoute from "./pages/Quizes/route";
+
 export default function AppRoutes() {
   return (
     <Routes>
@@ -14,6 +16,7 @@ export default function AppRoutes() {
       {MockRoutes}
       {examTrackRoute}
       {usersRoutes}
+      {QuizRoute}
     </Routes>
   );
 }

@@ -39,7 +39,7 @@ const sidebarItems = [
     label: "Descriptive Writing",
     link: "#/descriptive",
   },
-  { icon: faNewspaper, label: "Current Affair", link: "#" },
+  { icon: faNewspaper, label: "Current Affair", link: "#/ca-quiz" },
   { icon: faFileSignature, label: "Daily Quiz", link: "#" },
   { icon: faCalendarDays, label: "Track Your Exam", link: "#/examTracker" },
   { icon: faHandHoldingDollar, label: "Win Prize", link: "#" },

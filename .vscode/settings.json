@@ -3,6 +3,9 @@
     "**/node_modules": true,
     "**/dist": true,
     "**/.git": true,    
-    "**/package-lock.json": true
+    "**/package-lock.json": true,
+    "**/static.json": true,
+    "**/vite.config.js": true,
+    "**/frontend/public": true
   }
 }
