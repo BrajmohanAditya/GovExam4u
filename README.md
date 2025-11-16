@@ -143,67 +143,59 @@ credentials: true,
     ↓
     (9) React toast + redirect to login page
 
-
-
 # How to import file .
 
 backend/
 ├── controllers/
 │ └── user/
-│     └── forgotPassword.js ← 🧠 tu yahi file likh raha hai
+│ └── forgotPassword.js ← 🧠 tu yahi file likh raha hai
 ├── models/
-│    └── user.js ← ⚙️ yaha se import karna hai
+│ └── user.js ← ⚙️ yaha se import karna hai
 
-import User from "../../models/user.js"; user seh baher nikloga toh controllers and controllers seh baher 
-nikloga toh root folder backend meh aa gaya it means you take 2 jump to come in root folder. so use  double slash. 
+import User from "../../models/user.js"; user seh baher nikloga toh controllers and controllers seh baher
+nikloga toh root folder backend meh aa gaya it means you take 2 jump to come in root folder. so use double slash.
 
 # How to do google authentication
+
 step-1️⃣
 
-User “Signup” button click karta hai → Register.jsx render hota hai. Fir jab user “Continue with Google” button click karta hai, toh window.open("https://api.govexam4u.com/auth/google", "_self") execute hota hai which is inside register.jsx. Yeh frontend se ek GET request bhejta hai "app.js" ko. 
+User “Signup” button click karta hai → Register.jsx render hota hai. Fir jab user “Continue with Google” button click karta hai, toh window.open("https://api.govexam4u.com/auth/google", "\_self") execute hota hai which is inside register.jsx. Yeh frontend se ek GET request bhejta hai "app.js" ko.
 GET /auth/google
 Host: api.govexam4u.com
-Origin: https://govexam4u.com  , CORS check karega or fir allow kr dega.
+Origin: https://govexam4u.com , CORS check karega or fir allow kr dega.
 
 step-2️⃣
 Session, cookieParser, passport.initialize i mean sara middleware bari bari seh chalaga but jo middleware nahi hai wo nahi chalaga like passport.use
 
 step-3️⃣
-app.get("/auth/google",);  Ye route Passport.js ke through Google OAuth process shuru karta hai. Isme likha hai passport.authenticate("google", { scope: ["profile", "email"] }), jo Google se bolta hai — “mujhe user ka profile aur email access karna hai.” Fir Passport user ko seedha Google ke login page (accounts.google.com) pe redirect kar deta hai, jahan user apna email select krta hai.
+app.get("/auth/google",); Ye route Passport.js ke through Google OAuth process shuru karta hai. Isme likha hai passport.authenticate("google", { scope: ["profile", "email"] }), jo Google se bolta hai — “mujhe user ka profile aur email access karna hai.” Fir Passport user ko seedha Google ke login page (accounts.google.com) pe redirect kar deta hai, jahan user apna email select krta hai.
 
 step- 4️⃣
-Jab user Google ke login page par apna email choose karta hai aur Google uski identity verify kar leta hai ki haa ya ak valid email registered hai google cloud meh, tab Google user ko callback route (/auth/google/callback) pe data bhej deta hai. 
+Jab user Google ke login page par apna email choose karta hai aur Google uski identity verify kar leta hai ki haa ya ak valid email registered hai google cloud meh, tab Google user ko callback route (/auth/google/callback) pe data bhej deta hai.
 passport.use(
-  new GoogleStrategy(
-    {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://api.govexam4u.com/auth/google/callback", 
-    },
-    (accessToken, refreshToken, profile, done) => {
-      return done(null, profile);
-    }
-  ) 
-); ya data ko receive krta hai.  Ishmeh Google ek temporary code bhejta hai jisse passport.use() Google se user ka full profile data (name, email, photo) le sakta hai.
+new GoogleStrategy(
+{
+clientID: process.env.GOOGLE_CLIENT_ID,
+clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+callbackURL: "https://api.govexam4u.com/auth/google/callback",
+},
+(accessToken, refreshToken, profile, done) => {
+return done(null, profile);
+}
+)
+); ya data ko receive krta hai. Ishmeh Google ek temporary code bhejta hai jisse passport.use() Google se user ka full profile data (name, email, photo) le sakta hai.
 
 step- 5️⃣
-Tera  app.get("/auth/google/callback",) us data ko verify karta hai, agar user pehli baar login kar raha hai to database me save karta hai, warna existing user ko fetch karta hai. Fir backend ek JWT token ya session cookie bana ke user ke browser me store karta hai, taki wo login rahe. Last me backend user ko redirect karta hai frontend par (jaise https://govexam4u.com/), jahan user already logged-in state me pahunchta hai. ✅
+Tera app.get("/auth/google/callback",) us data ko verify karta hai, agar user pehli baar login kar raha hai to database me save karta hai, warna existing user ko fetch karta hai. Fir backend ek JWT token ya session cookie bana ke user ke browser me store karta hai, taki wo login rahe. Last me backend user ko redirect karta hai frontend par (jaise https://govexam4u.com/), jahan user already logged-in state me pahunchta hai. ✅
+
+# How to do Google Auto login
+
+step-1️⃣
+The momennt you open your Browser "Nvbar.jsx" k ander, 🌐 GET https://api.govexam4u.com/users/verify  route calls app.js. 
+
+step-2️⃣
+app.js catches that prefix "/users" . In your backend app.js, you have this line:
+app.use("/users", userRoutes); So Express checks: “Oh, the request URL starts with /users?
+Then forward it to the "userRoutes" router (file: routes/user.js).” router.get("/verify", verifyUser); ya route call ko "../controllers/user/verifyUser.js"; file meh transfer kr deta hai. or const verifyUser = async (req, res) => {}; use ko login kra deta hai 
 
 
-
-
-* Process of google auto login. 
-This means — frontend is calling 👇
-🌐 GET https://govexam4ubackend.onrender.com/users/verify
-
-Step 2: app.js catches that prefix /users . In your backend app.js, you have this line:
-app.use("/users", userRoutes);
-👉 So Express checks:
-
-“Oh, the request URL starts with /users?
-Then forward it to the userRoutes router (file: routes/user.js).”
-
-So now the final matched route is:
-/users/verify → handled by the verifyUser controller
-
-In your controller (controllers/user/verifyUser.js), this function runs:

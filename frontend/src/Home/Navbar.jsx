@@ -43,7 +43,9 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
     getUser();
   }, []);
 
-  useEffect(() => {   // autologin ka logic
+
+// Google Autologin Logic.   
+  useEffect(() => {
     axios
       .get("https://api.govexam4u.com/users/verify", {
         withCredentials: true, // send cookies
@@ -55,7 +57,6 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
       })
       .catch(() => setUser(null));
   }, []);
-
 
   // useEffect(() => {
   //   const getUser = async () => {
@@ -69,7 +70,6 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
   //   };
   //   getUser();
   // }, []);
-
 
   // Logout
   const handleLogout = async () => {
