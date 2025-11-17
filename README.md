@@ -120,9 +120,6 @@ credentials: true,
 > Login using email and password.
 > {
 
-1.  Navbar.jsx meh login button meh "/login" path hai, the movement you hit that button it will
-    trigger "/login" route of userRoute.jsx and that will render a login form (login.jsx)
-
 2.  now put email and password in form and click login button which is inside "login.jsx"(frontend),
     }
     (1) User fills form & clicks Register
@@ -191,11 +188,35 @@ Tera app.get("/auth/google/callback",) us data ko verify karta hai, agar user pe
 # How to do Google Auto login
 
 step-1️⃣
-The momennt you open your Browser "Nvbar.jsx" k ander, 🌐 GET https://api.govexam4u.com/users/verify  route calls app.js. 
+The momennt you open your Browser. "Nvbar.jsx" k ander, 🌐 GET https://api.govexam4u.com/users/verify route calls app.js.
 
 step-2️⃣
-app.js catches that prefix "/users" . In your backend app.js, you have this line:
+app.js catches that prefix "/users" . In your "app.js" , you have this line:
 app.use("/users", userRoutes); So Express checks: “Oh, the request URL starts with /users?
-Then forward it to the "userRoutes" router (file: routes/user.js).” router.get("/verify", verifyUser); ya route call ko "../controllers/user/verifyUser.js"; file meh transfer kr deta hai. or const verifyUser = async (req, res) => {}; use ko login kra deta hai 
+Then forward it to the "userRoutes" router (file: routes/user.js).” router.get("/verify", verifyUser); ya route call ko "../controllers/user/verifyUser.js"; file meh transfer kr deta hai. or const verifyUser = async (req, res) => {}; use ko login kra deta hai
+
+# How to make Frontend route protected.
+it means only logged in user could access my content.
+
+Make a file "protectedRoute.jsx" and import it in any route file ex: "examTrackRoute.jsx" and write route like this
+<ProtectedRoute>
+<ExamTrack />
+</ProtectedRoute>
 
 
+# How to signup User using email, password and user name.
+
+1. Navbar.jsx meh Signup button meh "onClick={() => navigate("/register")}" path hai, the movement you hit that button it will trigger "/login" route of "userRoute.jsx" and it will render a signup form (signup.jsx). 
+
+2. 
+When we click the Register button inside Signup.jsx, the submitHandler = async (values) executes.
+Inside this handler, the data object stores the URL and the form values.
+This data is passed into httpAction(data), which sends an API request to the backend.
+
+The API request first reaches app.js,
+then app.js forwards it to user.js (the route file),
+and user.js sends that request to register.js,
+where the new user is actually created and saved in MongoDB.
+
+After successful registration, register.js returns a JSON response with a success message,
+and the frontend receives this response and shows a toast + redirects to login.

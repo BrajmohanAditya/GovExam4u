@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 import { sidebarStyles } from "../../assets/dummyStyles";
 import questionsData from "../../assets/dummydata";
 
-const Sidebar = () =>{
+const Sidebar = () => {
   const [selectedTech, setSelectedTech] = useState(null);
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -21,10 +21,9 @@ const Sidebar = () =>{
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);    
+  }, []);
 
-
-    useEffect(() => {
+  useEffect(() => {
     if (window.innerWidth < 768) {
       if (isSidebarOpen) document.body.style.overflow = "hidden";
       else document.body.style.overflow = "";
@@ -36,12 +35,7 @@ const Sidebar = () =>{
     };
   }, [isSidebarOpen]);
 
-  
-    return(
-        <div className={sidebarStyles.pageContainer}>
-            {}
-        </div>
-    )
-}
+  return <div className={sidebarStyles.pageContainer}>{}</div>;
+};
 
-export default Sidebar
+export default Sidebar;
