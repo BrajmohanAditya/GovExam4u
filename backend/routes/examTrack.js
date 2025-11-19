@@ -4,6 +4,7 @@ import wrapAsync from "../utils/wrapAsync.js";
 import examTrack from "../models/examTrack.js";
 import { joiexamdateSchema } from "../joiSchema.js"; // Step 4
 import ExpressError from "../utils/ExpressError.js";
+import examdate from "../models/examTrack.js";
 const router = express.Router();
 //step- 4 , aim: restricting wrong data from hopscotch , work: creating middlemalwere. 
 const validateExamDate = (req, res, next) => {
@@ -19,12 +20,12 @@ const validateExamDate = (req, res, next) => {
 //step: A0, aim: Display card, work: db seh All exams ka data nikal k frontend(examTrack) ko send kr raha . 
 router.get(
   "/",
-  wrapAsync(async (req, res) => {
-    const Allexam = await examTrack.find({});
+  wrapAsync(async (req, res) => { 
+    const Allexam = await exa.find({});
     res.json(Allexam); // Allexam - ya just above wala line seh aya hai
   })
 );
-//
+//  
 
 //step: A2, aim: edit editUpdate form, work: frontend k editUpdate page k ander ak route ko data send kr raha hai
 router.get(
