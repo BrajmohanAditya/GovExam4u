@@ -46,8 +46,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: [
-      "http://localhost:5173",
-      // "https://govexam4u.com",
+      // "http://localhost:5173",
+      "https://govexam4u.com",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,

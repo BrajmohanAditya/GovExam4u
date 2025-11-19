@@ -18,6 +18,6 @@ const examdateSchema = new Schema({
 
 
 
-const examdate = mongoose.model("examdate", examdateSchema); // ("collection ka naam ", collection ka schema)
+mongoose.model("examdate", examdateSchema); // ("collection ka naam ", collection ka schema)
 // module.exports = examdate;
-export default examdate;
+// export default examdate;
