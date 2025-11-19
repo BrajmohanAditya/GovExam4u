@@ -20,4 +20,4 @@ const examdateSchema = new Schema({
 
 mongoose.model("examdate", examdateSchema); // ("collection ka naam ", collection ka schema)
 // module.exports = examdate;
-// export default examdate;
+export default examdate;
