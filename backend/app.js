@@ -2,7 +2,6 @@
 // 1️⃣ Dependencies
 // ============================
 
-import dotenv from "dotenv";
 dotenv.config(); // sabse pehle load karo
 import dotenv from "dotenv";
 import express from "express";
