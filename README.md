@@ -215,7 +215,7 @@ This data is passed into httpAction(data), which sends an API request to the bac
 
 The API request first reaches app.js,
 then app.js forwards it to user.js (the route file),
-and user.js sends that request to register.js,
+and "user.js" sends that request to register.js,
 where the new user is actually created and saved in MongoDB.
 
 After successful registration, register.js returns a JSON response with a success message,

@@ -2,19 +2,19 @@
 import axios from "axios";
 
 const api = axios.create({
-  // baseURL: "http://localhost:8080",
+  baseURL: "http://localhost:8080",
 
-  baseURL: "https://api.govexam4u.com", // jb v koi backend call karoga wo yahi ayaga.
+  // baseURL: "https://api.govexam4u.com", // jb v koi backend call karoga wo yahi ayaga.
 });
 
-// Automatically attach token
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config; 
-});
+// // Automatically attach token
+// api.interceptors.request.use((config) => {
+//   const token = localStorage.getItem("token");
+//   if (token) {
+//     config.headers.Authorization = `Bearer ${token}`;
+//   }
+//   return config; 
+// });
  
 export default api;
  

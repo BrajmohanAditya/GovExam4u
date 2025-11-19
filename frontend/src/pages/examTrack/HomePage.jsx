@@ -1,8 +1,7 @@
-
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; 
+import { Link, useNavigate } from "react-router-dom";
 import { calculateTimeLeft } from "./timeLeft";
-import Nav from "./Navbar"
+import Nav from "./Navbar";
 import api from "../../api";
 
 export default function ExamTrack() {
@@ -16,16 +15,16 @@ export default function ExamTrack() {
       .get("/examTrack") //examTrack route se tumhe sara exam ka data mil raha hai jo DB me save hai.
       .then((res) => setExams(res.data)) //setExams(res.data) use karke wo data state (exams) me save kar diya jata hai.
       .catch((err) => {
-        if (err.response) {
-          console.error("Error:", err.response.data.message);
-          if (err.response.status === 401) {
-            alert(err.response.data.message); // 
-            navigate("/login"); // React Router ka navigate use karo agar redirect karna ho
-          }
-        } else {
-          console.error("Unexpected error:", err);
+      if (err.response) {
+        console.error("Error:", err.response.data.message);
+        if (err.response.status === 401) {
+          alert(err.response.data.message); //
+          navigate("/login"); // React Router ka navigate use karo agar redirect karna ho
         }
-      });
+      } else {
+        console.error("Unexpected error:", err);
+      }
+    });
   }, [navigate]);
   //---
 
@@ -56,7 +55,6 @@ export default function ExamTrack() {
     //step: A1,  aim: edit form rendering,  click a link jo "examTrackRoute.jsx" k ander hai wo ak "EditUpdate.jsx" file ko render kr dega,
     <>
       <Nav />;
-      
       <div className="m-5  md:m-20  p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  rounded-md ">
         {exams.map((exam) => (
           <Link to={`/exam/${exam._id}/edit`} key={exam._id}>
