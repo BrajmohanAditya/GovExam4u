@@ -1,7 +1,6 @@
 
 import express from "express";
 import wrapAsync from "../utils/wrapAsync.js";
-import examTrack from "../models/examTrack.js";
 import { joiexamdateSchema } from "../joiSchema.js"; // Step 4
 import ExpressError from "../utils/ExpressError.js";
 import examdate from "../models/examTrack.js";
@@ -32,7 +31,7 @@ router.get(
   "/:id/edit",
   wrapAsync(async (req, res) => {
     let { id } = req.params;
-    const exam = await examTrack.findById(id); // apna model ka naam Exam rakho
+    const exam = await examdate.findById(id); // apna model ka naam Exam rakho
     res.json(exam); // frontend React ko JSON bhejna
   })
 );
@@ -43,7 +42,7 @@ router.put(
   "/:id",
   wrapAsync(async (req, res) => {
     const { id } = req.params;
-    const updatedExam = await examTrack.findByIdAndUpdate(id, req.body, {
+    const updatedExam = await examdate.findByIdAndUpdate(id, req.body, {
       new: true, // updated document return kare
     });
     if (!updatedExam) {
@@ -59,7 +58,7 @@ router.delete(
   "/:id",
   wrapAsync(async (req, res) => {
     const { id } = req.params;
-    const deletedExam = await examTrack.findByIdAndDelete(id);
+    const deletedExam = await examdate.findByIdAndDelete(id);
     if (!deletedExam) {
       return res.status(404).json({ message: "Exam not found" });
     }
@@ -73,12 +72,12 @@ router.post(
   "/",
   validateExamDate, // step- 4 , aim: restricting wrong data from hopscotch , work: middlemalwere implemented to restrict data.
   wrapAsync(async (req, res) => {
-    const count = await examTrack.countDocuments();
+    const count = await examdate.countDocuments();
     if (count >= 9) {
       return res.status(400).json({ message: "You Can't Add more than 9 Exams" });
     }
     // agar 9 se kam hai toh naya add karo
-    const newExam = new examTrack(req.body);
+    const newExam = new examdate(req.body);
     await newExam.save();
     res.status(201).json({message: "Exam added successfully!", data: newExam});
   })   
