@@ -21,7 +21,7 @@ const validateExamDate = (req, res, next) => {
 router.get(
   "/",
   wrapAsync(async (req, res) => { 
-    const Allexam = await exa.find({});
+    const Allexam = await examdate.find({});
     res.json(Allexam); // Allexam - ya just above wala line seh aya hai
   })
 );
