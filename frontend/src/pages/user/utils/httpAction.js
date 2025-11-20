@@ -21,6 +21,7 @@ const httpAction = async (data) =>{
     } catch (error) {
         console.log('Error during HTTP action:', error);
         toast.error(error.message);
+        return { status: false, error: error.message };
     }
 }
 export default httpAction; 

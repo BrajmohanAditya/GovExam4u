@@ -30,19 +30,6 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const getUser = async () => {
-      const data = {
-        url: apis().userProfile,
-      };
-      const result = await httpAction(data);
-      if (result?.status) {
-        setUser(result?.user);
-      }
-    };
-    getUser();
-  }, []);
-
   // Google Autologin Logic.
   useEffect(() => {
     axios
@@ -55,6 +42,20 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
         }
       })
       .catch(() => setUser(null));
+  }, []);
+
+  // get user detail.  
+  useEffect(() => {
+    const getUser = async () => {
+      const data = {
+        url: apis().userProfile,
+      };
+      const result = await httpAction(data);
+      if (result?.status) {
+        setUser(result?.user);
+      }
+    };
+    getUser();
   }, []);
 
   // useEffect(() => {

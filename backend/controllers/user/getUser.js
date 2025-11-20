@@ -15,3 +15,8 @@ const getUser = async (req, res, next) => {
   }
 };
 export default getUser;
+
+
+/*
+getUser() ka kaam authenticated user ka profile data frontend ko dena hota hai.
+*/

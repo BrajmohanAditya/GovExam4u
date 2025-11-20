@@ -5,6 +5,8 @@ import ExpressError from "../utils/ExpressError.js";
 import examdate from "../models/examTrack.js";
 import auth from "../middlewares/auth.js";
 const router = express.Router();
+router.use(auth);
+
 //step- 4 , aim: restricting wrong data from hopscotch , work: creating middlemalwere.
 const validateExamDate = (req, res, next) => {
   let { error } = joiexamdateSchema.validate(req.body);
@@ -20,7 +22,7 @@ const validateExamDate = (req, res, next) => {
 router.get(
   "/",
   wrapAsync(async (req, res) => {
-    const Allexam = await examdate.find({});
+    const Allexam = await examdate.find({ userId: req.user._id });
     res.json(Allexam); // Allexam - ya just above wala line seh aya hai
   })
 );
@@ -31,7 +33,7 @@ router.get(
   "/:id/edit",
   wrapAsync(async (req, res) => {
     let { id } = req.params;
-    const exam = await examdate.findById(id); // apna model ka naam Exam rakho
+    const exam = await examdate.findById({ _id: id, userId: req.user._id }); // apna model ka naam Exam rakho
     res.json(exam); // frontend React ko JSON bhejna
   })
 );
@@ -42,9 +44,17 @@ router.put(
   "/:id",
   wrapAsync(async (req, res) => {
     const { id } = req.params;
-    const updatedExam = await examdate.findByIdAndUpdate(id, req.body, {
-      new: true, // updated document return kare
-    });
+
+    // const updatedExam = await examdate.findByIdAndUpdate(id, req.body, {
+    //   new: true, // updated document return kare
+    // });
+
+    const updatedExam = await examdate.findOneAndUpdate(
+      { _id: id, userId: req.user._id },
+      req.body,
+      { new: true }
+    );
+
     if (!updatedExam) {
       return res.status(404).json({ message: "Exam not found" });
     }
@@ -58,7 +68,14 @@ router.delete(
   "/:id",
   wrapAsync(async (req, res) => {
     const { id } = req.params;
-    const deletedExam = await examdate.findByIdAndDelete(id);
+
+    // const deletedExam = await examdate.findByIdAndDelete(id);
+
+    const deletedExam = await examdate.findOneAndDelete({
+      _id: id,
+      userId: req.user._id,
+    });
+
     if (!deletedExam) {
       return res.status(404).json({ message: "Exam not found" });
     }
@@ -70,7 +87,8 @@ router.delete(
 //step: A3, aim: Adding new card, work: Frontend(ExamAddForm.jsx) seh aya hua data ko receive kr ka save krna
 router.post(
   "/",
-  validateExamDate, auth, // step- 4 , aim: restricting wrong data from hopscotch , work: middlemalwere implemented to restrict data.
+  validateExamDate,
+  auth, // step- 4 , aim: restricting wrong data from hopscotch , work: middlemalwere implemented to restrict data.
   wrapAsync(async (req, res) => {
     const count = await examdate.countDocuments({ userId: req.user._id });
     if (count >= 9) {
@@ -79,13 +97,11 @@ router.post(
         .json({ message: "You Can't Add more than 9 Exams" });
     }
 
-
-    // agar 9 se kam hai toh naya add karo
+    // this line of code will add seperate userId for every exam you add.
     const newExam = new examdate({
       ...req.body,
-      userId: req.user._id
+      userId: req.user._id,
     });
-
 
     await newExam.save();
     res
