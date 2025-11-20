@@ -38,19 +38,6 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// app.use(
-//   cors({
-//     origin: process.env.CLIENT_URL,
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     credentials: true,
-//     /*
-//     credentials: true ka matlab hai – “browser ko allow karo ki wo cookies aur login tokens backend ke sath bheje
-//      aur le sake.” 🍪✅
-//     */
-//   })
-// );
-
-
 
 const CLIENT_URL =
   process.env.NODE_ENV === "production"

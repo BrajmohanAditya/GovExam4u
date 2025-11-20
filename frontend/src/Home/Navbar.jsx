@@ -36,6 +36,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
         url: apis().userProfile,
       };
       const result = await httpAction(data);
+      console.log(result)
       if (result?.status) {
         setUser(result?.user);
       }
@@ -43,8 +44,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
     getUser();
   }, []);
 
-
-// Google Autologin Logic.   
+  // Google Autologin Logic.
   useEffect(() => {
     axios
       .get("https://api.govexam4u.com/users/verify", {

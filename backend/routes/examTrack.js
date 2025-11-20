@@ -1,30 +1,30 @@
-
 import express from "express";
 import wrapAsync from "../utils/wrapAsync.js";
 import { joiexamdateSchema } from "../joiSchema.js"; // Step 4
 import ExpressError from "../utils/ExpressError.js";
 import examdate from "../models/examTrack.js";
+import auth from "../middlewares/auth.js";
 const router = express.Router();
-//step- 4 , aim: restricting wrong data from hopscotch , work: creating middlemalwere. 
+//step- 4 , aim: restricting wrong data from hopscotch , work: creating middlemalwere.
 const validateExamDate = (req, res, next) => {
   let { error } = joiexamdateSchema.validate(req.body);
   if (error) {
     throw new ExpressError(400, error);
   } else {
     next();
-  } 
-}; 
-//--- 
+  }
+};
+//---
 
-//step: A0, aim: Display card, work: db seh All exams ka data nikal k frontend(examTrack) ko send kr raha . 
+//step: A0, aim: Display card, work: db seh All exams ka data nikal k frontend(examTrack) ko send kr raha .
 router.get(
   "/",
-  wrapAsync(async (req, res) => { 
+  wrapAsync(async (req, res) => {
     const Allexam = await examdate.find({});
     res.json(Allexam); // Allexam - ya just above wala line seh aya hai
   })
 );
-//  
+//
 
 //step: A2, aim: edit editUpdate form, work: frontend k editUpdate page k ander ak route ko data send kr raha hai
 router.get(
@@ -70,17 +70,28 @@ router.delete(
 //step: A3, aim: Adding new card, work: Frontend(ExamAddForm.jsx) seh aya hua data ko receive kr ka save krna
 router.post(
   "/",
-  validateExamDate, // step- 4 , aim: restricting wrong data from hopscotch , work: middlemalwere implemented to restrict data.
+  validateExamDate, auth, // step- 4 , aim: restricting wrong data from hopscotch , work: middlemalwere implemented to restrict data.
   wrapAsync(async (req, res) => {
-    const count = await examdate.countDocuments();
+    const count = await examdate.countDocuments({ userId: req.user._id });
     if (count >= 9) {
-      return res.status(400).json({ message: "You Can't Add more than 9 Exams" });
+      return res
+        .status(400)
+        .json({ message: "You Can't Add more than 9 Exams" });
     }
+
+
     // agar 9 se kam hai toh naya add karo
-    const newExam = new examdate(req.body);
+    const newExam = new examdate({
+      ...req.body,
+      userId: req.user._id
+    });
+
+
     await newExam.save();
-    res.status(201).json({message: "Exam added successfully!", data: newExam});
-  })   
+    res
+      .status(201)
+      .json({ message: "Exam added successfully!", data: newExam });
+  })
 );
 //---
 // module.exports = router;
@@ -98,4 +109,4 @@ server crash seh bachata hai.
 2. Joi Validation
 Ye ek data validation library hai.
 Iska kaam hai: frontend se aane wale data ko check karna ki wo required format me hai ya nahi.
-*/ 
+*/

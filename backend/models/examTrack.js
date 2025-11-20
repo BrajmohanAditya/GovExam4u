@@ -14,6 +14,11 @@ const examdateSchema = new Schema({
     type: Date,
     required: true,
   },
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "registeredUser",
+    required: true,
+  },
 });
 
 
