@@ -103,6 +103,7 @@ app.get(
   passport.authenticate("google", {
     scope: ["profile", "email"],
     prompt: "select_account",
+    session: false,
   })
 );
 
@@ -110,6 +111,7 @@ app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
     failureRedirect: "https://govexam4u.com/login",
+    session: false,
   }),
   googleAuth, // yahi middleware data ko database meh saave krta hai
   (req, res) => {
