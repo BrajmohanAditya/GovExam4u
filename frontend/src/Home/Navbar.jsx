@@ -36,7 +36,6 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
         url: apis().userProfile,
       };
       const result = await httpAction(data);
-      console.log(result)
       if (result?.status) {
         setUser(result?.user);
       }
