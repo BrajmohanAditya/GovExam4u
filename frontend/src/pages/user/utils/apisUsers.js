@@ -1,6 +1,8 @@
-
 const apis = () => {
-const baseUrl = "https://api.govexam4u.com";
+  const baseUrl = import.meta.env.DEV
+    ? import.meta.env.VITE_API_DEV
+    : import.meta.env.VITE_API_PROD;
+
   const list = {
     registerUser: `${baseUrl}/users/register`,
     loginUser: `${baseUrl}/users/login`,
@@ -15,4 +17,4 @@ const baseUrl = "https://api.govexam4u.com";
   };
   return list;
 };
-export default apis; 
+export default apis;
