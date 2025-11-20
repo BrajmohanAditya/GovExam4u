@@ -56,18 +56,18 @@ app.use(
   Ye line backend me user ka session (temporary login data) store karne ke liye hoti hai, 
   taki server ko pata rahe ki kaunsa user abhi login hai
   */
-app.use(
-  session({
-    secret: "secret",
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false },
-  })
-);
+// app.use(
+//   session({
+//     secret: "secret",
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: { secure: false },
+//   })
+// );
 
 app.use(cookieParser());
 app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.session());
 
 // ============================
 // 6️⃣ Google OAuth Setup
@@ -87,13 +87,13 @@ passport.use(
   )
 );
 
-passport.serializeUser((user, done) => {
-  done(null, user);
-});
+// passport.serializeUser((user, done) => {
+//   done(null, user);
+// });
 
-passport.deserializeUser((user, done) => {
-  done(null, user);
-});
+// passport.deserializeUser((user, done) => {
+//   done(null, user);
+// });
 
 // ============================
 // 7️⃣ Auth Routes
