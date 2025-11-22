@@ -140,7 +140,8 @@ export const sidebarStyles = {
   footerHighlight: "mt-1 text-blue-600 font-medium",
 
   // Main content
-  mainContent: "flex-1 min-h-screen p-4 md:p-8 ml-0 md:ml-0",
+  // mainContent: "flex-1 min-h-screen p-4 md:p-8 ml-0 md:ml-0",
+  mainContent: "flex-1 min-h-screen p-4 md:p-8 ml-0 md:ml-[25%]",
 
   // Mobile header
   mobileHeader: "flex items-center justify-between mb-4 md:hidden",
