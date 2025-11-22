@@ -13,16 +13,10 @@ const Navbar = ({ logoSrc }) => {
         }}
         className={navbarStyles.decorativePattern}
       ></div>
-      <div className={navbarStyles.bubble1}></div>
-      <div className={navbarStyles.bubble2}></div>
-      <div className={navbarStyles.bubble3}></div>
+
 
       <div className={navbarStyles.container}>
-        <div className={navbarStyles.logoContainer}>
-          <Link to="/" className={navbarStyles.logoButton}>
-            <Home className="h-8 w-8 text-blue-600" />
-          </Link>
-        </div>
+
 
         <div className={navbarStyles.titleContainer}>
           <div className={navbarStyles.titleBackground}>

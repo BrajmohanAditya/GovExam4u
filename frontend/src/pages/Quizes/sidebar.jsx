@@ -16,6 +16,10 @@ import {
   Menu,
   Award,
   Sparkles,
+  CheckCircle,
+  XCircle,
+  Trophy,
+
 } from "lucide-react";
 
 import { sidebarStyles } from "../../assets/dummyStyles";
@@ -183,7 +187,7 @@ const Sidebar = () => {
     setUserAnswers(newAnswers);
     setTimeout(() => {
       if (currentQuestion < getQuestions().length - 1) {
-        setCurrentQuestion((prev) => +1);
+        setCurrentQuestion((prev) => prev +1);
       } else {
         setShowResults(true);
       }
@@ -191,7 +195,7 @@ const Sidebar = () => {
   };
 
   const getQuestions = () => {
-    if (!selectedTech || selectedLevel) return [];
+    if (!selectedTech || !selectedLevel) return [];
     return questionsData[selectedTech]?.[selectedLevel] || [];
   };
 
@@ -337,7 +341,7 @@ const Sidebar = () => {
                   <h1 className={sidebarStyles.logoTitle}>Current Affair</h1>
 
                   <p className={sidebarStyles.logoSubtitle}>
-                    Now Banking is easy
+                    By Path_To_Banking
                   </p>
                 </div>
               </div>
