@@ -198,6 +198,7 @@
 //   window: PropTypes.func,
 // };
 
+import { Settings } from "lucide-react";
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
@@ -243,44 +244,83 @@ import {
 const drawerWidth = 240;
 const APPBAR_HEIGHT = 64;
 
-// 🔥 Sidebar items list (FontAwesome icons + links)
+
 const sidebarItems = [
-  { icon: faHouse, label: "Home", link: "#" },
-  { icon: faChalkboardUser, label: "Live Classes", link: "#" },
-  { icon: faFileSignature, label: "Mock Test", link: "#" },
-  { icon: faFileCircleQuestion, label: "Live Mock", link: "#/mock" },
-  { icon: faListOl, label: "To-Do List", link: "#" },
+  { icon: <FontAwesomeIcon icon={faHouse} />, label: "Home", link: "#" },
   {
-    icon: faBookOpenReader,
+    icon: <FontAwesomeIcon icon={faChalkboardUser} />,
+    label: "Live Classes",
+    link: "#",
+  },
+  {
+    icon: <FontAwesomeIcon icon={faFileSignature} />,
+    label: "Mock Test",
+    link: "#",
+  },
+  {
+    icon: <FontAwesomeIcon icon={faFileCircleQuestion} />,
+    label: "Live Mock",
+    link: "#/mock",
+  },
+  { icon: <FontAwesomeIcon icon={faListOl} />, label: "To-Do List", link: "#" },
+  {
+    icon: <FontAwesomeIcon icon={faBookOpenReader} />,
     label: "Descriptive Writing",
     link: "#/descriptive",
   },
-  { icon: faNewspaper, label: "Current Affair", link: "#/ca-quiz" },
-  { icon: faFileSignature, label: "Daily Quiz", link: "#" },
-  { icon: faCalendarDays, label: "Track Your Exam", link: "#/examTracker" },
-  { icon: faHandHoldingDollar, label: "Win Prize", link: "#" },
-  { icon: faAddressCard, label: "Our Selections", link: "#" },
-  { icon: faCartShopping, label: "Purchased Item", link: "#" },
+  {
+    icon: <FontAwesomeIcon icon={faNewspaper} />,
+    label: "Current Affair",
+    link: "#/ca-quiz",
+  },
+  {
+    icon: <FontAwesomeIcon icon={faFileSignature} />,
+    label: "Daily Quiz",
+    link: "#",
+  },
+  {
+    icon: <FontAwesomeIcon icon={faCalendarDays} />,
+    label: "Track Your Exam",
+    link: "#/examTracker",
+  },
+  {
+    icon: <FontAwesomeIcon icon={faHandHoldingDollar} />,
+    label: "Win Prize",
+    link: "#",
+  },
+  {
+    icon: <FontAwesomeIcon icon={faAddressCard} />,
+    label: "Our Selections",
+    link: "#",
+  },
+  {
+    icon: <FontAwesomeIcon icon={faCartShopping} />,
+    label: "Purchased Item",
+    link: "#",
+  },
 
   // Social
   {
-    icon: faSquareWhatsapp,
+    icon: <FontAwesomeIcon icon={faSquareWhatsapp} />,
     label: "WhatsApp",
     link: "https://chat.whatsapp.com/EF6x76bLnSe47jBOvzIuGe",
   },
   {
-    icon: faYoutube,
+    icon: <FontAwesomeIcon icon={faYoutube} />,
     label: "YouTube",
     link: "https://www.youtube.com/@silenttravler1632",
   },
   {
-    icon: faTelegram,
+    icon: <FontAwesomeIcon icon={faTelegram} />,
     label: "Telegram",
     link: "https://t.me/Pathtobanking271",
   },
 
-  { icon: "⚙️", label: "Setting", link: "#/password/forgot" },
+  // Lucide
+  { icon: <Settings size={20} strokeWidth={2} />, label: "Setting", link: "#" },
 ];
+
+
 
 export default function ResponsiveDrawer(props) {
   const { window } = props;
@@ -313,13 +353,22 @@ export default function ResponsiveDrawer(props) {
               target={item.link.startsWith("http") ? "_blank" : "_self"}
             >
               {/* ICON */}
-              <ListItemIcon sx={{ color: "#45f3f3" }}>
-                {typeof item.icon === "string" ? (
+
+              {/* <ListItemIcon sx={{ color: "#45f3f3" }}>
+                {item.icon === "lucide-setting" ? (
+                  <Settings size={20} strokeWidth={2} />
+                ) : typeof item.icon === "string" ? (
                   <span style={{ fontSize: "20px" }}>{item.icon}</span>
                 ) : (
                   <FontAwesomeIcon icon={item.icon} />
                 )}
-              </ListItemIcon>
+              </ListItemIcon> */}
+
+              {/* <ListItemIcon sx={{ color: "#45f3f3" }}>
+                <FontAwesomeIcon icon={item.icon} />
+              </ListItemIcon> */}
+
+              <ListItemIcon sx={{ color: "#45f3f3" }}>{item.icon}</ListItemIcon>
 
               {/* LABEL */}
               <ListItemText
@@ -385,8 +434,8 @@ export default function ResponsiveDrawer(props) {
               width: drawerWidth,
               backgroundColor: "black",
               color: "white",
-              mt: `${APPBAR_HEIGHT}px`,
-              height: `calc(100vh - ${APPBAR_HEIGHT}px)`,
+              paddingTop: `${APPBAR_HEIGHT}px`,
+              height: "100vh", // mobile me full height
             },
             "& .MuiDrawer-paper > div": {
               backgroundColor: " black !important",
