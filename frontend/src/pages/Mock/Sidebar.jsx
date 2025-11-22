@@ -385,6 +385,8 @@ export default function ResponsiveDrawer(props) {
               width: drawerWidth,
               backgroundColor: "black",
               color: "white",
+              mt: `${APPBAR_HEIGHT}px`,
+              height: `calc(100vh - ${APPBAR_HEIGHT}px)`,
             },
             "& .MuiDrawer-paper > div": {
               backgroundColor: " black !important",
