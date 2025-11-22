@@ -338,7 +338,7 @@ const Sidebar = () => {
                   <BookOpen size={28} className=" text-indigo-700" />
                 </div>
                 <div>
-                  <h1 className={sidebarStyles.logoTitle}>Current Affair</h1>
+                  <h1 className={sidebarStyles.logoTitle}>Month Wise</h1>
 
                   <p className={sidebarStyles.logoSubtitle}>
                     By Path_To_Banking

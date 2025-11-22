@@ -7,21 +7,12 @@ const Navbar = ({ logoSrc }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <nav className={navbarStyles.nav}>
-      <div
-        style={{
-          backgroundImage: navbarStyles.decorativePatternBackground,
-        }}
-        className={navbarStyles.decorativePattern}
-      ></div>
-
 
       <div className={navbarStyles.container}>
 
 
         <div className={navbarStyles.titleContainer}>
-          <div className={navbarStyles.titleBackground}>
             <h1 className={navbarStyles.titleText}>Current Affair Quiz</h1>
-          </div>
         </div>
 
         <div className={navbarStyles.desktopButtonsContainer}>
