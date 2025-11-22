@@ -1,8 +1,8 @@
 import React from "react";
-
+import ResponsiveDrawer from "./Sidebar";
 export default function MockTest() {
   return (
-    <h1>Comming soon</h1>
+    <ResponsiveDrawer/>
   );
 }
 

@@ -44,7 +44,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
       .catch(() => setUser(null));
   }, []);
 
-  // get user detail.  
+  // get user detail.
   useEffect(() => {
     const getUser = async () => {
       const data = {
@@ -83,6 +83,8 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
     }
   };
 
+  // sticky
+
   return (
     <nav className="w-full bg-blue-800 sticky top-0 z-[1000] px-4 py-3 flex flex-wrap items-center justify-between gap-3">
       {/* Left: Logo + Hamburger */}
@@ -100,7 +102,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
       </div>
 
       {/* Search */}
-      <form className="flex flex-1 sm:flex-none flex-row items-center gap-2 max-w-full sm:max-w-2xl w-full">
+      <form className="flex flex-1 sm:flex-none fex-row items-center gap-2 max-w-full sm:max-w-2xl w-full">
         <input
           type="search"
           placeholder="Search"

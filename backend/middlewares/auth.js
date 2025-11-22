@@ -1,4 +1,3 @@
-
 //Ye middleware har request ko check karta hai ki user login hai ya nahi. Agar login hai to next route call kr deta hai
 import jwt from "jsonwebtoken";
 import User from "../models/user.js";
@@ -29,3 +28,34 @@ const auth = async (req, res, next) => {
 };
 
 export default auth;
+
+/*
+req.user = user; isko explain kr raha hu
+let bag = {};
+bag.apple = 10;
+{ apple: 10 }  // output
+
+req = {
+  body: {},
+  params: {},
+  query: {},
+  cookies: {},
+  headers: {}
+}
+req.user = user;
+req = {
+  body: {...},
+  params: {...},
+  query: {...},
+  cookies: {...},
+  headers: {...},
+
+  // ⭐ Tumne ye manually add kiya
+  user: {
+    _id: "12345",
+    name: "Rohan",
+    email: "rohan@gmail.com"
+  }
+}
+
+*/

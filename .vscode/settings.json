@@ -6,6 +6,8 @@
     "**/package-lock.json": true,
     "**/static.json": true,
     "**/vite.config.js": true,
-    "**/frontend/public": true
+    "**/frontend/public": true,
+    "**/frontend/src/protectedRoute.jsx": true
+
   }
 }

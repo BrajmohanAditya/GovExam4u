@@ -27,7 +27,7 @@ const sidebarItems = [
   {
     icon: faFileCircleQuestion,
     label: "Live Mock",
-    link: "#",
+    link: "#/mock",
   },
   {
     icon: faListOl,
@@ -84,17 +84,16 @@ export default function SidebarMenu({ showSidebar, setShowSidebar }) {
           <div className="fixed top-0 left-0 h-full w-64 bg-black sm:hidden z-40"></div>
         </>
       )}
-
       <div
         className={` 
-          fixed top-12 left-0 z-40 w-64  h-[calc(100vh-55px)]   sm:h-[calc(100vh-45px)] bg-black text-[#c3d0d7] font-roboto overflow-y-auto  px-2  pt-32 pb-25 sm:pb-6 sm:pt-6
+          fixed left-0 z-40 w-64  h-[calc(100vh-55px)] sm:h-[calc(100vh-45px)]   bg-black text-[#c3d0d7] font-roboto overflow-y-auto  px-2  pt-32 pb-25 sm:pb-6 sm:pt-6
           transform transition-transform duration-300 ease-in-out
           ${showSidebar ? "translate-x-0" : "-translate-x-full"} 
           sm:translate-x-0
           
         `}
         style={{
-          scrollbarGutter: "stable", // optional for better layout when scroll appears
+          scrollbarGutter: "stable", // optional for better layout when scroll appears, top-14
         }}
       >
         <ul className="space-y-2">

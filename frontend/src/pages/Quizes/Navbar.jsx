@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { navbarStyles } from "../../assets/dummyStyles";
 import { Link, NavLink } from "react-router-dom";
-import { Award, Menu, X } from "lucide-react";
+import { Award, Menu, X, Home } from "lucide-react";
 
 const Navbar = ({ logoSrc }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,16 +20,7 @@ const Navbar = ({ logoSrc }) => {
       <div className={navbarStyles.container}>
         <div className={navbarStyles.logoContainer}>
           <Link to="/" className={navbarStyles.logoButton}>
-            <div className={navbarStyles.logoInner}>
-              <img
-                src={
-                  logoSrc ||
-                  "https://yt3.googleusercontent.com/eD5QJD-9uS--ekQcA-kDTCu1ZO4d7d7BTKLIVH-EySZtDVw3JZcc-bHHDOMvxys92F7rD8Kgfg=s900-c-k-c0x00ffffff-no-rj"
-                }
-                alt="QuizMaster logo"
-                className={navbarStyles.logoImage}
-              />
-            </div>
+            <Home className="h-8 w-8 text-blue-600" />
           </Link>
         </div>
 
