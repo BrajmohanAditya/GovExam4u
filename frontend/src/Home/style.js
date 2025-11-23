@@ -13,20 +13,16 @@ export const navbarStyles = {
   `,
 };
 
-
 export const sidebarStyles = (showSidebar) => ({
   sidebar: `
     fixed left-0 z-40 w-64
     bg-black text-[#c3d0d7] font-roboto 
     overflow-y-auto px-2
-    pt-32 sm:pt-6 pb-6  
+    
     transform transition-transform duration-300 ease-in-out
 
-    top-[var(--navbar-height)]
-    h-[calc(100vh-var(--navbar-height))]
-
+    top: "var(--navbar-height)",
     ${showSidebar ? "translate-x-0" : "-translate-x-full"}
     sm:translate-x-0
   `,
 });
-

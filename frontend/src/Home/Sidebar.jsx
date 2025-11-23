@@ -65,7 +65,7 @@ const sidebarItems = [
 
 export default function SidebarMenu({ showSidebar, setShowSidebar }) {
 
-  const [active, setActive] = useState("Home");
+  const [active, setActive] = useState("Live Classes");
 
   return (
     <>
@@ -81,12 +81,11 @@ export default function SidebarMenu({ showSidebar, setShowSidebar }) {
           <div className="fixed top-0 left-0 h-full w-64 bg-black sm:hidden z-40"></div>
         </>
       )}
-      
+
       <div
         className={sidebarStyles(showSidebar).sidebar}
         style={{
           scrollbarGutter: "stable", // optional for better layout when scroll appears, top-14
-          top: "var(--navbar-height)",
           height: "calc(100vh - var(--navbar-height))",
         }}
       >
