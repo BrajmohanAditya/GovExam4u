@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import {
   faHouse,
   faChalkboardUser,
@@ -19,6 +18,7 @@ import {
   faYoutube,
   faTelegram,
 } from "@fortawesome/free-brands-svg-icons";
+import { sidebarStyles } from "./style";
 
 const sidebarItems = [
   { icon: faHouse, label: "Home", link: "#" },
@@ -63,11 +63,8 @@ const sidebarItems = [
   { icon: "⚙️", label: "Setting", link: "#/password/forgot" },
 ];
 
-
-
 export default function SidebarMenu({ showSidebar, setShowSidebar }) {
-  // prop receiving
-  //
+
   const [active, setActive] = useState("Home");
 
   return (
@@ -84,16 +81,13 @@ export default function SidebarMenu({ showSidebar, setShowSidebar }) {
           <div className="fixed top-0 left-0 h-full w-64 bg-black sm:hidden z-40"></div>
         </>
       )}
+      
       <div
-        className={` 
-          fixed top-12 left-0 z-40 w-64  h-[calc(100vh-55px)] sm:h-[calc(100vh-45px)]   bg-black text-[#c3d0d7] font-roboto overflow-y-auto  px-2  pt-32 pb-25 sm:pb-6 sm:pt-6
-          transform transition-transform duration-300 ease-in-out
-          ${showSidebar ? "translate-x-0" : "-translate-x-full"} 
-          sm:translate-x-0
-          
-        `}
+        className={sidebarStyles(showSidebar).sidebar}
         style={{
           scrollbarGutter: "stable", // optional for better layout when scroll appears, top-14
+          top: "var(--navbar-height)",
+          height: "calc(100vh - var(--navbar-height))",
         }}
       >
         <ul className="space-y-2">
@@ -148,12 +142,6 @@ export default function SidebarMenu({ showSidebar, setShowSidebar }) {
     </>
   );
 }
-
-
-
-
-
-
 
 /*
 🧠 .map() ka kaam hai: ek array ke har item ko leke, uske upar koi kaam karna — jaise display karna, convert karna, ya element banana.

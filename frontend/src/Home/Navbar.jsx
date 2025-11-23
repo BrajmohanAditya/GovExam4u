@@ -11,9 +11,10 @@ import { GraduationCap, LogIn, UserPlus, LogOut } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import api from "../api"; // Axios instance
 import apis from "../pages/user/utils/apisUsers";
 import httpAction from "../pages/user/utils/httpAction";
+import { navbarStyles } from "./style";
+
 function Logo() {
   return (
     <div className="flex items-center space-x-2">
@@ -83,10 +84,21 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
     }
   };
 
-  // sticky
+
+  useEffect(() => {
+    const nav = document.getElementById("navbar");
+    if (nav) {
+      document.documentElement.style.setProperty(
+        "--navbar-height",
+        nav.getBoundingClientRect().height + "px"
+      );
+    }
+  }, []);
+
+
 
   return (
-    <nav className="w-full bg-blue-800 sticky top-0 z-[1000] px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+    <nav id="navbar" className={navbarStyles.nav}>
       {/* Left: Logo + Hamburger */}
       <div className="flex items-center gap-2">
         <button
@@ -124,10 +136,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
             <span className="text-white font-semibold text-sm sm:text-base">
               {user?.name?.split(" ")[0]}
             </span>
-            <button
-              onClick={handleLogout}
-              className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg  text-white text-sm sm:text-base font-semibold  transition shadow cursor-pointer"
-            >
+            <button onClick={handleLogout}>
               <LogOut className="w-4 h-4" />
             </button>
           </>
@@ -136,13 +145,14 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
           <>
             <button
               onClick={() => navigate("/login")}
-              className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-white text-blue-800 text-sm sm:text-base font-semibold hover:bg-gray-100 transition cursor-pointer"
+              className={navbarStyles.login}
             >
               <LogIn className="w-4 h-4" /> Login
             </button>
+
             <button
               onClick={() => navigate("/register")}
-              className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-green-600 text-white text-sm sm:text-base font-semibold hover:bg-green-700 transition shadow cursor-pointer"
+              className={navbarStyles.signup}
             >
               <UserPlus className="w-4 h-4" /> Signup
             </button>
