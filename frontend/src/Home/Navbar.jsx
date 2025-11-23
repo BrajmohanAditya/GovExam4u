@@ -84,7 +84,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
     }
   };
 
-
+//  navbar height claculation
   useEffect(() => {
     const nav = document.getElementById("navbar");
     if (nav) {

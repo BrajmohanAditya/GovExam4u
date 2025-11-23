@@ -2,7 +2,7 @@
   "files.exclude": {
     "**/node_modules": true,
     "**/dist": true,
-    // "**/.git": true,    
+    "**/.git": true,    
     "**/package-lock.json": true,
     "**/static.json": true,
     "**/vite.config.js": true,

@@ -27,7 +27,7 @@ const sidebarItems = [
   {
     icon: faFileCircleQuestion,
     label: "Live Mock",
-    link: "#/mock",
+    link: "#",
   },
   {
     icon: faListOl,
