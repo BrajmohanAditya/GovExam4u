@@ -9,9 +9,9 @@ const examTrackRoute = [
   <Route
     path="/examTracker"
     element={
-      <ProtectedRoute>
+      // <ProtectedRoute>
         <ExamTrack />
-       </ProtectedRoute>
+      //  </ProtectedRoute>
     }
     key="examTracker"
   />,
