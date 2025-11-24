@@ -145,17 +145,16 @@ import { Link } from "react-router-dom";
 export default function Nav() {
   return (
     <AppBar
-      position="sticky"
+      position="fixed"
       elevation={0}
       sx={{ boxShadow: "none", px: { xs: 1, sm: 3 } }}
     >
       <Toolbar
         sx={{
           display: "flex",
-          justifyContent: { xs: "center", sm: "space-between" },
+          justifyContent: "space-between",
           alignItems: "center",
-          flexDirection: { xs: "column", sm: "row" }, // MOBILE = COLUMN
-          gap: { xs: 1, sm: 0 }, // MOBILE spacing
+          py: 1, // NORMAL padding only
         }}
       >
         {/* Title */}
