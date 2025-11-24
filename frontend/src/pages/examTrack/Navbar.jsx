@@ -136,6 +136,8 @@
 //   );
 // }
 
+
+
 import React from "react";
 import { AppBar, Box, Toolbar, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -143,7 +145,7 @@ import { Link } from "react-router-dom";
 export default function Nav() {
   return (
     <AppBar
-      position="static"
+      position="sticky"
       elevation={0}
       sx={{ boxShadow: "none", px: { xs: 1, sm: 3 } }}
     >
@@ -153,7 +155,6 @@ export default function Nav() {
           justifyContent: { xs: "center", sm: "space-between" },
           alignItems: "center",
           flexDirection: { xs: "column", sm: "row" }, // MOBILE = COLUMN
-          py: { xs: 1.5, sm: 1 },
           gap: { xs: 1, sm: 0 }, // MOBILE spacing
         }}
       >
