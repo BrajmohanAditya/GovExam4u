@@ -176,7 +176,7 @@ export default function Nav() {
           fullWidth={true} // MOBILE → FULL WIDTH
           sx={{
             color: "#fff",
-            fontSize: { xs: "0.9rem", sm: "1rem" },
+            fontSize: { xs: "1rem", sm: "1rem" },
             border: "1px solid rgba(255,255,255,0.6)",
             px: { xs: 1, sm: 2.5 },
             py: { xs: 1, sm: 1 },
