@@ -65,7 +65,7 @@ const sidebarItems = [
 
 export default function SidebarMenu({ showSidebar, setShowSidebar }) {
 
-  const [active, setActive] = useState("Live Classes");
+  const [active, setActive] = useState("Home");
 
   return (
     <>
