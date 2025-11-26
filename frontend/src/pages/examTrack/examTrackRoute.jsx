@@ -1,6 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import ExamTrack from "./examTrack.jsx"; //import  function name  from     "./file name"
+import ExamTrack from "./HomePage.jsx"; //import  function name  from     "./file name"
 import ExamEditForm from "./editUpdate";
 import ExamAddForm from "./ExamAddForm";
 import ProtectedRoute from "../../protectedRoute.jsx";
@@ -11,7 +11,7 @@ const examTrackRoute = [
     element={
       <ProtectedRoute>
         <ExamTrack />
-       </ProtectedRoute> 
+      </ProtectedRoute> 
     }
     key="examTracker"
   />,

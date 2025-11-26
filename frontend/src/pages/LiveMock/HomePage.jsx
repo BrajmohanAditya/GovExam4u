@@ -1,9 +1,12 @@
 import React from "react";
-
+import Nav from "./Navbar";
 const LiveMock = () => {
-    return(
-        <div>HI</div>
-    )
-}
+  return (
+    <>
+      <Nav />
+      <div>Live Mock Home Page</div>
+    </>
+  );
+};
 
-export default LiveMock
+export default LiveMock;
