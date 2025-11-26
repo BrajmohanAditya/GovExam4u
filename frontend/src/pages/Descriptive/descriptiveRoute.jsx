@@ -1,5 +1,5 @@
 import React from "react";
-import Descriptive from "./HomeDescriptive";
+import Descriptive from "./Home";
 import QuestionPage from "./QuestionPage";
 import { Route } from "react-router-dom";
 import ProtectedRoute from "../../protectedRoute";
