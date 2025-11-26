@@ -15,16 +15,16 @@ export default function ExamTrack() {
       .get("/examTrack") //examTrack route se tumhe sara exam ka data mil raha hai jo DB me save hai.
       .then((res) => setExams(res.data)) //setExams(res.data) use karke wo data state (exams) me save kar diya jata hai.
       .catch((err) => {
-      if (err.response) {
-        console.error("Error:", err.response.data.message);
-        if (err.response.status === 401) {
-          alert(err.response.data.message); //
-          navigate("/login"); // React Router ka navigate use karo agar redirect karna ho
+        if (err.response) {
+          console.error("Error:", err.response.data.message);
+          if (err.response.status === 401) {
+            alert(err.response.data.message); //
+            navigate("/login"); // React Router ka navigate use karo agar redirect karna ho
+          }
+        } else {
+          console.error("Unexpected error:", err);
         }
-      } else {
-        console.error("Unexpected error:", err);
-      }
-    });
+      });
   }, [navigate]);
   //---
 
