@@ -1,10 +1,11 @@
 import React from "react";
 import Nav from "./Navbar";
+import MockCard from "./mockCard";
 const LiveMock = () => {
   return (
     <>
       <Nav />
-      <div>Live Mock Home Page</div>
+      <MockCard />
     </>
   );
 };

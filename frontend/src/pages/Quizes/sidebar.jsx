@@ -22,7 +22,7 @@ import {
 
 } from "lucide-react";
 
-import { sidebarStyles } from "../../assets/dummyStyles";
+import { sidebarStyles } from "./dummyStyles";
 import questionsData from "../../assets/dummydata";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

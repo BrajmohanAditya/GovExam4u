@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { navbarStyles } from "../../assets/dummyStyles";
+import { navbarStyles } from "./dummyStyles";
 import { Link, NavLink } from "react-router-dom";
 import { Award, Menu, X, Home } from "lucide-react";
 

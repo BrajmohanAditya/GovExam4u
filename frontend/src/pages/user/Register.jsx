@@ -48,7 +48,6 @@ const Register = () => {
     }
   };
 
-  
   const loginWithGoogle = () => {
     // isko continue with google button me lagana hai
     window.open("https://api.govexam4u.com/auth/google", "_self");
