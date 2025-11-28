@@ -3,8 +3,13 @@ import { AddCardStyle } from "./style";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import { TextField, Button, Input } from "@mui/material";
+import httpAction from "../user/utils/httpAction";
+import apis from "./apis";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddCard = () => {
+  const navigate = useNavigate();
   const initialState = {
     // this create a object in which we store form data,  values={name: ""  }
     name: "",
@@ -21,16 +26,16 @@ const AddCard = () => {
 
   const submitHandler = async (values) => {
     console.log(values);
-    // const data = {
-    //   url: apis().registerUser,
-    //   method: "POST",
-    //   body: values,
-    // };
-    // const result = await httpAction(data);
-    // if (result?.status) {
-    //   toast.success(result?.message);
-    //   navigate("/login");
-    // }
+    const data = {
+      url: apis().addCard,
+      method: "POST",
+      body: values,
+    };
+    const result = await httpAction(data);
+    if (result?.status) {
+      toast.success(result?.message);
+      navigate("/");
+    }
   };
 
   return (

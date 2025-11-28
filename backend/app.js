@@ -13,6 +13,7 @@ import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import connectDB from "./utils/getConnection.js";
 import userRoutes from "./routes/user.js";
+import liveMockRoute from "./routes/liveMock.js"
 import errorHandler from "./middlewares/errorHandler.js";
 // ============================
 // 2️⃣ Routes Imports
@@ -112,6 +113,8 @@ connectDB();
 // ============================
 app.use("/examTrack", examTrackRoute);
 app.use("/users", userRoutes);
+app.use("/liveMock", liveMockRoute);
+
 
 app.get("/", (req, res) => {
   res.send("Hai, I am root");
