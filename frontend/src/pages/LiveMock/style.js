@@ -43,13 +43,13 @@ export const MockCardStyle = {
   `,
 
   title: `
-    text-lg
+    text-2xl
     font-semibold
     text-gray-900
   `,
 
   subtitle: `
-    text-sm
+    text-lg
     text-gray-600
   `,
 
@@ -62,8 +62,8 @@ export const MockCardStyle = {
   `,
 
   lastDate: `
-    text-xs
-    text-gray-500
+    text-sm
+    text-red-700
     border-t
     pt-3
     mt-2
