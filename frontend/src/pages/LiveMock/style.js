@@ -1,14 +1,6 @@
 import { collapseClasses } from "@mui/material";
 
-export const MockCardStyle = {
-  cardContainer: `
-    m-5 md:m-15 p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 rounded-md bg-red-200
-  `,
-  card: `
-    bg-gradient-to-r from-teal-400 to-emerald-500
-    rounded-xl p-5 w-full card-wrapper
-  `,
-};
+
 
 export const AddCardStyle = {
   mock_card: ` 
@@ -22,5 +14,58 @@ export const AddCardStyle = {
 
   row: `
     grid gap-5
+  `,
+};
+
+
+
+export const MockCardStyle = {
+  cardContainer: `
+    w-full 
+    grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 
+    gap-6 
+    p-4
+    max-w-[1200px]
+    mx-auto
+  `,
+
+  card: `
+    bg-white
+    border border-gray-200
+    rounded-xl
+    shadow-sm
+    p-5
+    flex
+    flex-col
+    gap-3
+    hover:shadow-md
+    transition
+  `,
+
+  title: `
+    text-lg
+    font-semibold
+    text-gray-900
+  `,
+
+  subtitle: `
+    text-sm
+    text-gray-600
+  `,
+
+  link: `
+    text-blue-600
+    text-sm
+    font-medium
+    hover:underline
+    cursor-pointer
+  `,
+
+  lastDate: `
+    text-xs
+    text-gray-500
+    border-t
+    pt-3
+    mt-2
   `,
 };

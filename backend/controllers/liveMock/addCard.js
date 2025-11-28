@@ -1,4 +1,5 @@
-import LiveMock from "../../models/liveMock.js";
+// code to save a new live mock card to the database
+import livemockdb from "../../models/liveMock.js";
 
 const AddCard = async (req, res, next) => {
   try {
@@ -13,7 +14,7 @@ const AddCard = async (req, res, next) => {
     }
 
     // create new mock card
-    const newMock = await LiveMock.create({
+    const newMock = await livemockdb.create({
       name,
       exam,
       link,

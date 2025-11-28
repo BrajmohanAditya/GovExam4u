@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const LiveMock =
-  mongoose.models.liveMockDB || mongoose.model("liveMockDB", userSchema);
+const livemockdb =
+  mongoose.models.liveMockDB || mongoose.model("livemockdb", userSchema);
 
-export default LiveMock; // ✅ ES Module export
+export default livemockdb; // ✅ ES Module export

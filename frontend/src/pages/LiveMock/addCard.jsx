@@ -4,7 +4,7 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import { TextField, Button, Input } from "@mui/material";
 import httpAction from "../user/utils/httpAction";
-import apis from "./apis";
+import apis from "./apis.js";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
@@ -25,7 +25,7 @@ const AddCard = () => {
   });
 
   const submitHandler = async (values) => {
-    console.log(values);
+    // console.log(values);
     const data = {
       url: apis().addCard,
       method: "POST",
