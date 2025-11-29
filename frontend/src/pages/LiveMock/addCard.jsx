@@ -36,7 +36,7 @@ const AddCard = () => {
     const result = await httpAction(data);
     if (result?.status) {
       toast.success(result?.message);
-      navigate("/");
+      navigate("/livemock");
     }
   };
 

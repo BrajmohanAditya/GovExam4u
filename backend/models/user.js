@@ -13,6 +13,11 @@ const userSchema = new mongoose.Schema(
       limit: { type: Number, default: 5 },
       last_attempt: { type: Object },
     },
+    role: {
+      type: String,
+      enum: ["user", "editor", "admin"],
+      default: "user",
+    },
   },
   { timestamps: true }
 );
