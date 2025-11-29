@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   AppBar,
   Box,
@@ -8,8 +8,27 @@ import {
   CssBaseline,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+ 
+import httpAction from "../user/utils/httpAction";
+import apis from "./apis";
 
-export default function Nav({ user }) {
+export default function Nav() {
+
+    const [user, setUser] = useState(null);
+  
+  useEffect(() => {
+    const getUser = async () => {
+      const data = {
+        url: apis().userProfile,
+      };
+      const result = await httpAction(data);
+      if (result?.status) {
+        setUser(result?.user);
+      }
+    };
+    getUser();
+  }, []);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <CssBaseline />

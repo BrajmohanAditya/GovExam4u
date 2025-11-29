@@ -136,8 +136,8 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
             <span className="text-white font-semibold text-sm sm:text-base">
               {user?.name?.split(" ")[0]}
             </span>
-            <button onClick={handleLogout}>
-              <LogOut className="w-4 h-4" />
+            <button onClick={handleLogout} className="cursor-pointer">
+              <LogOut className="w-4 h-4 " />
             </button>
           </>
         ) : (
