@@ -3,9 +3,18 @@ import { Route } from "react-router-dom";
 import LiveMock from "./Home";
 import AddCard from "./addCard";
 import UpdateDeleteCard from "./updateDeletCard";
+import ProtectedRoute from "../../protectedRoute.jsx";
 
 const LiveMockRouter = [
-  <Route path="/livemock" element={<LiveMock />} />,
+  <Route
+    path="/livemock"
+    element={
+      <ProtectedRoute>
+        <LiveMock />
+      </ProtectedRoute>
+    }
+  />,
+
   <Route path="/add-Live-exam" element={<AddCard />} />,
   <Route path="/card/:id/updateDelete" element={<UpdateDeleteCard />} />,
 ];
