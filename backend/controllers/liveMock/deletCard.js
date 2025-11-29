@@ -1,10 +1,10 @@
-import LiveMock from "../../models/liveMock.js";
+import livemockdb from "../../models/liveMock.js";
 
 const deleteCard = async (req, res, next) => {
   try {
     const { id } = req.params;
 
-    const deletedCard = await LiveMock.findByIdAndDelete(id);
+    const deletedCard = await livemockdb.findByIdAndDelete(id);
 
     if (!deletedCard) {
       return res.status(404).json({
