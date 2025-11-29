@@ -9,7 +9,7 @@ import {
 import { Link } from "react-router-dom";
 
 
-export default function Nav(user) {
+export default function Nav() {
   // const [user, setUser] = useState(null);
 
   // useEffect(() => {
@@ -48,7 +48,7 @@ export default function Nav(user) {
           </Typography>
 
           {/* RIGHT - Add Exam Button */}
-          {user?.role === "admin" || user?.role === "editor" ? (
+          {/* {user?.role === "admin" || user?.role === "editor" ? ( */}
             <Button
               component={Link}
               to="/add-Live-exam"
@@ -61,7 +61,7 @@ export default function Nav(user) {
             >
               ADD EXAM
             </Button>
-          ) : null}
+          {/* ) : null} */}
         </Toolbar>
       </AppBar>
     </Box>
