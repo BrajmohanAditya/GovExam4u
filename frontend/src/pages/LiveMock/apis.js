@@ -7,6 +7,9 @@ const apis = () => {
   const list = {
     addCard: `${baseUrl}/liveMock/addCard`,
     getCards: `${baseUrl}/liveMock/getCards`,
+    bringCard: (id)=> `${baseUrl}/liveMock/${id}/bringCard/`, // + id
+    deleteCard: (id)=> `${baseUrl}/liveMock/${id}/deleteCard/`, // + id
+    updateCard: (id)=> `${baseUrl}/liveMock/${id}/updateCard/`, // + id
   };
   return list;
 };

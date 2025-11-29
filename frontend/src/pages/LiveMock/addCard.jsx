@@ -1,3 +1,5 @@
+// adding new card to database
+
 import React from "react";
 import { AddCardStyle } from "./style";
 import { Form, Formik } from "formik";
