@@ -31,46 +31,48 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
-  // Google Autologin Logic.
-  useEffect(() => {
-    axios
-      .get("https://api.govexam4u.com/users/verify", {
-        withCredentials: true, // send cookies
-      })
-      .then((res) => {
-        if (res.data.loggedIn) {
-          setUser(res.data.user);
-        }
-      })
-      .catch(() => setUser(null));
-  }, []);
+  // // Google Autologin Logic.
+  // useEffect(() => {
+  //   axios
+  //     .get("https://api.govexam4u.com/users/verify", {
+  //       withCredentials: true, // send cookies
+  //     })
+  //     .then((res) => {
+  //       if (res.data.loggedIn) {
+  //         setUser(res.data.user);
+  //       }
+  //     })
+  //     .catch(() => setUser(null));
+  // }, []);
 
   // get user detail.
-  useEffect(() => {
-    const getUser = async () => {
-      const data = {
-        url: apis().userProfile,
-      };
-      const result = await httpAction(data);
-      if (result?.status) {
-        setUser(result?.user);
-      }
-    };
-    getUser();
-  }, []);
-
   // useEffect(() => {
   //   const getUser = async () => {
-  //     const data = { url: apis().verifyUser };
+  //     const data = {
+  //       url: apis().userProfile,
+  //     };
   //     const result = await httpAction(data);
-  //     if (result?.loggedIn) {
+  //     if (result?.status) {
   //       setUser(result?.user);
-  //     } else {
-  //       setUser(null);
   //     }
   //   };
   //   getUser();
   // }, []);
+
+  useEffect(() => {
+    const getUser = async () => {
+      const data = { url: apis().verifyUser };
+      const result = await httpAction(data);
+
+      if (result?.loggedIn || result?.status) {
+        setUser(result.user);
+      } else {
+        setUser(null);
+      }
+    };
+
+    getUser();
+  }, []);
 
   // Logout
   const handleLogout = async () => {
@@ -84,7 +86,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
     }
   };
 
-//  navbar height claculation
+  //  navbar height claculation
   useEffect(() => {
     const nav = document.getElementById("navbar");
     if (nav) {
@@ -94,8 +96,6 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
       );
     }
   }, []);
-
-
 
   return (
     <nav id="navbar" className={navbarStyles.nav}>
