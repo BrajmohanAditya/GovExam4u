@@ -8,9 +8,9 @@ const DescriptiveRoutes = [
   <Route
     path="/descriptive"
     element={
-      <ProtectedRoute>
+       <ProtectedRoute>
         <Descriptive />
-      </ProtectedRoute>
+       </ProtectedRoute> 
     }
     key="desc"
   />,
