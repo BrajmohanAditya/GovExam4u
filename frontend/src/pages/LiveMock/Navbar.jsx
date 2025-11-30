@@ -20,7 +20,6 @@ export default function Nav() {
         url: apis().userProfile,
       };
       const result = await httpAction(data);
-      console.log("USER → ", result?.user);
       if (result?.status) {
         setUser(result?.user);
       }
