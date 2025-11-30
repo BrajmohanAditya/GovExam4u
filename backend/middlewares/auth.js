@@ -27,7 +27,7 @@ const auth = async (req, res, next) => {
   }
 };
 
-export default auth;
+export default auth;   //  auth = isLoggedIn
 
 /*
 req.user = user; isko explain kr raha hu
