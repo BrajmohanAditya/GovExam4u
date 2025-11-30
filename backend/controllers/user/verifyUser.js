@@ -6,7 +6,7 @@ const verifyUser = async (req, res) => {
   try {
     const token = req.cookies.accessToken;
     if (!token) {
-      return res.status(401).json({ loggedIn: false });
+      return res.status(401).json({ message: " Please Login " });
     }
 
     const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_KEY);
