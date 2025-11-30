@@ -7,23 +7,26 @@ import {
   CssBaseline,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import apis from "../user/utils/apisUsers.js";
+import httpAction from "../user/utils/httpAction";
 
 
 export default function Nav() {
-  // const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);
 
-  // useEffect(() => {
-  //   const getUser = async () => {
-  //     const data = {
-  //       url: apis().userProfile,
-  //     };
-  //     const result = await httpAction(data);
-  //     if (result?.status) {
-  //       setUser(result?.user);
-  //     }
-  //   };
-  //   getUser();
-  // }, []);
+  useEffect(() => {
+    const getUser = async () => {
+      const data = {
+        url: apis().userProfile,
+      };
+      const result = await httpAction(data);
+      if (result?.status) {
+        setUser(result?.user);
+      }
+    };
+    getUser();
+  }, []);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -48,7 +51,7 @@ export default function Nav() {
           </Typography>
 
           {/* RIGHT - Add Exam Button */}
-          {/* {user?.role === "admin" || user?.role === "editor" ? ( */}
+          {user?.role === "admin" || user?.role === "editor" ? ( 
             <Button
               component={Link}
               to="/add-Live-exam"
@@ -61,7 +64,7 @@ export default function Nav() {
             >
               ADD EXAM
             </Button>
-          {/* ) : null} */}
+          ) : null} 
         </Toolbar>
       </AppBar>
     </Box>
