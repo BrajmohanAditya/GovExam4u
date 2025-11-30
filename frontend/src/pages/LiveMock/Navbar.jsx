@@ -27,7 +27,6 @@ export default function Nav() {
     };
     getUser();
   }, []);
-  console.log("USER → ", result.user);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
