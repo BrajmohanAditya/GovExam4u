@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 import apis from "../user/utils/apisUsers.js";
 import httpAction from "../user/utils/httpAction";
 
-
 export default function Nav() {
   const [user, setUser] = useState(null);
 
@@ -21,12 +20,14 @@ export default function Nav() {
         url: apis().userProfile,
       };
       const result = await httpAction(data);
+      console.log("USER → ", result?.user);
       if (result?.status) {
         setUser(result?.user);
       }
     };
     getUser();
   }, []);
+  console.log("USER → ", result.user);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -50,8 +51,7 @@ export default function Nav() {
             Today Live Mock
           </Typography>
 
-          {/* RIGHT - Add Exam Button */}
-          {user?.role === "admin" || user?.role === "editor" ? ( 
+          {/* {user?.role === "admin" || user?.role === "editor" ? ( 
             <Button
               component={Link}
               to="/add-Live-exam"
@@ -64,7 +64,22 @@ export default function Nav() {
             >
               ADD EXAM
             </Button>
-          ) : null} 
+          ) : null}  */}
+
+          {["admin", "editor"].includes(user?.role?.toLowerCase()) && (
+            <Button
+              component={Link}
+              to="/add-Live-exam"
+              sx={{
+                color: "#fff",
+                border: "1px solid #fff",
+                fontSize: { xs: "0.8rem", sm: "1rem" },
+                padding: "6px 16px",
+              }}
+            >
+              ADD EXAM
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
     </Box>
