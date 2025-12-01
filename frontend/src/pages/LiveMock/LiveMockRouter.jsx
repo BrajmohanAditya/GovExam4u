@@ -9,9 +9,9 @@ const LiveMockRouter = [
   <Route
     path="/livemock"
     element={
-      <ProtectedRoute>
+      // <ProtectedRoute>
         <LiveMock />
-      </ProtectedRoute>
+      // </ProtectedRoute>
     }
   />,
 
