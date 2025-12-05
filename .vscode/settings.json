@@ -7,7 +7,16 @@
     "**/static.json": true,
     "**/vite.config.js": true,
     "**/frontend/public": true,
-    "**/frontend/src/protectedRoute.jsx": true
+    "**/frontend/src/protectedRoute.jsx": true,
+    "**/frontend/src/pages/examTrack": true,
+    "**/backend/controllers/examTracker": true,
+    "**/frontend/src/index.css": true,
+    "**/frontend/src/api.jsx": true,
+    "**/frontend/package.json": true,
+    "**/frontend/.env": true,
+    "**/frontend/.gitignore": true,
+    "**/frontend/eslint.config.js": true,
+
 
   }
 }

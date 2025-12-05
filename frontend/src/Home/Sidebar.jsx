@@ -32,7 +32,7 @@ const sidebarItems = [
   {
     icon: faListOl,
     label: "To-Do List",
-    link: "#",
+    link: "#todo-list",
   },
   {
     icon: faBookOpenReader,
