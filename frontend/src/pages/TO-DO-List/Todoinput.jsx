@@ -14,7 +14,7 @@ const Todoinput = (props) => {
         }}
       />
       <button className="add-btn" onClick={()=>{
-        props.addList(task)
+        props.addList(task) 
         setTask("");
       }}>+</button>
     </div>
