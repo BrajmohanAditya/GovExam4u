@@ -33,8 +33,7 @@ const home = () => {
   return (
     <div className="main-container">
       <div className="center-container">
-        <Todoinput addList={addList} />{" "}
-        {/* Todoinput component ko addList naam ka ek prop bhejo, */}
+        <Todoinput addList={addList} /> {/* Todoinput component ko addList naam ka ek prop bhejo, */}
         <h2 className="app-heading">TODO</h2>
         <hr />
         {listTodo.map((listItem, i) => {
@@ -42,7 +41,7 @@ const home = () => {
             <TodoList
               key={i}
               index={i}
-              item={listItem}
+              item={listItem}  
               deleteItem={deleteListItem}
             />
           );
