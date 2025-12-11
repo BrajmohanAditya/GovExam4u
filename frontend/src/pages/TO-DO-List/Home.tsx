@@ -62,7 +62,7 @@ export default function TodoApp() {
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") addTodo()
   }
-
+ 
   const active = todos.filter((t) => !t.completed)
   const completed = todos.filter((t) => t.completed)
 
