@@ -5,10 +5,10 @@ export default function CardGrid() {
   return (
     <div className="p-4  flex flex-wrap gap-6 ">
       {/* ✅ Descriptive Card - uses React Router Link */}
-      <Link to="/descriptive" className="no-underline">
+      <Link to="/grammarDPP" className="no-underline">
         <div className="card-wrapper ">
           <img
-            src="/assets/descriptive.png"
+            src="/assets/grammar.png"
             alt="Descriptive"
             className="w-52 h-52 object-cover mx-auto rounded"
           />
