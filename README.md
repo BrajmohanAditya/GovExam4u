@@ -218,6 +218,7 @@ then app.js forwards it to user.js (the route file),
 and "user.js" sends that request to register.js,
 where the new user is actually created and saved in MongoDB.
 
+
 After successful registration, register.js returns a JSON response with a success message,
 and the frontend receives this response and shows a toast + redirects to login.
 
