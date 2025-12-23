@@ -1,8 +1,8 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { questions as allQuestions } from "./questions";
 import Navbar from "./navbar";
-import Sidebar from "./Sidebar";
-import Timer from "./Timer";
+import Sidebar from "./sidebar";
+import Timer from "./timer";
 import QuestionCard from "./QuestionCard";
 
 export default function QuizPage() {
