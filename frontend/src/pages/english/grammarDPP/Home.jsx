@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { questions as allQuestions } from "./questions";
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 import Sidebar from "./Sidebar";
 import Timer from "./Timer";
 import QuestionCard from "./QuestionCard";
