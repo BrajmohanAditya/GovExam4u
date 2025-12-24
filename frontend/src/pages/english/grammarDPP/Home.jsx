@@ -5,8 +5,6 @@ import Sidebar from "./sidebar";
 import Timer from "./timer";
 import QuestionCard from "./QuestionCard";
 
-
-
 export default function QuizPage() {
   const sets = useMemo(
     () => Array.from(new Set(allQuestions.map((q) => q.set))),
@@ -29,7 +27,15 @@ export default function QuizPage() {
   // per-question reveal state for Analysis (true = reveal feedback for that question)
   const [revealedAnalysis, setRevealedAnalysis] = useState({}); // { questionId: true }
 
-  const startSet = (setName) => {
+  // New: selectSet switches to a set WITHOUT resetting the timer if a test is already active.
+  // It will start the timer only when there is no active timer (i.e., true "start a test" action).
+  const selectSet = (setName) => {
+    // If user clicked the currently active set, do nothing
+    if (currentSet === setName) {
+      setSidebarOpen(false);
+      return;
+    }
+
     setCurrentSet(setName);
     setCurrentQuestionIndex(0);
     setSelectedAnswers({});
@@ -38,9 +44,14 @@ export default function QuizPage() {
     setRetakeMode(false);
     setPostView("result");
     setRevealedAnalysis({});
-    const durationSeconds = 10 * 60;
-    setRemainingTime(durationSeconds);
-    setTimerActive(true);
+
+    // Start timer only if there's no active timer (so switching sets during an active test won't reset it)
+    if (!timerActive) {
+      const durationSeconds = 10 * 60;
+      setRemainingTime(durationSeconds);
+      setTimerActive(true);
+    }
+
     setSidebarOpen(false);
   };
 
@@ -160,7 +171,7 @@ export default function QuizPage() {
       <Sidebar
         sets={sets}
         currentSet={currentSet}
-        onSelectSet={startSet}
+        onSelectSet={selectSet} // <-- changed to use selectSet (no reset when timer active)
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
       />
@@ -168,14 +179,22 @@ export default function QuizPage() {
       <main className="pt-14 lg:pl-72">
         <div className="p-4 sm:p-6 max-w-6xl mx-auto">
           {!currentSet && (
-            <div className="bg-white p-5 rounded shadow">
-              <h2 className="text-xl font-semibold mb-2">
-                Select a set to start the test
-              </h2>
-              <p className="text-sm text-gray-600">
-                Choose from the left to begin. Timer will start when you select
-                a set.
-              </p>
+            <div
+              className="w-full flex items-center justify-center"
+              style={{ minHeight: "60vh" }}
+            >
+              <div
+                className="bg-white rounded-lg shadow-md flex flex-col items-center justify-center p-6
+                           w-64 sm:w-72 md:w-80 lg:w-96 aspect-square"
+              >
+                <h2 className="text-center text-lg sm:text-xl font-semibold">
+                  Select a set to start the test
+                </h2>
+                <p className="text-center text-sm text-gray-500 mt-3 px-2">
+                  Choose from the left to begin. Timer will start when you
+                  select a set.
+                </p>
+              </div>
             </div>
           )}
 
@@ -306,13 +325,12 @@ export default function QuizPage() {
                           readOnly={false}
                           instantFeedback={false}
                           locked={true}
-                          // reveal will be true if revealedAnalysis flag set for this question
                           reveal={
                             !!revealedAnalysis[
                               currentQuestions[currentQuestionIndex].id
                             ]
                           }
-                          showExplanationProp={true} // IMPORTANT: show explanation below the card
+                          showExplanationProp={true}
                         />
                       )}
 
