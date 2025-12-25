@@ -1,7 +1,6 @@
-
 import React from "react";
 
-export default function Navbar({ onMobileMenu }) { // receiving props. 
+export default function Navbar({ onMobileMenu }) { // receiving props.
   return (
     <nav className="fixed top-0 left-0 right-0 h-14 bg-white border-b border-gray-200 shadow-sm z-40">
       <div className="h-full flex items-center justify-between px-3 sm:px-6">
@@ -37,3 +36,22 @@ export default function Navbar({ onMobileMenu }) { // receiving props.
     </nav>
   );
 }
+
+
+// import React from "react";
+
+// export default function Navbar() {
+//   return (
+//     <nav className="fixed top-0 left-0 right-0 h-14 bg-white border-b border-gray-200 shadow-sm z-40">
+//       <div className="h-full flex items-center justify-between px-3 sm:px-6">
+//         <div className="flex items-center space-x-3">
+//           <div className="ml-1">
+//             <span className="font-semibold text-gray-800">
+//               English <span className="text-blue-600">Practice Book</span>
+//             </span>
+//           </div>
+//         </div>
+//       </div>
+//     </nav>
+//   );
+// }

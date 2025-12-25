@@ -300,7 +300,7 @@ export default function QuizPage() {
                     onClick={handleRetakeInstant}
                     className="px-3 py-2 bg-yellow-500 text-white rounded-md text-sm"
                   >
-                    Retake 
+                    Retake
                   </button>
                 </div>
               </div>
@@ -375,3 +375,15 @@ export default function QuizPage() {
     </div>
   );
 }
+
+
+// import React from "react";
+// import Navbar from "./navbar";
+
+// export default function QuizPage() {
+//   return (
+//     <div className="min-h-screen bg-gray-100">
+//       <Navbar />
+//     </div>
+//   );
+// }
