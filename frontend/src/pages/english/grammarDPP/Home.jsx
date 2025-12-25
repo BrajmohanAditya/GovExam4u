@@ -231,7 +231,7 @@ export default function QuizPage() {
 
                   {retakeMode && (
                     <div className="px-3 py-2 bg-yellow-50 text-yellow-800 border rounded text-sm">
-                      Retake Mode: Instant Feedback
+                      Retake Mode
                     </div>
                   )}
                 </div>
@@ -300,7 +300,7 @@ export default function QuizPage() {
                     onClick={handleRetakeInstant}
                     className="px-3 py-2 bg-yellow-500 text-white rounded-md text-sm"
                   >
-                    Retake (Instant Feedback)
+                    Retake 
                   </button>
                 </div>
               </div>
