@@ -10,7 +10,7 @@ export const sidebarStyle = {
 };
 
 export const QuizIntroStyle = {
-  wrapper: "w-full min-h-[60vh] flex items-center justify-center px-4",
+  wrapper: "w-full min-h-[50vh] flex items-center justify-center px-4",
 
   card:
     "w-full max-w-sm aspect-square " +
@@ -33,4 +33,5 @@ export const QuizIntroStyle = {
 
   time: "mt-2 text-sm text-blue-600 font-semibold",
 };
+
 

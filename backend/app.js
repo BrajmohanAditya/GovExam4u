@@ -15,6 +15,7 @@ import connectDB from "./utils/getConnection.js";
 import userRoutes from "./routes/user.js";
 import liveMockRoute from "./routes/liveMock.js"
 import errorHandler from "./middlewares/errorHandler.js";
+import grammarDPPRoute from "./routes/grammarDPP.js"
 // ============================
 // 2️⃣ Routes Imports
 // ============================
@@ -114,7 +115,7 @@ connectDB();
 app.use("/examTrack", examTrackRoute);
 app.use("/users", userRoutes);
 app.use("/liveMock", liveMockRoute);
-
+app.use("/grammarDPP", grammarDPPRoute);
 
 app.get("/", (req, res) => {
   res.send("Hai, I am root");

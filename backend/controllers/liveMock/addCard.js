@@ -1,7 +1,7 @@
 // code to save a new live mock card to the database
 import livemockdb from "../../models/liveMock.js";
 
-const AddCard = async (req, res, next) => {
+const addCard = async (req, res, next) => {
   try {
     const { name, exam, link, date } = req.body;
 
@@ -31,4 +31,4 @@ const AddCard = async (req, res, next) => {
   }
 };
 
-export default AddCard;
+export default addCard;

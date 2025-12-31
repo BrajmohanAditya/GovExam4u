@@ -49,20 +49,7 @@ export default function Nav() {
             Today Live Mock
           </Typography>
 
-          {/* {user?.role === "admin" || user?.role === "editor" ? ( 
-            <Button
-              component={Link}
-              to="/add-Live-exam"
-              sx={{
-                color: "#fff",
-                border: "1px solid #fff",
-                fontSize: { xs: "0.8rem", sm: "1rem" },
-                padding: "6px 16px",
-              }}
-            >
-              ADD EXAM
-            </Button>
-          ) : null}  */}
+
 
           {["admin", "editor"].includes(user?.role?.toLowerCase()) && (
             <Button

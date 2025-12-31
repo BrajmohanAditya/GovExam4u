@@ -16,7 +16,9 @@ export default function Options({
   locked = false,
   correctAnswer = null,
   reveal = false,
-}) {
+}) 
+
+{
   const labels = ["A", "B", "C", "D"];
 
   if (!options || options.length === 0) {

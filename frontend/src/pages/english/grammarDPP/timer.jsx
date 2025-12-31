@@ -1,13 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 
-/*
-  Timer component:
-  - initialSeconds: initial countdown in seconds
-  - isActive: boolean to start/stop countdown
-  - onTick: called every second with remaining seconds
-  - onTimeUp: called when timer reaches zero
-  - stopWhen: when true the timer pauses/stops (e.g., testSubmitted)
-*/
 export default function Timer({
   initialSeconds,
   isActive,
@@ -74,9 +66,9 @@ export default function Timer({
   };
 
   return (
-    <div className="inline-flex items-center space-x-2 bg-white px-3 py-2 border rounded-md shadow-sm">
+    <div className="inline-flex items-center space-x-2 bg-white px-3 py-1 border rounded-md shadow-sm">
       <span className="text-sm font-medium text-gray-700">Time Left:</span>
-      <span className="text-lg font-semibold text-red-600">
+      <span className="text-lg font-semibold text-red-600  w-[45px]">
         {format(remaining)}
       </span>
     </div>

@@ -7,7 +7,6 @@ import QuestionCard from "./QuestionCard";
 import QuizIntro from "./QuizIntro";
 
 export default function QuizPage() {
-  
   const sets = useMemo(
     () => Array.from(new Set(allQuestions.map((q) => q.set))),
     []
@@ -45,11 +44,9 @@ export default function QuizPage() {
     setPostView("result");
     setRevealedAnalysis({});
 
-    if (!timerActive) {
-      const durationSeconds = 10 * 60;
-      setRemainingTime(durationSeconds);
-      setTimerActive(true);
-    }
+    const durationSeconds = 10 * 60;
+    setRemainingTime(durationSeconds);
+    setTimerActive(true);
 
     setSidebarOpen(false);
   };
@@ -155,7 +152,7 @@ export default function QuizPage() {
 
   const currentQuestion = currentQuestions[currentQuestionIndex];
 
-  // When switching to analysis view, auto-reveal current question
+  // // When switching to analysis view, auto-reveal current question
   useEffect(() => {
     if (postView === "analysis" && currentQuestion && currentQuestion.id) {
       revealAnalysisFor(currentQuestion.id);
@@ -177,7 +174,7 @@ export default function QuizPage() {
 
       <main className="pt-14 lg:pl-72">
         <div className="p-4 sm:p-6 max-w-6xl mx-auto">
-           {!currentSet && <QuizIntro />}{" "}
+          {!currentSet && <QuizIntro />}{" "}
           {currentSet && !testSubmitted && (
             <div className="space-y-4 max-w-4xl mx-auto">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
@@ -354,5 +351,3 @@ export default function QuizPage() {
     </div>
   );
 }
-
-
