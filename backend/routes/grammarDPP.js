@@ -1,11 +1,11 @@
 import express from "express";
-import  addQuize  from "../controllers/grammarDPP/addQuize.js";
+import  addQuiz  from "../controllers/grammarDPP/addQuize.js";
 
 
 const router = express.Router();
 
-router.post("/addQuize",  addQuize);
+router.post("/addQuize",  addQuiz);
 
-export default router;
+export default router; 
 
-//auth,adminRoles("editor", "admin"),
+//auth,adminRoles("editor", "admin"), 

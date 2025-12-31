@@ -46,10 +46,11 @@ const AddQuize = () => {
     };
 
     const result = await httpAction(data);
+    console.log("Result from add quize:", result);
 
     if (result?.status) {
       toast.success(result.message || "Question added");
-      navigate("/livemock");
+      navigate("/");
     } else {
       toast.error("Something went wrong");
     }
