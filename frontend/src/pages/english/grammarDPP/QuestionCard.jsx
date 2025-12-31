@@ -1,14 +1,8 @@
 import React from "react";
 import Options from "./Options";
 
-/*
-  QuestionCard:
-  - Removed per-card "Show Analysis" / "Analysis Shown" button.
-  - reveal prop still controls whether feedback (green/red) is shown.
-  - showExplanationProp controls whether explanation is displayed when reveal=true.
-*/
 export default function QuestionCard({
-  question,
+  question, // it contains all details of active question like id, set, question, options, correctAnswer, explanation
   questionIndex,
   total,
   selected,
@@ -23,7 +17,6 @@ export default function QuestionCard({
   showExplanationProp = true,
 }) {
   if (!question) return null;
-
   const showExplanation = readOnly || (reveal && showExplanationProp);
 
   return (
@@ -84,3 +77,4 @@ export default function QuestionCard({
     </div>
   );
 }
+

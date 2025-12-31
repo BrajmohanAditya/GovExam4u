@@ -4,8 +4,10 @@ import Navbar from "./navbar";
 import Sidebar from "./sidebar";
 import Timer from "./timer";
 import QuestionCard from "./QuestionCard";
+import QuizIntro from "./QuizIntro";
 
 export default function QuizPage() {
+  
   const sets = useMemo(
     () => Array.from(new Set(allQuestions.map((q) => q.set))),
     []
@@ -27,8 +29,6 @@ export default function QuizPage() {
   // per-question reveal state for Analysis (true = reveal feedback for that question)
   const [revealedAnalysis, setRevealedAnalysis] = useState({}); // { questionId: true }
 
-  // New: selectSet switches to a set WITHOUT resetting the timer if a test is already active.
-  // It will start the timer only when there is no active timer (i.e., true "start a test" action).
   const selectSet = (setName) => {
     // If user clicked the currently active set, do nothing
     if (currentSet === setName) {
@@ -45,7 +45,6 @@ export default function QuizPage() {
     setPostView("result");
     setRevealedAnalysis({});
 
-    // Start timer only if there's no active timer (so switching sets during an active test won't reset it)
     if (!timerActive) {
       const durationSeconds = 10 * 60;
       setRemainingTime(durationSeconds);
@@ -178,26 +177,7 @@ export default function QuizPage() {
 
       <main className="pt-14 lg:pl-72">
         <div className="p-4 sm:p-6 max-w-6xl mx-auto">
-          {!currentSet && (
-            <div
-              className="w-full flex items-center justify-center"
-              style={{ minHeight: "60vh" }}
-            >
-              <div
-                className="bg-white rounded-lg shadow-md flex flex-col items-center justify-center p-6
-                           w-64 sm:w-72 md:w-80 lg:w-96 aspect-square"
-              >
-                <h2 className="text-center text-lg sm:text-xl font-semibold">
-                  Select a set to start the test
-                </h2>
-                <p className="text-center text-sm text-gray-500 mt-3 px-2">
-                  Choose from the left to begin. Timer will start when you
-                  select a set.
-                </p>
-              </div>
-            </div>
-          )}
-
+           {!currentSet && <QuizIntro />}{" "}
           {currentSet && !testSubmitted && (
             <div className="space-y-4 max-w-4xl mx-auto">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
@@ -272,7 +252,6 @@ export default function QuizPage() {
               </section>
             </div>
           )}
-
           {currentSet && testSubmitted && (
             <div className="space-y-4 max-w-6xl mx-auto">
               {/* Header with Result + Retake */}
@@ -377,13 +356,3 @@ export default function QuizPage() {
 }
 
 
-// import React from "react";
-// import Navbar from "./navbar";
-
-// export default function QuizPage() {
-//   return (
-//     <div className="min-h-screen bg-gray-100">
-//       <Navbar />
-//     </div>
-//   );
-// }
