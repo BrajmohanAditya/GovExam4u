@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const MockCard = () => {
   const [cards, setCards] = useState([]);
- const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const fetchCards = async () => {
     const data = {
@@ -56,4 +56,3 @@ const MockCard = () => {
 };
 
 export default MockCard;
-

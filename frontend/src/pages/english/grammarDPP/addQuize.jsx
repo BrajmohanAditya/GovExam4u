@@ -12,13 +12,15 @@ import {
 } from "@mui/material";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import apis from "./apis.js"
-import  httpAction  from "./httpAction.js";
+import apis from "./apis.js";
+import httpAction from "./httpAction.js";
 
 const AddQuize = () => {
   const navigate = useNavigate();
 
+  // 🔹 Initial State
   const initialState = {
+    set: "",
     question: "",
     option1: "",
     option2: "",
@@ -28,7 +30,11 @@ const AddQuize = () => {
     answer: "",
   };
 
+  // 🔹 Validation Schema
   const validationSchema = Yup.object({
+    set: Yup.string()
+      .required("Set name is required")
+      .max(50, "Set name too long"),
     question: Yup.string().required("Question is required"),
     option1: Yup.string().required("Option 1 is required"),
     option2: Yup.string().required("Option 2 is required"),
@@ -38,7 +44,8 @@ const AddQuize = () => {
     answer: Yup.string().required("Select correct answer"),
   });
 
-  const submitHandler = async (values) => {
+  // 🔹 Submit Handler
+  const submitHandler = async (values, { resetForm }) => {
     const data = {
       url: apis().addQuize,
       method: "POST",
@@ -46,26 +53,24 @@ const AddQuize = () => {
     };
 
     const result = await httpAction(data);
-    console.log("Result from add quize:", result);
 
     if (result?.status) {
-      toast.success(result.message || "Question added");
+      toast.success("Question added successfully");
+      resetForm();
       navigate("/");
     } else {
-      toast.error("Something went wrong");
+      toast.error(result?.message || "Something went wrong");
     }
   };
 
   return (
-    // 🌟 FULL PAGE WRAPPER
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center px-4">
-      {/* 🌟 CARD */}
       <div className="w-full max-w-4xl bg-white rounded-xl shadow-lg p-6 md:p-8">
         <h2 className="text-2xl font-semibold text-gray-800 mb-1">
           Add New MCQ
         </h2>
         <p className="text-sm text-gray-500 mb-4">
-          Create questions for live mock / practice set
+          Add questions under any custom set name
         </p>
 
         <Divider />
@@ -77,9 +82,22 @@ const AddQuize = () => {
           validateOnChange={false}
           validateOnBlur={true}
         >
-          {({ handleChange, handleBlur, touched, errors }) => (
+          {({ handleChange, handleBlur, touched, errors, values }) => (
             <Form className="mt-6">
-              {/* Question */}
+              {/* 🔹 Set Name (Dynamic) */}
+              <TextField
+                name="set"
+                label="e.g. Set 1"
+                fullWidth
+                margin="normal"
+                value={values.set}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.set && Boolean(errors.set)}
+                helperText={touched.set && errors.set}
+              />
+
+              {/* 🔹 Question */}
               <TextField
                 name="question"
                 label="Question"
@@ -93,7 +111,7 @@ const AddQuize = () => {
                 helperText={touched.question && errors.question}
               />
 
-              {/* Options Grid */}
+              {/* 🔹 Options */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
                 {["option1", "option2", "option3", "option4", "option5"].map(
                   (opt, index) => (
@@ -111,7 +129,7 @@ const AddQuize = () => {
                 )}
               </div>
 
-              {/* Correct Answer */}
+              {/* 🔹 Correct Answer */}
               <div className="mt-6 p-4 rounded-lg bg-gray-50 border">
                 <FormLabel className="font-medium text-gray-700">
                   Correct Answer
@@ -155,7 +173,7 @@ const AddQuize = () => {
                 )}
               </div>
 
-              {/* Submit */}
+              {/* 🔹 Submit */}
               <div className="flex justify-end mt-6">
                 <Button
                   type="submit"

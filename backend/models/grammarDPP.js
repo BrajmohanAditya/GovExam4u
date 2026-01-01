@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 
 const grammarDPPSchema = new mongoose.Schema(
   {
+    set: {
+      type: String,
+      required: true, // "Set 1", "Set 2", etc.
+    },
     question: {
       type: String,
       required: true,

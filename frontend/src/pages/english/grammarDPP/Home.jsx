@@ -5,12 +5,32 @@ import Sidebar from "./sidebar";
 import Timer from "./timer";
 import QuestionCard from "./QuestionCard";
 import QuizIntro from "./QuizIntro";
+import httpAction from "./httpAction";
+import apis from "./apis";
 
 export default function QuizPage() {
-  const sets = useMemo(
-    () => Array.from(new Set(allQuestions.map((q) => q.set))),
-    []
-  );
+  // const sets = useMemo(
+  //   () => Array.from(new Set(allQuestions.map((q) => q.set))),
+  //   []
+  // );
+  const [sets, setSets] = useState([]);
+  const fetchQuiz = async () => {
+    const data = {
+      url: apis().getQuiz,
+      method: "GET",
+    };
+
+    const result = await httpAction(data);
+    if (result?.status) {
+      const sets = [...new Set(result.data.map((q) => q.set))];
+      setSets(sets);
+      console.log("Available Sets:", sets);
+    }
+  };
+
+  useEffect(() => {
+    fetchQuiz();
+  }, []);
 
   const [currentSet, setCurrentSet] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);

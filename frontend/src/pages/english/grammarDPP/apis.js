@@ -6,6 +6,7 @@ const apis = () => {
 
   const list = {
     addQuize: `${baseUrl}/grammarDPP/addQuize`,
+    getQuiz: `${baseUrl}/grammarDPP/getQuiz`,
   };
   return list;
 };
