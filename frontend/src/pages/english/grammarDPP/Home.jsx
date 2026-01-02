@@ -22,9 +22,13 @@ export default function QuizPage() {
 
     const result = await httpAction(data);
     if (result?.status) {
-      const sets = [...new Set(result.data.map((q) => q.set))];
+      const sets = [...new Set(result.data.map((q) => q.set))].sort((a, b) => {
+        const na = parseInt(a.replace(/\D/g, ""), 10);
+        const nb = parseInt(b.replace(/\D/g, ""), 10);
+        return na - nb;
+      });
+
       setSets(sets);
-      console.log("Available Sets:", sets);
     }
   };
 

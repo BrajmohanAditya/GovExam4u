@@ -43,6 +43,11 @@ const grammarDPPSchema = new mongoose.Schema(
       required: true,
       enum: ["option1", "option2", "option3", "option4", "option5"],
     },
+    explanation: {
+      type: String,
+      required: true,
+      trim: true,
+    },
   },
   { timestamps: true }
 );

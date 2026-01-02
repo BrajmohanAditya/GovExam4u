@@ -13,6 +13,7 @@ const addQuiz = async (req, res, next) => {
       option4,
       option5,
       answer,
+      explanation,
     } = req.body;
 
     // 🔹 backend validation
@@ -23,7 +24,8 @@ const addQuiz = async (req, res, next) => {
       !option2 ||
       !option3 ||
       !option4 ||
-      !answer
+      !answer ||
+      !explanation
     ) {
       return res.status(400).json({
         status: false,
@@ -41,6 +43,7 @@ const addQuiz = async (req, res, next) => {
       option4,
       option5,
       answer,
+      explanation,
     });
 
     return res.status(201).json({
