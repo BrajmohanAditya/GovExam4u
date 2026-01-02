@@ -6,19 +6,14 @@ import { wordLimitMap } from "./WordLimitMap";
 import { MaxMarksMap } from "./MaxMarksMap";
 import QuestionPage from "./QuestionPage";
 export default function Descriptive() {
-  console.log("6");
   const [selectedType, setSelectedType] = useState("Essay"); // selectedType = "Letter"
   const [timeLeft, setTimeLeft] = useState(timeMap["Essay"]); // useState(600);
   const [wordCount, setWordCount] = useState(0);
   const [timerStarted, setTimerStarted] = useState(false);
-  console.log("12");
   const timerRef = useRef(null);
   const textRef = useRef(null);
-  console.log(timerRef);
 
-  useEffect(() => {
-    console.log("🎯 Descriptive component mounted");
-  }, []);
+
 
   useEffect(() => {
     const savedType = sessionStorage.getItem("selectedType");
@@ -58,7 +53,6 @@ export default function Descriptive() {
 
   const handleTypeChange = (type) => {
     // the movement you click letter, essay then ya pura looop chalaga.
-    console.log("52");
     setSelectedType(type); // state change
     setTimeLeft(timeMap[type]);
     sessionStorage.setItem("selectedType", type);
@@ -66,13 +60,10 @@ export default function Descriptive() {
     clearInterval(timerRef.current);
     setWordCount(0);
     if (textRef.current) textRef.current.value = "";
-    console.log("60");
   };
-  console.log("65");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("66");
     const textarea = textRef.current;
     let currentText = textarea.value.trim();
 

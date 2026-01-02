@@ -34,8 +34,10 @@ const grammarDPPSchema = new mongoose.Schema(
     },
     option5: {
       type: String,
+      required: true,
       trim: true,
     },
+
 
     // option1 | option2 | option3 | option4 | option5
     answer: {
@@ -52,6 +54,8 @@ const grammarDPPSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const grammarDPPdataBase = mongoose.models.grammarDPPdataBase || mongoose.model("grammarDPPdataBase", grammarDPPSchema);
+const grammarDPPdataBase =
+  mongoose.models.grammarDPPdataBase ||
+  mongoose.model("grammarDPPdataBase", grammarDPPSchema);
 
 export default grammarDPPdataBase; // ✅ ES Module export

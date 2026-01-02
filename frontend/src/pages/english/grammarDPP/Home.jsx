@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useEffect } from "react";
-import { questions as allQuestions } from "./questions";
+// import { questions as allQuestions } from "./questions";
+// console.log("allQuestions", allQuestions);
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
 import Timer from "./timer";
@@ -9,11 +10,10 @@ import httpAction from "./httpAction";
 import apis from "./apis";
 
 export default function QuizPage() {
-  // const sets = useMemo(
-  //   () => Array.from(new Set(allQuestions.map((q) => q.set))),
-  //   []
-  // );
+  //
   const [sets, setSets] = useState([]);
+  const [allQuestions, setAllQuestions] = useState({}); // { setName: { correct: x, total: y } }
+  // console.log("allQuestions inside", allQuestions);
   const fetchQuiz = async () => {
     const data = {
       url: apis().getQuiz,
@@ -22,6 +22,7 @@ export default function QuizPage() {
 
     const result = await httpAction(data);
     if (result?.status) {
+      setAllQuestions(result.data);
       const sets = [...new Set(result.data.map((q) => q.set))].sort((a, b) => {
         const na = parseInt(a.replace(/\D/g, ""), 10);
         const nb = parseInt(b.replace(/\D/g, ""), 10);
@@ -35,8 +36,8 @@ export default function QuizPage() {
   useEffect(() => {
     fetchQuiz();
   }, []);
-
-  const [currentSet, setCurrentSet] = useState(null);
+// console.log("allQuestions", allQuestions);
+  const [currentSet, setCurrentSet] = useState(null); // currently selected set like "Set 1"
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [lockedAnswers, setLockedAnswers] = useState({});
@@ -78,8 +79,8 @@ export default function QuizPage() {
   const currentQuestions = useMemo(() => {
     if (!currentSet) return [];
     return allQuestions.filter((q) => q.set === currentSet);
-  }, [currentSet]);
-
+  }, [currentSet , allQuestions]);
+  
   const handleTick = (sec) => setRemainingTime(sec >= 0 ? sec : 0);
   const handleTimeUp = () => {
     setTimerActive(false);
