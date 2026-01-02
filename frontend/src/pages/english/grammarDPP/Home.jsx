@@ -1,6 +1,5 @@
-import React, { useMemo, useState, useEffect } from "react";
-// import { questions as allQuestions } from "./questions";
-// console.log("allQuestions", allQuestions);
+
+import React, { useEffect, useMemo, useState } from "react";
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
 import Timer from "./timer";
@@ -10,56 +9,53 @@ import httpAction from "./httpAction";
 import apis from "./apis";
 
 export default function QuizPage() {
-  //
+  /* ================= FETCH DATA ================= */
   const [sets, setSets] = useState([]);
-  const [allQuestions, setAllQuestions] = useState({}); // { setName: { correct: x, total: y } }
-  // console.log("allQuestions inside", allQuestions);
-  const fetchQuiz = async () => {
-    const data = {
-      url: apis().getQuiz,
-      method: "GET",
-    };
-
-    const result = await httpAction(data);
-    if (result?.status) {
-      setAllQuestions(result.data);
-      const sets = [...new Set(result.data.map((q) => q.set))].sort((a, b) => {
-        const na = parseInt(a.replace(/\D/g, ""), 10);
-        const nb = parseInt(b.replace(/\D/g, ""), 10);
-        return na - nb;
-      });
-
-      setSets(sets);
-    }
-  };
+  const [allQuestions, setAllQuestions] = useState([]);
 
   useEffect(() => {
+    const fetchQuiz = async () => {
+      const res = await httpAction({
+        url: apis().getQuiz,
+        method: "GET",
+      });
+
+      if (res?.status) {
+        setAllQuestions(res.data);
+
+        const uniqueSets = [...new Set(res.data.map((q) => q.set))].sort(
+          (a, b) => {
+            const na = parseInt(a.replace(/\D/g, ""), 10);
+            const nb = parseInt(b.replace(/\D/g, ""), 10);
+            return na - nb;
+          }
+        );
+
+        setSets(uniqueSets);
+      }
+    };
+
     fetchQuiz();
   }, []);
-// console.log("allQuestions", allQuestions);
-  const [currentSet, setCurrentSet] = useState(null); // currently selected set like "Set 1"
+
+  /* ================= STATE ================= */
+  const [currentSet, setCurrentSet] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [lockedAnswers, setLockedAnswers] = useState({});
-  const [remainingTime, setRemainingTime] = useState(0);
-  const [testSubmitted, setTestSubmitted] = useState(false);
 
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [timerActive, setTimerActive] = useState(false);
+  const [testSubmitted, setTestSubmitted] = useState(false);
   const [retakeMode, setRetakeMode] = useState(false);
 
-  // post-submission view: "result" or "analysis"
+  const [remainingTime, setRemainingTime] = useState(0);
+  const [timerActive, setTimerActive] = useState(false);
+
   const [postView, setPostView] = useState("result");
-  // per-question reveal state for Analysis (true = reveal feedback for that question)
-  const [revealedAnalysis, setRevealedAnalysis] = useState({}); // { questionId: true }
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  /* ================= SET SELECTION ================= */
   const selectSet = (setName) => {
-    // If user clicked the currently active set, do nothing
-    if (currentSet === setName) {
-      setSidebarOpen(false);
-      return;
-    }
-
+     if (setName === currentSet) return;
     setCurrentSet(setName);
     setCurrentQuestionIndex(0);
     setSelectedAnswers({});
@@ -67,124 +63,93 @@ export default function QuizPage() {
     setTestSubmitted(false);
     setRetakeMode(false);
     setPostView("result");
-    setRevealedAnalysis({});
 
-    const durationSeconds = 10 * 60;
-    setRemainingTime(durationSeconds);
+    setRemainingTime(10 * 60);
     setTimerActive(true);
-
     setSidebarOpen(false);
   };
 
+  /* ================= QUESTIONS ================= */
   const currentQuestions = useMemo(() => {
     if (!currentSet) return [];
     return allQuestions.filter((q) => q.set === currentSet);
-  }, [currentSet , allQuestions]);
-  
+  }, [currentSet, allQuestions]);
+
+  const currentQuestion = currentQuestions[currentQuestionIndex];
+
+  /* ================= TIMER ================= */
   const handleTick = (sec) => setRemainingTime(sec >= 0 ? sec : 0);
+
   const handleTimeUp = () => {
     setTimerActive(false);
     setTestSubmitted(true);
-    setRetakeMode(false);
     setPostView("result");
   };
 
-  useEffect(() => {
-    if (testSubmitted) {
-      setTimerActive(false);
-      setRetakeMode(false);
-      setPostView("result");
-    }
-  }, [testSubmitted]);
+  /* ================= OPTION SELECT ================= */
+  const handleSelectOption = (qid, optionIndex) => {
+    if (lockedAnswers[qid]) return;
 
-  const handleSelectOption = (questionId, optionValue) => {
-    if (lockedAnswers[questionId]) return;
-    setSelectedAnswers((prev) => ({ ...prev, [questionId]: optionValue }));
+    setSelectedAnswers((prev) => ({
+      ...prev,
+      [qid]: optionIndex,
+    }));
+
+    // Practice mode → lock immediately after click
     if (retakeMode) {
-      setLockedAnswers((prev) => ({ ...prev, [questionId]: true }));
+      setLockedAnswers((prev) => ({
+        ...prev,
+        [qid]: true,
+      }));
     }
   };
 
-  // Helper: reveal analysis for a question id
-  const revealAnalysisFor = (questionId) => {
-    setRevealedAnalysis((prev) => ({ ...prev, [questionId]: true }));
-  };
-
-  // Navigation handlers updated to auto-reveal in analysis mode
+  /* ================= NAVIGATION ================= */
   const gotoNext = () => {
     if (currentQuestionIndex < currentQuestions.length - 1) {
-      const newIndex = currentQuestionIndex + 1;
-      setCurrentQuestionIndex(newIndex);
-      if (postView === "analysis") {
-        const q = currentQuestions[newIndex];
-        if (q && q.id) revealAnalysisFor(q.id);
-      }
+      setCurrentQuestionIndex((i) => i + 1);
     }
   };
 
   const gotoPrev = () => {
     if (currentQuestionIndex > 0) {
-      const newIndex = currentQuestionIndex - 1;
-      setCurrentQuestionIndex(newIndex);
-      if (postView === "analysis") {
-        const q = currentQuestions[newIndex];
-        if (q && q.id) revealAnalysisFor(q.id);
-      }
+      setCurrentQuestionIndex((i) => i - 1);
     }
   };
 
+  /* ================= SUBMIT ================= */
   const handleSubmit = () => {
     setTestSubmitted(true);
     setTimerActive(false);
-    setRetakeMode(false);
     setPostView("result");
   };
 
-  const handleRetakeInstant = () => {
+  /* ================= RETAKE (PRACTICE MODE) ================= */
+  const handleRetake = () => {
     setSelectedAnswers({});
     setLockedAnswers({});
     setCurrentQuestionIndex(0);
-    setTestSubmitted(false);
-    setRetakeMode(true);
+
+    setRetakeMode(true); // ✅ practice mode ON
+    setTestSubmitted(false); // ✅ IMPORTANT (so answers not revealed)
     setPostView(null);
-    setRevealedAnalysis({});
+
     setTimerActive(false);
     setRemainingTime(0);
   };
 
-  const handleRetakeWithTimer = () => {
-    setSelectedAnswers({});
-    setLockedAnswers({});
-    setCurrentQuestionIndex(0);
-    setTestSubmitted(false);
-    setRetakeMode(false);
-    setPostView(null);
-    setRevealedAnalysis({});
-    const durationSeconds = 10 * 60;
-    setRemainingTime(durationSeconds);
-    setTimerActive(true);
-  };
-
-  // Compute results
+  /* ================= SCORE ================= */
   const score = useMemo(() => {
-    if (!currentQuestions.length) return { correct: 0, total: 0 };
     let correct = 0;
     currentQuestions.forEach((q) => {
-      if (selectedAnswers[q.id] === q.correctAnswer) correct += 1;
+      if (selectedAnswers[q._id] === q.correctAnswerIndex) {
+        correct++;
+      }
     });
     return { correct, total: currentQuestions.length };
   }, [currentQuestions, selectedAnswers]);
 
-  const currentQuestion = currentQuestions[currentQuestionIndex];
-
-  // // When switching to analysis view, auto-reveal current question
-  useEffect(() => {
-    if (postView === "analysis" && currentQuestion && currentQuestion.id) {
-      revealAnalysisFor(currentQuestion.id);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [postView, currentQuestionIndex, currentQuestion]);
-
+  /* ================= UI ================= */
   return (
     <div className="min-h-screen bg-gray-100">
       <Navbar onMobileMenu={() => setSidebarOpen(true)} />
@@ -192,103 +157,77 @@ export default function QuizPage() {
       <Sidebar
         sets={sets}
         currentSet={currentSet}
-        onSelectSet={selectSet} // <-- changed to use selectSet (no reset when timer active)
+        onSelectSet={selectSet}
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
       />
 
       <main className="pt-14 lg:pl-72">
-        <div className="p-4 sm:p-6 max-w-6xl mx-auto">
-          {!currentSet && <QuizIntro />}{" "}
+        <div className="p-4 max-w-6xl mx-auto">
+          {!currentSet && <QuizIntro />}
+
+          {/* ================= ACTIVE / PRACTICE ================= */}
           {currentSet && !testSubmitted && (
-            <div className="space-y-4 max-w-4xl mx-auto">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <>
+              <div className="flex justify-between mb-4">
                 <div>
-                  <h2 className="text-lg font-semibold">
-                    Active Test: {currentSet}
+                  <h2 className="font-semibold">
+                    {retakeMode
+                      ? "Practice Mode"
+                      : `Active Test: ${currentSet}`}
                   </h2>
                   <p className="text-sm text-gray-500">
                     {currentQuestions.length} Questions
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-                  {!retakeMode && (
-                    <div className="flex items-center gap-3">
-                      <Timer
-                        initialSeconds={remainingTime}
-                        isActive={timerActive}
-                        onTick={handleTick}
-                        onTimeUp={handleTimeUp}
-                        stopWhen={testSubmitted}
-                      />
-                      <button
-                        onClick={handleSubmit}
-                        className="px-3 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 text-sm"
-                      >
-                        Submit Test
-                      </button>
-                    </div>
-                  )}
-
-                  {retakeMode && (
-                    <div className="px-3 py-2 bg-yellow-50 text-yellow-800 border rounded text-sm">
-                      Retake Mode
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              <section>
-                {currentQuestions.length > 0 ? (
-                  <QuestionCard
-                    question={currentQuestions[currentQuestionIndex]}
-                    questionIndex={currentQuestionIndex}
-                    total={currentQuestions.length}
-                    selected={
-                      selectedAnswers[
-                        currentQuestions[currentQuestionIndex].id
-                      ] ?? null
-                    }
-                    onSelectOption={(opt) =>
-                      handleSelectOption(
-                        currentQuestions[currentQuestionIndex].id,
-                        opt
-                      )
-                    }
-                    onNext={gotoNext}
-                    onPrev={gotoPrev}
-                    readOnly={false}
-                    instantFeedback={retakeMode}
-                    locked={
-                      !!lockedAnswers[currentQuestions[currentQuestionIndex].id]
-                    }
-                    reveal={false}
-                    showExplanationProp={true}
-                  />
-                ) : (
-                  <div className="bg-white p-6 rounded shadow">
-                    No questions available for this set.
+                {!retakeMode && (
+                  <div className="flex gap-3">
+                    <Timer
+                      initialSeconds={remainingTime}
+                      isActive={timerActive}
+                      onTick={handleTick}
+                      onTimeUp={handleTimeUp}
+                      stopWhen={testSubmitted}
+                    />
+                    <button
+                      onClick={handleSubmit}
+                      className="px-3 py-2 bg-red-600 text-white rounded"
+                    >
+                      Submit Test
+                    </button>
                   </div>
                 )}
-              </section>
-            </div>
-          )}
-          {currentSet && testSubmitted && (
-            <div className="space-y-4 max-w-6xl mx-auto">
-              {/* Header with Result + Retake */}
-              <div className="flex items-start justify-between">
-                <div>
-                  <h2 className="text-lg font-semibold">
-                    Review: {currentSet}
-                  </h2>
-                  <p className="text-sm text-gray-500">Submitted.</p>
-                </div>
+              </div>
 
-                <div className="flex items-center gap-2">
+              {currentQuestion && (
+                <QuestionCard
+                  question={currentQuestion}
+                  questionIndex={currentQuestionIndex}
+                  total={currentQuestions.length}
+                  selected={selectedAnswers[currentQuestion._id] ?? null}
+                  onSelectOption={(idx) =>
+                    handleSelectOption(currentQuestion._id, idx)
+                  }
+                  onNext={gotoNext}
+                  onPrev={gotoPrev}
+                  readOnly={false}
+                  instantFeedback={retakeMode}
+                  locked={!!lockedAnswers[currentQuestion._id]}
+                />
+              )}
+            </>
+          )}
+
+          {/* ================= RESULT / ANALYSIS ================= */}
+          {currentSet && testSubmitted && (
+            <>
+              <div className="flex justify-between mb-4">
+                <h2 className="font-semibold">Result: {currentSet}</h2>
+                <div className="flex gap-2">
                   <button
                     onClick={() => setPostView("result")}
-                    className={`px-3 py-2 rounded-md text-sm ${
+                    className={`px-3 py-2 rounded ${
                       postView === "result"
                         ? "bg-blue-600 text-white"
                         : "bg-white border"
@@ -298,78 +237,48 @@ export default function QuizPage() {
                   </button>
 
                   <button
-                    onClick={handleRetakeInstant}
-                    className="px-3 py-2 bg-yellow-500 text-white rounded-md text-sm"
+                    onClick={() => setPostView("analysis")}
+                    className={`px-3 py-2 rounded ${
+                      postView === "analysis"
+                        ? "bg-blue-600 text-white"
+                        : "bg-white border"
+                    }`}
+                  >
+                    Analysis
+                  </button>
+
+                  <button
+                    onClick={handleRetake}
+                    className="px-3 py-2 bg-yellow-500 text-white rounded"
                   >
                     Retake
                   </button>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 gap-6">
-                <div>
-                  {currentQuestions.length > 0 ? (
-                    <>
-                      {postView === "analysis" && (
-                        <QuestionCard
-                          question={currentQuestions[currentQuestionIndex]}
-                          questionIndex={currentQuestionIndex}
-                          total={currentQuestions.length}
-                          selected={
-                            selectedAnswers[
-                              currentQuestions[currentQuestionIndex].id
-                            ] ?? null
-                          }
-                          onSelectOption={() => {}}
-                          onNext={gotoNext}
-                          onPrev={gotoPrev}
-                          readOnly={false}
-                          instantFeedback={false}
-                          locked={true}
-                          reveal={
-                            !!revealedAnalysis[
-                              currentQuestions[currentQuestionIndex].id
-                            ]
-                          }
-                          showExplanationProp={true}
-                        />
-                      )}
-
-                      {postView === "result" && (
-                        <div className="bg-white p-6 rounded shadow max-w-4xl mx-auto">
-                          <h3 className="text-lg font-semibold">Result</h3>
-                          <p className="mt-2 text-sm text-gray-600">
-                            Your score for {currentSet}:
-                          </p>
-                          <div className="mt-4 text-2xl font-bold">
-                            {score.correct} / {score.total}
-                          </div>
-                          <div className="mt-2 text-sm text-gray-700">
-                            {Math.round(
-                              (score.correct / Math.max(1, score.total)) * 100
-                            )}
-                            %
-                          </div>
-
-                          <div className="mt-4">
-                            <button
-                              onClick={() => setPostView("analysis")}
-                              className="px-3 py-2 bg-blue-600 text-white rounded-md text-sm"
-                            >
-                              Show Analysis
-                            </button>
-                          </div>
-                        </div>
-                      )}
-                    </>
-                  ) : (
-                    <div className="bg-white p-6 rounded shadow">
-                      No questions available for this set.
-                    </div>
-                  )}
+              {postView === "result" && (
+                <div className="bg-white p-6 rounded shadow max-w-xl mx-auto">
+                  <h3 className="text-lg font-semibold">Score</h3>
+                  <p className="mt-2">
+                    {score.correct} / {score.total}
+                  </p>
                 </div>
-              </div>
-            </div>
+              )}
+
+              {postView === "analysis" && currentQuestion && (
+                <QuestionCard
+                  question={currentQuestion}
+                  questionIndex={currentQuestionIndex}
+                  total={currentQuestions.length}
+                  selected={selectedAnswers[currentQuestion._id] ?? null}
+                  onSelectOption={() => {}}
+                  onNext={gotoNext}
+                  onPrev={gotoPrev}
+                  readOnly={true}
+                  reveal={true}
+                />
+              )}
+            </>
           )}
         </div>
       </main>

@@ -21,9 +21,9 @@ export default function ReviewQuestion({ q, selected }) {
       <div className="mb-4">
         <Options
           options={q.options}
-          selected={selected ?? null}
+          selected={selected ?? null} // ✅ index
           readOnly={true}
-          correctAnswer={q.correctAnswer}
+          correctAnswerIndex={q.correctAnswerIndex} // ✅ FIX
         />
       </div>
 

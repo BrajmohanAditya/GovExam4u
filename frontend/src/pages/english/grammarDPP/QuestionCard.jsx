@@ -1,22 +1,23 @@
+
 import React from "react";
 import Options from "./Options";
 
 export default function QuestionCard({
-  question, // it contains all details of active question like id, set, question, options, correctAnswer, explanation
+  question,
   questionIndex,
   total,
-  selected,
-  onSelectOption,
+  selected, // ✅ number (index)
+  onSelectOption, // ✅ expects index
   onNext,
   onPrev,
   readOnly = false,
   instantFeedback = false,
   locked = false,
   reveal = false,
-  // onReveal removed from usage here by parent (no card-level button)
   showExplanationProp = true,
 }) {
   if (!question) return null;
+
   const showExplanation = readOnly || (reveal && showExplanationProp);
 
   return (
@@ -33,17 +34,17 @@ export default function QuestionCard({
       <div className="mb-4">
         <Options
           options={question.options}
-          selected={selected}
-          onSelect={onSelectOption}
+          selected={selected} // ✅ index
+          onSelect={onSelectOption} // ✅ index
           readOnly={readOnly}
           instantFeedback={instantFeedback}
           locked={locked}
-          correctAnswer={question.correctAnswer}
+          correctAnswerIndex={question.correctAnswerIndex} // ✅ FIX
           reveal={reveal}
         />
       </div>
 
-      {/* Navigation controls (no per-card analysis button) */}
+      {/* Navigation */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div className="flex items-center space-x-2">
           <button
@@ -53,6 +54,7 @@ export default function QuestionCard({
           >
             Previous
           </button>
+
           <button
             onClick={onNext}
             className="px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 text-sm"
@@ -65,7 +67,7 @@ export default function QuestionCard({
         <div className="text-sm text-gray-500">Select one option</div>
       </div>
 
-      {/* Explanation placed below navigation only when allowed */}
+      {/* Explanation */}
       {showExplanation && (
         <div className="mt-4 p-3 bg-gray-50 border rounded">
           <div className="text-sm text-gray-700">
@@ -77,4 +79,3 @@ export default function QuestionCard({
     </div>
   );
 }
-
