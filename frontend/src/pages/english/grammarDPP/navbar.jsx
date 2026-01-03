@@ -1,10 +1,27 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import apis from "../../user/utils/apisUsers.js";
+import httpAction from "../../user/utils/httpAction";
+import { useEffect, useState } from "react";
 
 export default function Navbar({ onMobileMenu }) {
-  
-const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const [user, setUser] = useState(null);
+console.log("user nav", user);
+  useEffect(() => {
+    const getUser = async () => {
+      const data = {
+        url: apis().userProfile,
+      };
+      const result = await httpAction(data);
+      if (result?.status) {
+        setUser(result?.user);
+      }
+    };
+    getUser();
+  }, []);
+
   return (
     <nav className="fixed top-0 left-0 right-0 h-14 bg-white border-b border-gray-200 shadow-sm z-40">
       <div className="h-full flex items-center justify-between px-3 sm:px-6">
@@ -40,27 +57,29 @@ const navigate = useNavigate();
 
         {/* Right: Add Quiz button */}
         <div className="flex items-center">
-          <button
-            onClick={() => navigate("/add-Quize")}
-            className="inline-flex items-center  gap-2 px-3 py-2.5 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400"
-            aria-label="Add Quiz"
-            type="button"
-          >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          {["admin", "editor"].includes(user?.role?.toLowerCase()) && (
+            <button
+              onClick={() => navigate("/add-Quize")}
+              className="inline-flex items-center  gap-2 px-3 py-2.5 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400"
+              aria-label="Add Quiz"
+              type="button"
             >
-              <path
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 4v16m8-8H4"
-              />
-            </svg>
-            <span className="hidden sm:inline">Add Quiz</span>
-          </button>
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 4v16m8-8H4"
+                />
+              </svg>
+              <span className="hidden sm:inline">Add Quiz</span>
+            </button>
+          )}
         </div>
       </div>
     </nav>
