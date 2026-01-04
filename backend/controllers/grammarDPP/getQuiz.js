@@ -1,5 +1,5 @@
 // card imported from database and displayed on frontend
-import grammarDPPdataBase from "../../models/grammarDPP.js";
+import grammarDPPdataBase from "../../models/grammarDPP/grammarDPP.js";
 const getQuiz = async (req, res, next) => {
   try {
     const cards = await grammarDPPdataBase.find().sort({ createdAt: -1 });

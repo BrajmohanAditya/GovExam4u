@@ -1,4 +1,3 @@
-
 import React, { useEffect, useMemo, useState } from "react";
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
@@ -54,8 +53,26 @@ export default function QuizPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   /* ================= SET SELECTION ================= */
-  const selectSet = (setName) => {
-     if (setName === currentSet) return;
+
+
+  const selectSet = async (setName) => {
+    const data = {
+      url: apis().submitTest,
+      method: "POST",
+      body: {
+        // ✅ FIX
+        set: setName,
+      },
+    };
+
+    const res = await httpAction(data);
+
+    if (!res?.status) {
+      alert("❌ You can attempt this test only once");
+      return;
+    }
+
+    // ✅ Allowed
     setCurrentSet(setName);
     setCurrentQuestionIndex(0);
     setSelectedAnswers({});
@@ -63,11 +80,43 @@ export default function QuizPage() {
     setTestSubmitted(false);
     setRetakeMode(false);
     setPostView("result");
-
     setRemainingTime(10 * 60);
     setTimerActive(true);
-    setSidebarOpen(false);
   };
+
+  // const selectSet = async (setName) => {
+  //   const data = {
+  //     url: apis().submitTest,
+  //     method: "POST",
+  //     body: { set: setName },
+  //   };
+
+  //   const res = await httpAction(data);
+
+  //   // 🟡 CASE 1: Already attempted → SHOW RESULT
+  //   if (res?.attempted) {
+  //     setCurrentSet(setName);
+  //     setTestSubmitted(true);
+  //     setPostView("result");
+  //     setTimerActive(false);
+  //     setRemainingTime(0);
+
+  //     return; // 🔥 STOP here
+  //   }
+
+  //   // 🟢 CASE 2: Not attempted → START TEST
+  //   if (res?.status) {
+  //     setCurrentSet(setName);
+  //     setCurrentQuestionIndex(0);
+  //     setSelectedAnswers({});
+  //     setLockedAnswers({});
+  //     setTestSubmitted(false);
+  //     setRetakeMode(false);
+  //     setPostView("result");
+  //     setRemainingTime(10 * 60);
+  //     setTimerActive(true);
+  //   }
+  // };
 
   /* ================= QUESTIONS ================= */
   const currentQuestions = useMemo(() => {
@@ -80,10 +129,8 @@ export default function QuizPage() {
   /* ================= TIMER ================= */
   const handleTick = (sec) => setRemainingTime(sec >= 0 ? sec : 0);
 
-  const handleTimeUp = () => {
-    setTimerActive(false);
-    setTestSubmitted(true);
-    setPostView("result");
+  const handleTimeUp = async () => {
+    handleSubmit();
   };
 
   /* ================= OPTION SELECT ================= */
@@ -118,10 +165,28 @@ export default function QuizPage() {
   };
 
   /* ================= SUBMIT ================= */
-  const handleSubmit = () => {
+
+  const handleSubmit = async () => {
+    if (testSubmitted) return;
     setTestSubmitted(true);
     setTimerActive(false);
     setPostView("result");
+    const data = {
+      url: apis().submitTest,
+      method: "POST",
+      body: {
+        set: currentSet,
+        score: score.correct,
+      },
+    };
+
+    const result = await httpAction(data);
+
+    if (result?.status) {
+      toast.success(result?.message || "Test submitted successfully");
+    } else {
+      toast.error(result?.message || "Submission failed");
+    }
   };
 
   /* =================  (PRACTICE MODE) ================= */

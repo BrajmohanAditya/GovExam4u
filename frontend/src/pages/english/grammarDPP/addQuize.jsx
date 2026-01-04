@@ -127,22 +127,7 @@ const AddQuize = () => {
           {({ handleChange, handleBlur, touched, errors, values }) => (
             <Form className="mt-6">
               {/* Set Name */}
-              {/* <TextField
-                name="set"
-                label="e.g. Set 1"
-                fullWidth
-                margin="normal"
-                value={values.set}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                error={touched.set && Boolean(errors.set)}
-                helperText={touched.set && errors.set}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">Set</InputAdornment>
-                  ),
-                }}
-              /> */}
+
 
               <TextField
                 name="set"
