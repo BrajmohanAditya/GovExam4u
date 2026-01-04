@@ -124,7 +124,7 @@ export default function QuizPage() {
     setPostView("result");
   };
 
-  /* ================= RETAKE (PRACTICE MODE) ================= */
+  /* =================  (PRACTICE MODE) ================= */
   const handleRetake = () => {
     setSelectedAnswers({});
     setLockedAnswers({});
@@ -251,7 +251,7 @@ export default function QuizPage() {
                     onClick={handleRetake}
                     className="px-3 py-2 bg-yellow-500 text-white rounded"
                   >
-                    Retake
+                    Practice
                   </button>
                 </div>
               </div>
