@@ -72,6 +72,7 @@ export default function QuizPage() {
       setTimerActive(false);
       setRemainingTime(0);
       setDbScore(res.score);
+      setSelectedAnswers(res.answers || {});
       return; // 🔥 STOP here
     }
 
@@ -149,6 +150,7 @@ export default function QuizPage() {
       body: {
         set: currentSet,
         score: result.finalScore,
+        answers: selectedAnswers,
       },
     };
     const res = await httpAction(data);
