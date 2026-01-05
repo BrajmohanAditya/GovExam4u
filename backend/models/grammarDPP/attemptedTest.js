@@ -9,7 +9,16 @@ const submitTestSchema = new Schema(
       ref: "registeredUser", // same as your system
       required: true,
     },
+    name: {
+      type: String,
+      required: true,
+    },
 
+    email: {
+      type: String,
+      required: true,
+      lowercase: true,
+    },
     set: {
       type: String, // e.g. "Set-1"
       required: true,

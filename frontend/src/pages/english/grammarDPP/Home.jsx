@@ -6,6 +6,7 @@ import QuestionCard from "./QuestionCard";
 import QuizIntro from "./QuizIntro";
 import httpAction from "./httpAction";
 import apis from "./apis";
+import { toast } from "react-hot-toast";
 
 export default function QuizPage() {
   /* ================= FETCH DATA ================= */
@@ -51,72 +52,42 @@ export default function QuizPage() {
 
   const [postView, setPostView] = useState("result");
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
+  const [dbScore, setDbScore] = useState(null);
   /* ================= SET SELECTION ================= */
-
 
   const selectSet = async (setName) => {
     const data = {
-      url: apis().submitTest,
+      url: apis().verifyAttempt,
       method: "POST",
-      body: {
-        // ✅ FIX
-        set: setName,
-      },
+      body: { set: setName },
     };
 
     const res = await httpAction(data);
 
-    if (!res?.status) {
-      alert("❌ You can attempt this test only once");
-      return;
+    // 🟡 CASE 1: Already attempted → SHOW RESULT
+    if (res?.attempted) {
+      setCurrentSet(setName);
+      setTestSubmitted(true);
+      setPostView("result");
+      setTimerActive(false);
+      setRemainingTime(0);
+      setDbScore(res.score);
+      return; // 🔥 STOP here
     }
 
-    // ✅ Allowed
-    setCurrentSet(setName);
-    setCurrentQuestionIndex(0);
-    setSelectedAnswers({});
-    setLockedAnswers({});
-    setTestSubmitted(false);
-    setRetakeMode(false);
-    setPostView("result");
-    setRemainingTime(10 * 60);
-    setTimerActive(true);
+    // 🟢 CASE 2: Not attempted → START TEST
+    if (res?.status) {
+      setCurrentSet(setName);
+      setCurrentQuestionIndex(0);
+      setSelectedAnswers({});
+      setLockedAnswers({});
+      setTestSubmitted(false);
+      setRetakeMode(false);
+      setPostView("result");
+      setRemainingTime(10 * 60);
+      setTimerActive(true);
+    }
   };
-
-  // const selectSet = async (setName) => {
-  //   const data = {
-  //     url: apis().submitTest,
-  //     method: "POST",
-  //     body: { set: setName },
-  //   };
-
-  //   const res = await httpAction(data);
-
-  //   // 🟡 CASE 1: Already attempted → SHOW RESULT
-  //   if (res?.attempted) {
-  //     setCurrentSet(setName);
-  //     setTestSubmitted(true);
-  //     setPostView("result");
-  //     setTimerActive(false);
-  //     setRemainingTime(0);
-
-  //     return; // 🔥 STOP here
-  //   }
-
-  //   // 🟢 CASE 2: Not attempted → START TEST
-  //   if (res?.status) {
-  //     setCurrentSet(setName);
-  //     setCurrentQuestionIndex(0);
-  //     setSelectedAnswers({});
-  //     setLockedAnswers({});
-  //     setTestSubmitted(false);
-  //     setRetakeMode(false);
-  //     setPostView("result");
-  //     setRemainingTime(10 * 60);
-  //     setTimerActive(true);
-  //   }
-  // };
 
   /* ================= QUESTIONS ================= */
   const currentQuestions = useMemo(() => {
@@ -168,6 +139,12 @@ export default function QuizPage() {
 
   const handleSubmit = async () => {
     if (testSubmitted) return;
+    let correct = 0;
+    currentQuestions.forEach((q) => {
+      if (selectedAnswers[q._id] === q.correctAnswerIndex) {
+        correct++;
+      }
+    });
     setTestSubmitted(true);
     setTimerActive(false);
     setPostView("result");
@@ -176,13 +153,13 @@ export default function QuizPage() {
       method: "POST",
       body: {
         set: currentSet,
-        score: score.correct,
+        score: correct,
       },
     };
-
     const result = await httpAction(data);
 
     if (result?.status) {
+      setDbScore(correct);
       toast.success(result?.message || "Test submitted successfully");
     } else {
       toast.error(result?.message || "Submission failed");
@@ -322,11 +299,27 @@ export default function QuizPage() {
               </div>
 
               {postView === "result" && (
-                <div className="bg-white p-6 rounded shadow max-w-xl mx-auto">
-                  <h3 className="text-lg font-semibold">Score</h3>
-                  <p className="mt-2">
-                    {score.correct} / {score.total}
-                  </p>
+
+                <div className="bg-white p-6 rounded shadow w-2xl ">
+                  <h3 className="text-lg font-semibold mb-4 text-center">
+                    Score Summary
+                  </h3>
+
+                  <div className="space-y-3 ">
+                    <p className="text-base font-medium">
+                      Total Marks :{" "}
+                      <span className="font-semibold text-gray-700">
+                        {score.total}
+                      </span>
+                    </p>
+
+                    <p className="text-base font-medium">
+                      Your Score :{" "}
+                      <span className="font-bold text-blue-600">
+                        {dbScore !== null ? dbScore : score.correct}
+                      </span>
+                    </p>
+                  </div>
                 </div>
               )}
 

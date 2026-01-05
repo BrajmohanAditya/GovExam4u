@@ -5,7 +5,7 @@ const submitTest = async (req, res) => {
   try {
     // 🔐 Logged-in user id (JWT middleware se)
     const userId = req.user._id;
-
+    const { name, email } = req.user;
     // 📦 Frontend se data
     const { set, score } = req.body;
 
@@ -20,6 +20,8 @@ const submitTest = async (req, res) => {
     // ✅ SAVE ATTEMPT (DB unique index handles duplicates)
     await attemptedTest.create({
       userId,
+      name,
+      email,
       set,
       score,
       submittedAt: new Date(),
@@ -37,7 +39,6 @@ const submitTest = async (req, res) => {
         message: "Test already submitted",
       });
     }
-
 
     return res.status(500).json({
       status: false,
