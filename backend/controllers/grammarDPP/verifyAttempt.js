@@ -19,7 +19,7 @@ const verifyAttempt = async (req, res) => {
       status: true,
       attempted: !!attempt,
       score: attempt?.score ?? null, // optional
-      answers: attempt?.answers ?? {},
+      // answers: attempt?.answers ?? {},
     });
   } catch (err) {
     return res.status(500).json({

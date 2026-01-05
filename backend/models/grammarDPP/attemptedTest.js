@@ -28,10 +28,10 @@ const submitTestSchema = new Schema(
       type: Number,
       default: 0,
     },
-    answers: {
-      type: Map,
-      of: Number, // questionId -> selectedOptionIndex
-    },
+    // answers: {
+    //   type: Map,
+    //   of: Number, // questionId -> selectedOptionIndex
+    // },
 
     submittedAt: {
       type: Date,

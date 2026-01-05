@@ -72,7 +72,7 @@ export default function QuizPage() {
       setTimerActive(false);
       setRemainingTime(0);
       setDbScore(res.score);
-      setSelectedAnswers(res.answers || {});
+      // setSelectedAnswers(res.answers || {});
       return; // 🔥 STOP here
     }
 
@@ -150,7 +150,7 @@ export default function QuizPage() {
       body: {
         set: currentSet,
         score: result.finalScore,
-        answers: selectedAnswers,
+        // answers: selectedAnswers,
       },
     };
     const res = await httpAction(data);
@@ -205,16 +205,6 @@ export default function QuizPage() {
       total: currentQuestions.length,
     };
   };
-
-  // const score = useMemo(() => {
-  //   let correct = 0;
-  //   currentQuestions.forEach((q) => {
-  //     if (selectedAnswers[q._id] === q.correctAnswerIndex) {
-  //       correct++;
-  //     }
-  //   });
-  //   return { correct, total: currentQuestions.length };
-  // }, [currentQuestions, selectedAnswers]);
 
   const score = useMemo(
     () => calculateResult(),

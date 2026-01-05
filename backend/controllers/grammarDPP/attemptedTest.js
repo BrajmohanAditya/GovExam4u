@@ -24,7 +24,7 @@ const submitTest = async (req, res) => {
       email,
       set,
       score,
-      answers,
+      // answers,
       submittedAt: new Date(),
     });
 
