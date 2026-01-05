@@ -55,6 +55,10 @@ export default function QuizPage() {
   const [dbScore, setDbScore] = useState(null);
   /* ================= SET SELECTION ================= */
   const selectSet = async (setName) => {
+    // 🔥 AUTO-SUBMIT CONDITION
+    if (currentSet && !testSubmitted) {
+      await handleSubmit(true); // auto-submit current set
+    }
     const data = {
       url: apis().verifyAttempt,
       method: "POST",
@@ -137,7 +141,7 @@ export default function QuizPage() {
 
   /* ================= SUBMIT ================= */
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (isAuto = false) => {
     if (testSubmitted) return;
     const result = calculateResult();
     setTestSubmitted(true);
@@ -283,7 +287,7 @@ export default function QuizPage() {
           {/* ================= RESULT / ANALYSIS ================= */}
           {currentSet && testSubmitted && (
             <>
-              <div className="flex justify-between mb-4">
+              <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center mb-4">
                 <h2 className="font-semibold">Result: {currentSet}</h2>
                 <div className="flex gap-2">
                   <button
@@ -318,21 +322,22 @@ export default function QuizPage() {
               </div>
 
               {postView === "result" && (
-                <div className="bg-white p-6 rounded shadow w-2xl ">
-                  <h3 className="text-lg font-semibold mb-4 text-center">
+
+                <div className="max-w-md mx-auto bg-white p-6 rounded shadow text-gray-800">
+                  <h3 className="text-base sm:text-lg font-semibold mb-4 text-center">
                     Score Summary
                   </h3>
 
-                  <div className="space-y-3 ">
-                    <p className="text-base font-medium">
-                      Total Marks :{" "}
+                  <div className="space-y-2 sm:space-y-3 text-sm sm:text-base">
+                    <p className="font-medium flex justify-between sm:block">
+                      <span>Total Marks :</span>
                       <span className="font-semibold text-gray-700">
                         {score.total}
                       </span>
                     </p>
 
-                    <p className="text-base font-medium">
-                      Your Score :{" "}
+                    <p className="font-medium flex justify-between sm:block">
+                      <span>Your Score :</span>
                       <span className="font-bold text-blue-600">
                         {dbScore !== null ? dbScore : score.correct}
                       </span>
