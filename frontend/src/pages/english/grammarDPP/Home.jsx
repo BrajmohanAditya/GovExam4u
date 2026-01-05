@@ -139,12 +139,7 @@ export default function QuizPage() {
 
   const handleSubmit = async () => {
     if (testSubmitted) return;
-    let correct = 0;
-    currentQuestions.forEach((q) => {
-      if (selectedAnswers[q._id] === q.correctAnswerIndex) {
-        correct++;
-      }
-    });
+    const result = calculateResult();
     setTestSubmitted(true);
     setTimerActive(false);
     setPostView("result");
@@ -153,16 +148,15 @@ export default function QuizPage() {
       method: "POST",
       body: {
         set: currentSet,
-        score: correct,
+        score: result.finalScore,
       },
     };
-    const result = await httpAction(data);
-
-    if (result?.status) {
-      setDbScore(correct);
-      toast.success(result?.message || "Test submitted successfully");
+    const res = await httpAction(data);
+    if (res?.status) {
+      setDbScore(result.finalScore);
+      toast.success(res?.message || "Test submitted successfully");
     } else {
-      toast.error(result?.message || "Submission failed");
+      toast.error(res?.message || "Submission failed");
     }
   };
 
@@ -181,15 +175,49 @@ export default function QuizPage() {
   };
 
   /* ================= SCORE ================= */
-  const score = useMemo(() => {
+
+  const calculateResult = () => {
     let correct = 0;
+    let wrong = 0;
+
     currentQuestions.forEach((q) => {
-      if (selectedAnswers[q._id] === q.correctAnswerIndex) {
+      const selected = selectedAnswers[q._id];
+
+      if (selected === undefined) return; // unattempted
+
+      if (selected === q.correctAnswerIndex) {
         correct++;
+      } else {
+        wrong++;
       }
     });
-    return { correct, total: currentQuestions.length };
-  }, [currentQuestions, selectedAnswers]);
+
+    const negativeMarks = wrong * 0.25;
+    const finalScore = correct - negativeMarks;
+
+    return {
+      correct,
+      wrong,
+      unattempted: currentQuestions.length - (correct + wrong),
+      finalScore: Number(finalScore.toFixed(2)), // 2 decimal precision
+      total: currentQuestions.length,
+    };
+  };
+
+  // const score = useMemo(() => {
+  //   let correct = 0;
+  //   currentQuestions.forEach((q) => {
+  //     if (selectedAnswers[q._id] === q.correctAnswerIndex) {
+  //       correct++;
+  //     }
+  //   });
+  //   return { correct, total: currentQuestions.length };
+  // }, [currentQuestions, selectedAnswers]);
+
+  const score = useMemo(
+    () => calculateResult(),
+    [currentQuestions, selectedAnswers]
+  );
 
   /* ================= UI ================= */
   return (
@@ -299,7 +327,6 @@ export default function QuizPage() {
               </div>
 
               {postView === "result" && (
-
                 <div className="bg-white p-6 rounded shadow w-2xl ">
                   <h3 className="text-lg font-semibold mb-4 text-center">
                     Score Summary
