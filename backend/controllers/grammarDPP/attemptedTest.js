@@ -7,7 +7,7 @@ const submitTest = async (req, res) => {
     const userId = req.user._id;
     const { name, email } = req.user;
     // 📦 Frontend se data
-    const { set, score } = req.body;
+    const { set, score, answers } = req.body;
 
     // 🛑 Basic validation
     if (!set) {
@@ -24,7 +24,7 @@ const submitTest = async (req, res) => {
       email,
       set,
       score,
-      // answers,
+      answers,
       submittedAt: new Date(),
     });
 

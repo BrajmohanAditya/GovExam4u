@@ -7,7 +7,6 @@ import  submitTest  from "../controllers/grammarDPP/attemptedTest.js";
 import verifyAttempt from "../controllers/grammarDPP/verifyAttempt.js";
 
 const router = express.Router();
-//auth, adminRoles("editor", "admin"),
 router.post("/addQuize",auth, adminRoles("editor", "admin"),  addQuiz);
 router.get("/getQuiz",  getQuiz);
 router.post("/submitTest",auth, submitTest)

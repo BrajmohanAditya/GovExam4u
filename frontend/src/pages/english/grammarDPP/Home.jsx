@@ -54,7 +54,6 @@ export default function QuizPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [dbScore, setDbScore] = useState(null);
   /* ================= SET SELECTION ================= */
-
   const selectSet = async (setName) => {
     const data = {
       url: apis().verifyAttempt,
@@ -72,7 +71,7 @@ export default function QuizPage() {
       setTimerActive(false);
       setRemainingTime(0);
       setDbScore(res.score);
-      // setSelectedAnswers(res.answers || {});
+      setSelectedAnswers(res.answers || {});
       return; // 🔥 STOP here
     }
 
@@ -150,7 +149,7 @@ export default function QuizPage() {
       body: {
         set: currentSet,
         score: result.finalScore,
-        // answers: selectedAnswers,
+        answers: selectedAnswers,
       },
     };
     const res = await httpAction(data);
@@ -244,7 +243,7 @@ export default function QuizPage() {
                 </div>
 
                 {!retakeMode && (
-                  <div className="flex gap-3">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                     <Timer
                       initialSeconds={remainingTime}
                       isActive={timerActive}
@@ -254,9 +253,9 @@ export default function QuizPage() {
                     />
                     <button
                       onClick={handleSubmit}
-                      className="px-3 py-2 bg-red-600 text-white rounded"
+                      className="w-full sm:w-auto px-4 py-2 bg-red-600 text-white rounded font-medium"
                     >
-                      Submit Test
+                      Submit
                     </button>
                   </div>
                 )}
