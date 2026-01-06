@@ -75,7 +75,7 @@ export default function QuizPage() {
 
   const selectSet = async (setName) => {
     // 🔥 AUTO-SUBMIT CONDITION
-    if (currentSet && !testSubmitted) {
+    if (currentSet && !testSubmitted && !retakeMode) {
       await handleSubmit(true); // auto-submit current set
     }
     const data = {
