@@ -49,7 +49,7 @@ export default function Navbar({ onMobileMenu }) {
 
           <div className="ml-1">
             <span className="font-bold text-lg sm:text-xl text-gray-800">
-              English <span className="text-blue-600">Practice Book</span>
+              Daily <span className="text-blue-600">Practice Book</span>
             </span>
           </div>
         </div>
