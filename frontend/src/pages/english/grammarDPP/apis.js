@@ -9,6 +9,7 @@ const apis = () => {
     getQuiz: `${baseUrl}/grammarDPP/getQuiz`,
     submitTest: `${baseUrl}/grammarDPP/submitTest`,
     verifyAttempt: `${baseUrl}/grammarDPP/verifyAttempt`,
+    leaderboard: `${baseUrl}/grammarDPP/leaderboard`,
   };
   return list;
 };

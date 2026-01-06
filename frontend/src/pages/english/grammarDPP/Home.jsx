@@ -52,8 +52,26 @@ export default function QuizPage() {
 
   const [postView, setPostView] = useState("result");
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [dbScore, setDbScore] = useState(null);
+  const [dbScore, setDbScore] = useState(null); // score from database
+  const [leaderboard, setLeaderboard] = useState([]);
+  const [userName, setUserName] = useState("");
+
   /* ================= SET SELECTION ================= */
+
+  const fetchLeaderboard = async (setName) => {
+    const data = {
+      url: apis().leaderboard,
+      method: "POST",
+      body: { set: setName },
+    };
+
+    const res = await httpAction(data);
+
+    if (res?.status) {
+      setLeaderboard(res.data);
+    }
+  };
+
   const selectSet = async (setName) => {
     // 🔥 AUTO-SUBMIT CONDITION
     if (currentSet && !testSubmitted) {
@@ -64,7 +82,8 @@ export default function QuizPage() {
       method: "POST",
       body: { set: setName },
     };
-
+    // 🔥 FETCH ALL USERS + MARKS FOR ACTIVE SET
+    fetchLeaderboard(setName);
     const res = await httpAction(data);
 
     // 🟡 CASE 1: Already attempted → SHOW RESULT
@@ -74,7 +93,8 @@ export default function QuizPage() {
       setPostView("result");
       setTimerActive(false);
       setRemainingTime(0);
-      setDbScore(res.score);
+      setDbScore(res.score); // set score from database
+      setUserName(res.name);
       setSelectedAnswers(res.answers || {});
       return; // 🔥 STOP here
     }
@@ -92,6 +112,14 @@ export default function QuizPage() {
       setTimerActive(true);
     }
   };
+  /* ================= CURRENT USER RANK ================= */
+  const currentUserRank = useMemo(() => {
+    if (!leaderboard.length || !userName) return null;
+
+    const index = leaderboard.findIndex((u) => u.name === userName);
+
+    return index !== -1 ? index + 1 : null;
+  }, [leaderboard, userName]);
 
   /* ================= QUESTIONS ================= */
   const currentQuestions = useMemo(() => {
@@ -291,17 +319,6 @@ export default function QuizPage() {
                 <h2 className="font-semibold">Result: {currentSet}</h2>
                 <div className="flex gap-2">
                   <button
-                    onClick={() => setPostView("result")}
-                    className={`px-3 py-2 rounded ${
-                      postView === "result"
-                        ? "bg-blue-600 text-white"
-                        : "bg-white border"
-                    }`}
-                  >
-                    Result
-                  </button>
-
-                  <button
                     onClick={() => setPostView("analysis")}
                     className={`px-3 py-2 rounded ${
                       postView === "analysis"
@@ -320,28 +337,75 @@ export default function QuizPage() {
                   </button>
                 </div>
               </div>
+              {/* ===== SCORE SUMMARY CARD ===== */}
 
               {postView === "result" && (
+                <div className="flex flex-col lg:flex-row gap-6 justify-center">
+                  <div className="max-w-md w-full bg-white p-6 rounded shadow text-gray-800">
+                    <h3 className="text-base sm:text-lg font-semibold mb-4 text-center">
+                      Score Summary
+                    </h3>
 
-                <div className="max-w-md mx-auto bg-white p-6 rounded shadow text-gray-800">
-                  <h3 className="text-base sm:text-lg font-semibold mb-4 text-center">
-                    Score Summary
-                  </h3>
+                    <div className="space-y-2 sm:space-y-3 text-sm sm:text-base">
+                      <p className="text-lg text-gray-500 text-center mb-3">
+                        <span className="font-medium">{userName}</span>
+                      </p>
+                      <p className="font-medium grid grid-cols-2">
+                        <span>Total Marks :</span>
+                        <span className="font-semibold text-blue-600 text-right">
+                          {score.total}
+                        </span>
+                      </p>
 
-                  <div className="space-y-2 sm:space-y-3 text-sm sm:text-base">
-                    <p className="font-medium flex justify-between sm:block">
-                      <span>Total Marks :</span>
-                      <span className="font-semibold text-gray-700">
-                        {score.total}
-                      </span>
-                    </p>
+                      <p className="font-medium grid grid-cols-2">
+                        <span>Your Score :</span>
+                        <span className="font-bold text-blue-600 text-right">
+                          {dbScore !== null ? dbScore : score.correct}
+                        </span>
+                      </p>
 
-                    <p className="font-medium flex justify-between sm:block">
-                      <span>Your Score :</span>
-                      <span className="font-bold text-blue-600">
-                        {dbScore !== null ? dbScore : score.correct}
-                      </span>
-                    </p>
+                      {/* 🏆 RANK */}
+                      {currentUserRank && (
+                        <p className="font-medium grid grid-cols-2">
+                          <span>Your Rank :</span>
+                          <span className="font-bold text-blue-600 text-right">
+                            {currentUserRank}
+                          </span>
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* ===== LEADERBOARD CARD ===== */}
+                  <div className="max-w-md w-full bg-white p-8 rounded shadow">
+                    <h3 className="text-base sm:text-lg font-semibold mb-4 text-center">
+                      Leaderboard – {currentSet}
+                    </h3>
+
+                    {/* 🔥 SCROLLABLE AREA */}
+                    <div className="max-h-64 overflow-y-auto">
+                      {leaderboard.length === 0 ? (
+                        <p className="text-center text-sm text-gray-500">
+                          No attempts yet
+                        </p>
+                      ) : (
+                        <ul className=" text-sm sm:text-base p-6">
+                          {leaderboard.map((u, idx) => (
+                            <li
+                              key={u.userId}
+                              className="flex justify-between py-2"
+                            >
+                              <span className="font-medium">
+                                {idx + 1}: {u.name}
+                              </span>
+                              <span className="font-semibold text-blue-600">
+                                {u.score}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
                   </div>
                 </div>
               )}
