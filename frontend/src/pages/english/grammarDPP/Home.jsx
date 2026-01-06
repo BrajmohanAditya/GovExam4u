@@ -56,6 +56,7 @@ export default function QuizPage() {
   const [leaderboard, setLeaderboard] = useState([]);
   const [userName, setUserName] = useState("");
 
+
   /* ================= SET SELECTION ================= */
 
   const fetchLeaderboard = async (setName) => {
@@ -110,8 +111,12 @@ export default function QuizPage() {
       setPostView("result");
       setRemainingTime(10 * 60);
       setTimerActive(true);
+
     }
   };
+
+
+
   /* ================= CURRENT USER RANK ================= */
   const currentUserRank = useMemo(() => {
     if (!leaderboard.length || !userName) return null;
@@ -389,21 +394,29 @@ export default function QuizPage() {
                           No attempts yet
                         </p>
                       ) : (
-                        <ul className=" text-sm sm:text-base p-6">
-                          {leaderboard.map((u, idx) => (
-                            <li
-                              key={u.userId}
-                              className="flex justify-between py-2"
-                            >
-                              <span className="font-medium">
-                                {idx + 1}: {u.name}
-                              </span>
-                              <span className="font-semibold text-blue-600">
-                                {u.score}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
+                        <div className="max-h-64 overflow-y-auto">
+                          <table className="w-full text-sm sm:text-base border-collapse">
+                            <thead className="sticky top-0 bg-gray-100">
+                              <tr>
+                                <th className="text-left p-2">Rank</th>
+                                <th className="text-left p-2">Name</th>
+                                <th className="text-right p-2">Score</th>
+                              </tr>
+                            </thead>
+
+                            <tbody>
+                              {leaderboard.map((u, idx) => (
+                                <tr key={u.userId}>
+                                  <td className="p-2">{idx + 1}</td>
+                                  <td className="p-2">{u.name}</td>
+                                  <td className="p-4 text-right font-semibold text-blue-600">
+                                    {u.score}
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
                       )}
                     </div>
                   </div>

@@ -40,7 +40,7 @@ const sidebarItems = [
     link: "#/descriptive",
   },
   { icon: faNewspaper, label: "Current Affair", link: "#/ca-quiz" },
-  { icon: faFileSignature, label: "Daily Quiz", link: "#" },
+  { icon: faFileSignature, label: "Daily Quiz", link: "#/grammarDPP" },
   { icon: faCalendarDays, label: "Track Your Exam", link: "#/examTracker" },
   { icon: faHandHoldingDollar, label: "Win Prize", link: "#" },
   { icon: faAddressCard, label: "Our Selections", link: "#" },
