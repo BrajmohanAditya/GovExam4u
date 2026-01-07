@@ -7,6 +7,7 @@ import QuizIntro from "./QuizIntro";
 import httpAction from "./httpAction";
 import apis from "./apis";
 import { toast } from "react-hot-toast";
+import InstructionModal from "./InstructionModal";
 
 export default function QuizPage() {
   /* ================= FETCH DATA ================= */
@@ -55,7 +56,8 @@ export default function QuizPage() {
   const [dbScore, setDbScore] = useState(null); // score from database
   const [leaderboard, setLeaderboard] = useState([]);
   const [userName, setUserName] = useState("");
-
+  const [showInstructions, setShowInstructions] = useState(false);
+  const [pendingSet, setPendingSet] = useState(null);
 
   /* ================= SET SELECTION ================= */
 
@@ -84,8 +86,11 @@ export default function QuizPage() {
       body: { set: setName },
     };
     // 🔥 FETCH ALL USERS + MARKS FOR ACTIVE SET
-    fetchLeaderboard(setName);
     const res = await httpAction(data);
+
+    if (res?.status || res?.attempted) {
+      fetchLeaderboard(setName);
+    }
 
     // 🟡 CASE 1: Already attempted → SHOW RESULT
     if (res?.attempted) {
@@ -102,20 +107,27 @@ export default function QuizPage() {
 
     // 🟢 CASE 2: Not attempted → START TEST
     if (res?.status) {
-      setCurrentSet(setName);
+
+      setPendingSet(setName);
+      setShowInstructions(true);
+    }
+  };
+    const startTest = () => {
+      setShowInstructions(false);
+
+      setCurrentSet(pendingSet);
       setCurrentQuestionIndex(0);
       setSelectedAnswers({});
       setLockedAnswers({});
       setTestSubmitted(false);
       setRetakeMode(false);
       setPostView("result");
+
       setRemainingTime(10 * 60);
       setTimerActive(true);
 
-    }
-  };
-
-
+      setPendingSet(null);
+    };
 
   /* ================= CURRENT USER RANK ================= */
   const currentUserRank = useMemo(() => {
@@ -394,7 +406,7 @@ export default function QuizPage() {
                           No attempts yet
                         </p>
                       ) : (
-                        <div className="max-h-64 overflow-y-auto">
+                        <div>
                           <table className="w-full text-sm sm:text-base border-collapse">
                             <thead className="sticky top-0 bg-gray-100">
                               <tr>
@@ -406,7 +418,7 @@ export default function QuizPage() {
 
                             <tbody>
                               {leaderboard.map((u, idx) => (
-                                <tr key={u.userId}>
+                                <tr key={`${u.userId}-${idx}`}>
                                   <td className="p-2">{idx + 1}</td>
                                   <td className="p-2">{u.name}</td>
                                   <td className="p-4 text-right font-semibold text-blue-600">
@@ -440,6 +452,14 @@ export default function QuizPage() {
           )}
         </div>
       </main>
+      <InstructionModal
+        open={showInstructions}
+        onClose={() => {
+          setShowInstructions(false);
+          setPendingSet(null);
+        }}
+        onConfirm={startTest}
+      />
     </div>
   );
 }
