@@ -180,9 +180,7 @@ const AddQuize = () => {
                       label={`Option ${index + 1}`}
                       fullWidth
                       value={values[opt]}
-                      onChange={(e) =>
-                        setFieldValue("explanation", e.target.value)
-                      }
+                      onChange={(e) => setFieldValue(opt, e.target.value)}
                       onBlur={handleBlur}
                       error={touched[opt] && Boolean(errors[opt])}
                       helperText={touched[opt] && errors[opt]}
