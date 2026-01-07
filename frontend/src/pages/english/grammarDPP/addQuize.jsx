@@ -1,8 +1,6 @@
-
-
 import React from "react";
 import { Formik, Form } from "formik";
-import {  InputAdornment } from "@mui/material";
+import { InputAdornment } from "@mui/material";
 
 import * as Yup from "yup";
 import {
@@ -125,7 +123,14 @@ const AddQuize = () => {
           validateOnChange={false}
           validateOnBlur={true}
         >
-          {({ handleChange, handleBlur, touched, errors, values }) => (
+          {({
+            handleChange,
+            handleBlur,
+            touched,
+            errors,
+            values,
+            setFieldValue,
+          }) => (
             <Form className="mt-6">
               {/* Set Name */}
 
@@ -159,7 +164,7 @@ const AddQuize = () => {
                 fullWidth
                 margin="normal"
                 value={values.question}
-                onChange={handleChange}
+                onChange={(e) => setFieldValue("question", e.target.value)}
                 onBlur={handleBlur}
                 error={touched.question && Boolean(errors.question)}
                 helperText={touched.question && errors.question}
@@ -175,7 +180,9 @@ const AddQuize = () => {
                       label={`Option ${index + 1}`}
                       fullWidth
                       value={values[opt]}
-                      onChange={handleChange}
+                      onChange={(e) =>
+                        setFieldValue("explanation", e.target.value)
+                      }
                       onBlur={handleBlur}
                       error={touched[opt] && Boolean(errors[opt])}
                       helperText={touched[opt] && errors[opt]}
@@ -238,8 +245,8 @@ const AddQuize = () => {
                 fullWidth
                 margin="normal"
                 value={values.explanation}
-                onChange={handleChange}
                 onBlur={handleBlur}
+                onChange={(e) => setFieldValue("explanation", e.target.value)}
                 error={touched.explanation && Boolean(errors.explanation)}
                 helperText={touched.explanation && errors.explanation}
               />
