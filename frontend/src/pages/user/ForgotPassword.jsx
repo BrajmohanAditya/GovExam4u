@@ -71,7 +71,6 @@ const ForgotPassword = () => {
                     fullWidth
                     type="submit"
                     endIcon={<Send />}
-                    onClick={() => navigate("/otpVerify")}
                   >
                     Send otp
                   </Button>
