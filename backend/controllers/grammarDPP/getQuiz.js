@@ -2,7 +2,7 @@
 import grammarDPPdataBase from "../../models/grammarDPP/grammarDPP.js";
 const getQuiz = async (req, res, next) => {
   try {
-    const cards = await grammarDPPdataBase.find().sort({ createdAt: -1 });
+    const cards = await grammarDPPdataBase.find().sort({ createdAt: 1 });
 
     return res.status(200).json({
       status: true,
