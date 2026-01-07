@@ -38,8 +38,9 @@ const AddQuize = () => {
   // 🔹 Validation Schema
   const validationSchema = Yup.object({
     set: Yup.string()
-      .required("Set name is required")
-      .max(50, "Set name too long"),
+      .matches(/^\d+$/, "Only numbers allowed")
+      .required("Set number is required"),
+
     question: Yup.string().required("Question is required"),
     option1: Yup.string().required("Option 1 is required"),
     option2: Yup.string().required("Option 2 is required"),
@@ -128,21 +129,13 @@ const AddQuize = () => {
             <Form className="mt-6">
               {/* Set Name */}
 
-
               <TextField
                 name="set"
                 label="Set Number"
                 fullWidth
                 margin="normal"
                 value={values.set}
-                onChange={(e) => {
-                  const value = e.target.value;
-
-                  // ✅ allow ONLY numbers
-                  if (/^\d*$/.test(value)) {
-                    handleChange(e);
-                  }
-                }}
+                onChange={handleChange}
                 onBlur={handleBlur}
                 error={touched.set && Boolean(errors.set)}
                 helperText={touched.set && errors.set}
