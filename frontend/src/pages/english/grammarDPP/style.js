@@ -34,4 +34,3 @@ export const QuizIntroStyle = {
   time: "mt-2 text-sm text-blue-600 font-semibold",
 };
 
-
