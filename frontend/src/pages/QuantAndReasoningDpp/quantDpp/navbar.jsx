@@ -78,7 +78,7 @@ export default function Navbar({ onMobileMenu }) {
               </svg>
               <span className="hidden sm:inline">Add Quiz</span>
             </button>
-             {/* )}    */}
+            {/* )}   */}
         </div>
       </div>
     </nav>
