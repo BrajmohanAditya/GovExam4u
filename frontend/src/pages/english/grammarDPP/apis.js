@@ -10,6 +10,13 @@ const apis = () => {
     submitTest: `${baseUrl}/grammarDPP/submitTest`,
     verifyAttempt: `${baseUrl}/grammarDPP/verifyAttempt`,
     leaderboard: `${baseUrl}/grammarDPP/leaderboard`,
+
+    // 🔐 LOCK APIs (IMPORTANT)
+    isLocked: (setName) =>
+      `${baseUrl}/grammarDPP/is-locked/${encodeURIComponent(setName)}`,
+
+    toggleLock: (setName) =>
+      `${baseUrl}/grammarDPP/toggle-lock/${encodeURIComponent(setName)}`,
   };
   return list;
 };

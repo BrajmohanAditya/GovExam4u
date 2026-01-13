@@ -58,8 +58,20 @@ export default function QuizPage() {
   const [userName, setUserName] = useState("");
   const [showInstructions, setShowInstructions] = useState(false);
   const [pendingSet, setPendingSet] = useState(null); // yaha v current set hi hai
+  const [isLocked, setIsLocked] = useState(); //--
 
   /* ================= SET SELECTION ================= */
+
+  const fetchLockStatus = async (setName) => {
+    const res = await httpAction({
+      url: apis().isLocked(setName),
+      method: "GET",
+    });
+
+    if (res?.status) {
+      setIsLocked(res.isLocked);
+    }
+  };
 
   const fetchLeaderboard = async (setName) => {
     const data = {
@@ -107,12 +119,35 @@ export default function QuizPage() {
 
     // 🟢 CASE 2: Not attempted → START TEST
     if (res?.status) {
+      await fetchLockStatus(setName);
       setPendingSet(setName);
       setShowInstructions(true);
     }
   };
-  const startTest = () => {
 
+  /* ================= LOCK TOGGLE ================= */
+
+
+    const handleToggleLock = async (setName, newValue) => {
+      const res = await httpAction({
+        url: apis().toggleLock(setName),
+        method: "PUT",
+        body: { isLocked: newValue },
+      });
+
+      if (res?.status) {
+        setIsLocked(res.isLocked);
+        toast.success(res.message || "Lock updated");
+      } else {
+        toast.error(res?.message || "Lock update failed");
+      }
+    };
+
+  const startTest = () => {
+    if (isLocked) {
+      toast.error("Exam is locked. You cannot start the test.");
+      return;
+    }
     setShowInstructions(false);
 
     setCurrentSet(pendingSet);
@@ -460,6 +495,8 @@ export default function QuizPage() {
         }}
         onConfirm={startTest}
         setName={pendingSet}
+        isLocked={isLocked}
+        onToggleLock={handleToggleLock}
       />
     </div>
   );

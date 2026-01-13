@@ -25,4 +25,3 @@ const httpAction = async (data) =>{
     }
 }
 export default httpAction; 
-
