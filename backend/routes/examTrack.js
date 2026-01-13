@@ -3,9 +3,9 @@ import wrapAsync from "../utils/wrapAsync.js";
 import { joiexamdateSchema } from "../joiSchema.js"; // Step 4
 import ExpressError from "../utils/ExpressError.js";
 import examdate from "../models/examTrack.js";
-import auth from "../middlewares/auth.js";
+import isLoggedIn from "../middlewares/isloggedIn.js";
 const router = express.Router();
-router.use(auth);
+router.use(isLoggedIn);
 
 //step- 4 , aim: restricting wrong data from hopscotch , work: creating middlemalwere.
 const validateExamDate = (req, res, next) => {
@@ -88,7 +88,7 @@ router.delete(
 router.post(
   "/",
   validateExamDate,
-  auth, // step- 4 , aim: restricting wrong data from hopscotch , work: middlemalwere implemented to restrict data.
+  isLoggedIn, // step- 4 , aim: restricting wrong data from hopscotch , work: middlemalwere implemented to restrict data.
   wrapAsync(async (req, res) => {
     const count = await examdate.countDocuments({ userId: req.user._id });
     if (count >= 9) {

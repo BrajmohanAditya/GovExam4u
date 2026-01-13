@@ -2,7 +2,7 @@
 import jwt from "jsonwebtoken";
 import User from "../models/user.js";
 
-const auth = async (req, res, next) => {
+const isLoggedIn = async (req, res, next) => {
   try {
     const accessToken = req.cookies.accessToken;
 
@@ -27,35 +27,4 @@ const auth = async (req, res, next) => {
   }
 };
 
-export default auth;   //  auth = isLoggedIn
-
-/*
-req.user = user; isko explain kr raha hu
-let bag = {};
-bag.apple = 10;
-{ apple: 10 }  // output
-
-req = {
-  body: {},
-  params: {},
-  query: {},
-  cookies: {},
-  headers: {}
-}
-req.user = user;
-req = {
-  body: {...},
-  params: {...},
-  query: {...},
-  cookies: {...},
-  headers: {...},
-
-  // ⭐ Tumne ye manually add kiya
-  user: {
-    _id: "12345",
-    name: "Rohan",
-    email: "rohan@gmail.com"
-  }
-}
-
-*/
+export default isLoggedIn;   //  isLoggedIn = isLoggedIn
