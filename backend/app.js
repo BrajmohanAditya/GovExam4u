@@ -12,7 +12,7 @@ import { fileURLToPath } from "url";
 import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import connectDB from "./utils/getConnection.js";
-import userRoutes from "./routes/user.js";
+import userRoutes from "./routes/loginLogout.js";
 import liveMockRoute from "./routes/liveMock.js"
 import errorHandler from "./middlewares/errorHandler.js";
 import grammarDPPRoute from "./routes/grammarDPP.js"

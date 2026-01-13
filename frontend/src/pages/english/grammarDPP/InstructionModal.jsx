@@ -1,3 +1,5 @@
+import useUserProfile from "../../../utils/userProfile.js";
+
 export default function InstructionModal({
   open,
   onClose,
@@ -6,6 +8,7 @@ export default function InstructionModal({
   isLocked,
   onToggleLock,
 }) {
+  const user = useUserProfile();
   // receiving prop
   if (!open) return null;
   return (
@@ -13,7 +16,6 @@ export default function InstructionModal({
       <div className="bg-white max-w-md w-full p-6 rounded-lg shadow-lg pointer-events-auto">
         {/* HEADER + LOCK STATUS */}
         <div className="flex items-center justify-between mb-4">
-
           <span
             className={`text-sm px-3 py-1 rounded-full font-medium
               ${
@@ -39,23 +41,21 @@ export default function InstructionModal({
         </ul>
 
         {/* LOCK / UNLOCK BUTTON (VISIBLE TO ALL FOR NOW) */}
-        <div className="mt-5 flex justify-between items-center">
-          <span className="text-sm font-medium text-gray-700">
-            Exam Control
-          </span>
-
-          <button
-            type="button"
-            onClick={() => onToggleLock(setName, !isLocked)}
-            className={`px-4 py-2 rounded text-sm font-semibold
-              ${isLocked ? "bg-green-600 text-white" : "bg-red-600 text-white"}
-            `}
-          >
-            {isLocked ? "Unlock Exam" : "Lock Exam"}
-          </button>
-        </div>
+        <div className="mt-5 flex justify-between items-center"></div>
 
         <div className="flex justify-end gap-3 mt-6">
+          {["admin", "editor"].includes(user?.role?.toLowerCase()) && (
+            <button
+              type="button"
+              onClick={() => onToggleLock(setName, !isLocked)}
+              className={`px-4 py-2 rounded text-sm font-semibold
+              ${isLocked ? "bg-green-600 text-white" : "bg-red-600 text-white"}
+            `}
+            >
+              {isLocked ? "Unlock Exam" : "Lock Exam"}
+            </button>
+          )}
+
           <button
             type="button"
             onClick={onClose}

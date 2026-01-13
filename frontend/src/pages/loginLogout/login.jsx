@@ -1,33 +1,34 @@
 import React, { useState } from "react";
-import { IoPersonAdd } from "react-icons/io5";
-import { TextField, Button, Input } from "@mui/material";
+import "./auth.css";
+import { IoIosLogIn } from "react-icons/io";
+import {
+  TextField,
+  Button,
+  InputAdornment,
+  IconButton,
+  Divider,
+} from "@mui/material";
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
-import { InputAdornment, IconButton, Divider } from "@mui/material";
+import { Visibility, VisibilityOff, ArrowBack } from "@mui/icons-material";
 import { FcGoogle } from "react-icons/fc";
-import useGeneral from "../user/hooks/useGeneral";
+import useGeneral from "./hooks/useGeneral";
 import apis from "./utils/apisUsers";
-import httpAction from "../user/utils/httpAction";
-import { toast } from "react-hot-toast";
+import httpAction from "./utils/httpAction";
 
-import { ArrowBack, Visibility, VisibilityOff } from "@mui/icons-material";
-
-const Register = () => {
+const Login = () => {
   const [visible, setVisible] = useState(false);
-
+  const { navigate } = useGeneral();
   const visibleHandler = () => {
     setVisible(!visible);
   };
-  const { navigate } = useGeneral();
 
   const initialState = {
-    name: "",
     email: "",
     password: "",
   };
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Name is required"),
     email: Yup.string().email("Invalid email").required("Email is required"),
     password: Yup.string()
       .min(6, "Password must be at least 6 characters")
@@ -35,16 +36,14 @@ const Register = () => {
   });
 
   const submitHandler = async (values) => {
-    // console.log(values);
     const data = {
-      url: apis().registerUser,
+      url: apis().loginUser,
       method: "POST",
       body: values,
     };
     const result = await httpAction(data);
     if (result?.status) {
-      toast.success(result?.message);
-      navigate("/login");
+      navigate("/");
     }
   };
 
@@ -60,16 +59,17 @@ const Register = () => {
         validationSchema={validationSchema}
         initialValues={initialState}
       >
-        {({ handleBlur, handleChange, values, touched, errors }) => (
+        {({ values, errors, touched, handleChange, handleBlur }) => (
           <Form>
             <div className="container_flex">
               <div className="row">
-                <div className="col auth_header">
-                  <IoPersonAdd />
-                  <p>Register New Account</p>
-                  <span>signup to continue</span>
+                <div className="auth_header">
+                  <IoIosLogIn />
+                  <p>welcome back</p>
+                  <span>Login to continue</span>
                 </div>
 
+                {/* Google login button */}
                 <Button
                   onClick={loginWithGoogle}
                   variant="outlined"
@@ -99,30 +99,17 @@ const Register = () => {
 
                 <div className="col">
                   <TextField
-                    name="name"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    error={touched.name && Boolean(errors.name)}
-                    helperText={touched.name && errors.name}
-                    label="your name"
+                    name="email"
+                    label="Email"
                     fullWidth
                     size="small"
-                  />
-                </div>
-
-                <div className="col">
-                  <TextField
-                    type="email"
-                    name="email"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     error={touched.email && Boolean(errors.email)}
                     helperText={touched.email && errors.email}
-                    label="your email"
-                    fullWidth
-                    size="small"
                   />
                 </div>
+
                 <div className="col">
                   <TextField
                     InputProps={{
@@ -134,21 +121,26 @@ const Register = () => {
                         </InputAdornment>
                       ),
                     }}
-                    type={visible ? "text" : "password"}
                     name="password"
-                    label="your password"
+                    label="Password"
+                    type={visible ? "text" : "password"}
+                    fullWidth
+                    size="small"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     error={touched.password && Boolean(errors.password)}
                     helperText={touched.password && errors.password}
-                    fullWidth
-                    size="small"
                   />
                 </div>
 
                 <div className="col">
-                  <Button variant="contained" fullWidth type="submit">
-                    Register
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    fullWidth
+                  >
+                    Login
                   </Button>
                 </div>
 
@@ -157,9 +149,19 @@ const Register = () => {
                     startIcon={<ArrowBack />}
                     variant="outlined"
                     fullWidth
-                    onClick={() => navigate("/login")}
+                    onClick={() => navigate("/register")}
                   >
-                    Back To Login
+                    Create new account
+                  </Button>
+                </div>
+                <div className="col">
+                  <Button
+                    onClick={() => navigate("/password/forgot")}
+                    variant="text"
+                    color="error"
+                    fullWidth
+                  >
+                    Forgot password?
                   </Button>
                 </div>
               </div>
@@ -170,4 +172,5 @@ const Register = () => {
     </div>
   );
 };
-export default Register;
+
+export default Login;

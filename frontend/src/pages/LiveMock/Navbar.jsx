@@ -7,25 +7,11 @@ import {
   CssBaseline,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import apis from "../user/utils/apisUsers.js";
-import httpAction from "../user/utils/httpAction";
+
+import useUserProfile from "../../utils/userProfile.js";
 
 export default function Nav() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const getUser = async () => {
-      const data = {
-        url: apis().userProfile,
-      };
-      const result = await httpAction(data);
-      if (result?.status) {
-        setUser(result?.user);
-      }
-    };
-    getUser();
-  }, []);
+  const user = useUserProfile();
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -48,8 +34,6 @@ export default function Nav() {
           >
             Today Live Mock
           </Typography>
-
-
 
           {["admin", "editor"].includes(user?.role?.toLowerCase()) && (
             <Button

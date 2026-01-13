@@ -4,9 +4,9 @@ import * as Yup from "yup";
 import { Form, Formik } from "formik";
 import { ArrowBack, Send } from "@mui/icons-material";
 import { GrPowerReset } from "react-icons/gr";
-import useGeneral from "../user/hooks/useGeneral";
+import useGeneral from "./hooks/useGeneral";
 import apis from "./utils/apisUsers";
-import httpAction from "../user/utils/httpAction";
+import httpAction from "./utils/httpAction";
 import { toast } from "react-hot-toast";
 const ForgotPassword = () => {
   const initialState = {
@@ -15,19 +15,18 @@ const ForgotPassword = () => {
 
   const validationSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Email is required"),
-
   });
   const { navigate } = useGeneral();
 
-  const submitHandler = async(values) => {
+  const submitHandler = async (values) => {
     // console.log(values);
     const data = {
-      url:apis().forgotPassword,
-      method:"POST",
-      body:{email:values.email}
-    }
+      url: apis().forgotPassword,
+      method: "POST",
+      body: { email: values.email },
+    };
     const result = await httpAction(data);
-    if(result?.status){
+    if (result?.status) {
       toast.success(result?.message);
       navigate("/otpVerify");
       localStorage.setItem("email", values.email);
@@ -93,6 +92,5 @@ const ForgotPassword = () => {
     </div>
   );
 };
-
 
 export default ForgotPassword;

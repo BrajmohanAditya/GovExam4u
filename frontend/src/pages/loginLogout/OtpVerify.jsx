@@ -6,13 +6,13 @@ import { Form, Formik } from "formik";
 import { MdOutlineVerified } from "react-icons/md";
 import "./auth.css";
 import Countdown from "react-countdown";
-import useGeneral from "../user/hooks/useGeneral";
+import useGeneral from "./hooks/useGeneral";
 import apis from "./utils/apisUsers";
-import httpAction from "../user/utils/httpAction";
+import httpAction from "./utils/httpAction";
 import { toast } from "react-hot-toast";
 
 const OtpVerify = () => {
-  const [timer, setTimer] = React.useState(5*60*1000);
+  const [timer, setTimer] = React.useState(5 * 60 * 1000);
   const initialState = {
     otp1: "",
     otp2: "",
@@ -61,26 +61,25 @@ const OtpVerify = () => {
       element.focus();
     }
   };
-    const getTimer = async () => {
-      const data = {
-        url: apis().getTime,
-        method: "POST",
-        body: { email: localStorage.getItem("email") },
-      };
-      const result = await httpAction(data);
-      if (result?.status) {
-        const minuts = result?.time - new Date().getTime();
-        setTimer(minuts);
-      }
+  const getTimer = async () => {
+    const data = {
+      url: apis().getTime,
+      method: "POST",
+      body: { email: localStorage.getItem("email") },
     };
+    const result = await httpAction(data);
+    if (result?.status) {
+      const minuts = result?.time - new Date().getTime();
+      setTimer(minuts);
+    }
+  };
   useEffect(() => {
-
     getTimer();
   }, []);
 
   const resendOtp = async () => {
     const data = {
-      url: apis().forgotPassword, 
+      url: apis().forgotPassword,
       method: "POST",
       body: { email: localStorage.getItem("email") },
     };
@@ -167,7 +166,7 @@ const OtpVerify = () => {
                             </Button>
                           </div>
                         );
-                      } else { 
+                      } else {
                         return (
                           <span>
                             {minutes}:{seconds < 10 ? `0${seconds}` : seconds}

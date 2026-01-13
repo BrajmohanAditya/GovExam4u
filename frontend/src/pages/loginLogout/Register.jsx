@@ -1,34 +1,33 @@
 import React, { useState } from "react";
-import "./auth.css";
-import { IoIosLogIn } from "react-icons/io";
-import {
-  TextField,
-  Button,
-  InputAdornment,
-  IconButton,
-  Divider,
-} from "@mui/material";
+import { IoPersonAdd } from "react-icons/io5";
+import { TextField, Button, Input } from "@mui/material";
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
-import { Visibility, VisibilityOff, ArrowBack } from "@mui/icons-material";
+import { InputAdornment, IconButton, Divider } from "@mui/material";
 import { FcGoogle } from "react-icons/fc";
-import useGeneral from "../user/hooks/useGeneral";
+import useGeneral from "./hooks/useGeneral";
 import apis from "./utils/apisUsers";
-import httpAction from "../user/utils/httpAction";
+import httpAction from "./utils/httpAction";
+import { toast } from "react-hot-toast";
 
-const Login = () => {
+import { ArrowBack, Visibility, VisibilityOff } from "@mui/icons-material";
+
+const Register = () => {
   const [visible, setVisible] = useState(false);
-  const { navigate } = useGeneral();
+
   const visibleHandler = () => {
     setVisible(!visible);
   };
+  const { navigate } = useGeneral();
 
   const initialState = {
+    name: "",
     email: "",
     password: "",
   };
 
   const validationSchema = Yup.object().shape({
+    name: Yup.string().required("Name is required"),
     email: Yup.string().email("Invalid email").required("Email is required"),
     password: Yup.string()
       .min(6, "Password must be at least 6 characters")
@@ -36,14 +35,16 @@ const Login = () => {
   });
 
   const submitHandler = async (values) => {
+    // console.log(values);
     const data = {
-      url: apis().loginUser,
+      url: apis().registerUser,
       method: "POST",
       body: values,
     };
     const result = await httpAction(data);
     if (result?.status) {
-      navigate("/");
+      toast.success(result?.message);
+      navigate("/login");
     }
   };
 
@@ -59,17 +60,16 @@ const Login = () => {
         validationSchema={validationSchema}
         initialValues={initialState}
       >
-        {({ values, errors, touched, handleChange, handleBlur }) => (
+        {({ handleBlur, handleChange, values, touched, errors }) => (
           <Form>
             <div className="container_flex">
               <div className="row">
-                <div className="auth_header">
-                  <IoIosLogIn />
-                  <p>welcome back</p>
-                  <span>Login to continue</span>
+                <div className="col auth_header">
+                  <IoPersonAdd />
+                  <p>Register New Account</p>
+                  <span>signup to continue</span>
                 </div>
 
-                {/* Google login button */}
                 <Button
                   onClick={loginWithGoogle}
                   variant="outlined"
@@ -99,17 +99,30 @@ const Login = () => {
 
                 <div className="col">
                   <TextField
-                    name="email"
-                    label="Email"
+                    name="name"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={touched.name && Boolean(errors.name)}
+                    helperText={touched.name && errors.name}
+                    label="your name"
                     fullWidth
                     size="small"
+                  />
+                </div>
+
+                <div className="col">
+                  <TextField
+                    type="email"
+                    name="email"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     error={touched.email && Boolean(errors.email)}
                     helperText={touched.email && errors.email}
+                    label="your email"
+                    fullWidth
+                    size="small"
                   />
                 </div>
-
                 <div className="col">
                   <TextField
                     InputProps={{
@@ -121,26 +134,21 @@ const Login = () => {
                         </InputAdornment>
                       ),
                     }}
-                    name="password"
-                    label="Password"
                     type={visible ? "text" : "password"}
-                    fullWidth
-                    size="small"
+                    name="password"
+                    label="your password"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     error={touched.password && Boolean(errors.password)}
                     helperText={touched.password && errors.password}
+                    fullWidth
+                    size="small"
                   />
                 </div>
 
                 <div className="col">
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    fullWidth
-                  >
-                    Login
+                  <Button variant="contained" fullWidth type="submit">
+                    Register
                   </Button>
                 </div>
 
@@ -149,19 +157,9 @@ const Login = () => {
                     startIcon={<ArrowBack />}
                     variant="outlined"
                     fullWidth
-                    onClick={() => navigate("/register")}
+                    onClick={() => navigate("/login")}
                   >
-                    Create new account
-                  </Button>
-                </div>
-                <div className="col">
-                  <Button
-                    onClick={() => navigate("/password/forgot")}
-                    variant="text"
-                    color="error"
-                    fullWidth
-                  >
-                    Forgot password?
+                    Back To Login
                   </Button>
                 </div>
               </div>
@@ -172,5 +170,4 @@ const Login = () => {
     </div>
   );
 };
-
-export default Login;
+export default Register;

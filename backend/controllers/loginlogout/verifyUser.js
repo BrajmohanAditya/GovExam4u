@@ -1,6 +1,6 @@
 // controllers/user/verifyUser.js
 import jwt from "jsonwebtoken";
-import User from "../../models/user.js";
+import User from "../../models/loginLogout.js";
 
 const verifyUser = async (req, res) => {
   try {

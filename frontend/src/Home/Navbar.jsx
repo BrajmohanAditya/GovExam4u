@@ -11,8 +11,8 @@ import { GraduationCap, LogIn, UserPlus, LogOut } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import apis from "../pages/user/utils/apisUsers";
-import httpAction from "../pages/user/utils/httpAction";
+import apis from "../pages/loginLogout/utils/apisUsers.js";
+import httpAction from "../pages/loginLogout/utils/httpAction";
 import { navbarStyles } from "./style";
 
 function Logo() {

@@ -1,4 +1,4 @@
-import User from "../../models/user.js";
+import User from "../../models/loginLogout.js";
 const getUser = async (req, res, next) => {
   const email = req.email;
   try {

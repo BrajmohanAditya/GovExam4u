@@ -1,25 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import apis from "../../user/utils/apisUsers.js";
-import httpAction from "../../user/utils/httpAction";
-import { useEffect, useState } from "react";
+
+import useUserProfile from "../../../utils/userProfile.js";
 
 export default function Navbar({ onMobileMenu }) {
   const navigate = useNavigate();
-
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    const getUser = async () => {
-      const data = {
-        url: apis().userProfile,
-      };
-      const result = await httpAction(data);
-      if (result?.status) {
-        setUser(result?.user);
-      }
-    };
-    getUser();
-  }, []);
+  const user = useUserProfile();
 
   return (
     <nav className="fixed top-0 left-0 right-0 h-14 bg-white border-b border-gray-200 shadow-sm z-40">
@@ -84,4 +70,3 @@ export default function Navbar({ onMobileMenu }) {
     </nav>
   );
 }
-

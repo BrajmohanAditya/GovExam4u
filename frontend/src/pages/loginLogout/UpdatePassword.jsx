@@ -4,9 +4,9 @@ import * as Yup from "yup";
 import { Form, Formik } from "formik";
 import { GrUpdate } from "react-icons/gr";
 import { ArrowBack } from "@mui/icons-material";
-import useGeneral from "../user/hooks/useGeneral";
+import useGeneral from "./hooks/useGeneral";
 import apis from "./utils/apisUsers";
-import httpAction from "../user/utils/httpAction";
+import httpAction from "./utils/httpAction";
 import { toast } from "react-hot-toast";
 
 const UpdatePassword = () => {

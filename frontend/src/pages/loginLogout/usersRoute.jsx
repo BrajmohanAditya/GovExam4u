@@ -1,12 +1,12 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import Login from "./login";
-import Register from "./Register";
-import ForgotPassword from "./ForgotPassword";
-import OtpVerify from "./OtpVerify";
-import UpdatePassword from "./UpdatePassword";
+import Login from "./login.jsx";
+import Register from "./Register.jsx";
+import ForgotPassword from "./ForgotPassword.jsx";
+import OtpVerify from "./OtpVerify.jsx";
+import UpdatePassword from "./UpdatePassword.jsx";
 import Super from "./super.jsx";
-import HomePage from "../../Home/HomePage";
+import HomePage from "../../Home/HomePage.jsx";
 const usersRoutes = [
   <Route path="/login" element={<Login />} key="login" />,
   <Route path="/register" element={<Register />} key="notfound" />,

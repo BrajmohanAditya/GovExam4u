@@ -1,0 +1,26 @@
+import express from 'express';
+import registerUser from '../controllers/loginlogout/register.js';
+import login from '../controllers/loginlogout/login.js';
+import getUser from '../controllers/loginlogout/getUser.js';
+import isLoggedIn from '../middlewares/isloggedIn.js';
+import logout from '../controllers/loginlogout/logout.js';
+import getAccess from '../controllers/loginlogout/getAccess.js';
+import forgotPassword from '../controllers/loginlogout/forgotPassword.js';
+import verifyOtp from '../controllers/loginlogout/verifyOtp.js';
+import getTime from '../controllers/loginlogout/getTime.js';
+import updatePassword from '../controllers/loginlogout/updatePassword.js';
+import verifyUser from "../controllers/loginlogout/verifyUser.js";
+
+const router = express.Router();
+router.post('/register', registerUser); 
+router.post('/login', login);
+router.get('/',isLoggedIn, getUser);
+router.get('/logout', logout);
+router.get('/access', isLoggedIn, getAccess);
+router.post('/forgot-password', forgotPassword);
+router.post('/verify-otp', verifyOtp);
+router.post('/get-time', getTime);
+router.post('/update-password',isLoggedIn, updatePassword);
+router.get("/verify", verifyUser);
+
+export default router;

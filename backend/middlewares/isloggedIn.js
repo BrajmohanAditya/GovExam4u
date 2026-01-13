@@ -1,6 +1,6 @@
 //Ye middleware har request ko check karta hai ki user login hai ya nahi. Agar login hai to next route call kr deta hai
 import jwt from "jsonwebtoken";
-import User from "../models/user.js";
+import User from "../models/loginLogout.js";
 
 const isLoggedIn = async (req, res, next) => {
   try {

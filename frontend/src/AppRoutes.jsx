@@ -4,7 +4,7 @@ import { Routes } from "react-router-dom";
 import DescriptiveRoutes from "./pages/Descriptive/descriptiveRoute";
 import HomeRoutes from "./Home/HomeRoute";
 import examTrackRoute from "./pages/examTrack/examTrackRoute";
-import usersRoutes from "./pages/user/usersRoute"
+import usersRoutes from "./pages/loginLogout/usersRoute"
 import QuizRoute from "./pages/Quizes/route";
 import LiveMockRouter from "./pages/LiveMock/LiveMockRouter";
 import todoListRoute from "./pages/TO-DO-List/todoListRoute";

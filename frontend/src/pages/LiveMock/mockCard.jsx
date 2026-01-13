@@ -2,13 +2,16 @@
 
 import React, { useEffect, useState } from "react";
 import { MockCardStyle } from "./style";
-import httpAction from "../user/utils/httpAction";
+import httpAction from "../loginLogout/utils/httpAction";
 import apis from "./apis";
 import { useNavigate } from "react-router-dom";
+import useUserProfile from "../../utils/userProfile.js";
 
 const MockCard = () => {
   const [cards, setCards] = useState([]);
   const navigate = useNavigate();
+  const user = useUserProfile();
+  const isAdmin = user?.role === "admin";
 
   const fetchCards = async () => {
     const data = {
@@ -32,7 +35,13 @@ const MockCard = () => {
         <div
           key={card._id}
           className={MockCardStyle.card}
-          onClick={() => navigate(`/card/${card._id}/updateDelete`)}
+          // onClick={() => navigate(`/card/${card._id}/updateDelete`)}
+          onClick={() => {
+            if (isAdmin) {
+              navigate(`/card/${card._id}/updateDelete`);
+            }
+          }}
+          style={{ cursor: isAdmin ? "pointer" : "default" }}
         >
           <div key={card._id} className={MockCardStyle.card}>
             <h3 className={MockCardStyle.title}>{card.name}</h3>
