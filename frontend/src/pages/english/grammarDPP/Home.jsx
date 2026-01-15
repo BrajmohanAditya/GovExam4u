@@ -303,6 +303,7 @@ export default function QuizPage() {
         sets={sets}
         currentSet={currentSet}
         onSelectSet={selectSet}
+        isLocked={isLocked}
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
       />
