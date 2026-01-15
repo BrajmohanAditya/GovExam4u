@@ -9,7 +9,7 @@ export default function Sidebar({
   onSelectSet,
   isOpen,
   onClose,
-  isLocked,
+  lockMap,
 }) {
   return (
     <>
@@ -55,8 +55,8 @@ export default function Sidebar({
                   }}
                 >
                   <span>{s}</span>
-                  {/* 🔒 ONLY CURRENT SET */}
-                  {currentSet === s && isLocked && (
+                  {/* 🔒 LOCK ICON FOR THAT SET */}
+                  {lockMap?.[s] && (
                     <span className="text-red-600 text-sm">🔒</span>
                   )}
                 </button>

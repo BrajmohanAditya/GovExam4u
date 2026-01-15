@@ -10,6 +10,7 @@ const apis = () => {
     submitTest: `${baseUrl}/grammarDPP/submitTest`,
     verifyAttempt: `${baseUrl}/grammarDPP/verifyAttempt`,
     leaderboard: `${baseUrl}/grammarDPP/leaderboard`,
+    lockStatus: `${baseUrl}/grammarDPP/lock-status`,
 
     // 🔐 LOCK APIs (IMPORTANT)
     isLocked: (setName) =>

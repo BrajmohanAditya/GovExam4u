@@ -6,6 +6,8 @@ import adminRoles from "../middlewares/adminRole.js";
 import submitTest from "../controllers/grammarDPP/attemptedTest.js";
 import verifyAttempt from "../controllers/grammarDPP/verifyAttempt.js";
 import leaderboard from "../controllers/grammarDPP/leaderboard.js";
+import  {getAllLockStatus}  from "../controllers/grammarDPP/getAllLockStatus.js";
+
 import {
   getLockStatus,
   toggleLock,
@@ -25,6 +27,8 @@ router.put(
   adminRoles("editor", "admin"),
   toggleLock
 );
+
+router.get("/lock-status", getAllLockStatus);
 
 export default router;
 

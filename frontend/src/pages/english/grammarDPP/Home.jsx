@@ -59,6 +59,7 @@ export default function QuizPage() {
   const [showInstructions, setShowInstructions] = useState(false);
   const [pendingSet, setPendingSet] = useState(null); // yaha v current set hi hai
   const [isLocked, setIsLocked] = useState(); //--
+  const [lockMap, setLockMap] = useState({});
 
   /* ================= SET SELECTION ================= */
 
@@ -72,6 +73,25 @@ export default function QuizPage() {
       setIsLocked(res.isLocked);
     }
   };
+
+  useEffect(() => {
+    const fetchAllLockStatus = async () => {
+      const res = await httpAction({
+        url: apis().lockStatus,
+        method: "GET",
+      });
+
+      if (res?.status) {
+        const map = {};
+        res.data.forEach((item) => {
+          map[item.set] = item.isLocked;
+        });
+        setLockMap(map);
+        console.log("Lock Map:", map);
+      }
+    };
+    fetchAllLockStatus();
+  }, []);
 
   const fetchLeaderboard = async (setName) => {
     const data = {
@@ -127,21 +147,20 @@ export default function QuizPage() {
 
   /* ================= LOCK TOGGLE ================= */
 
+  const handleToggleLock = async (setName, newValue) => {
+    const res = await httpAction({
+      url: apis().toggleLock(setName),
+      method: "PUT",
+      body: { isLocked: newValue },
+    });
 
-    const handleToggleLock = async (setName, newValue) => {
-      const res = await httpAction({
-        url: apis().toggleLock(setName),
-        method: "PUT",
-        body: { isLocked: newValue },
-      });
-
-      if (res?.status) {
-        setIsLocked(res.isLocked);
-        toast.success(res.message || "Lock updated");
-      } else {
-        toast.error(res?.message || "Lock update failed");
-      }
-    };
+    if (res?.status) {
+      setIsLocked(res.isLocked);
+      toast.success(res.message || "Lock updated");
+    } else {
+      toast.error(res?.message || "Lock update failed");
+    }
+  };
 
   const startTest = () => {
     if (isLocked) {
@@ -303,7 +322,7 @@ export default function QuizPage() {
         sets={sets}
         currentSet={currentSet}
         onSelectSet={selectSet}
-        isLocked={isLocked}
+        lockMap={lockMap}
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
       />
