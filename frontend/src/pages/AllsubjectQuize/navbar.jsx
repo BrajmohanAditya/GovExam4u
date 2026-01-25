@@ -42,7 +42,7 @@ export default function Navbar({ onMobileMenu }) {
 
         {/* Right: Add Quiz button */}
         <div className="flex items-center">
-          {["admin", "editor"].includes(user?.role?.toLowerCase()) && (
+          {/* {["admin", "editor"].includes(user?.role?.toLowerCase()) && ( */}
             <button
               onClick={() => navigate("/add-Quize")}
               className="inline-flex items-center  gap-2 px-3 py-2.5 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400"
@@ -64,7 +64,7 @@ export default function Navbar({ onMobileMenu }) {
               </svg>
               <span className="hidden sm:inline">Add Quiz</span>
             </button>
-          )}
+          {/* )} */}
         </div>
       </div>
     </nav>

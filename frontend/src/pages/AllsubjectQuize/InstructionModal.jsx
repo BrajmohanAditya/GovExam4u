@@ -12,7 +12,7 @@ export default function InstructionModal({
   // receiving prop
   if (!open) return null;
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/40">
+    <div className="fixed inset-0 z-9999 flex items-center justify-center bg-black/40">
       <div className="bg-white max-w-md w-full p-6 rounded-lg shadow-lg pointer-events-auto">
         {/* HEADER + LOCK STATUS */}
         <div className="flex items-center justify-between mb-4">

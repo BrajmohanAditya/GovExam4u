@@ -1,5 +1,5 @@
 import express from "express";
-import addQuiz from "../controllers/allSubQuiz/addQuize.js";
+import addQuizeController from "../controllers/allSubQuiz/addQuize.js";
 import getQuiz from "../controllers/allSubQuiz/getQuiz.js";
 import isLoggedIn from "../middlewares/isloggedIn.js";
 import adminRoles from "../middlewares/adminRole.js";
@@ -14,7 +14,7 @@ import {
 } from "../controllers/allSubQuiz/setLockController.js";
 
 const router = express.Router();
-router.post("/addQuize", isLoggedIn, adminRoles("editor", "admin"), addQuiz);
+router.post("/addQuize", isLoggedIn,  addQuizeController);
 router.get("/getQuiz", getQuiz);
 router.post("/submitTest", isLoggedIn, submitTest);
 router.post("/verifyAttempt", isLoggedIn, verifyAttempt);
@@ -33,3 +33,4 @@ router.get("/lock-status", getAllLockStatus);
 export default router;
 
 
+//adminRoles("editor", "admin"),

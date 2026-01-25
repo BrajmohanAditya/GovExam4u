@@ -40,7 +40,7 @@ const sidebarItems = [
     link: "#/descriptive",
   },
   { icon: faNewspaper, label: "Current Affair", link: "#/ca-quiz" },
-  { icon: faFileSignature, label: "Daily Quiz", link: "#/AllSub_QuizePage" },
+  { icon: faFileSignature, label: "Daily Quiz", link: "#/allSubjectQuize" },
   { icon: faCalendarDays, label: "Track Your Exam", link: "#/examTracker" },
   { icon: faHandHoldingDollar, label: "Win Prize", link: "#" },
   { icon: faAddressCard, label: "Our Selections", link: "#" },
@@ -64,7 +64,6 @@ const sidebarItems = [
 ];
 
 export default function SidebarMenu({ showSidebar, setShowSidebar }) {
-
   const [active, setActive] = useState("Home");
 
   return (

@@ -115,20 +115,20 @@ const AddQuize = () => {
       method: "POST",
       body: payload,
     };
-
+     console.log("Payload:", data);
     const result = await httpAction(data);
 
     if (result?.status) {
       toast.success("Question added successfully");
       resetForm();
-      navigate("/add-Quize");
+      navigate("/allSubjectQuize/add-Quize");
     } else {
       toast.error(result?.message || "Something went wrong");
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center m-4 px-4">
+    <div className="min-h-screen bg-linear-to-br from-green-50 to-blue-50 flex items-center justify-center m-4 px-4">
       <div className="w-full max-w-4xl bg-white rounded-xl shadow-lg p-6 md:p-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-2">

@@ -1,6 +1,6 @@
 import addQuiz from "../../models/allSubQuiz/addQuiz.js";
 
-const addQuizController = async (req, res, next) => {
+const addQuizeController = async (req, res, next) => {
   try {
     const {
       set,
@@ -52,4 +52,4 @@ const addQuizController = async (req, res, next) => {
   }
 };
 
-export default addQuizController;
+export default addQuizeController;
