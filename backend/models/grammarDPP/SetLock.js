@@ -18,5 +18,5 @@ const SetLockSchema = new mongoose.Schema(
   }
 );
 
-const SetLock = mongoose.model("SetLock", SetLockSchema);
+const SetLock = mongoose.model("grammarDPP/SetLock", SetLockSchema);
 export default SetLock;
