@@ -46,6 +46,6 @@ const submitTestSchema = new Schema(
 // 🔥 ONE USER → ONE SET → ONE TIME
 submitTestSchema.index({ userId: 1, set: 1 }, { unique: true });
 
-const attemptedTest = mongoose.model("attemptedTest", submitTestSchema);
+const attemptedTest = mongoose.model("grammarDPP/attemptedTest", submitTestSchema);
 
 export default attemptedTest;
