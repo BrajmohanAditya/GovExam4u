@@ -1,6 +1,6 @@
-import GrammarDPP from "../../models/grammarDPP/grammarDPP.js";
+import addQuiz from "../../models/allSubQuiz/addQuiz.js";
 
-const addQuiz = async (req, res, next) => {
+const addQuizController = async (req, res, next) => {
   try {
     const {
       set,
@@ -34,7 +34,7 @@ const addQuiz = async (req, res, next) => {
     }
 
     // 🔹 Create new quiz question
-    const newQuestion = await GrammarDPP.create({
+    const newQuestion = await addQuiz.create({
       set,
       question,
       options,
@@ -52,4 +52,4 @@ const addQuiz = async (req, res, next) => {
   }
 };
 
-export default addQuiz;
+export default addQuizController;

@@ -1,8 +1,7 @@
 
 
 
-import attemptedTest from "../../models/grammarDPP/attemptedTest.js";
-
+import submittedTest from "../../models/allSubQuiz/submittedTest.js";
 const verifyAttempt = async (req, res) => {
   try {
     const userId = req.user._id;
@@ -15,7 +14,7 @@ const verifyAttempt = async (req, res) => {
       });
     }
 
-    const attempt = await attemptedTest.findOne({ userId, set });
+    const attempt = await submittedTest.findOne({ userId, set });
 
     return res.json({
       status: true,

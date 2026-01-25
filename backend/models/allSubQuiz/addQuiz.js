@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const allSubjectSchema = new mongoose.Schema(
+const addQuizSchema = new mongoose.Schema(
   {
     // e.g. "Set 1", "Set 2"
     set: {
@@ -43,6 +43,6 @@ const allSubjectSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const AllSubjectQuiz =
-  mongoose.models.AllSubjectQuiz || mongoose.model("AllSubjectQuiz", allSubjectSchema);
-export default AllSubjectQuiz;
+const addQuiz =
+  mongoose.models.addQuiz || mongoose.model("AllSubQuiz/allQuestions", addQuizSchema);
+export default addQuiz;

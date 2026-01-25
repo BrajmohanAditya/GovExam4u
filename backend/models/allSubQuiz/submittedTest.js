@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-const submitTestSchema = new Schema(
+const submittedTestSchema = new Schema(
   {
     userId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -44,8 +44,8 @@ const submitTestSchema = new Schema(
 );
 
 // 🔥 ONE USER → ONE SET → ONE TIME
-submitTestSchema.index({ userId: 1, set: 1 }, { unique: true });
+submittedTestSchema.index({ userId: 1, set: 1 }, { unique: true });
 
-const attemptedTest = mongoose.model("allSubjectQuiz/attemptedTest", submitTestSchema);
+const submittedTest = mongoose.model("allSubQuiz/submittedTest", submittedTestSchema);
 
-export default attemptedTest;
+export default submittedTest;

@@ -1,17 +1,17 @@
 import express from "express";
-import addQuiz from "../controllers/grammarDPP/addQuize.js";
-import getQuiz from "../controllers/grammarDPP/getQuiz.js";
+import addQuiz from "../controllers/allSubQuiz/addQuize.js";
+import getQuiz from "../controllers/allSubQuiz/getQuiz.js";
 import isLoggedIn from "../middlewares/isloggedIn.js";
 import adminRoles from "../middlewares/adminRole.js";
-import submitTest from "../controllers/grammarDPP/attemptedTest.js";
-import verifyAttempt from "../controllers/grammarDPP/verifyAttempt.js";
-import leaderboard from "../controllers/grammarDPP/leaderboard.js";
-import  {getAllLockStatus}  from "../controllers/grammarDPP/getAllLockStatus.js";
+import submitTest from "../controllers/allSubQuiz/attemptedTest.js";
+import verifyAttempt from "../controllers/allSubQuiz/verifyAttempt.js";
+import leaderboard from "../controllers/allSubQuiz/leaderboard.js";
+import { getAllLockStatus } from "../controllers/allSubQuiz/getAllLockStatus.js";
 
 import {
   getLockStatus,
   toggleLock,
-} from "../controllers/grammarDPP/setLockController.js";
+} from "../controllers/allSubQuiz/setLockController.js";
 
 const router = express.Router();
 router.post("/addQuize", isLoggedIn, adminRoles("editor", "admin"), addQuiz);

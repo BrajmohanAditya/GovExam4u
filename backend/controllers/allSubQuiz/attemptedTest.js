@@ -1,7 +1,6 @@
-import attemptedTest from "../../models/grammarDPP/attemptedTest.js";
-
+import submittedTest from "../../models/allSubQuiz/submittedTest.js";
 /* ================= SUBMIT / SAVE TEST ================= */
-const submitTest = async (req, res) => {
+const submitTestController = async (req, res) => {
   try {
     // 🔐 Logged-in user id (JWT middleware se)
     const userId = req.user._id;
@@ -18,11 +17,11 @@ const submitTest = async (req, res) => {
     }
 
     // ✅ SAVE ATTEMPT (DB unique index handles duplicates)
-    await attemptedTest.create({
+    await submittedTest.create({
       userId,
       name,
       email,
-      set,
+      set, 
       score,
       answers,
       submittedAt: new Date(),
@@ -48,4 +47,4 @@ const submitTest = async (req, res) => {
   }
 };
 
-export default submitTest;
+export default submitTestController;

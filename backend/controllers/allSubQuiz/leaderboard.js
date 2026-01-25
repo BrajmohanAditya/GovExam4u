@@ -1,6 +1,5 @@
 // controllers/grammarDPP/leaderboard.js
-import attemptedTest from "../../models/grammarDPP/attemptedTest.js";
-
+import submittedTest from "../../models/allSubQuiz/submittedTest.js";
 const leaderboard = async (req, res) => {
   try {
     const { set } = req.body;
@@ -12,7 +11,7 @@ const leaderboard = async (req, res) => {
       });
     }
 
-    const results = await attemptedTest
+    const results = await submittedTest
       .find({ set })
       .select("name score userId")
       .sort({ score: -1 }); // highest marks first

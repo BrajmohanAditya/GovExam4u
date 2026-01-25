@@ -1,7 +1,7 @@
-import SetLock from "../../models/grammarDPP/SetLock.js";
+import SetLock from "../../models/allSubQuiz/SetLock.js";
 
 // 🔹 GET lock status of a set
-// GET /grammarDPP/is-locked/:set
+// GET /allSubQuiz/is-locked/:set
 export const getLockStatus = async (req, res) => {
   try {
     const setName = req.params.set;
