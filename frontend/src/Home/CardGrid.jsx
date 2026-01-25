@@ -9,7 +9,7 @@ export default function CardGrid() {
         <div className="card-wrapper ">
           <img
             src="/assets/grammar.png"
-            alt="Descriptive"
+            alt="grammarDPP"
             className="w-52 h-52 object-cover mx-auto rounded"
           />
         </div>
@@ -19,7 +19,7 @@ export default function CardGrid() {
         <div className=" card-wrapper">
           <img
             src="/assets/examTracker.png"
-            alt="Descriptive"
+            alt="ExamTracker"
             className="w-52 h-52 object-cover mx-auto rounded"
           />
         </div>
