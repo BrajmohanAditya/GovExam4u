@@ -14,7 +14,12 @@ import {
 } from "../controllers/allSubQuiz/setLockController.js";
 
 const router = express.Router();
-router.post("/addQuize", isLoggedIn,  addQuizeController);
+router.post(
+  "/addQuize",
+  isLoggedIn,
+  adminRoles("editor", "admin"),
+  addQuizeController,
+);
 router.get("/getQuiz", getQuiz);
 router.post("/submitTest", isLoggedIn, submitTest);
 router.post("/verifyAttempt", isLoggedIn, verifyAttempt);
