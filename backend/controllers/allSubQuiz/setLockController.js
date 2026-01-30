@@ -1,4 +1,4 @@
-import SetLock from "../../models/allSubQuiz/SetLock.js";
+import supabase from "../../utils/supabaseClient.js";
 
 // 🔹 GET lock status of a set
 // GET /allSubQuiz/is-locked/:set
@@ -6,10 +6,14 @@ export const getLockStatus = async (req, res) => {
   try {
     const setName = req.params.set;
 
-    const record = await SetLock.findOne({ set: setName });
+    const { data: record, error } = await supabase
+      .from("all_sub_quiz_set_locks")
+      .select("is_locked")
+      .eq("set_name", setName)
+      .single();
 
     // record nahi mila → unlocked
-    if (!record) {
+    if (error || !record) {
       return res.json({
         status: true,
         isLocked: false,
@@ -18,7 +22,7 @@ export const getLockStatus = async (req, res) => {
 
     return res.json({
       status: true,
-      isLocked: record.isLocked,
+      isLocked: record.is_locked,
     });
   } catch (err) {
     console.error("getLockStatus error:", err);
@@ -36,24 +40,20 @@ export const toggleLock = async (req, res) => {
     const setName = req.params.set;
     const { isLocked } = req.body; // true / false
 
-    let record = await SetLock.findOne({ set: setName });
+    const { error } = await supabase
+      .from("all_sub_quiz_set_locks")
+      .upsert(
+        { set_name: setName, is_locked: Boolean(isLocked) },
+        { onConflict: "set_name" },
+      );
 
-    if (!record) {
-      record = new SetLock({
-        set: setName,
-        isLocked: Boolean(isLocked),
-      });
-    } else {
-      record.isLocked = Boolean(isLocked);
-    }
-
-    await record.save();
+    if (error) throw error;
 
     return res.json({
       status: true,
       set: setName,
-      isLocked: record.isLocked,
-      message: record.isLocked ? "Exam locked" : "Exam unlocked",
+      isLocked: Boolean(isLocked),
+      message: isLocked ? "Exam locked" : "Exam unlocked",
     });
   } catch (err) {
     console.error("toggleLock error:", err);

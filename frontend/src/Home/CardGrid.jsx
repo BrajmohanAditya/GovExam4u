@@ -15,15 +15,7 @@ export default function CardGrid() {
         </div>
       </Link>
 
-      <Link to="/examTracker" className="no-underline">
-        <div className=" card-wrapper">
-          <img
-            src="/assets/examTracker.png"
-            alt="ExamTracker"
-            className="w-52 h-52 object-cover mx-auto rounded"
-          />
-        </div>
-      </Link>
+
     </div>
   );
 }

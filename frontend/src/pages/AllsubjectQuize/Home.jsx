@@ -29,7 +29,7 @@ export default function QuizPage() {
             const na = parseInt(a.replace(/\D/g, ""), 10);
             const nb = parseInt(b.replace(/\D/g, ""), 10);
             return na - nb;
-          }
+          },
         );
 
         setSets(uniqueSets);
@@ -310,7 +310,7 @@ export default function QuizPage() {
 
   const score = useMemo(
     () => calculateResult(),
-    [currentQuestions, selectedAnswers]
+    [currentQuestions, selectedAnswers],
   );
 
   /* ================= UI ================= */

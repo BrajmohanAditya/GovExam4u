@@ -1,7 +1,5 @@
+import supabase from "../../utils/supabaseClient.js";
 
-
-
-import submittedTest from "../../models/allSubQuiz/submittedTest.js";
 const verifyAttempt = async (req, res) => {
   try {
     const userId = req.user._id;
@@ -14,13 +12,23 @@ const verifyAttempt = async (req, res) => {
       });
     }
 
-    const attempt = await submittedTest.findOne({ userId, set });
+    const { data: attempt, error } = await supabase
+      .from("all_sub_quiz_submissions")
+      .select("*")
+      .eq("user_id", userId)
+      .eq("set_name", set)
+      .single();
+
+    if (error && error.code !== "PGRST116") {
+      // PGRST116 is 'not found' which is fine here
+      throw error;
+    }
 
     return res.json({
       status: true,
       attempted: !!attempt,
       score: attempt?.score ?? null, // optional
-      name: attempt?.name,
+      name: attempt?.user_name,
       answers: attempt?.answers ?? {},
     });
   } catch (err) {

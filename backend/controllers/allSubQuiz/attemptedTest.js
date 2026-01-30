@@ -1,4 +1,5 @@
-import submittedTest from "../../models/allSubQuiz/submittedTest.js";
+import supabase from "../../utils/supabaseClient.js";
+
 /* ================= SUBMIT / SAVE TEST ================= */
 const submitTestController = async (req, res) => {
   try {
@@ -17,15 +18,19 @@ const submitTestController = async (req, res) => {
     }
 
     // ✅ SAVE ATTEMPT (DB unique index handles duplicates)
-    await submittedTest.create({
-      userId,
-      name,
-      email,
-      set, 
-      score,
-      answers,
-      submittedAt: new Date(),
-    });
+    const { error } = await supabase.from("all_sub_quiz_submissions").insert([
+      {
+        user_id: userId,
+        user_name: name,
+        user_email: email,
+        set_name: set,
+        score,
+        answers, // Supabase handles JSONB
+        submitted_at: new Date(),
+      },
+    ]);
+
+    if (error) throw error;
 
     return res.json({
       status: true,
@@ -33,7 +38,8 @@ const submitTestController = async (req, res) => {
     });
   } catch (err) {
     // 🔥 Duplicate submission error (one user → one test)
-    if (err.code === 11000) {
+    // Postgres error code for unique violation is 23505
+    if (err.code === "23505") {
       return res.status(400).json({
         status: false,
         message: "Test already submitted",

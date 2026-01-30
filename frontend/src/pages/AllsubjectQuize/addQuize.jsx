@@ -1,4 +1,3 @@
-
 "use client";
 import { Formik, Form } from "formik";
 import { InputAdornment } from "@mui/material";
@@ -46,35 +45,35 @@ const AddQuize = () => {
       .test(
         "not-empty-html",
         "Question is required",
-        (value) => stripHtml(value).length > 0
+        (value) => stripHtml(value).length > 0,
       )
       .required("Question is required"),
     option1: Yup.string()
       .test(
         "not-empty-html",
         "Option 1 is required",
-        (value) => stripHtml(value).length > 0
+        (value) => stripHtml(value).length > 0,
       )
       .required("Option 1 is required"),
     option2: Yup.string()
       .test(
         "not-empty-html",
         "Option 2 is required",
-        (value) => stripHtml(value).length > 0
+        (value) => stripHtml(value).length > 0,
       )
       .required("Option 2 is required"),
     option3: Yup.string()
       .test(
         "not-empty-html",
         "Option 3 is required",
-        (value) => stripHtml(value).length > 0
+        (value) => stripHtml(value).length > 0,
       )
       .required("Option 3 is required"),
     option4: Yup.string()
       .test(
         "not-empty-html",
         "Option 4 is required",
-        (value) => stripHtml(value).length > 0
+        (value) => stripHtml(value).length > 0,
       )
       .required("Option 4 is required"),
     option5: Yup.string(),
@@ -83,7 +82,7 @@ const AddQuize = () => {
       .test(
         "not-empty-html",
         "Explanation is required",
-        (value) => stripHtml(value).length > 0
+        (value) => stripHtml(value).length > 0,
       )
       .required("Explanation is required"),
   });
@@ -98,7 +97,7 @@ const AddQuize = () => {
     ].filter(Boolean);
 
     const correctAnswerIndex = options.findIndex(
-      (_, idx) => `option${idx + 1}` === values.answer
+      (_, idx) => `option${idx + 1}` === values.answer,
     );
 
     const payload = {
@@ -115,7 +114,7 @@ const AddQuize = () => {
       method: "POST",
       body: payload,
     };
-     console.log("Payload:", data);
+    console.log("Payload:", data);
     const result = await httpAction(data);
 
     if (result?.status) {
@@ -223,7 +222,7 @@ const AddQuize = () => {
                         </p>
                       )}
                     </div>
-                  )
+                  ),
                 )}
               </div>
 

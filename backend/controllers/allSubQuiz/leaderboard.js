@@ -1,5 +1,6 @@
 // controllers/grammarDPP/leaderboard.js
-import submittedTest from "../../models/allSubQuiz/submittedTest.js";
+import supabase from "../../utils/supabaseClient.js";
+
 const leaderboard = async (req, res) => {
   try {
     const { set } = req.body;
@@ -11,14 +12,24 @@ const leaderboard = async (req, res) => {
       });
     }
 
-    const results = await submittedTest
-      .find({ set })
-      .select("name score userId")
-      .sort({ score: -1 }); // highest marks first
+    const { data: results, error } = await supabase
+      .from("all_sub_quiz_submissions")
+      .select("user_name, score, user_id")
+      .eq("set_name", set)
+      .order("score", { ascending: false });
+
+    if (error) throw error;
+
+    // Map fields back to frontend expectations
+    const formattedResults = results.map((r) => ({
+      name: r.user_name,
+      score: r.score,
+      userId: r.user_id,
+    }));
 
     return res.json({
       status: true,
-      data: results,
+      data: formattedResults,
     });
   } catch (err) {
     return res.status(500).json({
