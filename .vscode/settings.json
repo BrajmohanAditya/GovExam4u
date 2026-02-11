@@ -13,7 +13,7 @@
     "**/frontend/src/index.css": true,
     "**/frontend/src/api.jsx": true,
     "**/frontend/package.json": true,
-    // "**/frontend/.env": true,
+    "**/frontend/.env": true,
     "**/frontend/.gitignore": true,
     "**/frontend/eslint.config.js": true,
 
