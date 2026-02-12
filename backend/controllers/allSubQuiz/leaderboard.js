@@ -1,41 +1,28 @@
-// controllers/grammarDPP/leaderboard.js
-import supabase from "../../utils/supabaseClient.js";
+import SubmittedTest from "../../models/allSubQuiz/submittedTest.js";
 
 const leaderboard = async (req, res) => {
   try {
     const { set } = req.body;
 
-    if (!set) {
-      return res.status(400).json({
-        status: false,
-        message: "Set is required",
-      });
-    }
+    if (!set)
+      return res
+        .status(400)
+        .json({ status: false, message: "Set is required" });
 
-    const { data: results, error } = await supabase
-      .from("all_sub_quiz_submissions")
-      .select("user_name, score, user_id")
-      .eq("set_name", set)
-      .order("score", { ascending: false });
+    const results = await SubmittedTest.find({ set })
+      .select("name score userId")
+      .sort({ score: -1 })
+      .lean();
 
-    if (error) throw error;
-
-    // Map fields back to frontend expectations
     const formattedResults = results.map((r) => ({
-      name: r.user_name,
+      name: r.name,
       score: r.score,
-      userId: r.user_id,
+      userId: r.userId,
     }));
 
-    return res.json({
-      status: true,
-      data: formattedResults,
-    });
+    return res.json({ status: true, data: formattedResults });
   } catch (err) {
-    return res.status(500).json({
-      status: false,
-      message: "Server error",
-    });
+    return res.status(500).json({ status: false, message: "Server error" });
   }
 };
 

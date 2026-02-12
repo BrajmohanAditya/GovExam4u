@@ -1,4 +1,4 @@
-import supabase from "../../utils/supabaseClient.js";
+import AddQuiz from "../../models/allSubQuiz/addQuiz.js";
 
 const addQuizeController = async (req, res, next) => {
   try {
@@ -33,27 +33,22 @@ const addQuizeController = async (req, res, next) => {
       });
     }
 
-    // 🔹 Create new quiz question
-    const { data: newQuestion, error } = await supabase
-      .from("all_sub_quiz_questions")
-      .insert([
-        {
-          set_name: set, // Mapping 'set' to 'set_name' column
-          question,
-          options,
-          correct_answer_index: correctAnswerIndex,
-          explanation,
-        },
-      ])
-      .select();
-
-    if (error) throw error;
-
-    return res.status(201).json({
-      status: true,
-      message: "Question added successfully",
-      data: newQuestion[0],
+    // create via mongoose
+    const newQuestion = await AddQuiz.create({
+      set,
+      question,
+      options,
+      correctAnswerIndex,
+      explanation,
     });
+
+    return res
+      .status(201)
+      .json({
+        status: true,
+        message: "Question added successfully",
+        data: newQuestion,
+      });
   } catch (error) {
     next(error);
   }

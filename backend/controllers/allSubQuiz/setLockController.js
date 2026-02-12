@@ -1,53 +1,34 @@
-import supabase from "../../utils/supabaseClient.js";
+import SetLock from "../../models/allSubQuiz/SetLock.js";
 
 // 🔹 GET lock status of a set
-// GET /allSubQuiz/is-locked/:set
 export const getLockStatus = async (req, res) => {
   try {
     const setName = req.params.set;
 
-    const { data: record, error } = await supabase
-      .from("all_sub_quiz_set_locks")
-      .select("is_locked")
-      .eq("set_name", setName)
-      .single();
+    const record = await SetLock.findOne({ set: setName }).lean();
 
-    // record nahi mila → unlocked
-    if (error || !record) {
-      return res.json({
-        status: true,
-        isLocked: false,
-      });
+    if (!record) {
+      return res.json({ status: true, isLocked: false });
     }
 
-    return res.json({
-      status: true,
-      isLocked: record.is_locked,
-    });
+    return res.json({ status: true, isLocked: Boolean(record.isLocked) });
   } catch (err) {
     console.error("getLockStatus error:", err);
-    return res.status(500).json({
-      status: false,
-      message: "Server error",
-    });
+    return res.status(500).json({ status: false, message: "Server error" });
   }
 };
 
 // 🔹 LOCK / UNLOCK a set
-// PUT /grammarDPP/toggle-lock/:set
 export const toggleLock = async (req, res) => {
   try {
     const setName = req.params.set;
-    const { isLocked } = req.body; // true / false
+    const { isLocked } = req.body;
 
-    const { error } = await supabase
-      .from("all_sub_quiz_set_locks")
-      .upsert(
-        { set_name: setName, is_locked: Boolean(isLocked) },
-        { onConflict: "set_name" },
-      );
-
-    if (error) throw error;
+    await SetLock.findOneAndUpdate(
+      { set: setName },
+      { isLocked: Boolean(isLocked) },
+      { upsert: true, new: true, setDefaultsOnInsert: true },
+    );
 
     return res.json({
       status: true,
@@ -57,9 +38,6 @@ export const toggleLock = async (req, res) => {
     });
   } catch (err) {
     console.error("toggleLock error:", err);
-    return res.status(500).json({
-      status: false,
-      message: "Server error",
-    });
+    return res.status(500).json({ status: false, message: "Server error" });
   }
 };
