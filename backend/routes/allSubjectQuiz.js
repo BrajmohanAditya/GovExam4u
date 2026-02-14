@@ -12,6 +12,11 @@ import {
   getLockStatus,
   toggleLock,
 } from "../controllers/allSubQuiz/setLockController.js";
+import {
+  getLiveStatus,
+  toggleLive,
+} from "../controllers/allSubQuiz/setLiveController.js";
+import { getAllLiveStatus } from "../controllers/allSubQuiz/getAllLiveStatus.js";
 
 const router = express.Router();
 router.post(
@@ -25,17 +30,25 @@ router.post("/submitTest", isLoggedIn, submitTest);
 router.post("/verifyAttempt", isLoggedIn, verifyAttempt);
 router.post("/leaderboard", isLoggedIn, leaderboard);
 router.get("/is-locked/:set", getLockStatus);
+router.get("/is-live/:set", getLiveStatus);
 
 router.put(
   "/toggle-lock/:set",
   isLoggedIn,
   adminRoles("editor", "admin"),
-  toggleLock
+  toggleLock,
+);
+
+router.put(
+  "/toggle-live/:set",
+  isLoggedIn,
+  adminRoles("editor", "admin"),
+  toggleLive,
 );
 
 router.get("/lock-status", getAllLockStatus);
+router.get("/live-status", getAllLiveStatus);
 
 export default router;
-
 
 //adminRoles("editor", "admin"),

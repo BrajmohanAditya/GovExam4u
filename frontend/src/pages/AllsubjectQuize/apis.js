@@ -18,6 +18,14 @@ const apis = () => {
 
     toggleLock: (setName) =>
       `${baseUrl}/AllSubjectQuiz/toggle-lock/${encodeURIComponent(setName)}`,
+    // 🔴 LIVE APIs
+    isLive: (setName) =>
+      `${baseUrl}/AllSubjectQuiz/is-live/${encodeURIComponent(setName)}`,
+
+    toggleLive: (setName) =>
+      `${baseUrl}/AllSubjectQuiz/toggle-live/${encodeURIComponent(setName)}`,
+
+    liveStatus: `${baseUrl}/AllSubjectQuiz/live-status`,
   };
   return list;
 };

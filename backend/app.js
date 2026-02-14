@@ -13,9 +13,9 @@ import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import connectDB from "./utils/getConnection.js";
 import userRoutes from "./routes/loginLogout.js";
-import liveMockRoute from "./routes/liveMock.js"
+import liveMockRoute from "./routes/liveMock.js";
 import errorHandler from "./middlewares/errorHandler.js";
-import grammarDPPRoute from "./routes/grammarDPP.js"
+import grammarDPPRoute from "./routes/grammarDPP.js";
 import allSubjectQuizRoute from "./routes/allSubjectQuiz.js";
 // ============================
 // 2️⃣ Routes Imports
@@ -40,7 +40,6 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
 const CLIENT_URL =
   process.env.NODE_ENV === "production"
     ? process.env.CLIENT_URL_PROD
@@ -51,10 +50,8 @@ app.use(
     origin: CLIENT_URL,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
-  })
+  }),
 );
-
-
 
 app.use(cookieParser());
 app.use(passport.initialize());
@@ -74,11 +71,9 @@ passport.use(
     (accessToken, refreshToken, profile, done) => {
       // console.log( profile);
       return done(null, profile);
-    }
-  )
+    },
+  ),
 );
-
-
 
 // ============================
 // 7️⃣ Auth Routes
@@ -89,7 +84,7 @@ app.get(
     scope: ["profile", "email"],
     prompt: "select_account",
     session: false,
-  })
+  }),
 );
 
 app.get(
@@ -101,7 +96,7 @@ app.get(
   googleAuth, // yahi middleware data ko database meh saave krta hai
   (req, res) => {
     res.redirect("https://govexam4u.com/");
-  }
+  },
 );
 
 // ============================
@@ -118,6 +113,23 @@ app.use("/users", userRoutes);
 app.use("/liveMock", liveMockRoute);
 app.use("/grammarDPP", grammarDPPRoute);
 app.use("/AllSubjectQuiz", allSubjectQuizRoute);
+
+// Log the registered routes for AllSubjectQuiz router (helpful for debugging missing endpoints)
+try {
+  if (allSubjectQuizRoute && allSubjectQuizRoute.stack) {
+    console.log("Registered AllSubjectQuiz routes:");
+    allSubjectQuizRoute.stack.forEach((layer) => {
+      if (layer.route && layer.route.path) {
+        const methods = Object.keys(layer.route.methods || {})
+          .map((m) => m.toUpperCase())
+          .join(",");
+        console.log(`  ${methods} /AllSubjectQuiz${layer.route.path}`);
+      }
+    });
+  }
+} catch (err) {
+  console.warn("Could not list AllSubjectQuiz routes:", err);
+}
 
 app.get("/", (req, res) => {
   res.send("Hai, I am root");

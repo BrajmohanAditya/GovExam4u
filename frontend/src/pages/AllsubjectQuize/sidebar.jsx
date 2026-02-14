@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { sidebarStyle } from "./style";
 
@@ -10,6 +8,7 @@ export default function Sidebar({
   isOpen,
   onClose,
   lockMap,
+  liveMap,
 }) {
   return (
     <>
@@ -56,9 +55,14 @@ export default function Sidebar({
                 >
                   <span>{s}</span>
                   {/* 🔒 LOCK ICON FOR THAT SET */}
-                  {lockMap?.[s] && (
-                    <span className="text-red-600 text-sm">🔒</span>
-                  )}
+                  <div className="flex items-center gap-2">
+                    {lockMap?.[s] && (
+                      <span className="text-red-600 text-sm">🔒</span>
+                    )}
+                    {liveMap?.[s] && (
+                      <span className="text-green-600 text-sm">● Live</span>
+                    )}
+                  </div>
                 </button>
               </li>
             );

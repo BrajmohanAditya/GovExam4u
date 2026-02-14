@@ -60,6 +60,8 @@ export default function QuizPage() {
   const [pendingSet, setPendingSet] = useState(null); // yaha v current set hi hai
   const [isLocked, setIsLocked] = useState(); //--
   const [lockMap, setLockMap] = useState({});
+  const [isLive, setIsLive] = useState();
+  const [liveMap, setLiveMap] = useState({});
 
   /* ================= SET SELECTION ================= */
 
@@ -91,6 +93,20 @@ export default function QuizPage() {
       }
     };
     fetchAllLockStatus();
+
+    const fetchAllLiveStatus = async () => {
+      const res = await httpAction({ url: apis().liveStatus, method: "GET" });
+      if (res?.status) {
+        const map = {};
+        res.data.forEach((item) => {
+          map[item.set] = item.isLive;
+        });
+        setLiveMap(map);
+        console.log("Live Map:", map);
+      }
+    };
+
+    fetchAllLiveStatus();
   }, []);
 
   const fetchLeaderboard = async (setName) => {
@@ -140,8 +156,20 @@ export default function QuizPage() {
     // 🟢 CASE 2: Not attempted → START TEST
     if (res?.status) {
       await fetchLockStatus(setName);
+      // also fetch live status for this set
+      await fetchLiveStatus(setName);
       setPendingSet(setName);
       setShowInstructions(true);
+    }
+  };
+
+  const fetchLiveStatus = async (setName) => {
+    const res = await httpAction({
+      url: apis().isLive(setName),
+      method: "GET",
+    });
+    if (res?.status) {
+      setIsLive(res.isLive);
     }
   };
 
@@ -156,9 +184,26 @@ export default function QuizPage() {
 
     if (res?.status) {
       setIsLocked(res.isLocked);
+      setLockMap((prev) => ({ ...prev, [setName]: res.isLocked }));
       toast.success(res.message || "Lock updated");
     } else {
       toast.error(res?.message || "Lock update failed");
+    }
+  };
+
+  const handleToggleLive = async (setName, newValue) => {
+    const res = await httpAction({
+      url: apis().toggleLive(setName),
+      method: "PUT",
+      body: { isLive: newValue },
+    });
+
+    if (res?.status) {
+      setIsLive(res.isLive);
+      setLiveMap((prev) => ({ ...prev, [setName]: res.isLive }));
+      toast.success(res.message || "Live status updated");
+    } else {
+      toast.error(res?.message || "Live update failed");
     }
   };
 
@@ -323,6 +368,7 @@ export default function QuizPage() {
         currentSet={currentSet}
         onSelectSet={selectSet}
         lockMap={lockMap}
+        liveMap={liveMap}
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
       />
@@ -517,6 +563,8 @@ export default function QuizPage() {
         setName={pendingSet}
         isLocked={isLocked}
         onToggleLock={handleToggleLock}
+        isLive={isLive}
+        onToggleLive={handleToggleLive}
       />
     </div>
   );
