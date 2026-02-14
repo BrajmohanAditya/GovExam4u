@@ -8,6 +8,7 @@ import httpAction from "./httpAction";
 import apis from "./apis";
 import { toast } from "react-hot-toast";
 import InstructionModal from "./InstructionModal";
+import useUserProfile from "../../utils/userProfile";
 
 export default function QuizPage() {
   /* ================= FETCH DATA ================= */
@@ -62,6 +63,10 @@ export default function QuizPage() {
   const [lockMap, setLockMap] = useState({});
   const [isLive, setIsLive] = useState();
   const [liveMap, setLiveMap] = useState({});
+
+  const user = useUserProfile();
+  const [luckyWinner, setLuckyWinner] = useState(null);
+  const [winnerRevealed, setWinnerRevealed] = useState(false);
 
   /* ================= SET SELECTION ================= */
 
@@ -358,6 +363,33 @@ export default function QuizPage() {
     [currentQuestions, selectedAnswers],
   );
 
+  /* ================= LUCKY WINNER LOGIC ================= */
+  const handleDeclareWinner = () => {
+    if (!leaderboard.length || !currentQuestions.length) {
+      setLuckyWinner(null);
+      setWinnerRevealed(true);
+      return;
+    }
+
+    const totalMarks = currentQuestions.length;
+    const passingMarks = totalMarks * 0.4;
+    const eligibleStudents = leaderboard.filter((u) => u.score > passingMarks);
+
+    if (eligibleStudents.length === 0) {
+      setLuckyWinner(null);
+    } else {
+      const randomIndex = Math.floor(Math.random() * eligibleStudents.length);
+      setLuckyWinner(eligibleStudents[randomIndex]);
+    }
+    setWinnerRevealed(true);
+  };
+
+  // Reset winner state when set changes
+  useEffect(() => {
+    setLuckyWinner(null);
+    setWinnerRevealed(false);
+  }, [currentSet]);
+
   /* ================= UI ================= */
   return (
     <div className="min-h-screen bg-gray-100">
@@ -438,11 +470,10 @@ export default function QuizPage() {
                 <div className="flex gap-2">
                   <button
                     onClick={() => setPostView("analysis")}
-                    className={`px-3 py-2 rounded ${
-                      postView === "analysis"
-                        ? "bg-blue-600 text-white"
-                        : "bg-white border"
-                    }`}
+                    className={`px-3 py-2 rounded ${postView === "analysis"
+                      ? "bg-blue-600 text-white"
+                      : "bg-white border"
+                      }`}
                   >
                     Analysis
                   </button>
@@ -458,49 +489,98 @@ export default function QuizPage() {
               {/* ===== SCORE SUMMARY CARD ===== */}
 
               {postView === "result" && (
-                <div className="flex flex-col lg:flex-row gap-6 justify-center">
-                  <div className="max-w-md w-full bg-white p-6 rounded shadow text-gray-800">
-                    <h3 className="text-base sm:text-lg font-semibold mb-4 text-center">
-                      Score Summary
-                    </h3>
+                <div className="flex flex-col lg:flex-row gap-6 justify-center items-start">
 
-                    <div className="space-y-2 sm:space-y-3 text-sm sm:text-base">
-                      <p className="text-lg text-gray-500 text-center mb-3">
-                        <span className="font-medium">{userName}</span>
-                      </p>
-                      <p className="font-medium grid grid-cols-2">
-                        <span>Total Marks :</span>
-                        <span className="font-semibold text-blue-600 text-right">
-                          {score.total}
-                        </span>
-                      </p>
+                  {/* LEFT COLUMN: Score Summary + Lucky Winner */}
+                  <div className="flex flex-col gap-6 w-full max-w-md">
 
-                      <p className="font-medium grid grid-cols-2">
-                        <span>Your Score :</span>
-                        <span className="font-bold text-blue-600 text-right">
-                          {dbScore !== null ? dbScore : score.correct}
-                        </span>
-                      </p>
+                    {/* ===== SCORE SUMMARY CARD ===== */}
+                    <div className="w-full bg-white p-6 rounded shadow text-gray-800">
+                      <h3 className="text-base sm:text-lg font-semibold mb-4 text-center">
+                        Score Summary
+                      </h3>
 
-                      {/* 🏆 RANK */}
-                      {currentUserRank && (
+                      <div className="space-y-2 sm:space-y-3 text-sm sm:text-base">
+                        <p className="text-lg text-gray-500 text-center mb-3">
+                          <span className="font-medium">{userName}</span>
+                        </p>
                         <p className="font-medium grid grid-cols-2">
-                          <span>Your Rank :</span>
-                          <span className="font-bold text-blue-600 text-right">
-                            {currentUserRank}
+                          <span>Total Marks :</span>
+                          <span className="font-semibold text-blue-600 text-right">
+                            {score.total}
                           </span>
                         </p>
-                      )}
+
+                        <p className="font-medium grid grid-cols-2">
+                          <span>Your Score :</span>
+                          <span className="font-bold text-blue-600 text-right">
+                            {dbScore !== null ? dbScore : score.correct}
+                          </span>
+                        </p>
+
+                        {/* 🏆 RANK */}
+                        {currentUserRank && (
+                          <p className="font-medium grid grid-cols-2">
+                            <span>Your Rank :</span>
+                            <span className="font-bold text-blue-600 text-right">
+                              {currentUserRank}
+                            </span>
+                          </p>
+                        )}
+                      </div>
                     </div>
+
+                    {/* 🔥 LUCKY WINNER SECTION (Below Score Summary) */}
+                    {leaderboard.length > 0 && (
+                      <div className="w-full bg-white p-6 rounded shadow text-center">
+                        <h4 className="text-yellow-800 font-bold text-lg mb-4">
+                          🎉 Lucky Winner 🎉
+                        </h4>
+
+                        {!winnerRevealed ? (
+                          <div className="p-6 bg-gray-50 border border-gray-200 rounded-lg flex flex-col items-center gap-3">
+                            <p className="text-gray-500 font-medium italic">
+                              Coming Soon...
+                            </p>
+
+                            {/* Only Admin/Editor can declare winner */}
+                            {["admin", "editor"].includes(user?.role?.toLowerCase()) && (
+                              <button
+                                onClick={handleDeclareWinner}
+                                className="px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-sm font-semibold rounded shadow hover:shadow-lg transform transition-transform hover:scale-105"
+                              >
+                                🎲 Declare Winner
+                              </button>
+                            )}
+                          </div>
+                        ) : luckyWinner ? (
+                          <div className="p-4 bg-gradient-to-r from-yellow-100 to-yellow-200 border border-yellow-300 rounded-lg shadow-sm animate-pulse">
+                            <p className="text-sm text-yellow-700 mb-2">
+                              (Scored &gt; 40%)
+                            </p>
+                            <div className="text-xl font-extrabold text-purple-700">
+                              {luckyWinner.name}
+                            </div>
+                            <div className="text-sm font-semibold text-gray-600">
+                              Score: {luckyWinner.score}
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg text-gray-500 italic">
+                            No Lucky Winner (Need &gt; 40% Score)
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </div>
 
-                  {/* ===== LEADERBOARD CARD ===== */}
+                  {/* RIGHT COLUMN: Leaderboard */}
                   <div className="max-w-md w-full bg-white p-8 rounded shadow">
                     <h3 className="text-base sm:text-lg font-semibold mb-4 text-center">
                       Leaderboard – {currentSet}
                     </h3>
 
-                    {/* 🔥 SCROLLABLE AREA */}
+                    {/* 🔥 SCROLLABLE AREA for Leaderboard */}
                     <div className="max-h-64 overflow-y-auto">
                       {leaderboard.length === 0 ? (
                         <p className="text-center text-sm text-gray-500">
@@ -542,7 +622,7 @@ export default function QuizPage() {
                   questionIndex={currentQuestionIndex}
                   total={currentQuestions.length}
                   selected={selectedAnswers[currentQuestion._id] ?? null}
-                  onSelectOption={() => {}}
+                  onSelectOption={() => { }}
                   onNext={gotoNext}
                   onPrev={gotoPrev}
                   readOnly={true}
