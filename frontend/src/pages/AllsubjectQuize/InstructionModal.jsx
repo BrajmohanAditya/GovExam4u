@@ -52,7 +52,7 @@ export default function InstructionModal({
               ${isLocked ? "bg-green-600 text-white" : "bg-red-600 text-white"}
             `}
             >
-              {isLocked ? "Unlock Exam" : "Lock Exam"}
+              {isLocked ? "Unlock" : "Lock"}
             </button>
           )}
 
@@ -69,7 +69,7 @@ export default function InstructionModal({
             onClick={onConfirm}
             className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
           >
-            OK, Start Test
+            Start
           </button>
         </div>
       </div>
