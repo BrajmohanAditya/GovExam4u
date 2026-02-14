@@ -13,6 +13,7 @@ export default function CardGrid() {
             className="w-52 h-52 object-cover mx-auto rounded"
           />
         </div>
+        
       </Link>
 
 
