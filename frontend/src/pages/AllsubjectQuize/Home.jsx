@@ -556,7 +556,7 @@ export default function QuizPage() {
                         ) : luckyWinner ? (
                           <div className="p-4 bg-gradient-to-r from-yellow-100 to-yellow-200 border border-yellow-300 rounded-lg shadow-sm animate-pulse">
                             <p className="text-sm text-yellow-700 mb-2">
-                              (Scored &gt; 40%)
+                              (You win rs 20)
                             </p>
                             <div className="text-xl font-extrabold text-purple-700">
                               {luckyWinner.name}
