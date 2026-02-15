@@ -35,16 +35,19 @@ const Register = () => {
   });
 
   const submitHandler = async (values) => {
-    // console.log(values);
+    // Instead of immediately registering, send OTP for verification
     const data = {
-      url: apis().registerUser,
+      url: apis().registerSendOtp,
       method: "POST",
       body: values,
     };
     const result = await httpAction(data);
     if (result?.status) {
-      toast.success(result?.message);
-      navigate("/login");
+      // store registration payload temporarily until OTP verification
+      localStorage.setItem("registerFlow", "true");
+      localStorage.setItem("registerPayload", JSON.stringify(values));
+      toast.success("OTP sent to your email. Please verify.");
+      navigate("/otpVerify");
     }
   };
 
@@ -69,7 +72,6 @@ const Register = () => {
                   <p>Register New Account</p>
                   <span>signup to continue</span>
                 </div>
-
                 <Button
                   onClick={loginWithGoogle}
                   variant="outlined"
@@ -92,11 +94,9 @@ const Register = () => {
                 >
                   Continue with Google
                 </Button>
-
                 <div className="col">
                   <Divider>OR</Divider>
                 </div>
-
                 <div className="col">
                   <TextField
                     name="name"
@@ -109,7 +109,6 @@ const Register = () => {
                     size="small"
                   />
                 </div>
-
                 <div className="col">
                   <TextField
                     type="email"
@@ -145,13 +144,11 @@ const Register = () => {
                     size="small"
                   />
                 </div>
-
                 <div className="col">
                   <Button variant="contained" fullWidth type="submit">
                     Register
                   </Button>
                 </div>
-
                 <div className="col">
                   <Button
                     startIcon={<ArrowBack />}

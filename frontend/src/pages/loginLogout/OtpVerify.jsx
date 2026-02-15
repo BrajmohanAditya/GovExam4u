@@ -39,6 +39,23 @@ const OtpVerify = () => {
       values.otp4 +
       values.otp5 +
       values.otp6;
+    const registerFlow = localStorage.getItem("registerFlow") === "true";
+    if (registerFlow) {
+      const data = {
+        url: apis().registerVerify,
+        method: "POST",
+        body: { otp },
+      };
+      const result = await httpAction(data);
+      if (result?.success) {
+        toast.success(result?.message || "Registration successful");
+        localStorage.removeItem("registerFlow");
+        localStorage.removeItem("registerPayload");
+        navigate("/login");
+      }
+      return;
+    }
+
     const data = {
       url: apis().verifyOtp,
       method: "POST",
@@ -62,11 +79,11 @@ const OtpVerify = () => {
     }
   };
   const getTimer = async () => {
-    const data = {
-      url: apis().getTime,
-      method: "POST",
-      body: { email: localStorage.getItem("email") },
-    };
+    const registerFlow = localStorage.getItem("registerFlow") === "true";
+    const email = registerFlow
+      ? JSON.parse(localStorage.getItem("registerPayload") || "{}").email
+      : localStorage.getItem("email");
+    const data = { url: apis().getTime, method: "POST", body: { email } };
     const result = await httpAction(data);
     if (result?.status) {
       const minuts = result?.time - new Date().getTime();
@@ -78,6 +95,21 @@ const OtpVerify = () => {
   }, []);
 
   const resendOtp = async () => {
+    const registerFlow = localStorage.getItem("registerFlow") === "true";
+    if (registerFlow) {
+      const payload = JSON.parse(
+        localStorage.getItem("registerPayload") || "{}",
+      );
+      const data = {
+        url: apis().registerSendOtp,
+        method: "POST",
+        body: payload,
+      };
+      const result = await httpAction(data);
+      if (result?.status) getTimer();
+      return;
+    }
+
     const data = {
       url: apis().forgotPassword,
       method: "POST",
@@ -87,7 +119,6 @@ const OtpVerify = () => {
 
     if (result?.status) {
       getTimer();
-      // console.log("resend otp time", result?.time);
     }
   };
 
@@ -117,7 +148,7 @@ const OtpVerify = () => {
                       onChange={(event) => {
                         const value = event.target.value.replace(
                           /[^0-9]/g,
-                          " "
+                          " ",
                         );
                         inputChange(value, setFieldValue, index + 1, item);
                       }}
@@ -134,7 +165,7 @@ const OtpVerify = () => {
                 <div className="col">
                   <Button
                     disabled={Object.values(values).some(
-                      (value) => value === ""
+                      (value) => value === "",
                     )}
                     variant="contained"
                     fullWidth

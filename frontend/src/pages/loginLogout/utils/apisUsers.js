@@ -12,6 +12,8 @@ const apis = () => {
     getAccess: `${baseUrl}/users/access`,
     forgotPassword: `${baseUrl}/users/forgot-password`,
     verifyOtp: `${baseUrl}/users/verify-otp`,
+    registerSendOtp: `${baseUrl}/users/register-send-otp`,
+    registerVerify: `${baseUrl}/users/register-verify`,
     getTime: `${baseUrl}/users/get-time`,
     updatePassword: `${baseUrl}/users/update-password`,
     verifyUser: `${baseUrl}/users/verify`,
