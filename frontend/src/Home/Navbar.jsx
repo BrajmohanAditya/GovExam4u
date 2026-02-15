@@ -123,12 +123,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
               <LogIn className="w-4 h-4" /> Login
             </button>
 
-            <button
-              onClick={() => navigate("/register")}
-              className={navbarStyles.signup}
-            >
-              <UserPlus className="w-4 h-4" /> Signup
-            </button>
+
           </>
         )}
       </div>
