@@ -486,12 +486,20 @@ export default function QuizPage() {
                     Practice
                   </button>
 
-                  <button
-                    onClick={() => setShowInstructions(true)}
-                    className="px-3 py-2 bg-yellow-500 text-white rounded"
-                  >
-                    Instruction
-                  </button>
+                  {["admin", "editor"].includes(user?.role?.toLowerCase()) ? (
+                    <button
+                      onClick={() =>
+                        handleToggleLive(currentSet, !liveMap[currentSet])
+                      }
+                      className={`px-3 py-2 rounded ${
+                        liveMap[currentSet]
+                          ? "bg-red-600 text-white"
+                          : "bg-green-600 text-white"
+                      }`}
+                    >
+                      {liveMap[currentSet] ? "Unlive" : "Go Live"}
+                    </button>
+                  ) : null}
                 </div>
               </div>
               {/* ===== SCORE SUMMARY CARD ===== */}

@@ -8,7 +8,7 @@ import verifyAttempt from "../controllers/allSubQuiz/verifyAttempt.js";
 import leaderboard from "../controllers/allSubQuiz/leaderboard.js";
 import { getAllLockStatus } from "../controllers/allSubQuiz/getAllLockStatus.js";
 
-import {
+import { 
   getLockStatus,
   toggleLock,
 } from "../controllers/allSubQuiz/setLockController.js";
