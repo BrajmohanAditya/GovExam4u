@@ -470,10 +470,11 @@ export default function QuizPage() {
                 <div className="flex gap-2">
                   <button
                     onClick={() => setPostView("analysis")}
-                    className={`px-3 py-2 rounded ${postView === "analysis"
-                      ? "bg-blue-600 text-white"
-                      : "bg-white border"
-                      }`}
+                    className={`px-3 py-2 rounded ${
+                      postView === "analysis"
+                        ? "bg-blue-600 text-white"
+                        : "bg-white border"
+                    }`}
                   >
                     Analysis
                   </button>
@@ -484,16 +485,21 @@ export default function QuizPage() {
                   >
                     Practice
                   </button>
+
+                  <button
+                    onClick={() => setShowInstructions(true)}
+                    className="px-3 py-2 bg-yellow-500 text-white rounded"
+                  >
+                    Instruction
+                  </button>
                 </div>
               </div>
               {/* ===== SCORE SUMMARY CARD ===== */}
 
               {postView === "result" && (
                 <div className="flex flex-col lg:flex-row gap-6 justify-center items-start">
-
                   {/* LEFT COLUMN: Score Summary + Lucky Winner */}
                   <div className="flex flex-col gap-6 w-full max-w-md">
-
                     {/* ===== SCORE SUMMARY CARD ===== */}
                     <div className="w-full bg-white p-6 rounded shadow text-gray-800">
                       <h3 className="text-base sm:text-lg font-semibold mb-4 text-center">
@@ -544,7 +550,9 @@ export default function QuizPage() {
                             </p>
 
                             {/* Only Admin/Editor can declare winner */}
-                            {["admin", "editor"].includes(user?.role?.toLowerCase()) && (
+                            {["admin", "editor"].includes(
+                              user?.role?.toLowerCase(),
+                            ) && (
                               <button
                                 onClick={handleDeclareWinner}
                                 className="px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-sm font-semibold rounded shadow hover:shadow-lg transform transition-transform hover:scale-105"
@@ -622,7 +630,7 @@ export default function QuizPage() {
                   questionIndex={currentQuestionIndex}
                   total={currentQuestions.length}
                   selected={selectedAnswers[currentQuestion._id] ?? null}
-                  onSelectOption={() => { }}
+                  onSelectOption={() => {}}
                   onNext={gotoNext}
                   onPrev={gotoPrev}
                   readOnly={true}
