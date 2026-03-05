@@ -1,66 +1,64 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faHouse,
-  faChalkboardUser,
-  faFileSignature,
-  faFileCircleQuestion,
-  faBookOpenReader,
-  faNewspaper,
-  faCartShopping,
-  faHandHoldingDollar,
-  faAddressCard,
-  faListOl,
-  faCalendarDays,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faSquareWhatsapp,
-  faYoutube,
-  faTelegram,
-} from "@fortawesome/free-brands-svg-icons";
+  Home,
+  Users,
+  FileText,
+  PlayCircle,
+  List,
+  BookOpen,
+  Newspaper,
+  ShoppingCart,
+  Gift,
+  Star,
+  Calendar,
+  MessageSquare,
+  Youtube,
+  Settings,
+  Send,
+} from "lucide-react";
 import { sidebarStyles } from "./style";
 
 const sidebarItems = [
-  { icon: faHouse, label: "Home", link: "#" },
-  { icon: faChalkboardUser, label: "Live Classes", link: "#" },
-  { icon: faFileSignature, label: "Mock Test", link: "#" },
+  { icon: Home, label: "Home", link: "#" },
+  { icon: Users, label: "Live Classes", link: "#" },
+  { icon: FileText, label: "Mock Test", link: "#" },
   {
-    icon: faFileCircleQuestion,
+    icon: PlayCircle,
     label: "Live Mock",
     link: "#/livemock",
   },
   {
-    icon: faListOl,
+    icon: List,
     label: "To-Do List",
     link: "#todo-list",
   },
   {
-    icon: faBookOpenReader,
+    icon: BookOpen,
     label: "Descriptive Writing",
     link: "#/descriptive",
   },
-  { icon: faNewspaper, label: "Current Affair", link: "#/ca-quiz" },
-  { icon: faFileSignature, label: "Daily Quiz", link: "#/allSubjectQuize" },
-  { icon: faCalendarDays, label: "Track Your Exam", link: "#/examTracker" },
-  { icon: faHandHoldingDollar, label: "Win Prize", link: "#" },
-  { icon: faAddressCard, label: "Our Selections", link: "#" },
-  { icon: faCartShopping, label: "Purchased Item", link: "#" },
+  { icon: Newspaper, label: "Current Affair", link: "#/ca-quiz" },
+  { icon: FileText, label: "Daily Quiz", link: "#/allSubjectQuize" },
+  { icon: Calendar, label: "Track Your Exam", link: "#/examTracker" },
+  { icon: Gift, label: "Win Prize", link: "#" },
+  { icon: Star, label: "Our Selections", link: "#" },
+  { icon: ShoppingCart, label: "Purchased Item", link: "#" },
   {
-    icon: faSquareWhatsapp,
+    icon: MessageSquare,
     label: "whatsApp",
     link: "https://chat.whatsapp.com/EF6x76bLnSe47jBOvzIuGe",
   },
   {
-    icon: faYoutube,
+    icon: Youtube,
     label: "YouTube",
     link: "https://www.youtube.com/@silenttravler1632",
   },
   {
-    icon: faTelegram,
+    icon: Send,
     label: "Telegram",
     link: "https://t.me/+K5o2Ti1aRZdlNDY9",
   },
-  { icon: "⚙️", label: "Setting", link: "#/password/forgot" },
+  { icon: Settings, label: "Setting", link: "#/password/forgot" },
 ];
 
 export default function SidebarMenu({ showSidebar, setShowSidebar }) {
@@ -107,21 +105,24 @@ export default function SidebarMenu({ showSidebar, setShowSidebar }) {
               }}
             >
               {typeof item.icon === "string" ? (
-                // 🎯 emoji
                 <span className="inline-flex items-center justify-center w-4 mr-2">
                   {item.icon}
                 </span>
               ) : (
-                // FontAwesome
                 <span className="inline-flex items-center justify-center w-4 mr-2">
-                  <FontAwesomeIcon
-                    icon={item.icon}
-                    className={`${
-                      active === item.label
-                        ? "text-[#45f3f3]"
-                        : "text-[#45f3f3]"
-                    }`}
-                  />
+                  {(() => {
+                    const Icon = item.icon;
+                    return (
+                      <Icon
+                        size={18}
+                        className={`${
+                          active === item.label
+                            ? "text-[#45f3f3]"
+                            : "text-[#45f3f3]"
+                        }`}
+                      />
+                    );
+                  })()}
                 </span>
               )}
 
