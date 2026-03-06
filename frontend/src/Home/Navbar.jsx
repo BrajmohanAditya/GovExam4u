@@ -7,9 +7,8 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
-import { GraduationCap, LogIn, UserPlus, LogOut } from "lucide-react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { GraduationCap, LogIn, UserPlus, LogOut, Menu, X } from "lucide-react";
+
 import { useNavigate } from "react-router-dom";
 import apis from "../pages/loginLogout/utils/apisUsers.js";
 import httpAction from "../pages/loginLogout/utils/httpAction";
@@ -65,7 +64,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
     if (nav) {
       document.documentElement.style.setProperty(
         "--navbar-height",
-        nav.getBoundingClientRect().height + "px"
+        nav.getBoundingClientRect().height + "px",
       );
     }
   }, []);
@@ -78,10 +77,11 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
           className="sm:hidden p-2 text-white"
           onClick={() => setShowSidebar((prev) => !prev)}
         >
-          <FontAwesomeIcon
-            icon={showSidebar ? faTimes : faBars}
-            className="text-xl"
-          />
+          {showSidebar ? (
+            <X className="text-xl" />
+          ) : (
+            <Menu className="text-xl" />
+          )}
         </button>
         <Logo />
       </div>
@@ -122,8 +122,6 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
             >
               <LogIn className="w-4 h-4" /> Login
             </button>
-
-
           </>
         )}
       </div>
