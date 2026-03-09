@@ -3,7 +3,8 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import api from "../../api";
+import apis from "./apis";
+import httpAction from "../loginLogout/utils/httpAction";
 
 export default function ExamEditForm() {
   const { id } = useParams();
@@ -12,15 +13,30 @@ export default function ExamEditForm() {
   const [loading, setLoading] = useState(true);
 
   //step: A2, aim: edit editUpdate form,  work : backend k "/examTrack/${id}/edit" route seh data receive kr raha hai or form meh daal raha hai
-  useEffect(() => {
-    api
-      .get(`/examTrack/${id}/edit`)
-      .then((res) => {
-        setExam(res.data);
-        setLoading(false);
-      })
-      .catch((err) => console.error(err));
-  }, [id]);
+  // useEffect(() => {
+  //   api
+  //     .get(`/examTrack/${id}/edit`)
+  //     .then((res) => {
+  //       setExam(res.data);
+  //       setLoading(false);
+  //     })
+  //     .catch((err) => console.error(err));
+  // }, [id]);
+
+    useEffect(() => {
+      const editUpdate = async () => {
+        const data = {
+          url: apis().editUpdate,
+          method: "GET",
+        };
+        const result = await httpAction(data);
+        if (result?.status) {
+          setExam(result?.data);
+        }
+      };
+
+      editUpdate();
+    }, [id]);
   //---
 
   if (loading) return <p>Loading...</p>;

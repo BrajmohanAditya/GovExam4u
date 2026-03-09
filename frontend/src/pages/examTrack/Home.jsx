@@ -1,33 +1,29 @@
-
-
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { calculateTimeLeft } from "./timeLeft";
 import Nav from "./Navbar";
-import api from "../../api";
-
+import apis from "./apis";
+import httpAction from "../loginLogout/utils/httpAction";
 export default function ExamTrack() {
   const [exams, setExams] = useState([]);
   const [timeLeft, setTimeLeft] = useState({});
   const navigate = useNavigate();
-
+  console.log("Exams:", exams);
   /* ================= FETCH EXAMS ================= */
   useEffect(() => {
-    api
-      .get("/examTrack")
-      .then((res) => setExams(res.data))
-      .catch((err) => {
-        if (err.response) {
-          console.error("Error:", err.response.data.message);
-          if (err.response.status === 401) {
-            alert(err.response.data.message);
-            navigate("/login");
-          }
-        } else {
-          console.error("Unexpected error:", err);
-        }
-      });
-  }, [navigate]);
+    const getExams = async () => {
+      const data = {
+        url: apis().getExam,
+        method: "GET",
+      };
+      const result = await httpAction(data);
+      if (result?.status) {
+        setExams(result?.data);
+      }
+    };
+
+    getExams();
+  }, []);
 
   /* ================= TIME LEFT CALCULATION ================= */
   useEffect(() => {
