@@ -12,7 +12,7 @@ const apis = () => {
     leaderboard: `${baseUrl}/AllSubjectQuiz/leaderboard`,
     lockStatus: `${baseUrl}/AllSubjectQuiz/lock-status`,
 
-    // 🔐 LOCK APIs (IMPORTANT)
+    // 🔐 LOCK APIs (IMPORTANT)   
     isLocked: (setName) =>
       `${baseUrl}/AllSubjectQuiz/is-locked/${encodeURIComponent(setName)}`,
 

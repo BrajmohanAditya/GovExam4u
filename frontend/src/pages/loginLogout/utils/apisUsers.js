@@ -3,7 +3,7 @@ const apis = () => {
   const baseUrl = import.meta.env.DEV
     ? import.meta.env.VITE_API_DEV
     : import.meta.env.VITE_API_PROD;
-
+     
   const list = {
     registerUser: `${baseUrl}/users/register`,
     loginUser: `${baseUrl}/users/login`,

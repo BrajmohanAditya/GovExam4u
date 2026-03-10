@@ -6,7 +6,8 @@ import { ArrowBack, Send } from "@mui/icons-material";
 import { GrPowerReset } from "react-icons/gr";
 import useGeneral from "./hooks/useGeneral";
 import apis from "./utils/apisUsers";
-import httpAction from "./utils/httpAction";
+import httpAction from "../../services/httpAction";
+
 import { toast } from "react-hot-toast";
 const ForgotPassword = () => {
   const initialState = {
