@@ -34,6 +34,7 @@ router.get(
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     const exam = await examdate.findById({ _id: id, userId: req.user._id }); // apna model ka naam Exam rakho
+
     res.json(exam); // frontend React ko JSON bhejna
   })
 );

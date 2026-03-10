@@ -1,8 +1,9 @@
-// Aim: This page if for edit and update form. 
+// Aim: This page if for edit and update form.
 // Aim:  added BootsTrap validation in form(novalidate class="needs-validation").
 
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 import apis from "./apis";
 import httpAction from "../loginLogout/utils/httpAction";
 
@@ -13,58 +14,76 @@ export default function ExamEditForm() {
   const [loading, setLoading] = useState(true);
 
   //step: A2, aim: edit editUpdate form,  work : backend k "/examTrack/${id}/edit" route seh data receive kr raha hai or form meh daal raha hai
-  // useEffect(() => {
-  //   api
-  //     .get(`/examTrack/${id}/edit`)
-  //     .then((res) => {
-  //       setExam(res.data);
-  //       setLoading(false);
-  //     })
-  //     .catch((err) => console.error(err));
-  // }, [id]);
 
-    useEffect(() => {
-      const editUpdate = async () => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
         const data = {
-          url: apis().editUpdate,
+          url: apis().fetchData(id),
           method: "GET",
         };
         const result = await httpAction(data);
-        if (result?.status) {
-          setExam(result?.data);
-        }
-      };
 
-      editUpdate();
-    }, [id]);
+        // httpAction returns the parsed JSON on success, or { status: false, error }
+        const payload = result?.data ?? result;
+        if (payload) {
+          setExam(payload);
+        }
+      } catch (err) {
+        console.error('Failed to fetch exam:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [id]);
   //---
 
   if (loading) return <p>Loading...</p>;
+  if (!exam) return <p>Exam not found</p>;
 
   //step: A2, aim: edit krna hai  editUpdate form ko,  work : backend(examtrack.js) k ak route ko data send kr raha hai.
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await api.put(`/examTrack/${id}`, exam);
-      alert(res.data.message); //// receiving edit alert from backend
-      navigate("/examTracker"); // redirect back to exam list
-    } catch (err) {
-      alert("Failed to update exam.");
-    }
-  };
+
+
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        const data = {
+          url: apis().editExam(id),
+          method: "PUT",
+          body: exam,
+        };
+        const result = await httpAction(data);
+  
+        // httpAction returns `{ status: false, error }` on failure
+        if (result?.status === false) {
+          alert(result?.error || "Failed to edit exam");
+          return;
+        }
+  
+        alert(result?.message || "Exam edited successfully");
+        navigate("/examTracker", { replace: true });
+      } catch (err) {
+        alert("An error occurred while editing the exam.");
+      }
+    };
   //--
 
   // Delete route
-  const handleDelete = async () => {
-    if (window.confirm("Are you sure you want to delete this exam?")) {
-      try {
-        const res = await api.delete(`/examTrack/${id}`); //backend ko delete request send kr k await kr raha hai ki delete hua ki nahi, promise return krta hai na.
-        alert(res.data.message); // receiving delete alert from backend
-        navigate("/examTracker", { replace: true }); // redirect after delete
-      } catch (err) {
-        alert("Failed to delete exam.");
-      }
+  const deleteHandler = async () => {
+    const data = {
+      url: apis().deleteExam(id),
+      method: "DELETE",
+    };
+
+    const result = await httpAction(data);
+    if (result?.status === false) {
+      alert(result?.error || "Failed to delete");
+      return;
     }
+    toast.success(result?.message || "Card Deleted");
+    navigate("/examTracker", { replace: true });
   };
   //--
   return (
@@ -110,7 +129,7 @@ export default function ExamEditForm() {
       &nbsp;&nbsp;
       <button
         type="button"
-        onClick={handleDelete}
+        onClick={deleteHandler}
         className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
       >
         Delete

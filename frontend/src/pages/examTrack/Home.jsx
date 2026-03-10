@@ -17,9 +17,7 @@ export default function ExamTrack() {
         method: "GET",
       };
       const result = await httpAction(data);
-      if (result?.status) {
-        setExams(result?.data);
-      }
+      setExams(result);
     };
 
     getExams();

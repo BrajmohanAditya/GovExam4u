@@ -5,7 +5,10 @@ const apis = () => {
 
   const list = {
     getExam: `${baseUrl}/examTrack`,
-    editUpdate: `${baseUrl}/examTrack/${id}/edit`
+    fetchData: (id) => `${baseUrl}/examTrack/${id}/edit`,
+    addExam: `${baseUrl}/examTrack`,
+    editExam: (id) => `${baseUrl}/examTrack/${id}`,
+    deleteExam: (id) => `${baseUrl}/examTrack/${id}`,
   };
   return list;
 };

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../../api";
-
+import apis from "./apis";
+import httpAction from "../loginLogout/utils/httpAction";
 export default function ExamAddForm() {
   const navigate = useNavigate();
   const [exam, setExam] = useState({
@@ -9,18 +9,30 @@ export default function ExamAddForm() {
     Pre: "",
     Mains: "",
   });
-  //step: A3, aim: Adding new card, work: Backend(examTrack.js) ko data send kr raha hai
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await api.post("/examTrack", exam); // ✅ POST request
-      alert(res.data.message);
+      const data = {
+        url: apis().addExam,
+        method: "POST",
+        body: exam,
+      };
+      const result = await httpAction(data);
+
+      // httpAction returns `{ status: false, error }` on failure
+      if (result?.status === false) {
+        alert(result?.error || "Failed to add exam");
+        return;
+      }
+
+      alert(result?.message || "Exam added successfully");
+      navigate("/examTracker", { replace: true });
     } catch (err) {
-      alert(err.response?.data?.message || "Failed to add exam.");
+      alert("An error occurred while adding the exam.");
     }
-    navigate("/examTracker", { replace: true });
   };
- //---
+  //---
   return (
     <form
       onSubmit={handleSubmit}
