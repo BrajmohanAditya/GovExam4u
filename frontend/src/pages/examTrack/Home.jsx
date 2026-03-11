@@ -3,7 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { calculateTimeLeft } from "./timeLeft";
 import Nav from "./Navbar";
 import apis from "./apis";
-import httpAction from "../loginLogout/utils/httpAction";
+import httpAction from "../../services/httpAction.js";
+
+
 export default function ExamTrack() {
   const [exams, setExams] = useState([]);
   const [timeLeft, setTimeLeft] = useState({});

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import apis from "./apis";
-import httpAction from "../loginLogout/utils/httpAction";
+import httpAction from "../../services/httpAction.js";
 
 export default function ExamEditForm() {
   const { id } = useParams();

@@ -14,7 +14,7 @@ import {
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import apis from "./apis.js";
-import httpAction from "./httpAction.js";
+import httpAction from "../../services/httpAction.js";
 import RichTextEditor from "./RichTextEditor";
 
 const stripHtml = (html) => {

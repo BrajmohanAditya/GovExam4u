@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import apis from "./apis";
-import httpAction from "../loginLogout/utils/httpAction";
+import httpAction from "../../services/httpAction.js";
+
+
 export default function ExamAddForm() {
   const navigate = useNavigate();
   const [exam, setExam] = useState({

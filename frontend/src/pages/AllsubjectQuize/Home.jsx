@@ -4,7 +4,8 @@ import Sidebar from "./sidebar";
 import Timer from "./timer";
 import QuestionCard from "./QuestionCard";
 import QuizIntro from "./QuizIntro";
-import httpAction from "./httpAction";
+import httpAction from "../../services/httpAction.js";
+
 import apis from "./apis";
 import { toast } from "react-hot-toast";
 import InstructionModal from "./InstructionModal";
