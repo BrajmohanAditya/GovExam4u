@@ -11,7 +11,7 @@ import { GraduationCap, LogIn, UserPlus, LogOut, Menu, X } from "lucide-react";
 
 import { useNavigate } from "react-router-dom";
 import apis from "../pages/loginLogout/utils/apisUsers.js";
-import httpAction from "../pages/loginLogout/utils/httpAction";
+import httpAction from "../services/httpAction.js";
 
 
 import { navbarStyles } from "./style";
