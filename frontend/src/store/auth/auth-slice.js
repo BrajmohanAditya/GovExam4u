@@ -17,6 +17,7 @@ export const fetchUserProfile = createAsyncThunk(
 
     throw new Error("Failed to fetch user");
   },
+
 );
 
 const initialState = {
