@@ -8,11 +8,13 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
-import useUserProfile from "../../utils/userProfile.js";
+// import useUserProfile from "../../utils/userProfile.js";
+import { useSelector } from "react-redux";
 
 export default function Nav() {
-  const user = useUserProfile();
-
+  // const user = useUserProfile();
+  const { user, loading } = useSelector((state) => state.user || {});
+  console.log("hi mohan");
   return (
     <Box sx={{ flexGrow: 1 }}>
       <CssBaseline />

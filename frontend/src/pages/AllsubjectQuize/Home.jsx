@@ -95,7 +95,6 @@ export default function QuizPage() {
           map[item.set] = item.isLocked;
         });
         setLockMap(map);
-        console.log("Lock Map:", map);
       }
     };
     fetchAllLockStatus();
@@ -108,7 +107,6 @@ export default function QuizPage() {
           map[item.set] = item.isLive;
         });
         setLiveMap(map);
-        console.log("Live Map:", map);
       }
     };
 

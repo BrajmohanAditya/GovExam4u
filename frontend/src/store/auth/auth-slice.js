@@ -10,7 +10,6 @@ export const fetchUserProfile = createAsyncThunk(
     };
 
     const result = await httpAction(data);
-
     if (result?.status) {
       return result.user;
     }

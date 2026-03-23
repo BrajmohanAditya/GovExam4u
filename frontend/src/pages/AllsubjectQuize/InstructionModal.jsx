@@ -1,4 +1,5 @@
-import useUserProfile from "../../utils/userProfile.js";
+// import useUserProfile from "../../utils/userProfile.js";
+import { useSelector } from "react-redux";
 
 export default function InstructionModal({
   open,
@@ -10,7 +11,9 @@ export default function InstructionModal({
   isLive,
   onToggleLive,
 }) {
-  const user = useUserProfile();
+
+  const { user, loading } = useSelector((state) => state.user || {});
+
   // receiving prop
   if (!open) return null;
   return (

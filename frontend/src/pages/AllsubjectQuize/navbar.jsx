@@ -1,19 +1,11 @@
-
-
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUserProfile } from "../../store/auth/auth-slice";
 
 export default function Navbar({ onMobileMenu }) {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const { user, loading } = useSelector((state) => state.user);
-
-  useEffect(() => {
-    dispatch(fetchUserProfile());
-  }, [dispatch]);
 
   return (
     <nav className="fixed top-0 left-0 right-0 h-14 bg-white border-b border-gray-200 shadow-sm z-40">
