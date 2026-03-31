@@ -19,6 +19,7 @@ import {
 import { getAllLiveStatus } from "../controllers/allSubQuiz/getAllLiveStatus.js";
 
 const router = express.Router();
+
 router.post(
   "/addQuize",
   isLoggedIn,

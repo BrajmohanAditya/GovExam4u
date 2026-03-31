@@ -19,6 +19,23 @@ export const fetchUserProfile = createAsyncThunk(
 
 );
 
+export const checkAuth = createAsyncThunk(
+  "auth/checkAuth",
+  async () => {
+    const data = {
+      url: apis().checkAuth,
+    };
+    const result = await httpAction(data);
+    if (result?.status) {
+      return result.user;
+    }
+
+    throw new Error("Failed to check authentication");
+  }
+);
+
+
+
 const initialState = {
   user: null,
   loading: false,

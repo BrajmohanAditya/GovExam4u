@@ -22,7 +22,9 @@ const httpAction = async (data) => {
     console.log("Error during HTTP action:", error);
     const msg = (error.message || "").toString().trim();
     const display = msg || "Something went wrong";
-    toast.error(display);
+    if (msg !== "Login required") {
+      toast.error(display);
+    }
     return { status: false, error: msg };
   }
 };

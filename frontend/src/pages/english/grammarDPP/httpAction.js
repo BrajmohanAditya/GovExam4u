@@ -20,8 +20,11 @@ const httpAction = async (data) =>{
         return result;
     } catch (error) {
         console.log('Error during HTTP action:', error);
-        toast.error(error.message);
-        return { status: false, error: error.message };
+        const msg = (error.message || "").toString().trim();
+        if (msg !== "Login required") {
+            toast.error(msg || "Something went wrong");
+        }
+        return { status: false, error: msg };
     }
 }
 export default httpAction; 

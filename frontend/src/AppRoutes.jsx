@@ -18,6 +18,7 @@ export default function AppRoutes() {
   const dispatch = useDispatch();
   const { user, loading } = useSelector((state) => state.user);
 
+  // common api call for redox store to fetch user profile data and store in redux store
   useEffect(() => {
     if (!user && !loading) {
       dispatch(fetchUserProfile());
