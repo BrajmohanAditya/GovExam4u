@@ -12,7 +12,10 @@ import grammarDppRoutes from "./pages/english/grammarDPP/grammarDppRoutes";
 import allSubjectQuize_routes from "./pages/AllsubjectQuize/AllSubjectQuize_Routes";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUserProfile } from "./store/auth/auth-slice";
+import { fetchUserProfile, checkAuth } from "./store/auth/auth-slice";
+import CheckAuth from "./components/common/check-auth";
+import adminViewRoute from "./components/admin-view/admin-View-route";
+
 
 export default function AppRoutes() {
   const dispatch = useDispatch();
@@ -23,21 +26,30 @@ export default function AppRoutes() {
     if (!user && !loading) {
       dispatch(fetchUserProfile());
     }
-    console.log("hai");
   }, [user, loading, dispatch]);
 
 
+  const { user: authUser, isAuthenticated, isLoading } = useSelector(
+    (state) => state.user,
+  );
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, [dispatch]);
+
   return (
-    <Routes>
-      {HomeRoutes}
-      {DescriptiveRoutes}
-      {examTrackRoute}
-      {usersRoutes}
-      {QuizRoute}
-      {LiveMockRouter}
-      {todoListRoute}
-      {grammarDppRoutes}
-      {allSubjectQuize_routes}
-    </Routes>
+    <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+      <Routes>
+        {HomeRoutes}
+        {DescriptiveRoutes}
+        {examTrackRoute}
+        {usersRoutes}
+        {QuizRoute}
+        {LiveMockRouter}
+        {todoListRoute}
+        {grammarDppRoutes}
+        {allSubjectQuize_routes}
+        {adminViewRoute}
+      </Routes>
+    </CheckAuth>
   );
 }

@@ -26,5 +26,12 @@ router.post("/register-verify", verifyRegisterOtp);
 router.post("/get-time", getTime);
 router.post("/update-password", isLoggedIn, updatePassword);
 router.get("/verify", verifyUser);
-
+router.get("/check-auth", isLoggedIn, (req, res) => {
+    const user = req.user;
+    res.status(200).json({
+        success: true,
+        message: "Authenticated user!",
+        user,
+    });
+});
 export default router;
