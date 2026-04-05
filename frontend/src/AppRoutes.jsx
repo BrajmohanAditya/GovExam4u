@@ -4,7 +4,7 @@ import { Routes } from "react-router-dom";
 import DescriptiveRoutes from "./pages/Descriptive/descriptiveRoute";
 import HomeRoutes from "./Home/HomeRoute";
 import examTrackRoute from "./pages/examTrack/examTrackRoute";
-import usersRoutes from "./pages/loginLogout/usersRoute"
+import loginLogoutRoutes from "./pages/loginLogout/usersRoute"
 import QuizRoute from "./pages/Currentaffair/route";
 import LiveMockRouter from "./pages/LiveMock/LiveMockRouter";
 import todoListRoute from "./pages/TO-DO-List/todoListRoute";
@@ -23,10 +23,11 @@ export default function AppRoutes() {
 
   // common api call for redox store to fetch user profile data and store in redux store
   useEffect(() => {
-    if (!user && !loading) {
+    if (!user) {
       dispatch(fetchUserProfile());
     }
-  }, [user, loading, dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch]);
 
 
   const { user: authUser, isAuthenticated, isLoading } = useSelector(
@@ -36,13 +37,14 @@ export default function AppRoutes() {
     dispatch(checkAuth());
   }, [dispatch]);
 
+
   return (
     <CheckAuth isAuthenticated={isAuthenticated} user={user}>
       <Routes>
         {HomeRoutes}
         {DescriptiveRoutes}
         {examTrackRoute}
-        {usersRoutes}
+        {loginLogoutRoutes}
         {QuizRoute}
         {LiveMockRouter}
         {todoListRoute}

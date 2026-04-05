@@ -14,7 +14,6 @@ import { useSelector } from "react-redux";
 export default function Nav() {
   // const user = useUserProfile();
   const { user, loading } = useSelector((state) => state.user || {});
-  console.log("hi mohan");
   return (
     <Box sx={{ flexGrow: 1 }}>
       <CssBaseline />

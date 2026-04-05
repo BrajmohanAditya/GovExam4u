@@ -15,10 +15,13 @@ import { FcGoogle } from "react-icons/fc";
 import useGeneral from "./hooks/useGeneral";
 import apis from "./utils/apisUsers";
 import httpAction from "./utils/httpAction";
+import { useDispatch } from "react-redux";
+import { checkAuth } from "../../store/auth/auth-slice";
 
 const Login = () => {
   const [visible, setVisible] = useState(false);
   const { navigate } = useGeneral();
+  const dispatch = useDispatch();
   const visibleHandler = () => {
     setVisible(!visible);
   };
@@ -42,8 +45,11 @@ const Login = () => {
       body: values,
     };
     const result = await httpAction(data);
-    if (result?.status) {
-      navigate("/");
+    if (result?.status || result?.success) {
+      // After successful login, dispatch checkAuth so Redux knows the user is logged in
+      dispatch(checkAuth()).then(() => {
+        navigate("/");
+      });
     }
   };
 

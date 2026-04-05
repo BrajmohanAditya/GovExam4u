@@ -7,7 +7,7 @@ import OtpVerify from "./OtpVerify.jsx";
 import UpdatePassword from "./UpdatePassword.jsx";
 import Super from "./super.jsx";
 import HomePage from "../../Home/HomePage.jsx";
-const usersRoutes = [
+const loginLogoutRoutes = [
   <Route path="/login" element={<Login />} key="login" />,
   <Route path="/register" element={<Register />} key="notfound" />,
   <Route path="/password/forgot" element={<ForgotPassword />} />,
@@ -18,4 +18,4 @@ const usersRoutes = [
   </Route>,
 ];
 
-export default usersRoutes;
+export default loginLogoutRoutes;

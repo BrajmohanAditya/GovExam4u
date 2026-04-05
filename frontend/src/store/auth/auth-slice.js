@@ -22,8 +22,7 @@ export const fetchUserProfile = createAsyncThunk(
     }
 
     throw new Error("Failed to fetch user");
-  },
-
+  }
 );
 
 export const checkAuth = createAsyncThunk(
@@ -35,12 +34,12 @@ export const checkAuth = createAsyncThunk(
       };
 
       const result = await httpAction(data);
+      console.log("checkAuth", result.user);
 
       // 🔥 match backend response
       if (result?.success) {
         return result.user; // this will go to fulfilled case
       }
-
       return rejectWithValue(result?.message || "Authentication failed");
     } catch (error) {
       return rejectWithValue(
@@ -50,6 +49,24 @@ export const checkAuth = createAsyncThunk(
   }
 );
 
+export const logoutUser = createAsyncThunk(
+  "auth/logoutUser",
+  async (_, { rejectWithValue }) => {
+    try {
+      const data = {
+        url: apis().logoutUser,
+      };
+      const result = await httpAction(data);
+
+      if (result?.status || result?.success) {
+        return result;
+      }
+      return rejectWithValue("Logout failed");
+    } catch (error) {
+      return rejectWithValue(error.message || "Something went wrong during logout");
+    }
+  }
+);
 
 
 
@@ -92,6 +109,12 @@ const authSlice = createSlice({
         state.isAuthenticated = false;
         state.loading = false;
         state.error = action.payload;
+      })
+      .addCase(logoutUser.fulfilled, (state) => {
+        state.user = null;
+        state.isAuthenticated = false;
+        state.loading = false;
+        state.error = null;
       });
   },
 });
