@@ -34,7 +34,6 @@ export const checkAuth = createAsyncThunk(
       };
 
       const result = await httpAction(data);
-      console.log("checkAuth", result.user);
 
       // 🔥 match backend response
       if (result?.success) {
