@@ -1,5 +1,4 @@
 import { AlignJustify, LogOut, Search, Bell } from "lucide-react";
-import { Button } from "../ui/button";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../../store/auth/auth-slice";
 import { useNavigate } from "react-router-dom";
@@ -18,10 +17,10 @@ function AdminHeader({ setOpen }) {
         <header className="flex flex-col">
             <div className="flex items-center justify-between px-6 py-[18px] bg-white border-b border-gray-100 shadow-sm/50">
                 <div className="flex items-center gap-4">
-                    <Button onClick={() => setOpen(true)} className="lg:hidden sm:block text-gray-500 hover:bg-gray-50" variant="ghost" size="icon">
+                    <button onClick={() => setOpen(true)} className="lg:hidden sm:block text-gray-500 hover:bg-gray-50 p-2 rounded-md transition-colors">
                         <AlignJustify className="w-5 h-5" />
                         <span className="sr-only">Toggle Menu</span>
-                    </Button>
+                    </button>
                     
                     {/* Search bar for uniform modern aesthetic */}
                     <div className="hidden lg:flex items-center gap-2 bg-gray-50 px-4 py-2.5 rounded-lg border border-gray-200/60 focus-within:border-indigo-500/50 focus-within:ring-2 focus-within:ring-indigo-500/10 transition-all">

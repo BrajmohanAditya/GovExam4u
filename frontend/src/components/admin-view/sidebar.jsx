@@ -5,7 +5,8 @@ import {
     FileQuestion,
     Trophy,
     Settings,
-    GraduationCap
+    GraduationCap,
+    X
 } from "lucide-react";
 import { Fragment } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -85,6 +86,42 @@ function AdminSideBar({ open, setOpen }) {
 
     return (
         <Fragment>
+            {/* Mobile Sidebar Overlay */}
+            {open && (
+                <div 
+                    className="fixed inset-0 z-40 bg-slate-900/50 backdrop-blur-sm lg:hidden transition-all duration-300"
+                    onClick={() => setOpen(false)}
+                />
+            )}
+            
+            {/* Mobile Sidebar Drawer */}
+            <aside 
+                className={`fixed inset-y-0 left-0 z-50 w-[260px] bg-white transform transition-transform duration-300 ease-in-out lg:hidden flex flex-col shadow-2xl border-r border-gray-200 ${
+                    open ? "translate-x-0" : "-translate-x-full"
+                }`}
+            >
+                <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
+                    <div onClick={() => { navigate("/admin/dashboard"); setOpen(false); }} className="flex cursor-pointer items-center gap-3">
+                        <div className="bg-indigo-600 p-1.5 rounded-lg shadow-sm">
+                            <GraduationCap className="text-white w-6 h-6" />
+                        </div>
+                        <div className="flex flex-col">
+                            <h1 className="text-lg font-bold tracking-tight text-gray-900 leading-tight">GovExam4u</h1>
+                        </div>
+                    </div>
+                    <button onClick={() => setOpen(false)} className="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+                        <X className="w-5 h-5" />
+                    </button>
+                </div>
+                
+                <div className="flex-1 overflow-auto py-2 mt-2">
+                    <div className="px-6 py-2 text-xs font-bold text-gray-400 uppercase tracking-widest">
+                        Main Menu
+                    </div>
+                    <MenuItems setOpen={setOpen} />
+                </div>
+            </aside>
+
             {/* Desktop Sidebar */}
             <aside className="hidden w-[260px] flex-col border-r border-gray-200 bg-white lg:flex min-h-screen shadow-sm z-10 transition-all duration-300">
                 {/* Logo Section */}
