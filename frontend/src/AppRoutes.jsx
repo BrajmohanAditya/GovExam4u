@@ -9,7 +9,7 @@ import QuizRoute from "./pages/Currentaffair/route";
 import LiveMockRouter from "./pages/LiveMock/LiveMockRouter";
 import todoListRoute from "./pages/TO-DO-List/todoListRoute";
 import grammarDppRoutes from "./pages/english/grammarDPP/grammarDppRoutes";
-import allSubjectQuize_routes from "./pages/AllsubjectQuize/AllSubjectQuize_Routes";
+import allSubjectQuize_routes from "./pages/BankingQuiz/AllSubjectQuize_Routes";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserProfile, checkAuth } from "./store/auth/auth-slice";
@@ -37,9 +37,9 @@ export default function AppRoutes() {
     dispatch(checkAuth());
   }, [dispatch]);
 
-
   return (
     <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+
       <Routes>
         {HomeRoutes}
         {DescriptiveRoutes}

@@ -36,7 +36,6 @@ const addQuizSchema = new mongoose.Schema(
 
     explanation: {
       type: String,
-      required: true,
       trim: true,
     },
   },

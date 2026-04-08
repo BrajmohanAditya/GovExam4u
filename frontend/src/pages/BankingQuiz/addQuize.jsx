@@ -15,7 +15,7 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import apis from "./apis.js";
 import httpAction from "../../services/httpAction.js";
-import RichTextEditor from "./RichTextEditor";
+import RichTextEditor from "./RichTextEditor.jsx";
 
 const stripHtml = (html) => {
   if (!html) return "";
@@ -78,13 +78,7 @@ const AddQuize = () => {
       .required("Option 4 is required"),
     option5: Yup.string(),
     answer: Yup.string().required("Select correct answer"),
-    explanation: Yup.string()
-      .test(
-        "not-empty-html",
-        "Explanation is required",
-        (value) => stripHtml(value).length > 0,
-      )
-      .required("Explanation is required"),
+    explanation: Yup.string(),
   });
 
   const submitHandler = async (values, { resetForm }) => {
@@ -114,13 +108,12 @@ const AddQuize = () => {
       method: "POST",
       body: payload,
     };
-    console.log("Payload:", data);
     const result = await httpAction(data);
 
     if (result?.status) {
       toast.success("Question added successfully");
       resetForm();
-      navigate("/allSubjectQuize/add-Quize");
+      navigate("/admin/allSubjectQuize/add-Quize");
     } else {
       toast.error(result?.message || "Something went wrong");
     }
@@ -273,7 +266,7 @@ const AddQuize = () => {
 
               <div className="mt-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Explanation / Solution *
+                  Explanation / Solution
                 </label>
                 <RichTextEditor
                   value={values.explanation}

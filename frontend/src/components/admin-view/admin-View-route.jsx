@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 import AdminLayout from "./layout";
 import AdminDashboard from "./dashboard";
 import ManageQuizzes from "./manage-quizzes";
-import AddQuize from "../../pages/AllsubjectQuize/addQuize";
+import AddQuize from "../../pages/BankingQuiz/addQuize";
 
 const adminViewRoute = (
     <Route path="/admin" element={<AdminLayout />}>

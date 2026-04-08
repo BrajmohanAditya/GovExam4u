@@ -1,11 +1,7 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 
 export default function Navbar({ onMobileMenu }) {
-  const navigate = useNavigate();
 
-  const { user, loading } = useSelector((state) => state.user);
 
   return (
     <nav className="fixed top-0 left-0 right-0 h-14 bg-white border-b border-gray-200 shadow-sm z-40">
@@ -40,35 +36,7 @@ export default function Navbar({ onMobileMenu }) {
         </div>
 
         {/* Right: Add Quiz button */}
-        <div className="flex items-center">
-          {/* Optional: loading state */}
-          {loading && (
-            <span className="text-sm text-gray-500 mr-3">Loading...</span>
-          )}
 
-          {/* {["admin", "editor"].includes(user?.role?.toLowerCase()) && ( */}
-          <button
-            onClick={() => navigate("/admin/allSubjectQuize/add-Quize")}
-            className="inline-flex items-center gap-2 px-3 py-2.5 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400"
-            type="button"
-          >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 4v16m8-8H4"
-              />
-            </svg>
-            <span className="hidden sm:inline">Add Quiz</span>
-          </button>
-          {/* )} */}
-        </div>
       </div>
     </nav>
   );
