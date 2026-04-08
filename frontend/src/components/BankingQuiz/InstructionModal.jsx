@@ -55,29 +55,29 @@ export default function InstructionModal({
         <div className="mt-5 flex justify-between items-center"></div>
 
         <div className="flex justify-end gap-3 mt-6">
-          {["admin", "editor"].includes(user?.role?.toLowerCase()) && (
-            <>
-              <button
-                type="button"
-                onClick={() => onToggleLive && onToggleLive(setName, !isLive)}
-                className={`px-4 py-2 rounded text-sm font-semibold
+          {/* {["admin", "editor"].includes(user?.role?.toLowerCase()) && ( */}
+          <>
+            <button
+              type="button"
+              onClick={() => onToggleLive && onToggleLive(setName, !isLive)}
+              className={`px-4 py-2 rounded text-sm font-semibold
                 ${isLive ? "bg-red-600 text-white" : "bg-green-600 text-white"}
               `}
-              >
-                {isLive ? "Stop Live" : "Go Live"}
-              </button>
+            >
+              {isLive ? "Stop Live" : "Go Live"}
+            </button>
 
-              <button
-                type="button"
-                onClick={() => onToggleLock(setName, !isLocked)}
-                className={`px-4 py-2 rounded text-sm font-semibold
+            <button
+              type="button"
+              onClick={() => onToggleLock(setName, !isLocked)}
+              className={`px-4 py-2 rounded text-sm font-semibold
                 ${isLocked ? "bg-green-600 text-white" : "bg-red-600 text-white"}
               `}
-              >
-                {isLocked ? "Unlock" : "Lock"}
-              </button>
-            </>
-          )}
+            >
+              {isLocked ? "Unlock" : "Lock"}
+            </button>
+          </>
+          {/* )} */}
 
           <button
             type="button"
