@@ -16,7 +16,7 @@ import userRoutes from "./routes/loginLogout.js";
 import liveMockRoute from "./routes/liveMock.js";
 import errorHandler from "./middlewares/errorHandler.js";
 import grammarDPPRoute from "./routes/grammarDPP.js";
-import allSubjectQuizRoute from "./routes/allSubjectQuiz.js";
+import BankingQuizRoute from "./routes/BankingQuiz.js";
 // ============================
 // 2️⃣ Routes Imports
 // ============================
@@ -112,23 +112,23 @@ app.use("/examTrack", examTrackRoute);
 app.use("/users", userRoutes);
 app.use("/liveMock", liveMockRoute);
 app.use("/grammarDPP", grammarDPPRoute);
-app.use("/AllSubjectQuiz", allSubjectQuizRoute);
+app.use("/BankingQuiz", BankingQuizRoute);
 
 // Log the registered routes for AllSubjectQuiz router (helpful for debugging missing endpoints)
 try {
-  if (allSubjectQuizRoute && allSubjectQuizRoute.stack) {
-    console.log("Registered AllSubjectQuiz routes:");
-    allSubjectQuizRoute.stack.forEach((layer) => {
+  if (BankingQuizRoute && BankingQuizRoute.stack) {
+    console.log("Registered BankingQuiz routes:");
+    BankingQuizRoute.stack.forEach((layer) => {
       if (layer.route && layer.route.path) {
         const methods = Object.keys(layer.route.methods || {})
           .map((m) => m.toUpperCase())
           .join(",");
-        console.log(`  ${methods} /AllSubjectQuiz${layer.route.path}`);
+        console.log(`  ${methods} /BankingQuiz${layer.route.path}`);
       }
     });
   }
 } catch (err) {
-  console.warn("Could not list AllSubjectQuiz routes:", err);
+  console.warn("Could not list BankingQuiz routes:", err);
 }
 
 app.get("/", (req, res) => {

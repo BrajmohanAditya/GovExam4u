@@ -1,5 +1,5 @@
 // card imported from database and displayed on frontend
-import AddQuiz from "../../models/allSubQuiz/addQuiz.js";
+import AddQuiz from "../../models/BankingQuiz/addQuiz.js";
 
 const getQuiz = async (req, res, next) => {
   try {

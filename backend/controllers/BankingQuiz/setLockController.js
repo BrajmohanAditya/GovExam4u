@@ -1,4 +1,4 @@
-import SetLock from "../../models/allSubQuiz/SetLock.js";
+import SetLock from "../../models/BankingQuiz/SetLock.js";
 
 // 🔹 GET lock status of a set
 export const getLockStatus = async (req, res) => {

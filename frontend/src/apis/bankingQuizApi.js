@@ -5,12 +5,12 @@ const bankingQuizApi = () => {
     : import.meta.env.VITE_API_PROD;
 
   const list = {
-    addQuize: `${baseUrl}/AllSubjectQuiz/addQuize`,
-    getQuiz: `${baseUrl}/AllSubjectQuiz/getQuiz`,
-    submitTest: `${baseUrl}/AllSubjectQuiz/submitTest`,
-    verifyAttempt: `${baseUrl}/AllSubjectQuiz/verifyAttempt`,
-    leaderboard: `${baseUrl}/AllSubjectQuiz/leaderboard`,
-    lockStatus: `${baseUrl}/AllSubjectQuiz/lock-status`,
+    addQuize: `${baseUrl}/BankingQuiz/addQuize`,
+    getQuiz: `${baseUrl}/BankingQuiz/getQuiz`,
+    submitTest: `${baseUrl}/BankingQuiz/submitTest`,
+    verifyAttempt: `${baseUrl}/BankingQuiz/verifyAttempt`,
+    leaderboard: `${baseUrl}/BankingQuiz/leaderboard`,
+    lockStatus: `${baseUrl}/BankingQuiz/lock-status`,
 
     // 🔐 LOCK APIs (IMPORTANT)   
     isLocked: (setName) =>

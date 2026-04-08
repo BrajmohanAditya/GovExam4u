@@ -1,4 +1,4 @@
-import AddQuiz from "../../models/allSubQuiz/addQuiz.js";
+import AddQuiz from "../../models/BankingQuiz/addQuiz.js";
 
 const addQuizeController = async (req, res, next) => {
   try {

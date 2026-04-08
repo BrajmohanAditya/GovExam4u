@@ -1,22 +1,22 @@
 import express from "express";
-import addQuizeController from "../controllers/allSubQuiz/addQuize.js";
-import getQuiz from "../controllers/allSubQuiz/getQuiz.js";
+import addQuizeController from "../controllers/BankingQuiz/addQuize.js";
+import getQuiz from "../controllers/BankingQuiz/getQuiz.js";
 import isLoggedIn from "../middlewares/isloggedIn.js";
 import adminRoles from "../middlewares/adminRole.js";
-import submitTest from "../controllers/allSubQuiz/attemptedTest.js";
-import verifyAttempt from "../controllers/allSubQuiz/verifyAttempt.js";
-import leaderboard from "../controllers/allSubQuiz/leaderboard.js";
-import { getAllLockStatus } from "../controllers/allSubQuiz/getAllLockStatus.js";
+import submitTest from "../controllers/BankingQuiz/attemptedTest.js";
+import verifyAttempt from "../controllers/BankingQuiz/verifyAttempt.js";
+import leaderboard from "../controllers/BankingQuiz/leaderboard.js";
+import { getAllLockStatus } from "../controllers/BankingQuiz/getAllLockStatus.js";
 
 import { 
   getLockStatus,
   toggleLock,
-} from "../controllers/allSubQuiz/setLockController.js";
+} from "../controllers/BankingQuiz/setLockController.js";
 import {
   getLiveStatus,
   toggleLive,
-} from "../controllers/allSubQuiz/setLiveController.js";
-import { getAllLiveStatus } from "../controllers/allSubQuiz/getAllLiveStatus.js";
+} from "../controllers/BankingQuiz/setLiveController.js";
+import { getAllLiveStatus } from "../controllers/BankingQuiz/getAllLiveStatus.js";
 
 const router = express.Router();
 

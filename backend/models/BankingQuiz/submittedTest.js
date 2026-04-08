@@ -46,6 +46,6 @@ const submittedTestSchema = new Schema(
 // 🔥 ONE USER → ONE SET → ONE TIME
 submittedTestSchema.index({ userId: 1, set: 1 }, { unique: true });
 
-const submittedTest = mongoose.model("allSubQuiz/submittedTest", submittedTestSchema);
+const submittedTest = mongoose.model("BankingQuiz/submittedTest", submittedTestSchema);
 
 export default submittedTest;

@@ -1,4 +1,4 @@
-import SubmittedTest from "../../models/allSubQuiz/submittedTest.js";
+import SubmittedTest from "../../models/BankingQuiz/submittedTest.js";
 
 /* ================= SUBMIT / SAVE TEST (MongoDB) ================= */
 const submitTestController = async (req, res) => {

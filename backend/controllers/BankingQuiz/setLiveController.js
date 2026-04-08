@@ -1,4 +1,4 @@
-import SetLive from "../../models/allSubQuiz/SetLive.js";
+import SetLive from "../../models/BankingQuiz/SetLive.js";
 
 // GET live status for a set
 export const getLiveStatus = async (req, res) => {

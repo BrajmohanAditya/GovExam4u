@@ -1,4 +1,4 @@
-import SetLock from "../../models/allSubQuiz/SetLock.js";
+import SetLock from "../../models/BankingQuiz/SetLock.js";
 
 export const getAllLockStatus = async (req, res) => {
   try {

@@ -11,9 +11,9 @@ const adminViewRoute = (
         <Route path="dashboard" element={<AdminDashboard />} />
         <Route path="quizzes" element={<ManageQuizzes />} />
         <Route
-            path="allSubjectQuize/add-Quize"
+            path="bankingQuiz/add-Quize"
             element={<AddQuize />}
-            key="allSubjectQuize-add-Quize"
+            key="bankingQuiz-add-Quize"
         />
     </Route>
 )
