@@ -43,5 +43,5 @@ const addQuizSchema = new mongoose.Schema(
 );
 
 const addQuiz =
-  mongoose.models.addQuiz || mongoose.model("AllSubQuiz/allQuestions", addQuizSchema);
+  mongoose.models.addQuiz || mongoose.model("bankingQuiz/allQuestions", addQuizSchema);
 export default addQuiz;

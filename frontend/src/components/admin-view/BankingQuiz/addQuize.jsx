@@ -13,9 +13,9 @@ import {
 } from "@mui/material";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import apis from "../../apis/bankingQuizApi.js";
-import httpAction from "../../services/httpAction.js";
-import RichTextEditor from "../../components/BankingQuiz/RichTextEditor.jsx";
+import apis from "../../../apis/bankingQuizApi.js";
+import httpAction from "../../../services/httpAction.js";
+import RichTextEditor from "../../BankingQuiz/RichTextEditor.jsx";
 
 const stripHtml = (html) => {
   if (!html) return "";

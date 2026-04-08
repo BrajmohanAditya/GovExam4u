@@ -18,5 +18,5 @@ const SetLockSchema = new mongoose.Schema(
   }
 );
 
-const SetLock = mongoose.model("allSubjectQuiz/SetLock", SetLockSchema);
+const SetLock = mongoose.model("bankingQuiz/SetLock", SetLockSchema);
 export default SetLock;

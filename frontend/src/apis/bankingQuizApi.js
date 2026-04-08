@@ -14,18 +14,18 @@ const bankingQuizApi = () => {
 
     // 🔐 LOCK APIs (IMPORTANT)   
     isLocked: (setName) =>
-      `${baseUrl}/AllSubjectQuiz/is-locked/${encodeURIComponent(setName)}`,
+      `${baseUrl}/BankingQuiz/is-locked/${encodeURIComponent(setName)}`,
 
     toggleLock: (setName) =>
-      `${baseUrl}/AllSubjectQuiz/toggle-lock/${encodeURIComponent(setName)}`,
+      `${baseUrl}/BankingQuiz/toggle-lock/${encodeURIComponent(setName)}`,
     // 🔴 LIVE APIs
     isLive: (setName) =>
-      `${baseUrl}/AllSubjectQuiz/is-live/${encodeURIComponent(setName)}`,
+      `${baseUrl}/BankingQuiz/is-live/${encodeURIComponent(setName)}`,
 
     toggleLive: (setName) =>
-      `${baseUrl}/AllSubjectQuiz/toggle-live/${encodeURIComponent(setName)}`,
+      `${baseUrl}/BankingQuiz/toggle-live/${encodeURIComponent(setName)}`,
 
-    liveStatus: `${baseUrl}/AllSubjectQuiz/live-status`,
+    liveStatus: `${baseUrl}/BankingQuiz/live-status`,
   };
   return list;
 };

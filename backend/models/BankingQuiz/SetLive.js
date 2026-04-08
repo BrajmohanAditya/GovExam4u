@@ -17,5 +17,5 @@ const SetLiveSchema = new mongoose.Schema(
   },
 );
 
-const SetLive = mongoose.model("allSubjectQuiz/SetLive", SetLiveSchema);
+const SetLive = mongoose.model("bankingQuiz/SetLive", SetLiveSchema);
 export default SetLive;
