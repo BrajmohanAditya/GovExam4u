@@ -38,7 +38,7 @@ const sidebarItems = [
     link: "#/descriptive",
   },
   { icon: Newspaper, label: "Current Affair", link: "#/ca-quiz" },
-  { icon: FileText, label: "Daily Quiz", link: "#/allSubjectQuize" },
+  { icon: FileText, label: "Daily Quiz", link: "#/bankingQuiz" },
   { icon: Calendar, label: "Track Your Exam", link: "#/examTracker" },
   { icon: Gift, label: "Win Prize", link: "#" },
   { icon: Star, label: "Our Selections", link: "#" },
@@ -91,11 +91,10 @@ export default function SidebarMenu({ showSidebar, setShowSidebar }) {
             <li
               key={index}
               className={`flex items-center gap-2 px-3 py-2 rounded transition text-lg cursor-pointer
-              ${
-                active === item.label
+              ${active === item.label
                   ? "bg-gray-700 text-white"
                   : "hover:bg-gray-800 hover:text-white"
-              }`}
+                }`}
               onClick={() => {
                 // toggle
                 setActive(item.label);
@@ -115,11 +114,10 @@ export default function SidebarMenu({ showSidebar, setShowSidebar }) {
                     return (
                       <Icon
                         size={18}
-                        className={`${
-                          active === item.label
+                        className={`${active === item.label
                             ? "text-[#45f3f3]"
                             : "text-[#45f3f3]"
-                        }`}
+                          }`}
                       />
                     );
                   })()}

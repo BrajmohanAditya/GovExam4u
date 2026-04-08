@@ -13,9 +13,9 @@ import {
 } from "@mui/material";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import apis from "./apis.js";
+import apis from "../../apis/bankingQuizApi.js";
 import httpAction from "../../services/httpAction.js";
-import RichTextEditor from "./RichTextEditor.jsx";
+import RichTextEditor from "../../components/BankingQuiz/RichTextEditor.jsx";
 
 const stripHtml = (html) => {
   if (!html) return "";
@@ -113,7 +113,7 @@ const AddQuize = () => {
     if (result?.status) {
       toast.success("Question added successfully");
       resetForm();
-      navigate("/admin/allSubjectQuize/add-Quize");
+      navigate("/admin/bankingQuiz/add-Quize");
     } else {
       toast.error(result?.message || "Something went wrong");
     }

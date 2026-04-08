@@ -1,5 +1,5 @@
 // this the place where frontend api calls backend "app.js"
-const apis = () => {
+const bankingQuizApi = () => {
   const baseUrl = import.meta.env.DEV
     ? import.meta.env.VITE_API_DEV
     : import.meta.env.VITE_API_PROD;
@@ -29,4 +29,4 @@ const apis = () => {
   };
   return list;
 };
-export default apis;
+export default bankingQuizApi;

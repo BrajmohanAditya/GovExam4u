@@ -1,5 +1,5 @@
 import React from "react";
-import { sidebarStyle } from "./style";
+import { sidebarStyle } from "../../pages/BankingQuiz/style";
 
 export default function Sidebar({
   sets,
@@ -43,10 +43,9 @@ export default function Sidebar({
               <li key={s}>
                 <button
                   className={`w-full text-left px-4 py-3 rounded-lg flex items-center justify-between
-                    ${
-                      active
-                        ? "bg-blue-600 text-white shadow"
-                        : "bg-white text-gray-800 hover:bg-gray-100"
+                    ${active
+                      ? "bg-blue-600 text-white shadow"
+                      : "bg-white text-gray-800 hover:bg-gray-100"
                     } text-lg`}
                   onClick={() => {
                     onSelectSet(s);

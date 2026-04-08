@@ -1,14 +1,14 @@
 import React, { useEffect, useMemo, useState } from "react";
-import Navbar from "./navbar";
-import Sidebar from "./sidebar";
-import Timer from "./timer";
-import QuestionCard from "./QuestionCard";
-import QuizIntro from "./QuizIntro";
+import Navbar from "../../components/BankingQuiz/navbar";
+import Sidebar from "../../components/BankingQuiz/sidebar";
+import Timer from "../../components/BankingQuiz/timer";
+import QuestionCard from "../../components/BankingQuiz/QuestionCard.jsx";
+import QuizIntro from "../../components/BankingQuiz/QuizIntro";
 import httpAction from "../../services/httpAction.js";
 
-import apis from "./apis";
+import apis from "../../apis/bankingQuizApi";
 import { toast } from "react-hot-toast";
-import InstructionModal from "./InstructionModal";
+import InstructionModal from "../../components/BankingQuiz/InstructionModal.jsx";
 import useUserProfile from "../../utils/userProfile";
 
 export default function QuizPage() {
@@ -469,11 +469,10 @@ export default function QuizPage() {
                 <div className="flex gap-2">
                   <button
                     onClick={() => setPostView("analysis")}
-                    className={`px-3 py-2 rounded ${
-                      postView === "analysis"
+                    className={`px-3 py-2 rounded ${postView === "analysis"
                         ? "bg-blue-600 text-white"
                         : "bg-white border"
-                    }`}
+                      }`}
                   >
                     Analysis
                   </button>
@@ -490,11 +489,10 @@ export default function QuizPage() {
                       onClick={() =>
                         handleToggleLive(currentSet, !liveMap[currentSet])
                       }
-                      className={`px-3 py-2 rounded ${
-                        liveMap[currentSet]
+                      className={`px-3 py-2 rounded ${liveMap[currentSet]
                           ? "bg-red-600 text-white"
                           : "bg-green-600 text-white"
-                      }`}
+                        }`}
                     >
                       {liveMap[currentSet] ? "Unlive" : "Go Live"}
                     </button>
@@ -560,13 +558,13 @@ export default function QuizPage() {
                             {["admin", "editor"].includes(
                               user?.role?.toLowerCase(),
                             ) && (
-                              <button
-                                onClick={handleDeclareWinner}
-                                className="px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-sm font-semibold rounded shadow hover:shadow-lg transform transition-transform hover:scale-105"
-                              >
-                                🎲 Declare Winner
-                              </button>
-                            )}
+                                <button
+                                  onClick={handleDeclareWinner}
+                                  className="px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-sm font-semibold rounded shadow hover:shadow-lg transform transition-transform hover:scale-105"
+                                >
+                                  🎲 Declare Winner
+                                </button>
+                              )}
                           </div>
                         ) : luckyWinner ? (
                           <div className="p-4 bg-gradient-to-r from-yellow-100 to-yellow-200 border border-yellow-300 rounded-lg shadow-sm animate-pulse">
@@ -637,7 +635,7 @@ export default function QuizPage() {
                   questionIndex={currentQuestionIndex}
                   total={currentQuestions.length}
                   selected={selectedAnswers[currentQuestion._id] ?? null}
-                  onSelectOption={() => {}}
+                  onSelectOption={() => { }}
                   onNext={gotoNext}
                   onPrev={gotoPrev}
                   readOnly={true}

@@ -4,20 +4,6 @@ import { Users, FileText, CheckCircle, Activity, ChevronRight } from "lucide-rea
 function AdminDashboard() {
     return (
         <div className="w-full flex flex-col gap-6">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                <div>
-                    <h1 className="text-2xl font-bold tracking-tight text-gray-900">Overview</h1>
-                    <p className="text-sm text-gray-500 mt-1">Welcome back, Admin. Here's what's happening today.</p>
-                </div>
-                <div className="flex gap-3">
-                    <button className="bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 px-4 py-2 rounded-lg text-sm font-medium transition-all shadow-sm">
-                        Export Data
-                    </button>
-                    <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-sm shadow-indigo-600/20 transition-all flex items-center gap-2">
-                        + Create Quiz
-                    </button>
-                </div>
-            </div>
 
             {/* Quick Stats Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">

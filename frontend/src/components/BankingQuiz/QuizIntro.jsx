@@ -1,5 +1,5 @@
 import React from "react";
-import { QuizIntroStyle } from "./style";
+import { QuizIntroStyle } from "../../pages/BankingQuiz/style";
 
 export default function QuizIntro() {
   return (

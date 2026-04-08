@@ -34,7 +34,7 @@ export default function ManageQuizzes() {
 
         {/* Banking Card */}
         <div
-          onClick={() => navigate("/admin/allSubjectQuize/add-Quize")}
+          onClick={() => navigate("/admin/bankingQuiz/add-Quize")}
           className="group relative cursor-pointer overflow-hidden rounded-2xl bg-white p-8 shadow-sm border border-gray-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-emerald-300"
         >
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-teal-600 transform origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></div>
