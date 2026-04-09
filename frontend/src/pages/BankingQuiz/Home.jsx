@@ -186,38 +186,6 @@ export default function QuizPage() {
 
   /* ================= LOCK TOGGLE ================= */
 
-  const handleToggleLock = async (setName, newValue) => {
-    const res = await httpAction({
-      url: apis().toggleLock(setName),
-      method: "PUT",
-      body: { isLocked: newValue },
-    });
-
-    if (res?.status) {
-      setIsLocked(res.isLocked);
-      setLockMap((prev) => ({ ...prev, [setName]: res.isLocked }));
-      toast.success(res.message || "Lock updated");
-    } else {
-      toast.error(res?.message || "Lock update failed");
-    }
-  };
-
-  const handleToggleLive = async (setName, newValue) => {
-    const res = await httpAction({
-      url: apis().toggleLive(setName),
-      method: "PUT",
-      body: { isLive: newValue },
-    });
-
-    if (res?.status) {
-      setIsLive(res.isLive);
-      setLiveMap((prev) => ({ ...prev, [setName]: res.isLive }));
-      toast.success(res.message || "Live status updated");
-    } else {
-      toast.error(res?.message || "Live update failed");
-    }
-  };
-
   const startTest = () => {
     if (isLocked) {
       toast.error("Exam is locked. You cannot start the test.");
@@ -477,8 +445,8 @@ export default function QuizPage() {
                   <button
                     onClick={() => setPostView("analysis")}
                     className={`px-3 py-2 rounded ${postView === "analysis"
-                        ? "bg-blue-600 text-white"
-                        : "bg-white border"
+                      ? "bg-blue-600 text-white"
+                      : "bg-white border"
                       }`}
                   >
                     Analysis
@@ -491,19 +459,7 @@ export default function QuizPage() {
                     Practice
                   </button>
 
-                  {["admin", "editor"].includes(user?.role?.toLowerCase()) ? (
-                    <button
-                      onClick={() =>
-                        handleToggleLive(currentSet, !liveMap[currentSet])
-                      }
-                      className={`px-3 py-2 rounded ${liveMap[currentSet]
-                          ? "bg-red-600 text-white"
-                          : "bg-green-600 text-white"
-                        }`}
-                    >
-                      {liveMap[currentSet] ? "Unlive" : "Go Live"}
-                    </button>
-                  ) : null}
+
                 </div>
               </div>
               {/* ===== SCORE SUMMARY CARD ===== */}
@@ -662,9 +618,7 @@ export default function QuizPage() {
         onConfirm={startTest}
         setName={pendingSet}
         isLocked={isLocked}
-        onToggleLock={handleToggleLock}
         isLive={isLive}
-        onToggleLive={handleToggleLive}
       />
     </div>
   );
