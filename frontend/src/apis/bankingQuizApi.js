@@ -26,6 +26,13 @@ const bankingQuizApi = () => {
       `${baseUrl}/BankingQuiz/toggle-live/${encodeURIComponent(setName)}`,
 
     liveStatus: `${baseUrl}/BankingQuiz/live-status`,
+
+    // Winner APIs
+    declareWinner: (setName) =>
+      `${baseUrl}/BankingQuiz/declare-winner/${encodeURIComponent(setName)}`,
+    getWinner: (setName) =>
+      `${baseUrl}/BankingQuiz/get-winner/${encodeURIComponent(setName)}`,
+    allWinners: `${baseUrl}/BankingQuiz/all-winners`,
   };
   return list;
 };

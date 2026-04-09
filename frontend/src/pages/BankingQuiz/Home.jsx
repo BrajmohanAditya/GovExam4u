@@ -134,8 +134,27 @@ export default function QuizPage() {
     }
   };
 
+  const fetchWinner = async (setName) => {
+    const res = await httpAction({
+      url: apis().getWinner(setName),
+      method: "GET",
+    });
+    if (res?.status && res?.winner) {
+      setLuckyWinner(res.winner);
+      setWinnerRevealed(true);
+    } else {
+      setLuckyWinner(null);
+      setWinnerRevealed(false);
+    }
+  };
+
   const selectSet = async (setName) => {
-    // 🔥 AUTO-SUBMIT CONDITION
+    // Ignore click if user clicks the currently active un-submitted test
+    if (setName === currentSet && !testSubmitted && !retakeMode) {
+      return;
+    }
+
+    // 🔥 AUTO-SUBMIT CONDITION (if switching to a different test)
     if (currentSet && !testSubmitted && !retakeMode) {
       await handleSubmit(true); // auto-submit current set
     }
@@ -161,6 +180,7 @@ export default function QuizPage() {
       setDbScore(res.score); // set score from database
       setUserName(res.name);
       setSelectedAnswers(res.answers || {});
+      fetchWinner(setName);
       return; // 🔥 STOP here
     }
 
@@ -282,6 +302,7 @@ export default function QuizPage() {
     const res = await httpAction(data);
     if (res?.status) {
       setDbScore(result.finalScore);
+      fetchWinner(currentSet);
       toast.success(res?.message || "Test submitted successfully");
     } else {
       toast.error(res?.message || "Submission failed");
@@ -338,26 +359,6 @@ export default function QuizPage() {
   );
 
   /* ================= LUCKY WINNER LOGIC ================= */
-  const handleDeclareWinner = () => {
-    if (!leaderboard.length || !currentQuestions.length) {
-      setLuckyWinner(null);
-      setWinnerRevealed(true);
-      return;
-    }
-
-    const totalMarks = currentQuestions.length;
-    const passingMarks = totalMarks * 0.4;
-    const eligibleStudents = leaderboard.filter((u) => u.score > passingMarks);
-
-    if (eligibleStudents.length === 0) {
-      setLuckyWinner(null);
-    } else {
-      const randomIndex = Math.floor(Math.random() * eligibleStudents.length);
-      setLuckyWinner(eligibleStudents[randomIndex]);
-    }
-    setWinnerRevealed(true);
-  };
-
   // Reset winner state when set changes
   useEffect(() => {
     setLuckyWinner(null);
@@ -516,18 +517,6 @@ export default function QuizPage() {
                             <p className="text-gray-500 font-medium italic">
                               Coming Soon...
                             </p>
-
-                            {/* Only Admin/Editor can declare winner */}
-                            {["admin", "editor"].includes(
-                              user?.role?.toLowerCase(),
-                            ) && (
-                                <button
-                                  onClick={handleDeclareWinner}
-                                  className="px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-sm font-semibold rounded shadow hover:shadow-lg transform transition-transform hover:scale-105"
-                                >
-                                  🎲 Declare Winner
-                                </button>
-                              )}
                           </div>
                         ) : luckyWinner ? (
                           <div className="p-4 bg-gradient-to-r from-yellow-100 to-yellow-200 border border-yellow-300 rounded-lg shadow-sm animate-pulse">
@@ -535,10 +524,10 @@ export default function QuizPage() {
                               (You win rs 20)
                             </p>
                             <div className="text-xl font-extrabold text-purple-700">
-                              {luckyWinner.name}
+                              {luckyWinner.winnerName}
                             </div>
                             <div className="text-sm font-semibold text-gray-600">
-                              Score: {luckyWinner.score}
+                              Score: {luckyWinner.winnerScore}
                             </div>
                           </div>
                         ) : (

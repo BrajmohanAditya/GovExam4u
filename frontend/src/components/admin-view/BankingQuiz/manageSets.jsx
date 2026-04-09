@@ -10,6 +10,7 @@ export default function ManageSets() {
   const [sets, setSets] = useState([]);
   const [lockMap, setLockMap] = useState({});
   const [liveMap, setLiveMap] = useState({});
+  const [winnerMap, setWinnerMap] = useState({});
   const [loading, setLoading] = useState(true);
 
   const fetchAllData = async () => {
@@ -49,6 +50,16 @@ export default function ManageSets() {
           lvMap[item.set] = item.isLive;
         });
         setLiveMap(lvMap);
+      }
+
+      // Fetch Winner status
+      const winnerRes = await httpAction({ url: apis().allWinners, method: "GET" });
+      if (winnerRes?.status && winnerRes.data) {
+        const wMap = {};
+        winnerRes.data.forEach((item) => {
+          wMap[item.set] = item;
+        });
+        setWinnerMap(wMap);
       }
     } catch (error) {
       toast.error("Failed to load sets data");
@@ -91,6 +102,20 @@ export default function ManageSets() {
     }
   };
 
+  const handleDeclareWinner = async (setName) => {
+    const res = await httpAction({
+      url: apis().declareWinner(setName),
+      method: "POST",
+    });
+
+    if (res?.status) {
+      setWinnerMap((prev) => ({ ...prev, [setName]: res.winner }));
+      toast.success(res.message || "Winner declared!");
+    } else {
+      toast.error(res?.message || "Declaration failed");
+    }
+  };
+
   return (
     <div className="p-8 max-w-6xl mx-auto">
       <div className="flex items-center justify-between mb-8">
@@ -129,6 +154,7 @@ export default function ManageSets() {
                   <th className="px-6 py-4 font-semibold text-gray-600">Set Name</th>
                   <th className="px-6 py-4 font-semibold text-gray-600">Live Status</th>
                   <th className="px-6 py-4 font-semibold text-gray-600">Lock Status</th>
+                  <th className="px-6 py-4 font-semibold text-gray-600">Lucky Winner</th>
                   <th className="px-6 py-4 font-semibold text-gray-600 text-right">Actions</th>
                 </tr>
               </thead>
@@ -136,6 +162,7 @@ export default function ManageSets() {
                 {sets.map((set) => {
                   const isLive = liveMap[set];
                   const isLocked = lockMap[set];
+                  const winner = winnerMap[set];
 
                   return (
                     <tr key={set} className="hover:bg-gray-50 transition-colors">
@@ -160,6 +187,22 @@ export default function ManageSets() {
                         >
                           {isLocked ? "🔒 Locked" : "🔓 Unlocked"}
                         </span>
+                      </td>
+                      <td className="px-6 py-4">
+                        {winner ? (
+                          <div className="text-sm">
+                            <span className="font-bold text-purple-700">{winner.winnerName}</span>
+                            <br />
+                            <span className="text-xs text-gray-500">Score: {winner.winnerScore}</span>
+                          </div>
+                        ) : (
+                          <button
+                            onClick={() => handleDeclareWinner(set)}
+                            className="px-3 py-1 bg-purple-100 text-purple-700 hover:bg-purple-200 rounded text-xs font-semibold transition"
+                          >
+                            Declare Winner
+                          </button>
+                        )}
                       </td>
                       <td className="px-6 py-4">
                         <div className="flex items-center justify-end gap-2 text-sm">

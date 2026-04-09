@@ -18,6 +18,9 @@ import {
 } from "../controllers/BankingQuiz/setLiveController.js";
 import { getAllLiveStatus } from "../controllers/BankingQuiz/getAllLiveStatus.js";
 
+import { getWinner, declareWinner } from "../controllers/BankingQuiz/winnerController.js";
+import { getAllWinners } from "../controllers/BankingQuiz/getAllWinners.js";
+
 const router = express.Router();
 
 router.post(
@@ -49,6 +52,16 @@ router.put(
 
 router.get("/lock-status", getAllLockStatus);
 router.get("/live-status", getAllLiveStatus);
+
+router.post(
+  "/declare-winner/:setName",
+  isLoggedIn,
+  adminRoles("editor", "admin"),
+  declareWinner,
+);
+
+router.get("/get-winner/:setName", getWinner);
+router.get("/all-winners", getAllWinners);
 
 export default router;
 

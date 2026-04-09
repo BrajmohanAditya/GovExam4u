@@ -5,7 +5,7 @@ import DescriptiveRoutes from "./pages/Descriptive/descriptiveRoute";
 import HomeRoutes from "./Home/HomeRoute";
 import examTrackRoute from "./pages/examTrack/examTrackRoute";
 import loginLogoutRoutes from "./pages/loginLogout/usersRoute"
-import QuizRoute from "./pages/Currentaffair/route";
+
 import LiveMockRouter from "./pages/LiveMock/LiveMockRouter";
 import todoListRoute from "./pages/TO-DO-List/todoListRoute";
 import grammarDppRoutes from "./pages/english/grammarDPP/grammarDppRoutes";
@@ -45,7 +45,7 @@ export default function AppRoutes() {
         {DescriptiveRoutes}
         {examTrackRoute}
         {loginLogoutRoutes}
-        {QuizRoute}
+
         {LiveMockRouter}
         {todoListRoute}
         {grammarDppRoutes}

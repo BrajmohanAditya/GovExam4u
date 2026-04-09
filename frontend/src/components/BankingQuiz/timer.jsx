@@ -23,7 +23,7 @@ export default function Timer({
       return;
     }
 
-    // 🔥 calculate absolute end time
+    // Set end time only once when timer starts
     endTimeRef.current = Date.now() + (initialSeconds || 0) * 1000;
 
     intervalRef.current = setInterval(() => {
@@ -48,8 +48,9 @@ export default function Timer({
         intervalRef.current = null;
       }
     };
+    // Note: Do NOT include initialSeconds here! It causes infinite re-renders.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isActive, stopWhen, initialSeconds]);
+  }, [isActive, stopWhen]);
 
   const format = (sec) => {
     const m = Math.floor(sec / 60)
