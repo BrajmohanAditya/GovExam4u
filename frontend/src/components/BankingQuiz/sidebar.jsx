@@ -46,7 +46,7 @@ export default function Sidebar({
                     ${active
                       ? "bg-blue-600 text-white shadow"
                       : "bg-white text-gray-800 hover:bg-gray-100"
-                    } text-lg`}
+                    } text-base sm:text-lg`}
                   onClick={() => {
                     onSelectSet(s);
                     onClose(); // 🔥 optional: auto close after select (mobile)

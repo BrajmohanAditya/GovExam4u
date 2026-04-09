@@ -28,8 +28,15 @@ export default function QuizPage() {
 
         const uniqueSets = [...new Set(res.data.map((q) => q.set))].sort(
           (a, b) => {
-            const na = parseInt(a.replace(/\D/g, ""), 10);
-            const nb = parseInt(b.replace(/\D/g, ""), 10);
+            // Sort alphabetically first (e.g. English vs Quant)
+            const textA = a.replace(/[0-9]/g, "").trim();
+            const textB = b.replace(/[0-9]/g, "").trim();
+            if (textA !== textB) {
+              return textA.localeCompare(textB);
+            }
+            // Then numerically
+            const na = parseInt(a.replace(/\D/g, ""), 10) || 0;
+            const nb = parseInt(b.replace(/\D/g, ""), 10) || 0;
             return na - nb;
           },
         );

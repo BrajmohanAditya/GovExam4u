@@ -3,6 +3,7 @@ import AddQuiz from "../../models/BankingQuiz/addQuiz.js";
 const addQuizeController = async (req, res, next) => {
   try {
     const {
+      subject,
       set,
       question,
       options, // ✅ ARRAY
@@ -12,6 +13,7 @@ const addQuizeController = async (req, res, next) => {
 
     // 🔹 Backend validation
     if (
+      !subject ||
       !set ||
       !question ||
       !Array.isArray(options) ||
@@ -35,6 +37,7 @@ const addQuizeController = async (req, res, next) => {
 
     // create via mongoose
     const newQuestion = await AddQuiz.create({
+      subject,
       set,
       question,
       options,

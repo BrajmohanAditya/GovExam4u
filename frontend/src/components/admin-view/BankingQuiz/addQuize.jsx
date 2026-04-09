@@ -26,6 +26,7 @@ const AddQuize = () => {
   const navigate = useNavigate();
 
   const initialState = {
+    subject: "English", // default value
     set: "",
     question: "",
     option1: "",
@@ -38,6 +39,7 @@ const AddQuize = () => {
   };
 
   const validationSchema = Yup.object({
+    subject: Yup.string().required("Subject is required"),
     set: Yup.string()
       .matches(/^\d+$/, "Only numbers allowed")
       .required("Set number is required"),
@@ -96,7 +98,7 @@ const AddQuize = () => {
 
     const payload = {
       ...values,
-      set: `Set ${values.set}`,
+      set: `${values.subject} - Set ${values.set}`,
       question: values.question,
       options,
       correctAnswerIndex,
@@ -112,7 +114,14 @@ const AddQuize = () => {
 
     if (result?.status) {
       toast.success("Question added successfully");
-      resetForm();
+      // Reset the form but keep the current subject and set values
+      resetForm({
+        values: {
+          ...initialState,
+          subject: values.subject,
+          set: values.set,
+        },
+      });
       navigate("/admin/bankingQuiz/add-Quize");
     } else {
       toast.error(result?.message || "Something went wrong");
@@ -159,7 +168,28 @@ const AddQuize = () => {
             setFieldValue,
           }) => (
             <Form className="mt-6">
-              {/* Set Name */}
+              {/* Subject Selection */}
+              <TextField
+                select
+                name="subject"
+                label="Subject"
+                fullWidth
+                margin="normal"
+                value={values.subject}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.subject && Boolean(errors.subject)}
+                helperText={touched.subject && errors.subject}
+                slotProps={{ select: { native: true } }}
+              >
+                <option value="English">English</option>
+                <option value="Quant">Quant</option>
+                <option value="Reasoning">Reasoning</option>
+                <option value="Current Affairs">Current Affairs</option>
+                <option value="Computer">Computer</option>
+              </TextField>
+
+              {/* Set Number */}
               <TextField
                 name="set"
                 label="Set Number"

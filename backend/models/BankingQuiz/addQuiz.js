@@ -2,7 +2,13 @@ import mongoose from "mongoose";
 
 const addQuizSchema = new mongoose.Schema(
   {
-    // e.g. "Set 1", "Set 2"
+    subject: {
+      type: String,
+      required: true,
+      trim: true,
+      default: "General",
+    },
+    // e.g. "English - Set 1", "Reasoning - Set 2"
     set: {
       type: String,
       required: true,
