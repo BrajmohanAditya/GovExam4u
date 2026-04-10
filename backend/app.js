@@ -15,7 +15,6 @@ import connectDB from "./utils/getConnection.js";
 import userRoutes from "./routes/loginLogout.js";
 import liveMockRoute from "./routes/liveMock.js";
 import errorHandler from "./middlewares/errorHandler.js";
-import grammarDPPRoute from "./routes/grammarDPP.js";
 import BankingQuizRoute from "./routes/BankingQuiz.js";
 // ============================
 // 2️⃣ Routes Imports
@@ -111,7 +110,6 @@ connectDB();
 app.use("/examTrack", examTrackRoute);
 app.use("/users", userRoutes);
 app.use("/liveMock", liveMockRoute);
-app.use("/grammarDPP", grammarDPPRoute);
 app.use("/BankingQuiz", BankingQuizRoute);
 
 // Log the registered routes for AllSubjectQuiz router (helpful for debugging missing endpoints)
