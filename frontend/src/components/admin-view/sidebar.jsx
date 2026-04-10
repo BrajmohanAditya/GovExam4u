@@ -24,30 +24,10 @@ const adminSidebarMenuItems = [
         path: "/admin/quizzes",
         icon: <BookOpenCheck className="w-5 h-5" />,
     },
-    {
-        id: "questions",
-        label: "Question Bank",
-        path: "/admin/questions",
-        icon: <FileQuestion className="w-5 h-5" />,
-    },
-    {
-        id: "users",
-        label: "Students",
-        path: "/admin/users",
-        icon: <Users className="w-5 h-5" />,
-    },
-    {
-        id: "results",
-        label: "Results & Reports",
-        path: "/admin/results",
-        icon: <Trophy className="w-5 h-5" />,
-    },
-    {
-        id: "settings",
-        label: "Settings",
-        path: "/admin/settings",
-        icon: <Settings className="w-5 h-5" />,
-    },
+
+
+
+
 ];
 
 function MenuItems({ setOpen }) {
