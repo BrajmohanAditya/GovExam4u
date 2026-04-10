@@ -33,6 +33,15 @@ const bankingQuizApi = () => {
     getWinner: (setName) =>
       `${baseUrl}/BankingQuiz/get-winner/${encodeURIComponent(setName)}`,
     allWinners: `${baseUrl}/BankingQuiz/all-winners`,
+    deleteSet: (setName) =>
+      `${baseUrl}/BankingQuiz/delete-set/${encodeURIComponent(setName)}`,
+
+    // Timing APIs
+    getTime: (setName) =>
+      `${baseUrl}/BankingQuiz/get-time/${encodeURIComponent(setName)}`,
+    updateTime: (setName) => 
+      `${baseUrl}/BankingQuiz/update-time/${encodeURIComponent(setName)}`,
+    timeStatus: `${baseUrl}/BankingQuiz/time-status`,
   };
   return list;
 };

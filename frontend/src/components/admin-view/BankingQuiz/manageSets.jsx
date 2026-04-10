@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import apis from "../../../apis/bankingQuizApi.js";
 import httpAction from "../../../services/httpAction.js";
-import { FileText, Plus, Landmark } from "lucide-react";
+import { FileText, Plus, Landmark, Trash2 } from "lucide-react";
 
 export default function ManageSets() {
   const navigate = useNavigate();
@@ -11,6 +11,9 @@ export default function ManageSets() {
   const [lockMap, setLockMap] = useState({});
   const [liveMap, setLiveMap] = useState({});
   const [winnerMap, setWinnerMap] = useState({});
+  const [timeMap, setTimeMap] = useState({});
+  const [editingTimeSet, setEditingTimeSet] = useState(null);
+  const [editTimeValue, setEditTimeValue] = useState("");
   const [loading, setLoading] = useState(true);
 
   const fetchAllData = async () => {
@@ -60,6 +63,16 @@ export default function ManageSets() {
           wMap[item.set] = item;
         });
         setWinnerMap(wMap);
+      }
+
+      // Fetch Time status
+      const timeRes = await httpAction({ url: apis().timeStatus, method: "GET" });
+      if (timeRes?.status && timeRes.data) {
+        const tMap = {};
+        timeRes.data.forEach((item) => {
+          tMap[item.set] = item.duration;
+        });
+        setTimeMap(tMap);
       }
     } catch (error) {
       toast.error("Failed to load sets data");
@@ -116,6 +129,54 @@ export default function ManageSets() {
     }
   };
 
+  const handleDeleteSet = async (setName) => {
+    if (!window.confirm(`Are you sure you want to permanently delete '${setName}' and all its questions? This action cannot be undone.`)) {
+      return;
+    }
+
+    try {
+      const res = await httpAction({
+        url: apis().deleteSet(setName),
+        method: "DELETE",
+      });
+
+      if (res?.status) {
+        toast.success(res.message || "Set deleted successfully");
+        fetchAllData(); // Refresh the data to reflect deletion
+      } else {
+        toast.error(res?.message || "Failed to delete set");
+      }
+    } catch (error) {
+      toast.error("An error occurred while deleting the set");
+    }
+  };
+
+  const handleSetDuration = async (setName, durationValue) => {
+    const duration = parseInt(durationValue, 10);
+    if (isNaN(duration) || duration <= 0) {
+      toast.error("Please enter a valid positive number for duration.");
+      return;
+    }
+
+    try {
+      const res = await httpAction({
+        url: apis().updateTime(setName),
+        method: "PUT",
+        body: { duration },
+      });
+
+      if (res?.status) {
+        setTimeMap((prev) => ({ ...prev, [setName]: duration }));
+        setEditingTimeSet(null);
+        toast.success(`Set duration updated to ${duration} minutes`);
+      } else {
+        toast.error(res?.message || "Failed to update duration");
+      }
+    } catch (error) {
+      toast.error("An error occurred while updating the duration");
+    }
+  };
+
   return (
     <div className="p-4 md:p-8 max-w-6xl mx-auto">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 md:mb-8">
@@ -154,6 +215,7 @@ export default function ManageSets() {
                   <th className="px-6 py-4 font-semibold text-gray-600 whitespace-nowrap">Set Name</th>
                   <th className="px-6 py-4 font-semibold text-gray-600 whitespace-nowrap">Live Status</th>
                   <th className="px-6 py-4 font-semibold text-gray-600 whitespace-nowrap">Lock Status</th>
+                  <th className="px-6 py-4 font-semibold text-gray-600 whitespace-nowrap">Duration (m)</th>
                   <th className="px-6 py-4 font-semibold text-gray-600 whitespace-nowrap">Lucky Winner</th>
                   <th className="px-6 py-4 font-semibold text-gray-600 text-right whitespace-nowrap">Actions</th>
                 </tr>
@@ -187,6 +249,34 @@ export default function ManageSets() {
                         >
                           {isLocked ? "🔒 Locked" : "🔓 Unlocked"}
                         </span>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-700">
+                        {editingTimeSet === set ? (
+                          <div className="flex items-center gap-2">
+                            <input 
+                              type="number" 
+                              value={editTimeValue} 
+                              onChange={(e) => setEditTimeValue(e.target.value)} 
+                              className="w-16 px-2 py-1 border rounded text-gray-800"
+                              min="1"
+                            />
+                            <button onClick={() => handleSetDuration(set, editTimeValue)} className="text-green-600 hover:text-green-800 underline text-xs">Save</button>
+                            <button onClick={() => setEditingTimeSet(null)} className="text-gray-500 hover:text-gray-700 underline text-xs">Cancel</button>
+                          </div>
+                        ) : (
+                          <>
+                            {timeMap[set] || 10} m
+                            <button
+                              onClick={() => {
+                                setEditingTimeSet(set);
+                                setEditTimeValue(timeMap[set] || 10);
+                              }}
+                              className="ml-3 text-emerald-600 hover:text-emerald-800 text-xs underline"
+                            >
+                              Edit
+                            </button>
+                          </>
+                        )}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         {winner ? (
@@ -225,6 +315,13 @@ export default function ManageSets() {
                             }`}
                           >
                             {isLocked ? "Unlock" : "Lock Test"}
+                          </button>
+                          <button
+                            onClick={() => handleDeleteSet(set)}
+                            className="p-1.5 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-md transition-colors"
+                            title="Delete Set"
+                          >
+                            <Trash2 size={20} />
                           </button>
                         </div>
                       </td>

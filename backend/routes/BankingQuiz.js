@@ -18,8 +18,12 @@ import {
 } from "../controllers/BankingQuiz/setLiveController.js";
 import { getAllLiveStatus } from "../controllers/BankingQuiz/getAllLiveStatus.js";
 
+import { getSetTime, updateSetTime } from "../controllers/BankingQuiz/setTimeController.js";
+import { getAllSetTimes } from "../controllers/BankingQuiz/getAllSetTime.js";
+
 import { getWinner, declareWinner } from "../controllers/BankingQuiz/winnerController.js";
 import { getAllWinners } from "../controllers/BankingQuiz/getAllWinners.js";
+import { deleteSet } from "../controllers/BankingQuiz/deleteSetController.js";
 
 const router = express.Router();
 
@@ -52,6 +56,15 @@ router.put(
 
 router.get("/lock-status", getAllLockStatus);
 router.get("/live-status", getAllLiveStatus);
+router.get("/time-status", getAllSetTimes);
+
+router.get("/get-time/:set", getSetTime);
+router.put(
+  "/update-time/:set",
+  isLoggedIn,
+  adminRoles("editor", "admin"),
+  updateSetTime
+);
 
 router.post(
   "/declare-winner/:setName",
@@ -62,6 +75,13 @@ router.post(
 
 router.get("/get-winner/:setName", getWinner);
 router.get("/all-winners", getAllWinners);
+
+router.delete(
+  "/delete-set/:setName",
+  isLoggedIn,
+  adminRoles("editor", "admin"),
+  deleteSet,
+);
 
 export default router;
 

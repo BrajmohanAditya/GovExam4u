@@ -71,6 +71,7 @@ export default function QuizPage() {
   const [lockMap, setLockMap] = useState({});
   const [isLive, setIsLive] = useState();
   const [liveMap, setLiveMap] = useState({});
+  const [timeMap, setTimeMap] = useState({});
 
   const user = useUserProfile();
   const [luckyWinner, setLuckyWinner] = useState(null);
@@ -117,7 +118,19 @@ export default function QuizPage() {
       }
     };
 
+    const fetchAllSetTimes = async () => {
+      const res = await httpAction({ url: apis().timeStatus, method: "GET" });
+      if (res?.status && res.data) {
+        const map = {};
+        res.data.forEach((item) => {
+          map[item.set] = item.duration;
+        });
+        setTimeMap(map);
+      }
+    };
+
     fetchAllLiveStatus();
+    fetchAllSetTimes();
   }, []);
 
   const fetchLeaderboard = async (setName) => {
@@ -221,7 +234,8 @@ export default function QuizPage() {
     setRetakeMode(false);
     setPostView("result");
 
-    setRemainingTime(10 * 60);
+    const duration = timeMap[pendingSet] || 10;
+    setRemainingTime(duration * 60);
     setTimerActive(true);
 
     setPendingSet(null);
