@@ -205,6 +205,16 @@ export default function QuizPage() {
       await fetchLiveStatus(setName);
       setPendingSet(setName);
       setShowInstructions(true);
+    } else {
+      // API call failed or user not authenticated
+      console.log("verifyAttempt response:", res);
+      if (res?.error === "Login required") {
+        toast.error("Please login to attempt the test");
+      } else if (!res?.status && res?.error) {
+        toast.error(res.error);
+      } else {
+        toast.error("Unable to load set. Please try again.");
+      }
     }
   };
 
