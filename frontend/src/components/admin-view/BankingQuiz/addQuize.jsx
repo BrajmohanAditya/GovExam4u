@@ -141,13 +141,6 @@ const AddQuize = () => {
               Add questions under any custom set name
             </p>
           </div>
-
-          <button
-            onClick={() => navigate("/")}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition"
-          >
-            Home
-          </button>
         </div>
 
         <Divider />

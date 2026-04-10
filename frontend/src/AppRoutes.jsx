@@ -8,7 +8,6 @@ import loginLogoutRoutes from "./pages/loginLogout/usersRoute"
 
 import LiveMockRouter from "./pages/LiveMock/LiveMockRouter";
 import todoListRoute from "./pages/TO-DO-List/todoListRoute";
-import grammarDppRoutes from "./pages/english/grammarDPP/grammarDppRoutes";
 import bankingQuiz_routes from "./pages/BankingQuiz/bankingQuiz_Routes";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -48,7 +47,7 @@ export default function AppRoutes() {
 
         {LiveMockRouter}
         {todoListRoute}
-        {grammarDppRoutes}
+        {/* {grammarDppRoutes} */}
         {bankingQuiz_routes}
         {adminViewRoute}
       </Routes>
