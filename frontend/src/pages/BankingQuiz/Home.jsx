@@ -167,9 +167,10 @@ export default function QuizPage() {
       return;
     }
 
-    // 🔥 AUTO-SUBMIT CONDITION (if switching to a different test)
+    // 🔥 BLOCK SWITCHING IF A TEST IS ACTIVE
     if (currentSet && !testSubmitted && !retakeMode) {
-      await handleSubmit(true); // auto-submit current set
+      toast.error("Please submit your active test before switching to another set.");
+      return;
     }
     const data = {
       url: apis().verifyAttempt,
