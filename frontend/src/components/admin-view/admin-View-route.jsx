@@ -5,6 +5,7 @@ import AdminLayout from "./layout";
 import AdminDashboard from "./dashboard";
 import ManageQuizzes from "./manage-quizzes";
 import AddQuize from "./BankingQuiz/addQuize";
+import AddComprehension from "./BankingQuiz/addComprehension";
 import ManageSets from "./BankingQuiz/manageSets";
 
 const adminViewRoute = (
@@ -15,6 +16,11 @@ const adminViewRoute = (
             path="bankingQuiz/add-Quize"
             element={<AddQuize />}
             key="bankingQuiz-add-Quize"
+        />
+        <Route
+            path="bankingQuiz/add-comprehension"
+            element={<AddComprehension />}
+            key="bankingQuiz-add-comprehension"
         />
         <Route
             path="bankingQuiz/manage-sets"

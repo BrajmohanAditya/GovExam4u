@@ -189,13 +189,22 @@ export default function ManageSets() {
             Manage the availability and status of different banking test sets.
           </p>
         </div>
-        <button
-          onClick={() => navigate("/admin/bankingQuiz/add-Quize")}
-          className="flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors font-medium shadow-sm w-full sm:w-auto justify-center whitespace-nowrap"
-        >
-          <Plus size={20} />
-          Create New Question
-        </button>
+        <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mt-4 sm:mt-0">
+          <button
+            onClick={() => navigate("/admin/bankingQuiz/add-comprehension")}
+            className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium shadow-sm w-full sm:w-auto justify-center whitespace-nowrap"
+          >
+            <Plus size={20} />
+            Add Comprehension
+          </button>
+          <button
+            onClick={() => navigate("/admin/bankingQuiz/add-Quize")}
+            className="flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors font-medium shadow-sm w-full sm:w-auto justify-center whitespace-nowrap"
+          >
+            <Plus size={20} />
+            Create New Question
+          </button>
+        </div>
       </div>
 
       <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">

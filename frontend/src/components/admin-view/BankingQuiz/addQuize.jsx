@@ -161,50 +161,51 @@ const AddQuize = () => {
             setFieldValue,
           }) => (
             <Form className="mt-6">
-              {/* Subject Selection */}
-              <TextField
-                select
-                name="subject"
-                label="Subject"
-                fullWidth
-                margin="normal"
-                value={values.subject}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                error={touched.subject && Boolean(errors.subject)}
-                helperText={touched.subject && errors.subject}
-                slotProps={{ select: { native: true } }}
-              >
-                <option value="English">English</option>
-                <option value="Quant">Quant</option>
-                <option value="Reasoning">Reasoning</option>
-                <option value="Current Affairs">Current Affairs</option>
-                <option value="Computer">Computer</option>
-              </TextField>
+              {/* Header Details */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Subject Selection */}
+                <TextField
+                  select
+                  name="subject"
+                  label="Subject"
+                  fullWidth
+                  value={values.subject}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.subject && Boolean(errors.subject)}
+                  helperText={touched.subject && errors.subject}
+                  slotProps={{ select: { native: true } }}
+                >
+                  <option value="English">English</option>
+                  <option value="Quant">Quant</option>
+                  <option value="Reasoning">Reasoning</option>
+                  <option value="Current Affairs">Current Affairs</option>
+                  <option value="Computer">Computer</option>
+                </TextField>
 
-              {/* Set Number */}
-              <TextField
-                name="set"
-                label="Set Number"
-                fullWidth
-                margin="normal"
-                value={values.set}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                error={touched.set && Boolean(errors.set)}
-                helperText={touched.set && errors.set}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">Set</InputAdornment>
-                  ),
-                }}
-                inputProps={{
-                  inputMode: "numeric",
-                  pattern: "[0-9]*",
-                }}
-              />
+                {/* Set Number */}
+                <TextField
+                  name="set"
+                  label="Set Number"
+                  fullWidth
+                  value={values.set}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.set && Boolean(errors.set)}
+                  helperText={touched.set && errors.set}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">Set</InputAdornment>
+                    ),
+                  }}
+                  inputProps={{
+                    inputMode: "numeric",
+                    pattern: "[0-9]*",
+                  }}
+                />
+              </div>
 
-              <div className="mt-4">
+              <div className="mt-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Question *
                 </label>

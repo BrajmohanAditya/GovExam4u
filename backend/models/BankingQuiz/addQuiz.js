@@ -15,6 +15,11 @@ const addQuizSchema = new mongoose.Schema(
       trim: true,
     },
 
+    passage: {
+      type: String,
+      trim: true,
+    },
+
     question: {
       type: String,
       required: true,
