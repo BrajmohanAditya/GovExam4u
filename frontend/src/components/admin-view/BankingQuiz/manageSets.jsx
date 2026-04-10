@@ -298,7 +298,7 @@ export default function ManageSets() {
                         <div className="flex items-center justify-end gap-2 text-sm">
                           <button
                             onClick={() => handleToggleLive(set, !isLive)}
-                            className={`px-4 py-1.5 rounded-md font-medium transition-colors ${
+                            className={`px-4 py-1.5 rounded-md font-medium transition-colors w-28 text-center ${
                               isLive
                                 ? "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300"
                                 : "bg-green-600 text-white hover:bg-green-700 shadow-sm"
@@ -308,7 +308,7 @@ export default function ManageSets() {
                           </button>
                           <button
                             onClick={() => handleToggleLock(set, !isLocked)}
-                            className={`px-4 py-1.5 rounded-md font-medium transition-colors ${
+                            className={`px-4 py-1.5 rounded-md font-medium transition-colors w-24 text-center ${
                               isLocked
                                 ? "bg-blue-600 text-white hover:bg-blue-700 shadow-sm"
                                 : "bg-yellow-500 text-white hover:bg-yellow-600 shadow-sm"
