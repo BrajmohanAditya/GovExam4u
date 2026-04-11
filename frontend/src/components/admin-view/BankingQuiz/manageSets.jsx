@@ -21,7 +21,7 @@ export default function ManageSets() {
     try {
       // Fetch all questions to extract unique sets
       const quizRes = await httpAction({ url: apis().getQuiz, method: "GET" });
-      
+
       let uniqueSets = [];
       if (quizRes?.status) {
         uniqueSets = [...new Set(quizRes.data.map((q) => q.set))].sort((a, b) => {
@@ -183,11 +183,9 @@ export default function ManageSets() {
         <div className="w-full">
           <h1 className="text-2xl md:text-3xl font-bold flex items-center gap-3 text-gray-800">
             <Landmark className="text-emerald-600 md:w-8 md:h-8 w-7 h-7" />
-            Banking Quizzes
+            Make Quizzes
           </h1>
-          <p className="text-gray-500 mt-2 text-sm md:text-base">
-            Manage the availability and status of different banking test sets.
-          </p>
+
         </div>
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mt-4 sm:mt-0">
           <button
@@ -243,18 +241,16 @@ export default function ManageSets() {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span
-                          className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                            isLive ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
-                          }`}
+                          className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${isLive ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+                            }`}
                         >
                           {isLive ? "● Live" : "● Offline"}
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span
-                          className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                            isLocked ? "bg-yellow-100 text-yellow-800" : "bg-blue-100 text-blue-800"
-                          }`}
+                          className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${isLocked ? "bg-yellow-100 text-yellow-800" : "bg-blue-100 text-blue-800"
+                            }`}
                         >
                           {isLocked ? "🔒 Locked" : "🔓 Unlocked"}
                         </span>
@@ -262,10 +258,10 @@ export default function ManageSets() {
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-700">
                         {editingTimeSet === set ? (
                           <div className="flex items-center gap-2">
-                            <input 
-                              type="number" 
-                              value={editTimeValue} 
-                              onChange={(e) => setEditTimeValue(e.target.value)} 
+                            <input
+                              type="number"
+                              value={editTimeValue}
+                              onChange={(e) => setEditTimeValue(e.target.value)}
                               className="w-16 px-2 py-1 border rounded text-gray-800"
                               min="1"
                             />
@@ -307,21 +303,19 @@ export default function ManageSets() {
                         <div className="flex items-center justify-end gap-2 text-sm">
                           <button
                             onClick={() => handleToggleLive(set, !isLive)}
-                            className={`px-4 py-1.5 rounded-md font-medium transition-colors w-28 text-center ${
-                              isLive
-                                ? "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300"
-                                : "bg-green-600 text-white hover:bg-green-700 shadow-sm"
-                            }`}
+                            className={`px-4 py-1.5 rounded-md font-medium transition-colors w-28 text-center ${isLive
+                              ? "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300"
+                              : "bg-green-600 text-white hover:bg-green-700 shadow-sm"
+                              }`}
                           >
                             {isLive ? "Take Offline" : "Go Live"}
                           </button>
                           <button
                             onClick={() => handleToggleLock(set, !isLocked)}
-                            className={`px-4 py-1.5 rounded-md font-medium transition-colors w-24 text-center ${
-                              isLocked
-                                ? "bg-blue-600 text-white hover:bg-blue-700 shadow-sm"
-                                : "bg-yellow-500 text-white hover:bg-yellow-600 shadow-sm"
-                            }`}
+                            className={`px-4 py-1.5 rounded-md font-medium transition-colors w-24 text-center ${isLocked
+                              ? "bg-blue-600 text-white hover:bg-blue-700 shadow-sm"
+                              : "bg-yellow-500 text-white hover:bg-yellow-600 shadow-sm"
+                              }`}
                           >
                             {isLocked ? "Unlock" : "Lock Test"}
                           </button>
