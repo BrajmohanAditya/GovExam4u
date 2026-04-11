@@ -36,30 +36,38 @@ export default function Sidebar({
           </button>
         </div>
 
-        <ul className="space-y-3">
+        <ul className="space-y-2 px-3">
           {sets.map((s) => {
             const active = currentSet === s;
             return (
               <li key={s}>
                 <button
-                  className={`w-full text-left px-4 py-3 rounded-lg flex items-center justify-between
+                  className={`w-full text-left px-4 py-3 rounded-xl flex items-center justify-between transition-all duration-300 group
                     ${active
-                      ? "bg-blue-600 text-white shadow"
-                      : "bg-white text-gray-800 hover:bg-gray-100"
-                    } text-base sm:text-lg`}
+                      ? "bg-indigo-50 text-indigo-700 shadow-sm ring-1 ring-indigo-200"
+                      : "bg-transparent text-slate-600 hover:bg-slate-50 hover:text-indigo-600"
+                    } text-sm sm:text-base font-medium`}
                   onClick={() => {
                     onSelectSet(s);
                     onClose(); // 🔥 optional: auto close after select (mobile)
                   }}
                 >
-                  <span>{s}</span>
+                  <span className={`relative ${active ? "font-semibold" : ""}`}>
+                    {s}
+                    {active && (
+                       <span className="absolute -left-4 top-1/2 -translate-y-1/2 w-1.5 h-6 bg-indigo-600 rounded-r-md"></span>
+                    )}
+                  </span>
                   {/* 🔒 LOCK ICON FOR THAT SET */}
                   <div className="flex items-center gap-2">
                     {lockMap?.[s] && (
-                      <span className="text-red-600 text-sm">🔒</span>
+                      <span className="text-red-500 text-xs bg-red-50 px-2 py-1 rounded-md opacity-80 group-hover:opacity-100 transition-opacity">🔒 Locked</span>
                     )}
                     {liveMap?.[s] && (
-                      <span className="text-green-600 text-sm">● Live</span>
+                      <span className="text-emerald-600 text-xs flex items-center gap-1.5 bg-emerald-50 px-2 py-1 rounded-md border border-emerald-100">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Live
+                      </span>
                     )}
                   </div>
                 </button>

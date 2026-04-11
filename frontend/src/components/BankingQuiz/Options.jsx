@@ -29,32 +29,33 @@ export default function Options({
           showFeedback && isSelected && correctAnswerIndex !== idx;
 
         let containerClasses =
-          "w-full text-left px-4 py-3 rounded-md border flex items-center justify-between transition-colors";
+          "w-full text-left px-5 py-4 rounded-xl border-[1.5px] flex items-center justify-between transition-all duration-200 group relative overflow-hidden";
         let labelClasses =
-          "w-8 h-8 rounded-full flex items-center justify-center font-semibold flex-shrink-0";
-        let textClasses = "text-sm flex-1";
+          "w-9 h-9 rounded-lg flex items-center justify-center font-bold flex-shrink-0 transition-colors shadow-sm z-10";
+        let textClasses = "text-[15px] flex-1 z-10 transition-colors";
 
         if (!showFeedback) {
           if (isSelected) {
-            containerClasses += " bg-blue-600 text-white border-blue-600";
-            labelClasses += " bg-white text-blue-600";
+            containerClasses += " bg-indigo-50 border-indigo-500 shadow-md shadow-indigo-100/50 scale-[1.01]";
+            labelClasses += " bg-indigo-600 text-white shadow-indigo-200";
+            textClasses += " font-semibold text-indigo-950";
           } else {
             containerClasses +=
-              " bg-white text-gray-800 hover:bg-gray-50 border-gray-200";
-            labelClasses += " bg-gray-200 text-gray-700";
+              " bg-white text-slate-700 border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/30 hover:shadow-sm";
+            labelClasses += " bg-slate-100 text-slate-500 group-hover:bg-indigo-100 group-hover:text-indigo-600";
           }
         } else {
           if (isCorrect) {
-            containerClasses += " bg-green-50 border-green-300 text-green-800";
-            labelClasses += " bg-green-600 text-white";
-            textClasses += " font-medium";
+            containerClasses += " bg-emerald-50 border-emerald-400 shadow-sm shadow-emerald-100";
+            labelClasses += " bg-emerald-500 text-white shadow-emerald-200";
+            textClasses += " font-semibold text-emerald-900";
           } else if (isWrongSelected) {
-            containerClasses += " bg-red-50 border-red-300 text-red-800";
-            labelClasses += " bg-red-600 text-white";
-            textClasses += " font-medium";
+            containerClasses += " bg-rose-50 border-rose-400 shadow-sm shadow-rose-100";
+            labelClasses += " bg-rose-500 text-white shadow-rose-200";
+            textClasses += " font-semibold text-rose-900";
           } else {
-            containerClasses += " bg-white text-gray-800 border-gray-200";
-            labelClasses += " bg-gray-200 text-gray-700";
+            containerClasses += " bg-white text-slate-500 border-slate-200 opacity-60";
+            labelClasses += " bg-slate-100 text-slate-400";
           }
         }
 

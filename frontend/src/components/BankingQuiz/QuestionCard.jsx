@@ -25,17 +25,19 @@ export default function QuestionCard({
 
   const QuestionContent = (
     <>
-      <div className="mb-3">
-        <h3 className="text-sm text-gray-500">
-          Question {questionIndex + 1} of {total}
-        </h3>
+      <div className="mb-6">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="px-3 py-1 bg-indigo-50 text-indigo-700 text-xs font-bold rounded-full uppercase tracking-wider ring-1 ring-indigo-200/50 shadow-sm">
+            Question {questionIndex + 1} <span className="opacity-50 mx-1">/</span> {total}
+          </span>
+        </div>
         <div
-          className="text-base sm:text-lg font-medium mt-2 text-gray-900 prose prose-sm max-w-none [&>p]:my-1"
+          className="text-lg sm:text-[1.1rem] leading-relaxed font-medium text-slate-800 prose max-w-none [&>p]:mb-2"
           dangerouslySetInnerHTML={{ __html: question.question }}
         />
       </div>
 
-      <div className="mb-4">
+      <div className="mb-8">
         <Options
           options={question.options}
           selected={selected}
@@ -49,35 +51,41 @@ export default function QuestionCard({
       </div>
 
       {/* Navigation */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-6">
-        <div className="flex items-center space-x-2">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-8 pt-6 border-t border-slate-100">
+        <div className="flex items-center space-x-3 w-full sm:w-auto">
           <button
             onClick={onPrev}
-            className="px-4 py-2 bg-gray-100 text-gray-700 font-medium rounded-md hover:bg-gray-200 disabled:opacity-50 text-sm transition-colors"
+            className="flex-1 sm:flex-none px-5 py-2.5 bg-white border border-slate-200 text-slate-600 font-medium rounded-xl hover:bg-slate-50 hover:text-slate-900 active:scale-[0.98] disabled:opacity-40 disabled:active:scale-100 text-sm transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500/20 shadow-sm"
             disabled={questionIndex === 0}
           >
-            Previous
+            ← Previous
           </button>
 
           <button
             onClick={onNext}
-            className="px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 disabled:opacity-50 text-sm transition-colors"
+            className="flex-1 sm:flex-none px-6 py-2.5 bg-indigo-600 text-white font-medium rounded-xl hover:bg-indigo-700 active:scale-[0.98] disabled:opacity-50 disabled:active:scale-100 text-sm transition-all shadow-md shadow-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
             disabled={questionIndex === total - 1}
           >
-            Next
+            Next →
           </button>
         </div>
 
-        <div className="text-sm text-gray-500 font-medium">Select one option</div>
+        <div className="text-xs font-medium text-slate-400 bg-slate-50 px-4 py-2 rounded-lg border border-slate-100 text-center">
+          <span className="hidden sm:inline">Please </span>select one option to continue
+        </div>
       </div>
 
       {/* Explanation */}
       {showExplanation && (
-        <div className="mt-6 p-4 bg-green-50 border border-green-100 rounded-lg shadow-inner">
-          <div className="text-sm text-gray-800">
-            <strong className="text-green-800 mb-2 block text-base">Explanation:</strong>
+        <div className="mt-8 p-5 bg-gradient-to-br from-emerald-50 to-teal-50/30 border border-emerald-100 rounded-2xl shadow-inner shadow-emerald-50/50 relative overflow-hidden group">
+          <div className="absolute top-0 left-0 w-1.5 h-full bg-emerald-400"></div>
+          <div className="text-sm text-slate-700">
+            <strong className="text-emerald-800 mb-2 flex items-center gap-2 text-base">
+              <svg className="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              Solution Explanation
+            </strong>
             <div
-              className="mt-2 prose prose-sm max-w-none [&>p]:my-1"
+              className="mt-3 prose prose-sm max-w-none text-slate-600 leading-relaxed [&>p]:mb-2"
               dangerouslySetInnerHTML={{ __html: question.explanation }}
             />
           </div>
@@ -87,26 +95,38 @@ export default function QuestionCard({
   );
 
   return (
-    <div className={`bg-white rounded-xl shadow-sm ${isComprehension ? '' : 'p-4 sm:p-6'}`}>
+    <div className={`bg-white rounded-[1.25rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100/60 overflow-hidden transition-all duration-300 ${isComprehension ? '' : 'p-6 sm:p-8'}`}>
       {isComprehension ? (
-        <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x border border-gray-200 rounded-xl overflow-hidden shadow-xs">
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:divide-x lg:divide-slate-200/60 h-[70vh] lg:h-[75vh]">
           {/* Left Pane: Passage */}
-          <div className="p-4 sm:p-6 bg-[#f8fafc] overflow-y-auto max-h-[75vh]">
-            <div className="sticky top-0 bg-[#f8fafc] pb-2 mb-4 border-b border-gray-200 z-10">
-               <h2 className="text-xl font-bold text-gray-800">Reading Passage</h2>
+          <div className="bg-[#f8fafc] flex flex-col h-full overflow-hidden relative">
+            <div className="px-6 py-4 bg-[#f8fafc]/90 backdrop-blur-md border-b border-slate-200/60 sticky top-0 z-20 shadow-sm shadow-slate-100/50 flex justify-between items-center">
+               <h2 className="text-lg font-semibold text-slate-800 flex items-center gap-2.5">
+                 <span className="w-1.5 h-5 bg-indigo-500 rounded-full shadow-sm"></span>
+                 Reading Passage
+               </h2>
+               <div className="text-[10px] uppercase tracking-widest text-slate-400 font-bold bg-white px-2 py-1 rounded-md border border-slate-200 shadow-sm">
+                  Context
+               </div>
             </div>
-            <div
-              className="prose prose-sm max-w-none text-gray-700 leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: question.passage }}
-            />
+            <div className="p-6 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-300 scrollbar-track-transparent h-full pb-10">
+              <div
+                className="prose prose-slate max-w-none text-slate-700/90 leading-[1.8] text-[15px] font-medium"
+                dangerouslySetInnerHTML={{ __html: question.passage }}
+              />
+            </div>
           </div>
           {/* Right Pane: Question */}
-          <div className="p-4 sm:p-6 overflow-y-auto max-h-[75vh] bg-white">
-            {QuestionContent}
+          <div className="flex flex-col h-full overflow-hidden bg-white relative">
+            <div className="p-6 sm:p-8 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent h-full">
+              {QuestionContent}
+            </div>
           </div>
         </div>
       ) : (
-        QuestionContent
+        <div className="max-w-4xl mx-auto w-full">
+          {QuestionContent}
+        </div>
       )}
     </div>
   );

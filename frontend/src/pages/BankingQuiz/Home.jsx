@@ -392,7 +392,7 @@ export default function QuizPage() {
 
   /* ================= UI ================= */
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-slate-50/80 text-slate-800 selection:bg-indigo-100 selection:text-indigo-900 overflow-x-hidden">
       <Navbar onMobileMenu={() => setSidebarOpen(true)} />
 
       <Sidebar
@@ -412,32 +412,43 @@ export default function QuizPage() {
           {/* ================= ACTIVE / PRACTICE ================= */}
           {currentSet && !testSubmitted && (
             <>
-              <div className="flex justify-between mb-4">
+              <div className="flex flex-col sm:flex-row justify-between sm:items-end mb-6 gap-4">
                 <div>
-                  <h2 className="font-semibold">
-                    {retakeMode
-                      ? "Practice Mode"
-                      : `Active Test: ${currentSet}`}
+                  <h2 className="text-2xl font-bold tracking-tight text-slate-800 flex items-center gap-3">
+                    {retakeMode ? (
+                       <span className="bg-amber-100 text-amber-700 px-3 py-1 rounded-lg text-sm uppercase tracking-wider shadow-sm">
+                         Practice Mode
+                       </span>
+                    ) : (
+                      <>
+                        Active Test
+                        <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+                        <span className="text-indigo-600 bg-indigo-50 px-3 py-1 rounded-lg border border-indigo-100 shadow-sm">{currentSet}</span>
+                      </>
+                    )}
                   </h2>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm font-medium text-slate-500 mt-3 inline-flex items-center gap-2 bg-white px-3 py-1.5 rounded-full shadow-sm border border-slate-200/60">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
                     {currentQuestions.length} Questions
                   </p>
                 </div>
 
                 {!retakeMode && (
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                    <Timer
-                      initialSeconds={remainingTime}
-                      isActive={timerActive}
-                      onTick={handleTick}
-                      onTimeUp={handleTimeUp}
-                      stopWhen={testSubmitted}
-                    />
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 bg-white p-2 rounded-2xl shadow-sm border border-slate-200/60">
+                    <div className="px-2">
+                       <Timer
+                         initialSeconds={remainingTime}
+                         isActive={timerActive}
+                         onTick={handleTick}
+                         onTimeUp={handleTimeUp}
+                         stopWhen={testSubmitted}
+                       />
+                    </div>
                     <button
                       onClick={handleSubmit}
-                      className="w-full sm:w-auto px-4 py-2 bg-red-600 text-white rounded font-medium"
+                      className="w-full sm:w-auto px-6 py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl font-semibold tracking-wide transition-all shadow-md shadow-rose-200 active:scale-95 focus:ring-2 focus:ring-rose-500/50"
                     >
-                      Submit
+                      Submit Test
                     </button>
                   </div>
                 )}

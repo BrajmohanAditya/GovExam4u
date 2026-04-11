@@ -1,12 +1,10 @@
 export const sidebarStyle = {
   // MAIN ASIDE (dynamic)
   container: (isOpen) =>
-    `fixed top-14 left-0 bottom-0 bg-white border-r border-gray-200 p-4 z-50
-     overflow-y-auto transform transition-transform
+    `fixed top-14 left-0 bottom-0 bg-white/95 backdrop-blur-xl border-r border-slate-100/50 shadow-[4px_0_40px_rgba(0,0,0,0.03)] z-50
+     overflow-y-auto transform transition-all duration-300 ease-in-out
      ${isOpen ? "translate-x-0" : "-translate-x-full"}
      lg:translate-x-0 w-72 sm:w-64`,
-
-
 };
 
 export const QuizIntroStyle = {
