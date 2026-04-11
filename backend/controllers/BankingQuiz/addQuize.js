@@ -5,6 +5,7 @@ const addQuizeController = async (req, res, next) => {
     const {
       subject,
       set,
+      passage,
       question,
       options, // ✅ ARRAY
       correctAnswerIndex, // ✅ NUMBER
@@ -39,6 +40,7 @@ const addQuizeController = async (req, res, next) => {
     const newQuestion = await AddQuiz.create({
       subject,
       set,
+      passage,
       question,
       options,
       correctAnswerIndex,
