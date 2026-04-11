@@ -3,6 +3,7 @@ import SetLive from "../../models/BankingQuiz/SetLive.js";
 import SetLock from "../../models/BankingQuiz/SetLock.js";
 import SetWinner from "../../models/BankingQuiz/SetWinner.js";
 import SetTime from "../../models/BankingQuiz/SetTime.js";
+import SubmittedTest from "../../models/BankingQuiz/submittedTest.js";
 
 // 🔹 DELETE all data related to a set
 export const deleteSet = async (req, res) => {
@@ -21,6 +22,7 @@ export const deleteSet = async (req, res) => {
     await SetLock.deleteOne({ set: setName });
     await SetWinner.deleteOne({ set: setName });
     await SetTime.deleteOne({ set: setName });
+    await SubmittedTest.deleteMany({ set: setName });
 
     return res.json({
       status: true,
