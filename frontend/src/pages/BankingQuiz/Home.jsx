@@ -11,7 +11,7 @@ import { toast } from "react-hot-toast";
 import InstructionModal from "../../components/BankingQuiz/InstructionModal.jsx";
 import useUserProfile from "../../utils/userProfile";
 
-export default function bankingQuiz() {
+export default function BankingQuiz() {
   /* ================= FETCH DATA ================= */
   const [sets, setSets] = useState([]);
   const [allQuestions, setAllQuestions] = useState([]);
