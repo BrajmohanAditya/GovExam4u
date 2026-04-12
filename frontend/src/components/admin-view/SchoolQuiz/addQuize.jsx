@@ -100,7 +100,7 @@ const AddQuize = () => {
 
     const payload = {
       ...values,
-      set: `${values.subject} - Set ${values.set}`,
+      set: `Class ${values.studentClass} - ${values.subject} - Set ${values.set}`,
       question: values.question,
       options,
       correctAnswerIndex,

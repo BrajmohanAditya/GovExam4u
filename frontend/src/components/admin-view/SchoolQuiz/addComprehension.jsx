@@ -97,7 +97,7 @@ const AddComprehension = () => {
       const payload = {
         studentClass: values.studentClass,
         subject: values.subject,
-        set: `${values.subject} - Set ${values.set}`,
+        set: `Class ${values.studentClass} - ${values.subject} - Set ${values.set}`,
         passage: values.passage, // Bind the same passage to every question
         question: q.question,
         options,
