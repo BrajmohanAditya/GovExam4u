@@ -6,7 +6,7 @@ const schoolQuizApi = () => {
 
   const list = {
     addQuize: `${baseUrl}/schoolQuiz/addQuize`,
-    getQuiz: `${baseUrl}/schoolQuiz/getQuiz`,
+    getQuiz: (studentClass) => studentClass ? `${baseUrl}/schoolQuiz/getQuiz?studentClass=${studentClass}` : `${baseUrl}/schoolQuiz/getQuiz`,
     submitTest: `${baseUrl}/schoolQuiz/submitTest`,
     verifyAttempt: `${baseUrl}/schoolQuiz/verifyAttempt`,
     leaderboard: `${baseUrl}/schoolQuiz/leaderboard`,

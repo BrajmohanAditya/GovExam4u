@@ -3,6 +3,7 @@ import AddQuiz from "../../models/SchoolQuiz/addQuiz.js";
 const addQuizeController = async (req, res, next) => {
   try {
     const {
+      studentClass,
       subject,
       set,
       passage,
@@ -38,6 +39,7 @@ const addQuizeController = async (req, res, next) => {
 
     // create via mongoose
     const newQuestion = await AddQuiz.create({
+      studentClass,
       subject,
       set,
       passage,

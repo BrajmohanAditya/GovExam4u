@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "../../components/BankingQuiz/navbar";
 import Sidebar from "../../components/BankingQuiz/sidebar";
 import Timer from "../../components/BankingQuiz/timer";
@@ -12,6 +13,7 @@ import InstructionModal from "../../components/BankingQuiz/InstructionModal.jsx"
 import useUserProfile from "../../utils/userProfile";
 
 export default function QuizPage() {
+  const { classId } = useParams();
   /* ================= FETCH DATA ================= */
   const [sets, setSets] = useState([]);
   const [allQuestions, setAllQuestions] = useState([]);
@@ -19,7 +21,7 @@ export default function QuizPage() {
   useEffect(() => {
     const fetchQuiz = async () => {
       const res = await httpAction({
-        url: apis().getQuiz,
+        url: apis().getQuiz(classId),
         method: "GET",
       });
 
@@ -46,7 +48,7 @@ export default function QuizPage() {
     };
 
     fetchQuiz();
-  }, []);
+  }, [classId]);
 
   /* ================= STATE ================= */
   const [currentSet, setCurrentSet] = useState(null);
@@ -421,6 +423,7 @@ export default function QuizPage() {
                        </span>
                     ) : (
                       <>
+                        <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-lg text-sm font-semibold tracking-wider shadow-sm border border-blue-200">Class {classId}</span>
                         Active Test
                         <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
                         <span className="text-indigo-600 bg-indigo-50 px-3 py-1 rounded-lg border border-indigo-100 shadow-sm">{currentSet}</span>

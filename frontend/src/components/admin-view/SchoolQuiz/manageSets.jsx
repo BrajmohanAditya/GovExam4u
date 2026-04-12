@@ -8,6 +8,7 @@ import { FileText, Plus, Landmark, Trash2 } from "lucide-react";
 export default function ManageSets() {
   const navigate = useNavigate();
   const [sets, setSets] = useState([]);
+  const [classMap, setClassMap] = useState({});
   const [lockMap, setLockMap] = useState({});
   const [liveMap, setLiveMap] = useState({});
   const [winnerMap, setWinnerMap] = useState({});
@@ -20,7 +21,7 @@ export default function ManageSets() {
     setLoading(true);
     try {
       // Fetch all questions to extract unique sets
-      const quizRes = await httpAction({ url: apis().getQuiz, method: "GET" });
+      const quizRes = await httpAction({ url: apis().getQuiz(), method: "GET" });
 
       let uniqueSets = [];
       if (quizRes?.status) {
@@ -33,6 +34,12 @@ export default function ManageSets() {
           return na - nb;
         });
         setSets(uniqueSets);
+
+        const cMap = {};
+        quizRes.data.forEach((q) => {
+          cMap[q.set] = q.studentClass || "General";
+        });
+        setClassMap(cMap);
       }
 
       // Fetch Lock status
@@ -220,6 +227,7 @@ export default function ManageSets() {
               <thead>
                 <tr className="bg-gray-50 border-b border-gray-200">
                   <th className="px-6 py-4 font-semibold text-gray-600 whitespace-nowrap">Set Name</th>
+                  <th className="px-6 py-4 font-semibold text-gray-600 whitespace-nowrap">Class</th>
                   <th className="px-6 py-4 font-semibold text-gray-600 whitespace-nowrap">Live Status</th>
                   <th className="px-6 py-4 font-semibold text-gray-600 whitespace-nowrap">Lock Status</th>
                   <th className="px-6 py-4 font-semibold text-gray-600 whitespace-nowrap">Duration (m)</th>
@@ -232,12 +240,18 @@ export default function ManageSets() {
                   const isLive = liveMap[set];
                   const isLocked = lockMap[set];
                   const winner = winnerMap[set];
+                  const studentClass = classMap[set];
 
                   return (
                     <tr key={set} className="hover:bg-gray-50 transition-colors">
                       <td className="px-6 py-4 font-medium text-gray-800 flex items-center gap-3 whitespace-nowrap">
                         <FileText className="text-gray-400" size={18} />
                         {set}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+                          {studentClass}
+                        </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span
