@@ -9,6 +9,7 @@ import loginLogoutRoutes from "./pages/loginLogout/usersRoute"
 import LiveMockRouter from "./pages/LiveMock/LiveMockRouter";
 import todoListRoute from "./pages/TO-DO-List/todoListRoute";
 import bankingQuiz_routes from "./pages/BankingQuiz/bankingQuiz_Routes";
+import schoolQuiz_routes from "./pages/schoolQuiz/schoolQuiz_Routes";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserProfile, checkAuth } from "./store/auth/auth-slice";
@@ -49,6 +50,7 @@ export default function AppRoutes() {
         {todoListRoute}
         {/* {grammarDppRoutes} */}
         {bankingQuiz_routes}
+        {schoolQuiz_routes}
         {adminViewRoute}
       </Routes>
     </CheckAuth>

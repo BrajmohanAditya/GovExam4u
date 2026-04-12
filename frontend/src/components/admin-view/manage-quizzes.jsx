@@ -12,7 +12,7 @@ export default function ManageQuizzes() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
         {/* Class 6 to 10 Card */}
         <div
-          onClick={() => navigate("/admin/bankingQuiz/manage-sets")}
+          onClick={() => navigate("/admin/schoolQuiz/manage-sets")}
           className="group relative cursor-pointer overflow-hidden rounded-2xl bg-white p-8 shadow-sm border border-gray-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-indigo-300"
         >
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-600 transform origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></div>

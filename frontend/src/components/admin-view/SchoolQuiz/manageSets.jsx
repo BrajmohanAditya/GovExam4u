@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import apis from "../../../apis/bankingQuizApi.js";
+import apis from "../../../apis/schoolQuizApi.js";
 import httpAction from "../../../services/httpAction.js";
 import { FileText, Plus, Landmark, Trash2 } from "lucide-react";
 
@@ -183,20 +183,20 @@ export default function ManageSets() {
         <div className="w-full">
           <h1 className="text-2xl md:text-3xl font-bold flex items-center gap-3 text-gray-800">
             <Landmark className="text-emerald-600 md:w-8 md:h-8 w-7 h-7" />
-            Quizzes for Banking exams
+            Quizzes for class 6 to 10
           </h1>
 
         </div>
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mt-4 sm:mt-0">
           <button
-            onClick={() => navigate("/admin/bankingQuiz/add-comprehension")}
+            onClick={() => navigate("/admin/schoolQuiz/add-comprehension")}
             className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium shadow-sm w-full sm:w-auto justify-center whitespace-nowrap"
           >
             <Plus size={20} />
             Add Comprehension
           </button>
           <button
-            onClick={() => navigate("/admin/bankingQuiz/add-Quize")}
+            onClick={() => navigate("/admin/schoolQuiz/add-Quize")}
             className="flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors font-medium shadow-sm w-full sm:w-auto justify-center whitespace-nowrap"
           >
             <Plus size={20} />

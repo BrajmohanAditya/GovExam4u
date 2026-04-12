@@ -6,12 +6,12 @@ import QuestionCard from "../../components/BankingQuiz/QuestionCard.jsx";
 import QuizIntro from "../../components/BankingQuiz/QuizIntro";
 import httpAction from "../../services/httpAction.js";
 
-import apis from "../../apis/bankingQuizApi";
+import apis from "../../apis/schoolQuizApi";
 import { toast } from "react-hot-toast";
 import InstructionModal from "../../components/BankingQuiz/InstructionModal.jsx";
 import useUserProfile from "../../utils/userProfile";
 
-export default function bankingQuiz() {
+export default function QuizPage() {
   /* ================= FETCH DATA ================= */
   const [sets, setSets] = useState([]);
   const [allQuestions, setAllQuestions] = useState([]);
@@ -416,9 +416,9 @@ export default function bankingQuiz() {
                 <div>
                   <h2 className="text-2xl font-bold tracking-tight text-slate-800 flex items-center gap-3">
                     {retakeMode ? (
-                      <span className="bg-amber-100 text-amber-700 px-3 py-1 rounded-lg text-sm uppercase tracking-wider shadow-sm">
-                        Practice Mode
-                      </span>
+                       <span className="bg-amber-100 text-amber-700 px-3 py-1 rounded-lg text-sm uppercase tracking-wider shadow-sm">
+                         Practice Mode
+                       </span>
                     ) : (
                       <>
                         Active Test
@@ -436,13 +436,13 @@ export default function bankingQuiz() {
                 {!retakeMode && (
                   <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 bg-white p-2 rounded-2xl shadow-sm border border-slate-200/60">
                     <div className="px-2">
-                      <Timer
-                        initialSeconds={remainingTime}
-                        isActive={timerActive}
-                        onTick={handleTick}
-                        onTimeUp={handleTimeUp}
-                        stopWhen={testSubmitted}
-                      />
+                       <Timer
+                         initialSeconds={remainingTime}
+                         isActive={timerActive}
+                         onTick={handleTick}
+                         onTimeUp={handleTimeUp}
+                         stopWhen={testSubmitted}
+                       />
                     </div>
                     <button
                       onClick={handleSubmit}

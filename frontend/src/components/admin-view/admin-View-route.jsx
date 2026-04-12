@@ -8,6 +8,10 @@ import AddQuize from "./BankingQuiz/addQuize";
 import AddComprehension from "./BankingQuiz/addComprehension";
 import ManageSets from "./BankingQuiz/manageSets";
 
+import SchoolAddQuize from "./SchoolQuiz/addQuize";
+import SchoolAddComprehension from "./SchoolQuiz/addComprehension";
+import SchoolManageSets from "./SchoolQuiz/manageSets";
+
 const adminViewRoute = (
     <Route path="/admin" element={<AdminLayout />}>
         <Route path="dashboard" element={<AdminDashboard />} />
@@ -26,6 +30,21 @@ const adminViewRoute = (
             path="bankingQuiz/manage-sets"
             element={<ManageSets />}
             key="bankingQuiz-manage-sets"
+        />
+        <Route
+            path="schoolQuiz/add-Quize"
+            element={<SchoolAddQuize />}
+            key="schoolQuiz-add-Quize"
+        />
+        <Route
+            path="schoolQuiz/add-comprehension"
+            element={<SchoolAddComprehension />}
+            key="schoolQuiz-add-comprehension"
+        />
+        <Route
+            path="schoolQuiz/manage-sets"
+            element={<SchoolManageSets />}
+            key="schoolQuiz-manage-sets"
         />
     </Route>
 )

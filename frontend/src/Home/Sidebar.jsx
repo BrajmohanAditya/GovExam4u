@@ -37,7 +37,7 @@ const sidebarItems = [
     label: "Descriptive Writing",
     link: "#/descriptive",
   },
-  { icon: Newspaper, label: "Current Affair", link: "#/ca-quiz" },
+  { icon: Newspaper, label: "Current Affair", link: "#/schoolQuiz" },
   { icon: FileText, label: "Daily Quiz", link: "#/bankingQuiz" },
   { icon: Calendar, label: "Track Your Exam", link: "#/examTracker" },
   { icon: Gift, label: "Win Prize", link: "#" },
@@ -115,8 +115,8 @@ export default function SidebarMenu({ showSidebar, setShowSidebar }) {
                       <Icon
                         size={18}
                         className={`${active === item.label
-                            ? "text-[#45f3f3]"
-                            : "text-[#45f3f3]"
+                          ? "text-[#45f3f3]"
+                          : "text-[#45f3f3]"
                           }`}
                       />
                     );
