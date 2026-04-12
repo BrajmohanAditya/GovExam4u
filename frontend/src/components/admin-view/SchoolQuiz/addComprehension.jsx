@@ -29,6 +29,7 @@ const AddComprehension = () => {
   const navigate = useNavigate();
 
   const initialState = {
+    studentClass: "6",
     subject: "English",
     set: "",
     passage: "",
@@ -36,6 +37,7 @@ const AddComprehension = () => {
   };
 
   const validationSchema = Yup.object().shape({
+    studentClass: Yup.string().required("Class is required"),
     subject: Yup.string().required("Subject is required"),
     set: Yup.string()
       .matches(/^\d+$/, "Only numbers allowed")
@@ -93,6 +95,7 @@ const AddComprehension = () => {
       );
 
       const payload = {
+        studentClass: values.studentClass,
         subject: values.subject,
         set: `${values.subject} - Set ${values.set}`,
         passage: values.passage, // Bind the same passage to every question
@@ -121,6 +124,7 @@ const AddComprehension = () => {
       resetForm({
         values: {
           ...initialState,
+          studentClass: values.studentClass,
           subject: values.subject,
           set: values.set,
         },
@@ -163,7 +167,27 @@ const AddComprehension = () => {
             isSubmitting
           }) => (
             <Form>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                {/* Class Selection */}
+                <TextField
+                  select
+                  name="studentClass"
+                  label="Class"
+                  fullWidth
+                  value={values.studentClass}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.studentClass && Boolean(errors.studentClass)}
+                  helperText={touched.studentClass && errors.studentClass}
+                  slotProps={{ select: { native: true } }}
+                >
+                  <option value="6">Class 6</option>
+                  <option value="7">Class 7</option>
+                  <option value="8">Class 8</option>
+                  <option value="9">Class 9</option>
+                  <option value="10">Class 10</option>
+                </TextField>
+
                 <TextField
                   select
                   name="subject"

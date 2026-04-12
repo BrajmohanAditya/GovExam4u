@@ -2,6 +2,12 @@ import mongoose from "mongoose";
 
 const addQuizSchema = new mongoose.Schema(
   {
+    studentClass: {
+      type: String,
+      required: true,
+      trim: true,
+      default: "6",
+    },
     subject: {
       type: String,
       required: true,

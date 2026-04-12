@@ -26,6 +26,7 @@ const AddQuize = () => {
   const navigate = useNavigate();
 
   const initialState = {
+    studentClass: "6",
     subject: "English", // default value
     set: "",
     question: "",
@@ -39,6 +40,7 @@ const AddQuize = () => {
   };
 
   const validationSchema = Yup.object({
+    studentClass: Yup.string().required("Class is required"),
     subject: Yup.string().required("Subject is required"),
     set: Yup.string()
       .matches(/^\d+$/, "Only numbers allowed")
@@ -114,10 +116,10 @@ const AddQuize = () => {
 
     if (result?.status) {
       toast.success("Question added successfully");
-      // Reset the form but keep the current subject and set values
       resetForm({
         values: {
           ...initialState,
+          studentClass: values.studentClass,
           subject: values.subject,
           set: values.set,
         },
@@ -162,7 +164,27 @@ const AddQuize = () => {
           }) => (
             <Form className="mt-6">
               {/* Header Details */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* Class Selection */}
+                <TextField
+                  select
+                  name="studentClass"
+                  label="Class"
+                  fullWidth
+                  value={values.studentClass}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  error={touched.studentClass && Boolean(errors.studentClass)}
+                  helperText={touched.studentClass && errors.studentClass}
+                  slotProps={{ select: { native: true } }}
+                >
+                  <option value="6">Class 6</option>
+                  <option value="7">Class 7</option>
+                  <option value="8">Class 8</option>
+                  <option value="9">Class 9</option>
+                  <option value="10">Class 10</option>
+                </TextField>
+
                 {/* Subject Selection */}
                 <TextField
                   select
