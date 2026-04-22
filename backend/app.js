@@ -17,6 +17,7 @@ import liveMockRoute from "./routes/liveMock.js";
 import errorHandler from "./middlewares/errorHandler.js";
 import BankingQuizRoute from "./routes/BankingQuiz.js";
 import SchoolQuizRoute from "./routes/SchoolQuiz.js";
+import StudentRoute from "./routes/student.js";
 // ============================
 // 2️⃣ Routes Imports
 // ============================
@@ -113,6 +114,7 @@ app.use("/users", userRoutes);
 app.use("/liveMock", liveMockRoute);
 app.use("/BankingQuiz", BankingQuizRoute);
 app.use("/schoolQuiz", SchoolQuizRoute);
+app.use("/students", StudentRoute);
 
 // Log the registered routes for AllSubjectQuiz router (helpful for debugging missing endpoints)
 try {

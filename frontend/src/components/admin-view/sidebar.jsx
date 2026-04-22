@@ -24,6 +24,12 @@ const adminSidebarMenuItems = [
         path: "/admin/quizzes",
         icon: <BookOpenCheck className="w-5 h-5" />,
     },
+    {
+        id: "students",
+        label: "Manage Students",
+        path: "/admin/students",
+        icon: <Users className="w-5 h-5" />,
+    },
 
 
 

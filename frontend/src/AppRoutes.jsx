@@ -48,7 +48,6 @@ export default function AppRoutes() {
 
         {LiveMockRouter}
         {todoListRoute}
-        {/* {grammarDppRoutes} */}
         {bankingQuiz_routes}
         {schoolQuiz_routes}
         {adminViewRoute}
